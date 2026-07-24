@@ -1,0 +1,3232 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>短直达人库 · Short-Video + Live Streaming Talent Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+SC:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --emerald-50:#ecfdf5;
+    --emerald-100:#d1fae5;
+    --emerald-200:#a7f3d0;
+    --emerald-300:#6ee7b7;
+    --emerald-400:#34d399;
+    --emerald-500:#10b981;
+    --emerald-600:#059669;
+    --emerald-700:#047857;
+    --emerald-800:#065f46;
+    --emerald-900:#064e3b;
+    --teal-500:#14b8a6;
+    --lime-400:#a3e635;
+    --lime-500:#84cc16;
+    --ink-900:#0f2f24;
+    --ink-700:#1f3d33;
+    --ink-500:#4b6a5f;
+    --ink-400:#6b8a80;
+    --ink-300:#9db5ac;
+    --card:#ffffff;
+    --bg:#f4fbf7;
+  }
+  *{box-sizing:border-box}
+  html,body{scroll-behavior:smooth; overflow-x:hidden; margin:0; padding:0}
+  body{
+    font-family:'Inter','Noto Sans SC',-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #d1fae5 0%, transparent 50%),
+      radial-gradient(1000px 500px at 90% 10%, #ccfbf1 0%, transparent 50%),
+      linear-gradient(180deg,#f0fdf4 0%,#f4fbf7 40%,#ffffff 100%);
+    color:var(--ink-900);
+    min-height:100vh;
+  }
+  /* NAV */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(255,255,255,0.72);
+    border-bottom:1px solid rgba(16,185,129,0.15);
+  }
+  .nav-inner{
+    max-width:1280px; margin:0 auto;
+    padding:14px 24px;
+    display:flex; align-items:center; gap:24px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-weight:800; font-size:18px; color:var(--emerald-800);
+    letter-spacing:-0.01em;
+  }
+  .brand-badge{
+    width:36px;height:36px;border-radius:10px;
+    background:linear-gradient(135deg,var(--emerald-500),var(--teal-500));
+    display:flex; align-items:center; justify-content:center;
+    color:white; box-shadow:0 6px 20px rgba(16,185,129,.35);
+  }
+  .nav-links{
+    display:flex; align-items:center; gap:6px; flex:1;
+    overflow-x:auto; scrollbar-width:none;
+  }
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-link{
+    padding:8px 12px; border-radius:8px; color:var(--ink-500);
+    text-decoration:none; font-size:14px; white-space:nowrap;
+    transition:all .2s;
+  }
+  .nav-link:hover{background:var(--emerald-50); color:var(--emerald-700)}
+  .nav-link.active{background:var(--emerald-100); color:var(--emerald-800); font-weight:600}
+  .nav-search{
+    display:flex; align-items:center; gap:8px;
+    padding:8px 12px; border-radius:10px;
+    background:var(--emerald-50); border:1px solid rgba(16,185,129,.15);
+    color:var(--ink-400); font-size:13px; min-width:220px;
+  }
+  .kbd{
+    padding:2px 6px; border-radius:5px; background:white; border:1px solid rgba(16,185,129,.25);
+    font-size:11px; color:var(--ink-400);
+  }
+  /* CONTAINER */
+  .container{max-width:1280px; margin:0 auto; padding:0 24px;}
+  section{padding:56px 0}
+  .section-title{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    margin-bottom:32px;
+  }
+  .pill{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:6px 14px; border-radius:999px;
+    background:var(--emerald-100); color:var(--emerald-700);
+    font-size:12px; font-weight:600; letter-spacing:.02em;
+    border:1px solid rgba(16,185,129,.2);
+  }
+  h1.hero-title{
+    font-size:44px; line-height:1.15; letter-spacing:-.02em;
+    color:var(--emerald-900); margin:12px 0 8px; font-weight:800;
+  }
+  h2{
+    font-size:32px; line-height:1.2; letter-spacing:-.02em;
+    color:var(--emerald-900); margin:12px 0 4px; font-weight:800;
+  }
+  h3{
+    font-size:20px; line-height:1.3; letter-spacing:-.01em;
+    color:var(--emerald-900); margin:0 0 4px; font-weight:700;
+  }
+  .subtitle{color:var(--ink-500); font-size:15px; max-width:640px; margin:8px auto 0}
+  /* HERO STATS */
+  .hero-wrap{padding:32px 0 24px}
+  .hero-grid{
+    display:grid; grid-template-columns: 1.05fr 1.6fr; gap:20px;
+    margin-top:24px;
+  }
+  @media (max-width:960px){ .hero-grid{grid-template-columns:1fr} }
+  .card{
+    background:var(--card);
+    border:1px solid rgba(16,185,129,.14);
+    border-radius:20px;
+    box-shadow:0 4px 24px -8px rgba(6,95,70,.12), 0 1px 2px rgba(0,0,0,.03);
+    padding:24px;
+    position:relative;
+    overflow:hidden;
+  }
+  .card-title{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:16px;
+  }
+  .card-title-left{
+    display:flex; align-items:center; gap:8px;
+    color:var(--emerald-800); font-weight:700; font-size:15px;
+  }
+  .card-title-right{color:var(--ink-400); font-size:12px; letter-spacing:.06em}
+  .stat-total{
+    display:flex; align-items:baseline; gap:8px;
+    color:var(--emerald-800);
+  }
+  .stat-total .n{
+    font-family:Inter, sans-serif;
+    font-size:60px; font-weight:800; letter-spacing:-.03em;
+    background:linear-gradient(135deg,var(--emerald-600),var(--teal-500));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1;
+  }
+  .stat-total .u{font-size:16px; color:var(--ink-500); font-weight:600}
+  .stat-caption{color:var(--ink-500); font-size:13px; margin:6px 0 14px}
+  .bar{display:flex; height:8px; border-radius:8px; overflow:hidden; background:var(--emerald-50)}
+  .bar > span{display:block; height:100%}
+  .bar-legend{display:grid; grid-template-columns:repeat(4,1fr); gap:16px 12px; margin-top:16px}
+  .bar-item .k{
+    display:flex; align-items:center; gap:6px; font-size:12px; color:var(--ink-500);
+  }
+  .bar-item .k::before{
+    content:''; width:8px;height:8px; border-radius:2px; background:var(--seg,#10b981);
+  }
+  .bar-item .v{
+    display:flex; align-items:baseline; gap:6px;
+    font-family:Inter; color:var(--emerald-800);
+  }
+  .bar-item .v .num{font-size:22px; font-weight:800; letter-spacing:-.02em}
+  .bar-item .v .pct{font-size:12px; color:var(--emerald-500); font-weight:700}
+  .chart-wrap{position:relative; height:280px}
+  .chart-legend{margin-top:12px; display:flex; flex-wrap:wrap; gap:10px}
+  .chart-legend li{list-style:none; font-size:12px; color:var(--ink-500); display:flex; align-items:center; gap:6px}
+  .chart-legend li::before{content:''; width:8px;height:8px;border-radius:50%; background:var(--c,#10b981)}
+  .quick-btns{display:flex; gap:12px; justify-content:center; margin-top:24px}
+  .btn{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:10px 18px; border-radius:12px;
+    background:white; border:1px solid rgba(16,185,129,.25);
+    color:var(--emerald-700); font-size:13px; font-weight:600;
+    text-decoration:none; transition:all .2s;
+    box-shadow:0 2px 6px rgba(6,95,70,.06);
+  }
+  .btn:hover{background:var(--emerald-50); transform:translateY(-1px)}
+  .btn-primary{
+    background:linear-gradient(135deg,var(--emerald-500),var(--teal-500));
+    color:white; border:none; box-shadow:0 6px 18px rgba(16,185,129,.35);
+  }
+  .btn-primary:hover{background:linear-gradient(135deg,var(--emerald-600),var(--teal-500))}
+
+  /* 3-Core */
+  .cores{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+    margin-top:24px;
+  }
+  @media (max-width:960px){ .cores{grid-template-columns:1fr} }
+  .core-card{
+    background:var(--card);
+    border-radius:22px; padding:26px 24px;
+    border:1px solid rgba(16,185,129,.14);
+    box-shadow:0 6px 24px -12px rgba(6,95,70,.15);
+    position:relative; overflow:hidden;
+  }
+  .core-card::before{
+    content:''; position:absolute; inset:0 0 auto 0; height:6px;
+    background:linear-gradient(90deg,var(--tint1,#10b981),var(--tint2,#14b8a6));
+  }
+  .core-icon{
+    width:44px;height:44px; border-radius:12px;
+    background:var(--tintBg, #ecfdf5); color:var(--tint1,#10b981);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:14px; font-size:22px;
+  }
+  .core-desc{color:var(--ink-500); font-size:13px; line-height:1.6; margin:6px 0 16px}
+  .core-metrics{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:8px;
+    padding:14px; background:var(--tintBg,#ecfdf5);
+    border-radius:14px; margin-bottom:18px;
+  }
+  .metric .num{font-size:22px; font-weight:800; color:var(--tint1,#10b981); font-family:Inter; letter-spacing:-.02em}
+  .metric .lab{font-size:11px; color:var(--ink-500); margin-top:2px}
+  .tag-row{display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px}
+  .tag{padding:4px 10px; border-radius:999px; font-size:11px; background:var(--emerald-50); color:var(--emerald-700); font-weight:600}
+  .tag-alt{background:#fef7cd; color:#854d0e}
+  .talent-list{display:flex; flex-direction:column; gap:8px}
+  .talent-item{
+    display:flex; align-items:center; gap:10px;
+    padding:10px 12px; border-radius:12px;
+    background:#f9fefb; border:1px solid rgba(16,185,129,.08);
+    font-size:13px; color:var(--ink-700);
+    transition:all .2s;
+  }
+  .talent-item:hover{background:var(--emerald-50); border-color:var(--emerald-200)}
+  .avatar{
+    width:34px;height:34px; border-radius:50%;
+    background:linear-gradient(135deg,var(--emerald-300),var(--teal-500));
+    color:white; display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:13px; flex-shrink:0;
+    overflow:hidden;
+  }
+  .avatar-img{
+    width:34px;height:34px; border-radius:50%; object-fit:cover;
+    display:block; flex-shrink:0;
+    box-shadow:0 2px 6px rgba(6,95,70,.15);
+    border:2px solid #ffffff;
+    background:#ecfdf5;
+  }
+  .avatar-link{display:inline-block; line-height:0; text-decoration:none; flex-shrink:0}
+  .avatar-link:hover .avatar-img,
+  .avatar-link:hover .avatar{transform:scale(1.06); transition:transform .2s ease}
+  .talent-name{font-weight:600; color:var(--emerald-800); flex:1}
+  .talent-meta{font-size:11px; color:var(--ink-400)}
+  
+  .detail-btn{display:inline-flex; align-items:center; padding:4px 10px; border-radius:12px; background:#f0fdf4; color:#059669; font-size:11px; font-weight:600; text-decoration:none; margin-left:8px; border:1px solid #05966933; transition:all .15s ease; white-space:nowrap}
+  .detail-btn:hover{background:#059669; color:#fff}
+  .talent-item{align-items:center; gap:10px}
+
+  .see-more{
+    display:inline-flex; align-items:center; gap:4px;
+    color:var(--emerald-600); font-size:12px; font-weight:600;
+    margin-top:12px; text-decoration:none;
+  }
+
+  /* FEATURED */
+  .feat-grid{
+    display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px;
+    margin-top:24px;
+  }
+  @media (max-width:820px){ .feat-grid{grid-template-columns:1fr} }
+  .feat-card{
+    background:var(--card); border-radius:20px; padding:22px;
+    border:1px solid rgba(16,185,129,.14);
+    box-shadow:0 4px 20px -10px rgba(6,95,70,.12);
+  }
+  .feat-header{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:16px;
+  }
+  .feat-title{display:flex; align-items:center; gap:8px}
+  .feat-icon{
+    width:32px;height:32px; border-radius:8px;
+    background:var(--emerald-100); color:var(--emerald-700);
+    display:flex; align-items:center; justify-content:center; font-size:16px;
+  }
+  .arrows{display:flex; gap:6px}
+  .arrow-btn{
+    width:28px;height:28px; border-radius:8px; border:1px solid rgba(16,185,129,.2);
+    background:white; color:var(--emerald-500); cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .arrow-btn:hover{background:var(--emerald-50)}
+  .talent-card{
+    display:flex; gap:12px; padding:14px; border-radius:14px;
+    background:#f8fdfa; border:1px solid rgba(16,185,129,.08);
+    margin-bottom:10px; align-items:center;
+  }
+  .talent-card .avatar-lg{
+    width:52px;height:52px; border-radius:14px;
+    background:linear-gradient(135deg,var(--emerald-400),var(--teal-500));
+    color:white; display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:18px; flex-shrink:0;
+    box-shadow:0 4px 10px rgba(16,185,129,.25);
+    overflow:hidden;
+  }
+  .talent-card .avatar-lg-img{
+    width:52px;height:52px; border-radius:14px; object-fit:cover;
+    display:block; flex-shrink:0;
+    box-shadow:0 4px 10px rgba(16,185,129,.25);
+    border:2px solid #ffffff;
+    background:#ecfdf5;
+  }
+  .avatar-lg-link{display:inline-block; line-height:0; text-decoration:none; flex-shrink:0; transition:transform .2s ease}
+  .avatar-lg-link:hover{transform:translateY(-2px)}
+  .talent-card .info{flex:1; min-width:0}
+  .talent-card .name{font-weight:700; color:var(--emerald-800); font-size:15px}
+  .talent-card .desc{color:var(--ink-500); font-size:12px; margin:2px 0 4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .talent-card .kv{display:flex; gap:8px; font-size:11px; color:var(--emerald-600); font-weight:600}
+  .talent-card .cta{
+    padding:6px 10px; border-radius:8px; background:white;
+    border:1px solid rgba(16,185,129,.2); color:var(--emerald-600);
+    font-size:11px; font-weight:600; cursor:pointer;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+
+  /* CATEGORY GRID */
+  .cat-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    margin-top:24px;
+  }
+  @media (max-width:960px){ .cat-grid{grid-template-columns:repeat(2,1fr)} }
+  .cat-card{
+    padding:20px; border-radius:18px;
+    background:linear-gradient(135deg, var(--catBg,#ecfdf5), white);
+    border:1px solid rgba(16,185,129,.14);
+    transition:transform .2s ease, box-shadow .2s ease;
+    cursor:pointer;
+  }
+  .cat-card:hover{transform:translateY(-2px); box-shadow:0 12px 28px -12px rgba(6,95,70,.2)}
+  .cat-icon{
+    width:44px;height:44px; border-radius:12px;
+    background:white; color:var(--catColor,#10b981);
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px; margin-bottom:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,.05);
+  }
+  .cat-title{font-weight:700; color:var(--emerald-900); font-size:15px; display:flex; align-items:center; gap:6px; margin-bottom:4px}
+  .cat-count{color:var(--catColor,#10b981); font-weight:800; font-size:24px; font-family:Inter; letter-spacing:-.02em}
+  .cat-count small{font-size:12px; color:var(--ink-400); font-weight:600; margin-left:4px}
+  .cat-desc{color:var(--ink-500); font-size:12px; margin-top:6px; line-height:1.5}
+
+  /* NODE TABS */
+  .node-tabs{
+    display:flex; gap:8px; justify-content:center;
+    margin-bottom:24px; flex-wrap:wrap;
+  }
+  .node-tab{
+    padding:10px 20px; border-radius:999px;
+    background:white; border:1px solid rgba(16,185,129,.2);
+    color:var(--ink-500); font-size:13px; font-weight:600; cursor:pointer;
+    transition:all .2s;
+  }
+  .node-tab.active{
+    background:linear-gradient(135deg,var(--emerald-500),var(--teal-500));
+    color:white; border-color:transparent;
+    box-shadow:0 6px 18px rgba(16,185,129,.3);
+  }
+  .node-panel{display:none}
+  .node-panel.active{display:block; animation:fade .35s ease}
+  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:translateY(0)}}
+  .node-summary{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    margin-bottom:20px;
+  }
+  @media (max-width:960px){ .node-summary{grid-template-columns:repeat(2,1fr)} }
+  .node-metric{
+    padding:16px; border-radius:14px;
+    background:linear-gradient(135deg,#f0fdf4, white);
+    border:1px solid rgba(16,185,129,.14);
+  }
+  .node-metric .lab{color:var(--ink-500); font-size:12px; margin-bottom:4px}
+  .node-metric .val{font-size:24px; font-weight:800; color:var(--emerald-700); font-family:Inter; letter-spacing:-.02em}
+
+  /* INDUSTRY SECTIONS (flat layout) */
+  .ind-section-header{
+    margin-bottom:18px; padding-left:4px;
+  }
+  .ind-section-title{
+    display:flex; align-items:center; gap:12px;
+    font-size:28px; font-weight:800; line-height:1.3;
+    color:var(--emerald-900);
+  }
+  .ind-section-title .ind-color-bar{
+    width:5px; height:32px; border-radius:4px; flex-shrink:0;
+  }
+  .ind-section-subtitle{
+    font-size:14px; color:var(--ink-400); margin-top:6px; padding-left:17px; font-weight:500;
+  }
+  .ind-panel{display:block; margin-bottom:56px}
+  .ind-panel:last-child{margin-bottom:0}
+  .ind-talent-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
+  }
+  @media (max-width:1100px){ .ind-talent-grid{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:820px){ .ind-talent-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:520px){ .ind-talent-grid{grid-template-columns:1fr} }
+  .ind-card{background:#fbfffd; border:1px solid rgba(16,185,129,.10); transition:transform .18s ease, box-shadow .18s ease}
+  .ind-card:hover{transform:translateY(-2px); box-shadow:0 10px 22px -14px rgba(6,95,70,.28)}
+
+  /* Industry Section - Talent Card Layout Fix */
+  #industry .talent-card{flex-wrap:wrap; align-items:flex-start}
+  #industry .talent-card .cta{flex:0 0 100%; margin-top:10px; text-align:center; display:block}
+
+  /* Summer dedicated */
+  .summer-hero{
+    background:linear-gradient(135deg,#a7f3d0 0%, #6ee7b7 50%, #99f6e4 100%);
+    padding:32px; border-radius:22px;
+    display:grid; grid-template-columns:1.4fr 1fr; gap:20px;
+    align-items:center; margin-bottom:24px;
+    position:relative; overflow:hidden;
+  }
+  @media (max-width:960px){ .summer-hero{grid-template-columns:1fr} }
+  .summer-hero::before{
+    content:'🍃'; position:absolute; font-size:200px; right:-20px; top:-40px;
+    opacity:.2;
+  }
+  .summer-hero h3{color:var(--emerald-900); font-size:26px; margin-bottom:8px}
+  .summer-hero p{color:var(--emerald-800); font-size:14px; line-height:1.7}
+  .summer-hero-stats{display:flex; gap:14px}
+  .summer-stat{
+    background:rgba(255,255,255,.6); backdrop-filter:blur(10px);
+    padding:14px 18px; border-radius:14px; flex:1;
+    border:1px solid rgba(255,255,255,.6);
+  }
+  .summer-stat .val{font-size:28px; font-weight:800; color:var(--emerald-800); font-family:Inter}
+  .summer-stat .lab{font-size:12px; color:var(--emerald-700); font-weight:600}
+
+  .directions{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  @media (max-width:960px){ .directions{grid-template-columns:1fr} }
+  .dir-card{
+    background:white; border-radius:18px; padding:22px;
+    border:1px solid rgba(16,185,129,.14);
+    box-shadow:0 4px 20px -12px rgba(6,95,70,.12);
+  }
+  .dir-num{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:4px 10px; border-radius:999px;
+    background:var(--dirBg,#ecfdf5); color:var(--dirColor,#10b981);
+    font-size:11px; font-weight:700; margin-bottom:10px;
+  }
+  .dir-title{font-size:16px; font-weight:700; color:var(--emerald-900); margin-bottom:8px}
+  .dir-body{color:var(--ink-500); font-size:12px; line-height:1.7; margin-bottom:12px}
+  .kw-list{display:flex; flex-wrap:wrap; gap:5px}
+  .kw{
+    padding:3px 8px; border-radius:6px;
+    background:var(--dirBg,#ecfdf5); color:var(--dirColor,#10b981);
+    font-size:10px; font-weight:600;
+  }
+  .talent-mini{
+    margin-top:14px; display:grid; grid-template-columns:1fr; gap:6px;
+  }
+  .tm{
+    padding:8px 12px; border-radius:10px; background:#f8fdfa;
+    border:1px solid rgba(16,185,129,.08);
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:12px;
+  }
+  .tm .n{font-weight:600; color:var(--emerald-800)}
+  .tm .m{color:var(--ink-400); font-size:11px}
+
+  /* Bottom / Find map */
+  .find-map{
+    background:linear-gradient(135deg, #f0fdf4, #ecfdf5, #d1fae5);
+    border-radius:24px; padding:40px;
+    text-align:center; margin-top:32px;
+    border:1px solid rgba(16,185,129,.15);
+  }
+  .find-map h2{margin-bottom:8px}
+  .contact-links{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;
+    margin-top:24px;
+  }
+  .contact{
+    padding:14px 16px; border-radius:14px;
+    background:white; border:1px solid rgba(16,185,129,.14);
+    display:flex; align-items:center; gap:10px;
+    text-align:left;
+  }
+  .contact .role{font-size:11px; color:var(--ink-400); font-weight:600}
+  .contact .name{font-size:14px; color:var(--emerald-800); font-weight:700}
+  .contact .av{
+    width:36px;height:36px; border-radius:10px;
+    background:linear-gradient(135deg,var(--emerald-400),var(--teal-500));
+    color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px;
+  }
+  footer{
+    padding:24px 0 40px; color:var(--ink-400); text-align:center; font-size:12px;
+  }
+  /* small helpers */
+  .row-between{display:flex; justify-content:space-between; align-items:center}
+  .link{color:var(--emerald-600); text-decoration:none; font-weight:600}
+  .link:hover{text-decoration:underline}
+</style>
+<script type="module">
+
+          !function(e,t){if("object"==typeof exports&&"object"==typeof module)module.exports=t();else if("function"==typeof define&&define.amd)define([],t);else{var r=t();for(var o in r)("object"==typeof exports?exports:e)[o]=r[o]}}(globalThis,()=>(()=>{"use strict";let e,t,r=`*, ::before, ::after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+::backdrop {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
+}
+
+/*
+! tailwindcss v3.4.18 | MIT License | https://tailwindcss.com
+*/
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: #e5e7eb;
+  /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured \`sans\` font-family by default.
+5. Use the user's configured \`sans\` font-feature-settings by default.
+6. Use the user's configured \`sans\` font-variation-settings by default.
+7. Disable tap highlights on iOS
+*/
+
+html,
+:host {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4;
+  /* 3 */
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* 4 */
+  font-feature-settings: normal;
+  /* 5 */
+  font-variation-settings: normal;
+  /* 6 */
+  -webkit-tap-highlight-color: transparent;
+  /* 7 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from \`html\` so users can set them as a class directly on the \`html\` element.
+*/
+
+body {
+  margin: 0;
+  /* 1 */
+  line-height: inherit;
+  /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured \`mono\` font-family by default.
+2. Use the user's configured \`mono\` font-feature-settings by default.
+3. Use the user's configured \`mono\` font-variation-settings by default.
+4. Correct the odd \`em\` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* 1 */
+  font-feature-settings: normal;
+  /* 2 */
+  font-variation-settings: normal;
+  /* 3 */
+  font-size: 1em;
+  /* 4 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent \`sub\` and \`sup\` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-feature-settings: inherit;
+  /* 1 */
+  font-variation-settings: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  font-weight: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  letter-spacing: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button {
+  -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional \`:invalid\` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to \`inherit\` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+
+dialog {
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements \`display: block\` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add \`vertical-align: middle\` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none;
+}
+
+::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+
+::-webkit-date-and-time-value {
+  min-height: 1.5em;
+}
+
+::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+  -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+}
+
+[multiple],[size]:where(select:not([size="1"])) {
+  background-image: initial;
+  background-position: initial;
+  background-repeat: unset;
+  background-size: initial;
+  padding-right: 0.75rem;
+  -webkit-print-color-adjust: unset;
+          print-color-adjust: unset;
+}
+
+[type='checkbox'],[type='radio'] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+  display: inline-block;
+  vertical-align: middle;
+  background-origin: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  flex-shrink: 0;
+  height: 1rem;
+  width: 1rem;
+  color: #2563eb;
+  background-color: #fff;
+  border-color: #6b7280;
+  border-width: 1px;
+  --tw-shadow: 0 0 #0000;
+}
+
+[type='checkbox'] {
+  border-radius: 0px;
+}
+
+[type='radio'] {
+  border-radius: 100%;
+}
+
+[type='checkbox']:focus,[type='radio']:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+  --tw-ring-offset-width: 2px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: #2563eb;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+
+[type='checkbox']:checked,[type='radio']:checked {
+  border-color: transparent;
+  background-color: currentColor;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+[type='checkbox']:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+}
+
+[type='radio']:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+}
+
+[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus {
+  border-color: transparent;
+  background-color: currentColor;
+}
+
+[type='checkbox']:indeterminate {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");
+  border-color: transparent;
+  background-color: currentColor;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus {
+  border-color: transparent;
+  background-color: currentColor;
+}
+
+[type='file'] {
+  background: unset;
+  border-color: inherit;
+  border-width: 0;
+  border-radius: 0;
+  padding: 0;
+  font-size: unset;
+  line-height: inherit;
+}
+
+[type='file']:focus {
+  outline: 1px solid ButtonText;
+  outline: 1px auto -webkit-focus-ring-color;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.pointer-events-auto {
+  pointer-events: auto;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.collapse {
+  visibility: collapse;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.-bottom-7 {
+  bottom: -1.75rem;
+}
+
+.-left-1 {
+  left: -0.25rem;
+}
+
+.-left-2 {
+  left: -0.5rem;
+}
+
+.-left-4 {
+  left: -1rem;
+}
+
+.-right-2 {
+  right: -0.5rem;
+}
+
+.-top-1 {
+  top: -0.25rem;
+}
+
+.-top-2 {
+  top: -0.5rem;
+}
+
+.-top-4 {
+  top: -1rem;
+}
+
+.-top-7 {
+  top: -1.75rem;
+}
+
+.bottom-3 {
+  bottom: 0.75rem;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.left-1 {
+  left: 0.25rem;
+}
+
+.left-1\\/2 {
+  left: 50%;
+}
+
+.left-3 {
+  left: 0.75rem;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.top-1 {
+  top: 0.25rem;
+}
+
+.top-1\\/2 {
+  top: 50%;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.m-1 {
+  margin: 0.25rem;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-4 {
+  margin: 1rem;
+}
+
+.-mx-4 {
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.table {
+  display: table;
+}
+
+.contents {
+  display: contents;
+}
+
+.hidden {
+  display: none;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.max-h-full {
+  max-height: 100%;
+}
+
+.w-11 {
+  width: 2.75rem;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.w-60 {
+  width: 15rem;
+}
+
+.w-80 {
+  width: 20rem;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.w-\\[560px\\] {
+  width: 560px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+.max-w-xl {
+  max-width: 36rem;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.border-collapse {
+  border-collapse: collapse;
+}
+
+.-translate-x-1 {
+  --tw-translate-x: -0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-x-1\\/2 {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-x-full {
+  --tw-translate-x: -100%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-1 {
+  --tw-translate-y: -0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-1\\/2 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-x-full {
+  --tw-translate-x: 100%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.cursor-auto {
+  cursor: auto;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.resize {
+  resize: both;
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.self-stretch {
+  align-self: stretch;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
+
+.break-words {
+  overflow-wrap: break-word;
+}
+
+.break-all {
+  word-break: break-all;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
+.rounded-sm {
+  border-radius: 0.125rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-solid {
+  border-style: solid;
+}
+
+.border-blue-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity, 1));
+}
+
+.border-green-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(34 197 94 / var(--tw-border-opacity, 1));
+}
+
+.border-purple-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(168 85 247 / var(--tw-border-opacity, 1));
+}
+
+.border-red-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity, 1));
+}
+
+.border-sky-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(14 165 233 / var(--tw-border-opacity, 1));
+}
+
+.border-slate-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(226 232 240 / var(--tw-border-opacity, 1));
+}
+
+.border-slate-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(203 213 225 / var(--tw-border-opacity, 1));
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
+
+.bg-black\\/60 {
+  background-color: rgb(0 0 0 / 0.6);
+}
+
+.bg-black\\/70 {
+  background-color: rgb(0 0 0 / 0.7);
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
+}
+
+.bg-blue-500\\/30 {
+  background-color: rgb(59 130 246 / 0.3);
+}
+
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
+}
+
+.bg-green-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 252 231 / var(--tw-bg-opacity, 1));
+}
+
+.bg-green-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 253 244 / var(--tw-bg-opacity, 1));
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity, 1));
+}
+
+.bg-green-500\\/30 {
+  background-color: rgb(34 197 94 / 0.3);
+}
+
+.bg-orange-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 115 22 / var(--tw-bg-opacity, 1));
+}
+
+.bg-orange-500\\/30 {
+  background-color: rgb(249 115 22 / 0.3);
+}
+
+.bg-purple-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(168 85 247 / var(--tw-bg-opacity, 1));
+}
+
+.bg-red-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity, 1));
+}
+
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));
+}
+
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
+}
+
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity, 1));
+}
+
+.bg-slate-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));
+}
+
+.bg-slate-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity, 1));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity, 1));
+}
+
+.p-0 {
+  padding: 0px;
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.py-0\\.5 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.pb-0 {
+  padding-bottom: 0px;
+}
+
+.pb-0\\.5 {
+  padding-bottom: 0.125rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
+.pl-4 {
+  padding-left: 1rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity, 1));
+}
+
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+}
+
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity, 1));
+}
+
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity, 1));
+}
+
+.text-green-700 {
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity, 1));
+}
+
+.text-green-800 {
+  --tw-text-opacity: 1;
+  color: rgb(22 101 52 / var(--tw-text-opacity, 1));
+}
+
+.text-indigo-600 {
+  --tw-text-opacity: 1;
+  color: rgb(79 70 229 / var(--tw-text-opacity, 1));
+}
+
+.text-orange-500 {
+  --tw-text-opacity: 1;
+  color: rgb(249 115 22 / var(--tw-text-opacity, 1));
+}
+
+.text-purple-500 {
+  --tw-text-opacity: 1;
+  color: rgb(168 85 247 / var(--tw-text-opacity, 1));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
+}
+
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity, 1));
+}
+
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity, 1));
+}
+
+.text-sky-500 {
+  --tw-text-opacity: 1;
+  color: rgb(14 165 233 / var(--tw-text-opacity, 1));
+}
+
+.text-sky-700 {
+  --tw-text-opacity: 1;
+  color: rgb(3 105 161 / var(--tw-text-opacity, 1));
+}
+
+.text-slate-400 {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity, 1));
+}
+
+.text-slate-500 {
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity, 1));
+}
+
+.text-slate-700 {
+  --tw-text-opacity: 1;
+  color: rgb(51 65 85 / var(--tw-text-opacity, 1));
+}
+
+.text-slate-800 {
+  --tw-text-opacity: 1;
+  color: rgb(30 41 59 / var(--tw-text-opacity, 1));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.underline {
+  text-decoration-line: underline;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.outline {
+  outline-style: solid;
+}
+
+.ring-4 {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.ring-blue-300 {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(147 197 253 / var(--tw-ring-opacity, 1));
+}
+
+.ring-blue-800 {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(30 64 175 / var(--tw-ring-opacity, 1));
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.hover\\:border-slate-400:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(148 163 184 / var(--tw-border-opacity, 1));
+}
+
+.hover\\:bg-blue-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity, 1));
+}
+
+.hover\\:bg-gray-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+}
+
+.hover\\:bg-gray-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
+}
+
+.hover\\:bg-green-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 128 61 / var(--tw-bg-opacity, 1));
+}
+
+.hover\\:bg-purple-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 51 234 / var(--tw-bg-opacity, 1));
+}
+
+.hover\\:bg-red-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity, 1));
+}
+
+.hover\\:bg-sky-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(224 242 254 / var(--tw-bg-opacity, 1));
+}
+
+.hover\\:bg-slate-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity, 1));
+}
+
+.hover\\:bg-slate-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity, 1));
+}
+
+.hover\\:bg-slate-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity, 1));
+}
+
+.hover\\:bg-white\\/30:hover {
+  background-color: rgb(255 255 255 / 0.3);
+}
+
+.hover\\:text-gray-100:hover {
+  --tw-text-opacity: 1;
+  color: rgb(243 244 246 / var(--tw-text-opacity, 1));
+}
+
+.hover\\:text-sky-900:hover {
+  --tw-text-opacity: 1;
+  color: rgb(12 74 110 / var(--tw-text-opacity, 1));
+}
+
+.hover\\:text-slate-600:hover {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity, 1));
+}
+
+.hover\\:text-slate-800:hover {
+  --tw-text-opacity: 1;
+  color: rgb(30 41 59 / var(--tw-text-opacity, 1));
+}
+
+.hover\\:underline:hover {
+  text-decoration-line: underline;
+}
+
+.focus\\:border-indigo-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(99 102 241 / var(--tw-border-opacity, 1));
+}
+
+.focus\\:ring-indigo-200:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(199 210 254 / var(--tw-ring-opacity, 1));
+}
+
+.focus\\:ring-indigo-500:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(99 102 241 / var(--tw-ring-opacity, 1));
+}
+
+.active\\:bg-red-100:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity, 1));
+}
+
+.active\\:bg-slate-200:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity, 1));
+}
+
+.group\\/tooltip:hover .group-hover\\/tooltip\\:visible {
+  visibility: visible;
+}
+
+.group\\/tooltip:hover .group-hover\\/tooltip\\:opacity-100 {
+  opacity: 1;
+}
+
+@media (min-width: 640px) {
+  .sm\\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}`,o=1,n=!1,i=!1,a=null,l=null,s=0,d=0,c=null,u=null;function p(e){n=!1,i=!0;try{var t=e;let r=t;for(a=null[0]||null;null!==a&&!(a.expirationTime>r&&l());){let e=a.fn;null!==e?(a.fn=null,e(a.expirationTime<=r),r=performance.now(),a===null[0]&&null.shift()):null.shift(),a=null[0]||null}return null!==a}finally{a=null,i=!1}}let g={context:void 0,registry:void 0,effects:void 0,done:!1,getContextId(){return f(this.context.count)},getNextContextId(){return f(this.context.count++)}};function f(e){let t=String(e),r=t.length-1;return g.context.id+(r?String.fromCharCode(96+r):"")+t}function w(e){g.context=e}Symbol("solid-proxy"),Symbol("solid-track"),Symbol("solid-dev-component");let b={equals:(e,t)=>e===t},h=B,m={owned:null,cleanups:null,context:null,owner:null};var y=null;let v=null,x=null,k=null,E=null,S=0;function C(e,t){let r={value:e,observers:null,observerSlots:null,comparator:(t=t?Object.assign({},b,t):b).equals||void 0};return[N.bind(r),e=>("function"==typeof e&&(e=e(v&&v.running&&v.sources.has(r)?r.tValue:r.value)),T(r,e))]}function _(e,t,r){let o=O(e,t,!1,1);R(o)}function z(t,r,o){h=U;let n=O(t,r,!1,1),i=e&&function(e){let t;return y&&y.context&&void 0!==(t=y.context[e.id])?t:e.defaultValue}(e);i&&(n.suspense=i),o&&o.render||(n.user=!0),E?E.push(n):R(n)}function L(e,t,r){r=r?Object.assign({},b,r):b;let o=O(e,t,!0,0);return o.observers=null,o.observerSlots=null,o.comparator=r.equals||void 0,R(o),N.bind(o)}function A(e){if(null===x)return e();let t=x;x=null;try{!1;return e()}finally{x=t}}function $(e){return null===y||(null===y.cleanups?y.cleanups=[e]:y.cleanups.push(e)),e}let[,M]=C(!1);function N(){let e=v&&v.running;if(this.sources&&(e?this.tState:this.state))if((e?this.tState:this.state)===1)R(this);else{let e=k;k=null,P(()=>V(this),!1),k=e}if(x){let e=this.observers?this.observers.length:0;x.sources?(x.sources.push(this),x.sourceSlots.push(e)):(x.sources=[this],x.sourceSlots=[e]),this.observers?(this.observers.push(x),this.observerSlots.push(x.sources.length-1)):(this.observers=[x],this.observerSlots=[x.sources.length-1])}return e&&v.sources.has(this)?this.tValue:this.value}function T(e,t,r){let o=v&&v.running&&v.sources.has(e)?e.tValue:e.value;if(!e.comparator||!e.comparator(o,t)){if(v){let o=v.running;(o||!r&&v.sources.has(e))&&(v.sources.add(e),e.tValue=t),o||(e.value=t)}else e.value=t;e.observers&&e.observers.length&&P(()=>{for(let t=0;t<e.observers.length;t+=1){let r=e.observers[t],o=v&&v.running;o&&v.disposed.has(r)||((o?r.tState:r.state)||(r.pure?k.push(r):E.push(r),r.observers&&function e(t){let r=v&&v.running;for(let o=0;o<t.observers.length;o+=1){let n=t.observers[o];(r?n.tState:n.state)||(r?n.tState=2:n.state=2,n.pure?k.push(n):E.push(n),n.observers&&e(n))}}(r)),o?r.tState=1:r.state=1)}if(k.length>1e6)throw k=[],Error()},!1)}return t}function R(e){if(!e.fn)return;D(e);let t=S;I(e,v&&v.running&&v.sources.has(e)?e.tValue:e.value,t),v&&!v.running&&v.sources.has(e)&&queueMicrotask(()=>{P(()=>{v&&(v.running=!0),x=y=e,I(e,e.tValue,t),x=y=null},!1)})}function I(e,t,r){let o,n=y,i=x;x=y=e;try{o=e.fn(t)}catch(t){return e.pure&&(v&&v.running?(e.tState=1,e.tOwned&&e.tOwned.forEach(D),e.tOwned=void 0):(e.state=1,e.owned&&e.owned.forEach(D),e.owned=null)),e.updatedAt=r+1,H(t)}finally{x=i,y=n}(!e.updatedAt||e.updatedAt<=r)&&(null!=e.updatedAt&&"observers"in e?T(e,o,!0):v&&v.running&&e.pure?(v.sources.add(e),e.tValue=o):e.value=o,e.updatedAt=r)}function O(e,t,r,o=1,n){let i={fn:e,state:o,updatedAt:null,owned:null,sources:null,sourceSlots:null,cleanups:null,value:t,owner:y,context:y?y.context:null,pure:r};v&&v.running&&(i.state=0,i.tState=o),null===y||y!==m&&(v&&v.running&&y.pure?y.tOwned?y.tOwned.push(i):y.tOwned=[i]:y.owned?y.owned.push(i):y.owned=[i]),!1;return i}function j(e){let t=v&&v.running;if((t?e.tState:e.state)===0)return;if((t?e.tState:e.state)===2)return V(e);if(e.suspense&&A(e.suspense.inFallback))return e.suspense.effects.push(e);let r=[e];for(;(e=e.owner)&&(!e.updatedAt||e.updatedAt<S);){if(t&&v.disposed.has(e))return;(t?e.tState:e.state)&&r.push(e)}for(let o=r.length-1;o>=0;o--){if(e=r[o],t){let t=e,n=r[o+1];for(;(t=t.owner)&&t!==n;)if(v.disposed.has(t))return}if((t?e.tState:e.state)===1)R(e);else if((t?e.tState:e.state)===2){let t=k;k=null,P(()=>V(e,r[0]),!1),k=t}}}function P(e,t){if(k)return e();let r=!1;t||(k=[]),E?r=!0:E=[],S++;try{let t=e();return function(e){let t;if(k&&(B(k),k=null),e)return;if(v)if(v.promises.size||v.queue.size){if(v.running){v.running=!1,v.effects.push.apply(v.effects,E),E=null,M(!0);return}}else{let e=v.sources,r=v.disposed;for(let e of(E.push.apply(E,v.effects),t=v.resolve,E))"tState"in e&&(e.state=e.tState),delete e.tState;v=null,P(()=>{for(let e of r)D(e);for(let t of e){if(t.value=t.tValue,t.owned)for(let e=0,r=t.owned.length;e<r;e++)D(t.owned[e]);t.tOwned&&(t.owned=t.tOwned),delete t.tValue,delete t.tOwned,t.tState=0}M(!1)},!1)}let r=E;E=null,r.length&&P(()=>h(r),!1),t&&t()}(r),t}catch(e){r||(E=null),k=null,H(e)}}function B(e){for(let t=0;t<e.length;t++)j(e[t])}function U(e){let t,r=0;for(t=0;t<e.length;t++){let o=e[t];o.user?e[r++]=o:j(o)}if(g.context){if(g.count){g.effects||(g.effects=[]),g.effects.push(...e.slice(0,r));return}w()}for(g.effects&&(g.done||!g.count)&&(e=[...g.effects,...e],r+=g.effects.length,delete g.effects),t=0;t<r;t++)j(e[t])}function V(e,t){let r=v&&v.running;r?e.tState=0:e.state=0;for(let o=0;o<e.sources.length;o+=1){let n=e.sources[o];if(n.sources){let e=r?n.tState:n.state;1===e?n!==t&&(!n.updatedAt||n.updatedAt<S)&&j(n):2===e&&V(n,t)}}}function D(e){let t;if(e.sources)for(;e.sources.length;){let t=e.sources.pop(),r=e.sourceSlots.pop(),o=t.observers;if(o&&o.length){let e=o.pop(),n=t.observerSlots.pop();r<o.length&&(e.sourceSlots[n]=r,o[r]=e,t.observerSlots[r]=n)}}if(e.tOwned){for(t=e.tOwned.length-1;t>=0;t--)D(e.tOwned[t]);delete e.tOwned}if(v&&v.running&&e.pure)!function e(t,r){if(r||(t.tState=0,v.disposed.add(t)),t.owned)for(let r=0;r<t.owned.length;r++)e(t.owned[r])}(e,!0);else if(e.owned){for(t=e.owned.length-1;t>=0;t--)D(e.owned[t]);e.owned=null}if(e.cleanups){for(t=e.cleanups.length-1;t>=0;t--)e.cleanups[t]();e.cleanups=null}v&&v.running?e.tState=0:e.state=0}function F(e,t,r){try{for(let r of t)r(e)}catch(e){H(e,r&&r.owner||null)}}function H(e,t=y){var r;let o=null,n=(r=e)instanceof Error?r:Error("string"==typeof r?r:"Unknown error",{cause:r});if(!o)throw n;E?E.push({fn(){F(n,o,t)},state:1}):F(n,o,t)}Symbol("fallback");function X(e,t){0;return A(()=>e(t||{}))}let Y=e=>`Stale read from <${e}>.`;function q(e){let t=e.keyed,r=L(()=>e.when,void 0,void 0),o=t?r:L(r,void 0,{equals:(e,t)=>!e==!t});return L(()=>{let n=o();if(n){let i=e.children;return"function"==typeof i&&i.length>0?A(()=>i(t?n:()=>{if(!A(o))throw Y("Show");return r()})):i}return e.fallback},void 0,void 0)}let W=new Set(["className","value","readOnly","noValidate","formNoValidate","isMap","noModule","playsInline","adAuctionHeaders","allowFullscreen","browsingTopics","defaultChecked","defaultMuted","defaultSelected","disablePictureInPicture","disableRemotePlayback","preservesPitch","shadowRootClonable","shadowRootCustomElementRegistry","shadowRootDelegatesFocus","shadowRootSerializable","sharedStorageWritable","allowfullscreen","async","alpha","autofocus","autoplay","checked","controls","default","disabled","formnovalidate","hidden","indeterminate","inert","ismap","loop","multiple","muted","nomodule","novalidate","open","playsinline","readonly","required","reversed","seamless","selected","adauctionheaders","browsingtopics","credentialless","defaultchecked","defaultmuted","defaultselected","defer","disablepictureinpicture","disableremoteplayback","preservespitch","shadowrootclonable","shadowrootcustomelementregistry","shadowrootdelegatesfocus","shadowrootserializable","sharedstoragewritable"]),G=new Set(["innerHTML","textContent","innerText","children"]),J=Object.assign(Object.create(null),{className:"class",htmlFor:"for"}),K=Object.assign(Object.create(null),{class:"className",novalidate:{$:"noValidate",FORM:1},formnovalidate:{$:"formNoValidate",BUTTON:1,INPUT:1},ismap:{$:"isMap",IMG:1},nomodule:{$:"noModule",SCRIPT:1},playsinline:{$:"playsInline",VIDEO:1},readonly:{$:"readOnly",INPUT:1,TEXTAREA:1},adauctionheaders:{$:"adAuctionHeaders",IFRAME:1},allowfullscreen:{$:"allowFullscreen",IFRAME:1},browsingtopics:{$:"browsingTopics",IMG:1},defaultchecked:{$:"defaultChecked",INPUT:1},defaultmuted:{$:"defaultMuted",AUDIO:1,VIDEO:1},defaultselected:{$:"defaultSelected",OPTION:1},disablepictureinpicture:{$:"disablePictureInPicture",VIDEO:1},disableremoteplayback:{$:"disableRemotePlayback",AUDIO:1,VIDEO:1},preservespitch:{$:"preservesPitch",AUDIO:1,VIDEO:1},shadowrootclonable:{$:"shadowRootClonable",TEMPLATE:1},shadowrootdelegatesfocus:{$:"shadowRootDelegatesFocus",TEMPLATE:1},shadowrootserializable:{$:"shadowRootSerializable",TEMPLATE:1},sharedstoragewritable:{$:"sharedStorageWritable",IFRAME:1,IMG:1}}),Q=new Set(["beforeinput","click","dblclick","contextmenu","focusin","focusout","input","keydown","keyup","mousedown","mousemove","mouseout","mouseover","mouseup","pointerdown","pointermove","pointerout","pointerover","pointerup","touchend","touchmove","touchstart"]),Z={xlink:"http://www.w3.org/1999/xlink",xml:"http://www.w3.org/XML/1998/namespace"},ee=e=>L(()=>e()),et="_$DX_DELEGATE";function er(e,t,r,o){let n,i=()=>{let t=o?document.createElementNS("http://www.w3.org/1998/Math/MathML","template"):document.createElement("template");return t.innerHTML=e,r?t.content.firstChild.firstChild:o?t.firstChild:t.content.firstChild},a=t?()=>A(()=>document.importNode(n||(n=i()),!0)):()=>(n||(n=i())).cloneNode(!0);return a.cloneNode=a,a}function eo(e,t=window.document){let r=t[et]||(t[et]=new Set);for(let o=0,n=e.length;o<n;o++){let n=e[o];r.has(n)||(r.add(n),t.addEventListener(n,eg))}}function en(e,t,r){ec(e)||(null==r?e.removeAttribute(t):e.setAttribute(t,r))}function ei(e,t,r){let o,n;if(!t)return r?en(e,"style"):t;let i=e.style;if("string"==typeof t)return i.cssText=t;for(n in"string"==typeof r&&(i.cssText=r=void 0),r||(r={}),t||(t={}),r)null==t[n]&&i.removeProperty(n),delete r[n];for(n in t)(o=t[n])!==r[n]&&(i.setProperty(n,o),r[n]=o);return r}function ea(e,t,r){null!=r?e.style.setProperty(t,r):e.style.removeProperty(t)}function el(e,t={},r,o){let n={};return o||_(()=>n.children=ef(e,t.children,n.children)),_(()=>"function"==typeof t.ref&&es(t.ref,e)),_(()=>(function(e,t,r,o,n={},i=!1){for(let o in t||(t={}),n)if(!(o in t)){if("children"===o)continue;n[o]=ep(e,o,null,n[o],r,i,t)}for(let a in t){if("children"===a){o||ef(e,t.children);continue}let l=t[a];n[a]=ep(e,a,l,n[a],r,i,t)}})(e,t,r,!0,n,!0)),n}function es(e,t,r){return A(()=>e(t,r))}function ed(e,t,r,o){if(void 0===r||o||(o=[]),"function"!=typeof t)return ef(e,t,o,r);_(o=>ef(e,t(),o,r),o)}function ec(e){return!!g.context&&!g.done&&(!e||e.isConnected)}function eu(e,t,r){let o=t.trim().split(/\s+/);for(let t=0,n=o.length;t<n;t++)e.classList.toggle(o[t],r)}function ep(e,t,r,o,n,i,a){let l,s,d,c,u;if("style"===t)return ei(e,r,o);if("classList"===t)return function(e,t,r={}){let o,n,i=Object.keys(t||{}),a=Object.keys(r);for(o=0,n=a.length;o<n;o++){let n=a[o];n&&"undefined"!==n&&!t[n]&&(eu(e,n,!1),delete r[n])}for(o=0,n=i.length;o<n;o++){let n=i[o],a=!!t[n];n&&"undefined"!==n&&r[n]!==a&&a&&(eu(e,n,!0),r[n]=a)}return r}(e,r,o);if(r===o)return o;if("ref"===t)i||r(e);else if("on:"===t.slice(0,3)){let n=t.slice(3);o&&e.removeEventListener(n,o,"function"!=typeof o&&o),r&&e.addEventListener(n,r,"function"!=typeof r&&r)}else if("oncapture:"===t.slice(0,10)){let n=t.slice(10);o&&e.removeEventListener(n,o,!0),r&&e.addEventListener(n,r,!0)}else if("on"===t.slice(0,2)){let n=t.slice(2).toLowerCase(),i=Q.has(n);if(!i&&o){let t=Array.isArray(o)?o[0]:o;e.removeEventListener(n,t)}if(i||r){var p,g;if(i)Array.isArray(r)?(e[`$${n}`]=r[0],e[`$${n}Data`]=r[1]):e[`$${n}`]=r;else if(Array.isArray(r)){let t=r[0];e.addEventListener(n,r[0]=o=>t.call(e,r[1],o))}else e.addEventListener(n,r,"function"!=typeof r&&r);i&&eo([n])}}else if("attr:"===t.slice(0,5))en(e,t.slice(5),r);else if("bool:"===t.slice(0,5))p=t.slice(5),ec(e)||(r?e.setAttribute(p,""):e.removeAttribute(p));else if((u="prop:"===t.slice(0,5))||(d=G.has(t))||!n&&((c=function(e,t){let r=K[e];return"object"==typeof r?r[t]?r.$:void 0:r}(t,e.tagName))||(s=W.has(t)))||(l=e.nodeName.includes("-")||"is"in a)){if(u)t=t.slice(5),s=!0;else if(ec(e))return r;"class"===t||"className"===t?ec(e)||(null==r?e.removeAttribute("class"):e.className=r):!l||s||d?e[c||t]=r:e[t.toLowerCase().replace(/-([a-z])/g,(e,t)=>t.toUpperCase())]=r}else{let o=n&&t.indexOf(":")>-1&&Z[t.split(":")[0]];o?(g=t,ec(e)||(null==r?e.removeAttributeNS(o,g):e.setAttributeNS(o,g,r))):en(e,J[t]||t,r)}return r}function eg(e){if(g.registry&&g.events&&g.events.find(([t,r])=>r===e))return;let t=e.target,r=`$${e.type}`,o=e.target,n=e.currentTarget,i=t=>Object.defineProperty(e,"target",{configurable:!0,value:t}),a=()=>{let o=t[r];if(o&&!t.disabled){let n=t[`${r}Data`];if(void 0!==n?o.call(t,n,e):o.call(t,e),e.cancelBubble)return}return t.host&&"string"!=typeof t.host&&!t.host._$host&&t.contains(e.target)&&i(t.host),!0},l=()=>{for(;a()&&(t=t._$host||t.parentNode||t.host););};if(Object.defineProperty(e,"currentTarget",{configurable:!0,get:()=>t||document}),g.registry&&!g.done&&(g.done=_$HY.done=!0),e.composedPath){let r=e.composedPath();i(r[0]);for(let e=0;e<r.length-2&&(t=r[e],a());e++){if(t._$host){t=t._$host,l();break}if(t.parentNode===n)break}}else l();i(o)}function ef(e,t,r,o,n){let i=ec(e);if(i){r||(r=[...e.childNodes]);let t=[];for(let e=0;e<r.length;e++){let o=r[e];8===o.nodeType&&"!$"===o.data.slice(0,2)?o.remove():t.push(o)}r=t}for(;"function"==typeof r;)r=r();if(t===r)return r;let a=typeof t,l=void 0!==o;if(e=l&&r[0]&&r[0].parentNode||e,"string"===a||"number"===a){if(i||"number"===a&&(t=t.toString())===r)return r;if(l){let n=r[0];n&&3===n.nodeType?n.data!==t&&(n.data=t):n=document.createTextNode(t),r=eb(e,r,o,n)}else r=""!==r&&"string"==typeof r?e.firstChild.data=t:e.textContent=t}else if(null==t||"boolean"===a){if(i)return r;r=eb(e,r,o)}else if("function"===a)return _(()=>{let n=t();for(;"function"==typeof n;)n=n();r=ef(e,n,r,o)}),()=>r;else if(Array.isArray(t)){let a=[],s=r&&Array.isArray(r);if(function e(t,r,o,n){let i=!1;for(let a=0,l=r.length;a<l;a++){let l=r[a],s=o&&o[t.length],d;if(null==l||!0===l||!1===l);else if("object"==(d=typeof l)&&l.nodeType)t.push(l);else if(Array.isArray(l))i=e(t,l,s)||i;else if("function"===d)if(n){for(;"function"==typeof l;)l=l();i=e(t,Array.isArray(l)?l:[l],Array.isArray(s)?s:[s])||i}else t.push(l),i=!0;else{let e=String(l);s&&3===s.nodeType&&s.data===e?t.push(s):t.push(document.createTextNode(e))}}return i}(a,t,r,n))return _(()=>r=ef(e,a,r,o,!0)),()=>r;if(i){if(!a.length)return r;if(void 0===o)return r=[...e.childNodes];let t=a[0];if(t.parentNode!==e)return r;let n=[t];for(;(t=t.nextSibling)!==o;)n.push(t);return r=n}if(0===a.length){if(r=eb(e,r,o),l)return r}else s?0===r.length?ew(e,a,o):function(e,t,r){let o=r.length,n=t.length,i=o,a=0,l=0,s=t[n-1].nextSibling,d=null;for(;a<n||l<i;){if(t[a]===r[l]){a++,l++;continue}for(;t[n-1]===r[i-1];)n--,i--;if(n===a){let t=i<o?l?r[l-1].nextSibling:r[i-l]:s;for(;l<i;)e.insertBefore(r[l++],t)}else if(i===l)for(;a<n;)d&&d.has(t[a])||t[a].remove(),a++;else if(t[a]===r[i-1]&&r[l]===t[n-1]){let o=t[--n].nextSibling;e.insertBefore(r[l++],t[a++].nextSibling),e.insertBefore(r[--i],o),t[n]=r[i]}else{if(!d){d=new Map;let e=l;for(;e<i;)d.set(r[e],e++)}let o=d.get(t[a]);if(null!=o)if(l<o&&o<i){let s=a,c=1,u;for(;++s<n&&s<i&&null!=(u=d.get(t[s]))&&u===o+c;)c++;if(c>o-l){let n=t[a];for(;l<o;)e.insertBefore(r[l++],n)}else e.replaceChild(r[l++],t[a++])}else a++;else t[a++].remove()}}}(e,r,a):(r&&eb(e),ew(e,a));r=a}else if(t.nodeType){if(i&&t.parentNode)return r=l?[t]:t;if(Array.isArray(r)){if(l)return r=eb(e,r,o,t);eb(e,r,null,t)}else null!=r&&""!==r&&e.firstChild?e.replaceChild(t,e.firstChild):e.appendChild(t);r=t}return r}function ew(e,t,r=null){for(let o=0,n=t.length;o<n;o++)e.insertBefore(t[o],r)}function eb(e,t,r,o){if(void 0===r)return e.textContent="";let n=o||document.createTextNode("");if(t.length){let o=!1;for(let i=t.length-1;i>=0;i--){let a=t[i];if(n!==a){let t=a.parentNode===e;o||i?t&&a.remove():t?e.replaceChild(n,a):e.insertBefore(n,r)}else o=!0}}else e.insertBefore(n,r);return[n]}function eh(e){console.error(Error(`${e.name} is not supported in the browser, returning undefined`))}function em(e,t){eh(em)}function ey(e,t){eh(ey)}function ev(e,t){eh(ev)}Symbol();let ex={getElementInfo:function e(t){let r=t.getAttribute("data-aime-path-name");if(r){let e=t.getBoundingClientRect(),o=t.getAttribute("data-aime-component-name")??"";return{thisElement:{box:e,label:o,link:{filePath:r,line:Number(t.getAttribute("data-aime-line")),column:Number(t.getAttribute("data-aime-column"))}},htmlElement:t,componentBox:e}}return t.parentElement?e(t.parentElement):null}};function ek(e,t){return{label:function(e){if(!e)return"Not found";for(;e;){let t="";if(e.type&&"function"==typeof e.type)e.type.name&&(t=e.type.name),e.type.displayName&&(t=e.type.displayName);else if(e.type&&"string"==typeof e.type){e=e.return;continue}else e.elementType&&"function"==typeof e.elementType&&(e.elementType.name&&(t=e.elementType.name),e.elementType.displayName&&(t=e.elementType.displayName));if(t&&e._debugSource)return t;e=e.return}return"Anonymous"}(e),link:t?{filePath:t.fileName,line:t.lineNumber,column:t.columnNumber||0}:null}}function eE(e){return!!e._debugOwner?.elementType?.styledComponentId}function eS(e){let t=e;for(;t;){if(t._debugSource)return{fiber:t,source:t._debugSource};t=t._debugOwner||null}return null}function eC(e){return e.stateNode&&e.stateNode.getBoundingClientRect?e.stateNode.getBoundingClientRect():null}function e_(e,t){let r=Math.min(e.x,t.x),o=Math.min(e.y,t.y);return{x:r,y:o,width:Math.max(e.x+e.width,t.x+t.width)-r,height:Math.max(e.y+e.height,t.y+t.height)-o}}let ez={getElementInfo:function(e){let t=function e(t,r){let o=window.__REACT_DEVTOOLS_GLOBAL_HOOK__?.renderers,n=o?.values();if(o?.size&&n){for(let e of Array.from(n))if(e.findFiberByHostInstance){let o=e.findFiberByHostInstance(t);if(o)if(r)return eS(o)?.fiber||null;else return o}}else{let e=Object.keys(t).find(e=>e.startsWith("__reactFiber")||e.startsWith("__reactInternalInstance"));if(e){let o=t[e];if(o)if(r)return eS(o)?.fiber||null;else return o}}return t.parentElement?e(t.parentElement,r):null}(e,!1);if(t){let{componentBox:r}=function(e){let t=e.stateNode;if(!t)throw Error("This functions works only for Fibres with HTMLElement stateNode");let r=t.getBoundingClientRect(),o=eE(e)&&e._debugOwner?e._debugOwner:e;for(;o._debugOwner||o.return;){let e=o._debugOwner||o.return;if(!e)break;let t=(o=e).stateNode;if(!t||!(t instanceof HTMLElement))return{component:o,componentBox:function e(t,r=0){let o;return(function(e){let t=[],{child:r}=e;for(;r;)t.push(r),r=r.sibling;return t})(t).forEach(t=>{let n=eC(t);!n&&r<6&&(n=e(t,r+1)||null),n&&(n.width<=0||n.height<=0||(o=o?e_(o,n):n))}),o}(o)||r};r=e_(r,t.getBoundingClientRect())}throw Error("Could not find root component")}(t),o=ek(t,eS(t)?.source);return["Not found","Anonymous"].includes(o.label)?null:(eE(t)&&(o.label=`${o.label}(styled)`),o.label=`${o.label} - ${e.tagName.toLocaleLowerCase()}`,{thisElement:{box:eC(t)||e.getBoundingClientRect(),...o},htmlElement:e,componentBox:r})}return null}};new WeakMap;let eL={getElementInfo:function(e){if(e.__svelte_meta){let{loc:t}=e.__svelte_meta;return{thisElement:{box:e.getBoundingClientRect(),label:e.nodeName.toLowerCase(),link:{column:t.column+1,line:t.line+1,filePath:t.file}},htmlElement:e,componentBox:e.getBoundingClientRect()}}return null}},eA={getElementInfo:function(e){let t=e.__vueParentComponent;if(t){if(!t.type)return null;let r=function e(t){let r=null;return t?.subTree?.children&&t?.subTree?.children instanceof Array&&t?.subTree?.children.forEach(t=>{var o;let n=(o=t).el instanceof HTMLElement?o.el.getBoundingClientRect():o.component?e(o.component):null;n&&(n.width<=0||n.height<=0||(r=r?e_(r,n):n))}),r}(t),o=t.type.file||t.type.__file,n=t.type.name||t.type.__name;if(o&&n)return{thisElement:{box:e.getBoundingClientRect(),label:`${n} - ${e.tagName.toLocaleLowerCase()}`,link:{column:0,line:0,filePath:o}},htmlElement:e,componentBox:r||e.getBoundingClientRect()}}return null}};function e$(e){return ex.getElementInfo(e)||ez.getElementInfo(e)||eA.getElementInfo(e)||eL.getElementInfo(e)}let eM={randomUUID:"undefined"!=typeof crypto&&crypto.randomUUID&&crypto.randomUUID.bind(crypto)},eN=new Uint8Array(16),eT=[];for(let e=0;e<256;++e)eT.push((e+256).toString(16).slice(1));let eR=function(e,r,o){if(eM.randomUUID&&!r&&!e)return eM.randomUUID();let n=(e=e||{}).random??e.rng?.()??function(){if(!t){if("undefined"==typeof crypto||!crypto.getRandomValues)throw Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");t=crypto.getRandomValues.bind(crypto)}return t(eN)}();if(n.length<16)throw Error("Random bytes length must be >= 16");if(n[6]=15&n[6]|64,n[8]=63&n[8]|128,r){if((o=o||0)<0||o+16>r.length)throw RangeError(`UUID byte range ${o}:${o+15} is out of buffer bounds`);for(let e=0;e<16;++e)r[o+e]=n[e];return r}return function(e,t=0){return(eT[e[t+0]]+eT[e[t+1]]+eT[e[t+2]]+eT[e[t+3]]+"-"+eT[e[t+4]]+eT[e[t+5]]+"-"+eT[e[t+6]]+eT[e[t+7]]+"-"+eT[e[t+8]]+eT[e[t+9]]+"-"+eT[e[t+10]]+eT[e[t+11]]+eT[e[t+12]]+eT[e[t+13]]+eT[e[t+14]]+eT[e[t+15]]).toLowerCase()}(n)};var eI=er('<svg width=1em height=1em viewBox="0 0 24 24"fill=currentColor><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2h6z">'),eO=er('<svg width=1em height=1em viewBox="0 0 24 24"fill=currentColor><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z">'),ej=er('<div style="position:absolute;width:max-content;background:#33A033;color:#fff;font-size:12px;font-weight:500;border-radius:8px;display:flex;align-items:center;padding:3px 6px;gap:4px;border:1px solid rgba(29, 78, 216, 0.1);font-family:GeistMono, ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace">'),eP=er('<div style="background:rgb(209, 213, 219);width:1px;height:20px">'),eB=er("<div style=cursor:pointer;pointer-events:auto>"),eU=er('<div><div style="display:flex;align-items:center;border:1px solid rgba(77, 101, 148, 0.32);background:#fff;height:40px;border-radius:8px;padding:0 10px;pointer-events:auto;user-select:auto;gap:10px;box-shadow:0 16px 36px 0 rgba(0, 0, 0, 0.08), 0 8px 16px 0 rgba(0, 0, 0, 0.06)"><input style=border:none;width:300px;font-size:13px;outline:none;pointer-events:auto><div style=display:flex;align-items:center;gap:16px><div style=font-size:12px;border-radius:4px;display:inline-flex;align-items:center;padding:2px;pointer-events:auto>'),eV=er("<div>");let eD=e=>(()=>{var t=eI();return el(t,e,!0,!0),t})(),eF=e=>(()=>{var t=eO();return el(t,e,!0,!0),t})();function eH(e){var t;let r,o,[n,i]=C(),[a,l]=C(""),s=document.querySelector("#aime-wrapper"),[d,c]=C(),[u,p]=C(null),[g,f]=C(),w=L(()=>n()?.getBoundingClientRect()),b=e=>{let t=e.target;if(o?.contains(t)||n()&&!n()?.isConnected)return void i(void 0);t instanceof HTMLElement&&i(t)},h=e=>{let t=e.target,r=n();if(r&&!o?.contains(t)&&!s?.contains(t)){e.preventDefault(),e.stopPropagation(),l(""),c(r),f(r.getBoundingClientRect());let t=e$(r);p(t);let o=function(e){let t=function(e){let t=window.getComputedStyle(e),r={};for(let e=0;e<t.length;e++){let o=t[e];r[o]=t.getPropertyValue(o)}return r}(e),r=function(e){let t={},{cssText:r}=e.style;return r.split(";").forEach(e=>{if(!(e=e.trim()))return;let[r,...o]=e.split(":");t[r?.trim()??""]=o.join(":").trim()}),t}(e),o=function(e){let t={};for(let r=0;r<document.styleSheets.length;r++){let o,n=document.styleSheets[r];try{o=n.cssRules||n.rules}catch{continue}for(let r=0;r<o.length;r++){let n=o[r];try{n.selectorText&&e.matches(n.selectorText)&&n.style.cssText.split(";").forEach(e=>{if(!(e=e.trim()))return;let[r,...o]=e.split(":");t[r?.trim()??""]=o.join(":").trim()})}catch{continue}}}return t}(e);return{defined:{...r,...o},computed:t}}(r),n=r.getBoundingClientRect();console.log({type:"__aime_element_selected_style",payload:{tagName:r.tagName.toLowerCase(),rect:{x:n.x,y:n.y,width:n.width,height:n.height},styles:o,elementInfo:t?{file_name:t.thisElement.link?.filePath,component_name:t.thisElement.label,line:t.thisElement.link?.line,column:t.thisElement.link?.column}:null}},"*")}},m=e=>{"Escape"===e.key&&c(void 0)},y=L(()=>{let e=w();return{position:"fixed",top:`${e?.y}px`,left:`${e?.x}px`,width:`${e?.width}px`,height:`${e?.height}px`,"border-color":"#33A033","border-width":"2px","z-index":0xe8d4a50fff,"pointer-events":"none"}}),v=L(()=>{let e=d(),t=g();if(e&&t)return{position:"fixed",top:`${t.y}px`,left:`${t.x}px`,width:`${t.width}px`,height:`${t.height}px`,"border-color":"#33A033","border-width":"1px","z-index":0xe8d4a50ffe,"pointer-events":"none"}}),x=L(()=>{let e=d(),t=g();if(!e||!t)return;let r=window.innerWidth-t.left>391?0:void 0,o=window.innerWidth-t.left>391?void 0:0,n="0px",i=t.top<27,a=window.innerHeight-t.bottom<46;return{top:i&&a?"6px":i?"calc(100% + 52px)":a?"-73px":"-27px",left:r,right:o}}),k=L(()=>{let e=d(),t=g();if(!e||!t)return;let r=window.innerWidth-t.left>391?0:void 0,o=window.innerWidth-t.left>391?void 0:0,n=window.innerHeight-t.bottom<46,i=t.top<73,a="0px";return{position:"absolute",top:n&&i?"33px":n||i?i?"calc(100% + 6px)":"-46px":"calc(100% + 6px)",left:r,right:o}}),E=()=>{n()&&i(void 0)},S=()=>{let e=d();if(e?.isConnected)return void c(void 0);e&&f(e.getBoundingClientRect())},M=()=>{E(),S()},N=()=>{if(!a())return;let e=u();window.parent.postMessage({type:"__aime_add_ui_query",payload:{file_name:e?.thisElement.link?.filePath,component_name:e?.thisElement.label,line:e?.thisElement.link?.line,column:e?.thisElement.link?.column,tag_name:d()?.tagName.toLowerCase(),query:a(),id:eR()}},"*"),c(void 0)},T=()=>{let e=u();window.parent.postMessage({type:"__aime_jump_code",payload:{file_name:e?.thisElement.link?.filePath,line:e?.thisElement.link?.line,column:e?.thisElement.link?.column}},"*")},R=e=>{e.stopPropagation(),e.stopImmediatePropagation(),"Enter"===e.key&&a()&&N()};return t=()=>{let e=[document];document.querySelectorAll("*").forEach(t=>{"aime-wrapper"!==t.id&&t.shadowRoot&&e.push(t.shadowRoot)});let t=e=>{document.activeElement===s&&s?.shadowRoot?.activeElement&&(e.stopPropagation(),e.stopImmediatePropagation())};for(let r of(document.addEventListener("keydown",t,{capture:!0}),document.addEventListener("keyup",t,{capture:!0}),document.addEventListener("keypress",t,{capture:!0}),e))r.addEventListener("mouseover",b,{capture:!0}),r.addEventListener("click",h,{capture:!0});let r=()=>{n()&&!d()&&i(void 0)};window.addEventListener("keydown",m),window.addEventListener("resize",M),document.addEventListener("wheel",r,{capture:!0}),$(()=>{for(let r of(document.removeEventListener("keydown",t,{capture:!0}),document.removeEventListener("keyup",t,{capture:!0}),document.removeEventListener("keypress",t,{capture:!0}),e))r.removeEventListener("mouseover",b,{capture:!0}),r.removeEventListener("click",h,{capture:!0});window.removeEventListener("keydown",m),window.removeEventListener("resize",M),document.removeEventListener("wheel",r,{capture:!0})})},z(()=>A(t)),z(()=>{let e=[],t=n()?.parentElement;for(;t;)t.addEventListener("scroll",E),e.push(t),t=t.parentElement;$(()=>{e.forEach(e=>e.removeEventListener("scroll",E))})}),z(()=>{let e=[],t=d()?.parentElement;for(;t;)t.addEventListener("scroll",S),e.push(t),t=t.parentElement;$(()=>{e.forEach(e=>e.removeEventListener("scroll",S))})}),z(()=>{if(!d())return;let e=document.getElementById("aime-wrapper"),t=t=>{let o=t.target;e&&!e.contains(o)&&(o.blur(),r?.focus())};document.addEventListener("focusin",t,!0),$(()=>{document.removeEventListener("focusin",t,!0)})}),z(()=>{if(!d())return;let e=e=>{e.preventDefault()};document.addEventListener("wheel",e,{passive:!1,capture:!0}),document.addEventListener("touchmove",e,{passive:!1,capture:!0}),$(()=>{document.removeEventListener("wheel",e,{capture:!0}),document.removeEventListener("touchmove",e,{capture:!0})})}),X(q,{get when(){return n()||d()},get children(){var I=eV(),O=o;return"function"==typeof O?es(O,I):o=I,ed(I,X(q,{get when(){return d()},get children(){var j=eU(),P=j.firstChild,B=P.firstChild,U=B.nextSibling,V=U.firstChild;ed(j,X(q,{get when(){return!!u()},get children(){var D=ej();return ed(D,()=>u()?.thisElement?.label),_(e=>ei(D,{...x()},e)),D}}),P),B.$input=e=>{l(e.currentTarget.value)},B.$keydown=R;var F=r;return"function"==typeof F?es(F,B):r=B,V.$click=N,ed(V,X(eD,{})),ed(U,X(q,{get when(){return!!(e.canJumpCode&&u())},get children(){var H;return[eP(),((H=eB()).$click=T,ed(H,X(eF,{})),H)]}}),null),_(e=>{var t=v(),r={...k(),"z-index":eY},o=u()?"输入描述，让 Aime 帮你修改":"该元素暂不支持圈选，请联系 oncall",n=!u(),i=a()?"pointer":"not-allowed",l=a()?"#060e1f":"#444c5c",s=a()?"#fff":"#c7cdd9";return e.e=ei(j,t,e.e),e.t=ei(P,r,e.t),o!==e.a&&en(B,"placeholder",e.a=o),n!==e.o&&(B.disabled=e.o=n),i!==e.i&&ea(V,"cursor",e.i=i),l!==e.n&&ea(V,"background",e.n=l),s!==e.s&&ea(V,"color",e.s=s),e},{e:void 0,t:void 0,a:void 0,o:void 0,i:void 0,n:void 0,s:void 0}),_(()=>B.value=a()),j}}),null),ed(I,X(q,{get when(){return ee(()=>!!n())()&&d()!==n()},get children(){var Y=eV();return _(e=>ei(Y,y(),e)),Y}}),null),I}})}function eX(){var e;let[t,r]=C(!1),[o,n]=C(!1),i=e=>{"__aime_show_ui_select"===e.data.type&&r(e.data?.payload?.showUISelect),"__aime_can_jump_code"===e.data.type&&n(e.data?.payload?.canJumpCode),"aime-reload-preview"===e.data.type&&window.location.reload()};return e=()=>(window.addEventListener("message",i),()=>{window.removeEventListener("message",i)}),z(()=>A(e)),X(q,{get when(){return t()},get children(){return X(eH,{get canJumpCode(){return o()}})}})}eo(["keydown","input","click"]);let eY=0x7fffffff;return window.___aime_get_element_info_by_pos=e=>{let{x:t=0,y:r=0}=e??{},o=document.elementFromPoint(t,r),n=o?e$(o):null;return{x:t,y:r,elementInfo:n?{thisElement:n.thisElement,componentBox:o?.getBoundingClientRect()?.toJSON(),htmlElement:{tagName:n.htmlElement.tagName.toLowerCase(),id:n.htmlElement.id,className:n.htmlElement.className}}:null}},!function(){if("undefined"==typeof window||"undefined"==typeof document||document.getElementById("aime-wrapper"))return;let e=document.createElement("style");e.id="aime-style",e.innerHTML=`
+      #aime-layer {
+        all: initial;
+        pointer-events: none;
+        font-family: Helvetica, sans-serif, Arial;
+      }
+      #aime-layer * {
+        box-sizing: border-box;
+      }
+      #aime-labels-wrapper {
+        display: flex;
+        gap: 8px;
+      }
+      .aime-tree-node:hover {
+        background-color: #eee;
+      }
+      ${r}
+    `;let t=document.createElement("style");t.id="aime-global-style",t.innerHTML=`
+      #aime-wrapper {
+        z-index: ${eY};
+        // pointer-events: none;
+        position: fixed;
+      }
+      .aime-active-pointer * {
+        cursor: pointer !important;
+      }
+    `;let o=document.createElement("div");o.setAttribute("id","aime-wrapper"),o.setAttribute("tabindex","-1");let n=o.attachShadow({mode:"open"}),i=document.createElement("div");i.setAttribute("id","aime-layer"),n.appendChild(e),n.appendChild(i),document.body.appendChild(o),document.head.appendChild(t);window.parent.postMessage({type:"__aime_can_select_ui",payload:{canSelectUI:!0}},"*");let a=window.location.href,l=()=>{let e=window.location.href;e!==a&&(a=e,window.parent.postMessage({type:"__aime_url_change",payload:e},"*"))};window.addEventListener("hashchange",l);let s=history.pushState,d=history.replaceState;history.pushState=function(...e){let t=s.apply(this,e);return l(),t},history.replaceState=function(...e){let t=d.apply(this,e);return l(),t},window.addEventListener("popstate",l),setInterval(l,3e3),function(e,t,r,o={}){let n;(function(e,t){let r=x,o=y,n=0===e.length,i=void 0===t?o:t,a=n?m:{owned:null,cleanups:null,context:i?i.context:null,owner:i},l=n?e:()=>e(()=>A(()=>D(a)));y=a,x=null;try{return P(l,!0)}finally{x=r,y=o}})(r=>{n=r,t===document?e():ed(t,e(),t.firstChild?null:void 0,void 0)},o.owner),()=>{n(),t.textContent=""}}(()=>X(eX,{}),i)}(),{}})());;;
+           
+</script></head>
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"></path><path d="M12 22v-6"></path><path d="M4.93 4.93l4.24 4.24"></path><path d="M14.83 14.83l4.24 4.24"></path><path d="M2 12h6"></path><path d="M22 12h-6"></path><path d="M4.93 19.07l4.24-4.24"></path><path d="M14.83 9.17l4.24-4.24"></path></svg>
+      </div>
+      <span>短直达人库</span>
+    </div>
+    <div class="nav-links">
+      <a href="#overview" class="nav-link active">短直概览</a>
+      <a href="#core" class="nav-link">分型推荐</a>
+      <a href="#featured" class="nav-link">场景化分类</a>
+      <a href="#node" class="nav-link">节点专场</a>
+      <a href="#industry" class="nav-link">行业推荐</a>
+      <a href="#summer" class="nav-link">清凉夏日</a>
+    </div>
+    <div class="nav-search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
+      <span>搜索达人 / 行业 / MCN</span>
+      <span class="kbd">Ctrl</span><span class="kbd">K</span>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section id="overview" class="hero-wrap">
+  <div class="container">
+    <div class="section-title">
+      <span class="pill">SHORT VIDEO × LIVE STREAMING</span>
+      <h1 class="hero-title">短直达人一览</h1>
+      <p class="subtitle">Y26 短视频 × 直播全域达人矩阵，汇聚电商变现、内容曝光与深度种草三类主力供给，一站式找人 · 找刊例 · 找节点</p>
+    </div>
+
+    <div class="hero-grid">
+      <!-- STATS -->
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14a9 3 0 0 0 18 0V5"></path><path d="M3 12a9 3 0 0 0 18 0"></path></svg>
+            供给基本盘
+          </div>
+          <div class="card-title-right">CATEGORY · STATISTICS</div>
+        </div>
+        <div>
+          <div class="stat-caption">全部短直类达人总量</div>
+          <div class="stat-total">
+            <div class="n">10,548</div>
+            <div class="u">人</div>
+          </div>
+          <div class="bar" style="margin-top:14px">
+            <span style="width:7.5%; background:#065f46"></span>
+            <span style="width:36.5%; background:#059669"></span>
+            <span style="width:47.3%; background:#10b981"></span>
+            <span style="width:8.7%; background:#34d399"></span>
+          </div>
+          <div class="bar-legend">
+            <div class="bar-item">
+              <div class="k" style="--seg:#065f46">电商型</div>
+              <div class="v"><span class="num">789</span><span class="pct">7.5%</span></div>
+            </div>
+            <div class="bar-item">
+              <div class="k" style="--seg:#059669">内容-曝光型</div>
+              <div class="v"><span class="num">3,848</span><span class="pct">36.5%</span></div>
+            </div>
+            <div class="bar-item">
+              <div class="k" style="--seg:#10b981">内容-种草型</div>
+              <div class="v"><span class="num">4,991</span><span class="pct">47.3%</span></div>
+            </div>
+            <div class="bar-item">
+              <div class="k" style="--seg:#34d399">进播明星</div>
+              <div class="v"><span class="num">920</span><span class="pct">8.7%</span></div>
+            </div>
+            <div class="bar-item">
+              <div class="k" style="--seg:#a7f3d0">粉丝100W+</div>
+              <div class="v"><span class="num">5,390</span><span class="pct">51.1%</span></div>
+            </div>
+            <div class="bar-item">
+              <div class="k" style="--seg:#6ee7b7">粉丝500W+</div>
+              <div class="v"><span class="num">1,128</span><span class="pct">10.7%</span></div>
+            </div>
+            <div class="bar-item">
+              <div class="k" style="--seg:#84cc16">明星达人</div>
+              <div class="v"><span class="num">412</span><span class="pct">3.9%</span></div>
+            </div>
+            <div class="bar-item">
+              <div class="k" style="--seg:#14b8a6">Y25已做短直</div>
+              <div class="v"><span class="num">837</span><span class="pct">7.9%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INDUSTRY CHART -->
+      <div class="card">
+        <div class="card-title">
+          <div class="card-title-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"></path><path d="M12 2v10h10"></path></svg>
+            分行业短直达人接单分布
+          </div>
+          <div class="card-title-right">2026 · Q3 · 更新</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:center">
+          <div class="chart-wrap">
+            <canvas id="industryChart"></canvas>
+          </div>
+          <ul class="chart-legend" id="industryLegend"></ul>
+        </div>
+        <div style="color:var(--ink-400); font-size:11px; margin-top:14px">数据来源: Aeolus · 风神大数据平台 · 行业接单概览</div>
+      </div>
+    </div>
+
+    <div class="quick-btns">
+      <a href="https://bytedance.larkoffice.com/wiki/YDApwnCQvi86U4kSqaWcc0WJn0d?from=from_copylink" target="_blank" class="btn btn-primary">短直达人刊例-完整版</a>
+    </div>
+  </div>
+</section>
+
+<!-- CORE 3 MODULES -->
+<section id="core">
+  <div class="container">
+    <div class="section-title">
+      <span class="pill">分型推荐 · TALENT ARCHETYPES</span>
+      <h2>短直达人分型推荐</h2>
+      <p class="subtitle">依据达人主业与短直协同能力，划分为电商型 · 内容-曝光型 · 内容-种草型，覆盖直接带货 → 明星大 V 曝光 → 长内容深度种草的全链路</p>
+    </div>
+
+    <div class="cores">
+      <!-- 电商型 -->
+      <div class="core-card" style="--tint1:#059669; --tint2:#0d9488; --tintBg:#ecfdf5;">
+        <div class="core-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 01-8 0"></path></svg>
+        </div>
+        <h3>🔐 电商型达人</h3>
+        <div class="core-desc">深度绑定电商变现，短视频+直播双向导流，直接带货能力强，适合大促、常态化店播场景</div>
+
+        <div class="core-metrics">
+          <div class="metric"><div class="num">789</div><div class="lab">总量 (人)</div></div>
+          <div class="metric"><div class="num">60%</div><div class="lab">Y25 短直渗透</div></div>
+          <div class="metric"><div class="num">L4+</div><div class="lab">主流电商等级</div></div>
+        </div>
+
+        <div style="font-size:11px; color:var(--ink-400); margin-bottom:8px; font-weight:600; letter-spacing:.05em">TOP 3 行业接单</div>
+        <div class="tag-row">
+          <span class="tag">美妆 · 351</span>
+          <span class="tag">食品饮料 · 249</span>
+          <span class="tag">日化 · 225</span>
+          <span class="tag">3C 电器 · 151</span>
+          <span class="tag">母婴宠物 · 92</span>
+        </div>
+
+        <div style="font-size:11px; color:var(--ink-400); margin-bottom:8px; font-weight:600; letter-spacing:.05em">L6 · 500W+ 头部代表</div>
+        <div class="talent-list">
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAAAXErEMSrS1mwzQME4VAZnp7h92vd93EgDb-PTLjbRi0" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/dongxiansheng.jpg" alt="董先生" onerror="this.outerHTML='<div class=avatar>董</div>'"></a><div style="flex:1"><div class="talent-name">董先生</div><div class="talent-meta">L6 · 500W+ · 美食 · 短直¥18.4W</div><a href="https://www.douyin.com/user/MS4wLjABAAAAAXErEMSrS1mwzQME4VAZnp7h92vd93EgDb-PTLjbRi0" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAANmXWMh6PNrkQH0UAi-5w1PnRuU5UBDPCikxLAVuH9H8" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/guangdongfufu.jpg" alt="广东夫妇" onerror="this.outerHTML='<div class=avatar>广</div>'"></a><div style="flex:1"><div class="talent-name">广东夫妇</div><div class="talent-meta">L6 · 500W+ · 时尚 · 短直¥12.5W</div><a href="https://www.douyin.com/user/MS4wLjABAAAANmXWMh6PNrkQH0UAi-5w1PnRuU5UBDPCikxLAVuH9H8" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAAcHFg0jnfK3ZdRhnrUqwfODAZIDNZXCAEKelauL7Oa40" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/lalailailuzhuang.jpg" alt="辣辣来撸妆" onerror="this.outerHTML='<div class=avatar>辣</div>'"></a><div style="flex:1"><div class="talent-name">辣辣来撸妆</div><div class="talent-meta">L6 · 500W+ · 美妆 · 短直¥30W</div><a href="https://www.douyin.com/user/MS4wLjABAAAAcHFg0jnfK3ZdRhnrUqwfODAZIDNZXCAEKelauL7Oa40" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAAPrwjPeBPCOAiC9Qg9lLGN9ny69RZKye_K54L6zu95NI" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/chensanfeijiedi.jpg" alt="陈三废姐弟" onerror="this.outerHTML='<div class=avatar>陈</div>'"></a><div style="flex:1"><div class="talent-name">陈三废姐弟</div><div class="talent-meta">L6 · 500W+ · 亲子 · 短直¥37.8W</div><a href="https://www.douyin.com/user/MS4wLjABAAAAPrwjPeBPCOAiC9Qg9lLGN9ny69RZKye_K54L6zu95NI" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+        </div>
+        <a href="https://bytedance.larkoffice.com/wiki/YDApwnCQvi86U4kSqaWcc0WJn0d?from=from_copylink" target="_blank" rel="noopener" class="see-more">查看完整电商型刊例 →</a>
+      </div>
+
+      <!-- 曝光型 -->
+      <div class="core-card" style="--tint1:#10b981; --tint2:#22c55e; --tintBg:#f0fdf4;">
+        <div class="core-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <h3>☀️ 内容-曝光型</h3>
+        <div class="core-desc">明星 · 剧综演员 · 头部达人为主，重曝光、重心智，适合品牌大事件、新品声量、代言宣发等场景</div>
+
+        <div class="core-metrics">
+          <div class="metric"><div class="num">3,848</div><div class="lab">总量 (人)</div></div>
+          <div class="metric"><div class="num">399</div><div class="lab">明星储备</div></div>
+          <div class="metric"><div class="num">309</div><div class="lab">500W+ 大 V</div></div>
+        </div>
+
+        <div style="font-size:11px; color:var(--ink-400); margin-bottom:8px; font-weight:600; letter-spacing:.05em">TOP 3 行业接单</div>
+        <div class="tag-row">
+          <span class="tag">食品饮料 · 540</span>
+          <span class="tag">3C 电器 · 469</span>
+          <span class="tag">互联网电商 · 430</span>
+          <span class="tag">美妆 · 320</span>
+          <span class="tag">汽车 · 300</span>
+        </div>
+
+        <div style="font-size:11px; color:var(--ink-400); margin-bottom:8px; font-weight:600; letter-spacing:.05em">500W+ 明星代表</div>
+        <div class="talent-list">
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAAl99brtSIGtDi9KJsPnVCxNUcoZrb1iFBeXV-UQ0mOwo" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/liuxiaoqing.jpg" alt="刘晓庆" onerror="this.outerHTML='<div class=avatar>刘</div>'"></a><div style="flex:1"><div class="talent-name">刘晓庆</div><div class="talent-meta">明星 · 500W+ · 3C/食饮/美妆</div><a href="https://www.douyin.com/user/MS4wLjABAAAAl99brtSIGtDi9KJsPnVCxNUcoZrb1iFBeXV-UQ0mOwo" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAATetfXRp3BV1aTlDcWneyqdF8R9D9W0aWZ6rjmeW1zK_lIZEw4j7gNOHXH7djZ_mW" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/guodegang.jpg" alt="郭德纲" onerror="this.outerHTML='<div class=avatar>郭</div>'"></a><div style="flex:1"><div class="talent-name">郭德纲</div><div class="talent-meta">明星 · 500W+ · 剧情/娱乐</div><a href="https://www.douyin.com/user/MS4wLjABAAAATetfXRp3BV1aTlDcWneyqdF8R9D9W0aWZ6rjmeW1zK_lIZEw4j7gNOHXH7djZ_mW" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAAQmNukeIyM39bm8NvYzTKUBMumG1T-vs8JR-QRuSNOM0" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/huangzitao.jpg" alt="黄子韬" onerror="this.outerHTML='<div class=avatar>黄</div>'"></a><div style="flex:1"><div class="talent-name">黄子韬</div><div class="talent-meta">明星 · 500W+ · 日化/美妆/3C</div><a href="https://www.douyin.com/user/MS4wLjABAAAAQmNukeIyM39bm8NvYzTKUBMumG1T-vs8JR-QRuSNOM0" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAAIfy2FW5QCPI-okMFP4kBM5g87jeLQ-sXMVdVv3Neqlc" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/feiqiming.jpg" alt="费启鸣" onerror="this.outerHTML='<div class=avatar>费</div>'"></a><div style="flex:1"><div class="talent-name">费启鸣</div><div class="talent-meta">明星 · 500W+ · 服配/美妆</div><a href="https://www.douyin.com/user/MS4wLjABAAAAIfy2FW5QCPI-okMFP4kBM5g87jeLQ-sXMVdVv3Neqlc" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+        </div>
+        <a href="https://bytedance.larkoffice.com/wiki/YDApwnCQvi86U4kSqaWcc0WJn0d?from=from_copylink" target="_blank" rel="noopener" class="see-more">查看完整曝光型刊例 →</a>
+      </div>
+
+      <!-- 种草型 -->
+      <div class="core-card" style="--tint1:#14b8a6; --tint2:#0ea5e9; --tintBg:#ecfeff;">
+        <div class="core-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4c0 2 2 4 4 8 2-4 4-6 4-8a4 4 0 0 0-4-4z"></path><path d="M12 12s-6 4-6 8a6 6 0 0 0 12 0c0-4-6-8-6-8z"></path></svg>
+        </div>
+        <h3>🍃 内容-种草型</h3>
+        <div class="core-desc">深度长内容、评测/攻略/教程为主，做产品心智与结构化种草，适合货品讲解、心智渗透、GMV 长尾承接</div>
+
+        <div class="core-metrics">
+          <div class="metric"><div class="num">4,991</div><div class="lab">总量 (人)</div></div>
+          <div class="metric"><div class="num">500</div><div class="lab">500W+ 头部</div></div>
+          <div class="metric"><div class="num">15+</div><div class="lab">垂直标签</div></div>
+        </div>
+
+        <div style="font-size:11px; color:var(--ink-400); margin-bottom:8px; font-weight:600; letter-spacing:.05em">TOP 3 行业接单</div>
+        <div class="tag-row">
+          <span class="tag">3C 电器 · 1,203</span>
+          <span class="tag">食品饮料 · 973</span>
+          <span class="tag">美妆 · 880</span>
+          <span class="tag">汽车 · 691</span>
+          <span class="tag">日化 · 631</span>
+        </div>
+
+        <div style="font-size:11px; color:var(--ink-400); margin-bottom:8px; font-weight:600; letter-spacing:.05em">500W+ 种草代表</div>
+        <div class="talent-list">
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAA4FLtEIthlslnTCNhZ2VqrPW9RnJ5cJsj_7c9AjZel_Q" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/fangdongdefeisi.jpg" alt="房东的肥四" onerror="this.outerHTML='<div class=avatar>房</div>'"></a><div style="flex:1"><div class="talent-name">房东的肥四</div><div class="talent-meta">L6 · 剧情 · 美妆/互联网/3C</div><a href="https://www.douyin.com/user/MS4wLjABAAAA4FLtEIthlslnTCNhZ2VqrPW9RnJ5cJsj_7c9AjZel_Q" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAAKU6JvGOMIZ1OkpUh7Mncfzt8mJH8g_6740owtnGMzBQ" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/conggeshuoche.jpg" alt="聪哥说车" onerror="this.outerHTML='<div class=avatar>聪</div>'"></a><div style="flex:1"><div class="talent-name">聪哥说车</div><div class="talent-meta">L6 · 汽车 · 汽车/家居/商务</div><a href="https://www.douyin.com/user/MS4wLjABAAAAKU6JvGOMIZ1OkpUh7Mncfzt8mJH8g_6740owtnGMzBQ" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAA5Ul75sV2wbY6H4MsuXCHVOfnRYv64O5e_-2nnxI9U0c" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/luoshanjiyingzheng.jpg" alt="洛杉矶嬴政W" onerror="this.outerHTML='<div class=avatar>洛</div>'"></a><div style="flex:1"><div class="talent-name">洛杉矶嬴政W</div><div class="talent-meta">L6 · 旅行 · 食饮/汽车/出行</div><a href="https://www.douyin.com/user/MS4wLjABAAAA5Ul75sV2wbY6H4MsuXCHVOfnRYv64O5e_-2nnxI9U0c" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+          <div class="talent-item"><a class="avatar-link" href="https://www.douyin.com/user/MS4wLjABAAAAjD35ULsrardFuBXIK9yOipRaK7l-1WvMfwJomsva8Cy6L0e9253zrMPctIuVY767" target="_blank" rel="noopener"><img class="avatar-img" src="avatars/wanerdebaozangjiejie.jpg" alt="婉儿的宝藏姐姐" onerror="this.outerHTML='<div class=avatar>婉</div>'"></a><div style="flex:1"><div class="talent-name">婉儿的宝藏姐姐</div><div class="talent-meta">L6 · 剧情 · 金融/日化/互联网</div><a href="https://www.douyin.com/user/MS4wLjABAAAAjD35ULsrardFuBXIK9yOipRaK7l-1WvMfwJomsva8Cy6L0e9253zrMPctIuVY767" target="_blank" rel="noopener" class="detail-btn">查看详情</a></div></div>
+        </div>
+        <a href="https://bytedance.larkoffice.com/wiki/YDApwnCQvi86U4kSqaWcc0WJn0d?from=from_copylink" target="_blank" rel="noopener" class="see-more">查看完整种草型刊例 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED / 场景化达人分类 -->
+<section id="featured">
+  <div class="container">
+    <div class="section-title">
+      <span class="pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4.09 12.97a1 1 0 00.83 1.53h6.08l-1 7.5 8.91-10.97a1 1 0 00-.83-1.53h-6.08L13 2z"></path></svg>
+        SCENARIO · CATEGORY
+      </span>
+      <h2>短直场景化达人分类</h2>
+      <p class="subtitle">按短直场景、CP 情侣、黑马潜力、标杆案例 4 大方向组织达人矩阵，帮助商务快速匹配货品与营销主题</p>
+    </div>
+
+    <div class="feat-grid">
+      <!-- 1) 短直进播达人 -->
+      <div class="feat-card">
+        <div class="feat-header">
+          <div class="feat-title">
+            <div class="feat-icon" style="background:#ffe4e6; color:#be123c">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4z" fill="currentColor"></path></svg>
+            </div>
+            <h3>🎙️ 短直进播达人</h3>
+          </div>
+          <div class="card-title-right">明星矩阵 · LIVE</div>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAb3SwSdEuRQ22zqwmvKYpRCV5pTj6n49YTisv2CG_Izc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/jinjiuli.jpg" alt="金九粒" onerror="this.outerHTML='<div class=avatar-lg>金</div>'"></a>
+          <div class="info">
+            <div class="name">金九粒</div>
+            <div class="desc">米未传媒 · 500W+ · 综艺</div>
+            <div class="kv"><span>对接销售：李长浩</span></div>
+          </div>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAAb3SwSdEuRQ22zqwmvKYpRCV5pTj6n49YTisv2CG_Izc" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAl99brtSIGtDi9KJsPnVCxNUcoZrb1iFBeXV-UQ0mOwo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/liuxiaoqing.jpg" alt="刘晓庆" onerror="this.outerHTML='<div class=avatar-lg>刘</div>'"></a>
+          <div class="info">
+            <div class="name">刘晓庆</div>
+            <div class="desc">明星 · 500W+ · 剧综/时尚</div>
+            <div class="kv"><span>对接销售：项秋子</span></div>
+          </div>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAAl99brtSIGtDi9KJsPnVCxNUcoZrb1iFBeXV-UQ0mOwo" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAtH-wVwCLhJoc6rIJA3huRqo-nL3vfv8eEgqEvrpWHfU" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sunjian.jpg" alt="孙坚" onerror="this.outerHTML='<div class=avatar-lg>孙</div>'"></a>
+          <div class="info">
+            <div class="name">孙坚</div>
+            <div class="desc">明星 · 500W+ · 娱乐/生活</div>
+            <div class="kv"><span>对接销售：项秋子</span></div>
+          </div>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAAtH-wVwCLhJoc6rIJA3huRqo-nL3vfv8eEgqEvrpWHfU" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+      </div>
+
+      <!-- 2) 【CP】情侣达人 -->
+      <div class="feat-card">
+        <div class="feat-header">
+          <div class="feat-title">
+            <div class="feat-icon" style="background:#fce7f3; color:#be185d">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-6.7-4.35-9.33-8.63C.9 9.34 2.3 5 6 5c2 0 3.5 1.3 4 2.5C10.5 6.3 12 5 14 5c3.7 0 5.1 4.34 3.33 7.37C18.7 16.65 12 21 12 21z"></path></svg>
+            </div>
+            <h3>💕 【CP】情侣达人</h3>
+          </div>
+          <div class="card-title-right">情感 · 婚恋 · 家庭</div>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAANmXWMh6PNrkQH0UAi-5w1PnRuU5UBDPCikxLAVuH9H8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/guangdongfufu.jpg" alt="广东夫妇" onerror="this.outerHTML='<div class=avatar-lg>广</div>'"></a>
+          <div class="info">
+            <div class="name">广东夫妇</div>
+            <div class="desc">L6 · 500W+ · 时尚/生活</div>
+            <div class="kv"><span>CP 头部 · 大促带货</span></div>
+          </div>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAANmXWMh6PNrkQH0UAi-5w1PnRuU5UBDPCikxLAVuH9H8" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhvKCP1U0_AJhUA24x_UMXG_LPFji3qqfuvalceS8P8U" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/caihongfufu.jpg" alt="彩虹夫妇" onerror="this.outerHTML='<div class=avatar-lg>彩</div>'"></a>
+          <div class="info">
+            <div class="name">彩虹夫妇</div>
+            <div class="desc">L5 · 500W+ · 时尚/美妆</div>
+            <div class="kv"><span>Swisse 大促合作</span></div>
+          </div>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAAhvKCP1U0_AJhUA24x_UMXG_LPFji3qqfuvalceS8P8U" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAHKAIobE-L7a62O299I4bcwIPf0Reczp4HRq12L4-kAE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/shuaishuaifufu.jpg" alt="帅帅夫妇" onerror="this.outerHTML='<div class=avatar-lg>帅</div>'"></a>
+          <div class="info">
+            <div class="name">帅帅夫妇</div>
+            <div class="desc">100-500W · 情侣日常/剧情</div>
+            <div class="kv"><span>CP 剧情 · 情感短剧</span></div>
+          </div>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAAHKAIobE-L7a62O299I4bcwIPf0Reczp4HRq12L4-kAE" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+      </div>
+
+      <!-- 3) 短直黑马达人 -->
+      <div class="feat-card">
+        <div class="feat-header">
+          <div class="feat-title">
+            <div class="feat-icon" style="background:#fef7cd; color:#b45309">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"></path></svg>
+            </div>
+            <h3>🚀 短直黑马达人</h3>
+          </div>
+          <div class="card-title-right">新晋 · 潜力 · 高优</div>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAoRPOmKcltQfvm0l_4EIx6cPkEdoNUDMXREILUEVEdzE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/chuinalisha.jpg" alt="锤娜丽莎" onerror="this.outerHTML='<div class=avatar-lg>锤</div>'"></a>
+          <div class="info">
+            <div class="name">锤娜丽莎</div>
+            <div class="desc">明星 · 500W+ · 娱乐/剧情</div>
+            <div class="kv"><span>负责销售：孙梦娣</span></div>
+          </div>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAAoRPOmKcltQfvm0l_4EIx6cPkEdoNUDMXREILUEVEdzE" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhZy_On0qZI0VXDg5jzqk90_LSddSfOqzA9W1LCkbuHo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/huke.jpg" alt="胡可" onerror="this.outerHTML='<div class=avatar-lg>胡</div>'"></a>
+          <div class="info">
+            <div class="name">胡可</div>
+            <div class="desc">明星 · 500W+ · 亲子/生活</div>
+            <div class="kv"><span>MCN：创意脉搏 · 宋雨杭</span></div>
+          </div>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAAhZy_On0qZI0VXDg5jzqk90_LSddSfOqzA9W1LCkbuHo" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAyj9GWtEMNtvyynBb2MaVe_nWeq0fkomuURHCHelaSAA" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/tulei.jpg" alt="涂磊" onerror="this.outerHTML='<div class=avatar-lg>涂</div>'"></a>
+          <div class="info">
+            <div class="name">涂磊</div>
+            <div class="desc">明星 · 500W+ · 情感/生活</div>
+            <div class="kv"><span>对接销售：项秋子</span></div>
+          </div>
+          <a href="https://www.douyin.com/user/MS4wLjABAAAAyj9GWtEMNtvyynBb2MaVe_nWeq0fkomuURHCHelaSAA" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+      </div>
+
+      <!-- 4) 短直案例达人 -->
+      <div class="feat-card">
+        <div class="feat-header">
+          <div class="feat-title">
+            <div class="feat-icon" style="background:#ecfdf5; color:#059669">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15 8l7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"></path></svg>
+            </div>
+            <h3>🏆 短直案例达人</h3>
+          </div>
+          <div class="card-title-right">品牌 × 达人 · 标杆</div>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/search/暴躁少女 × 林清轩?type=user" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/baozaoshaonv.jpg" alt="暴躁少女" onerror="this.outerHTML='<div class=avatar-lg>暴</div>'"></a>
+          <div class="info">
+            <div class="name">暴躁少女 <span style="color:#059669; font-weight:600; font-size:11px">× 林清轩</span></div>
+            <div class="desc">种草 Top1 · 互动率 50.59%</div>
+            <div class="kv"><span>剧情种草 · 女性心智</span></div>
+          </div>
+          <a href="https://www.douyin.com/search/暴躁少女 × 林清轩?type=user" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/search/麦小登 × Mistine 泰版蜜丝婷?type=user" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/maixiaodeng.jpg" alt="麦小登" onerror="this.outerHTML='<div class=avatar-lg>麦</div>'"></a>
+          <div class="info">
+            <div class="name">麦小登 <span style="color:#059669; font-weight:600; font-size:11px">× Mistine 泰版蜜丝婷</span></div>
+            <div class="desc">预热 Top2 · 互动率 42.02%</div>
+            <div class="kv"><span>三农生活 · 场景种草</span></div>
+          </div>
+          <a href="https://www.douyin.com/search/麦小登 × Mistine 泰版蜜丝婷?type=user" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/search/白白叶叶夫妇 × 孕味食足·宠粉节?type=user" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/baibaiyeyefufu.jpg" alt="白白叶叶夫妇" onerror="this.outerHTML='<div class=avatar-lg>白</div>'"></a>
+          <div class="info">
+            <div class="name">白白叶叶夫妇 <span style="color:#059669; font-weight:600; font-size:11px">× 孕味食足·宠粉节</span></div>
+            <div class="desc">种草 Top2 · 互动率 49.90%</div>
+            <div class="kv"><span>CP 母婴 · 节日营销</span></div>
+          </div>
+          <a href="https://www.douyin.com/search/白白叶叶夫妇 × 孕味食足·宠粉节?type=user" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+        <div class="talent-card">
+          <a class="avatar-lg-link" href="https://www.douyin.com/search/祝晓晗 × 玉泽 618 破价?type=user" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/zhuxiaohan.jpg" alt="祝晓晗" onerror="this.outerHTML='<div class=avatar-lg>祝</div>'"></a>
+          <div class="info">
+            <div class="name">祝晓晗 <span style="color:#059669; font-weight:600; font-size:11px">× 玉泽 618 破价</span></div>
+            <div class="desc">预热 Top4 · 互动率 35.42%</div>
+            <div class="kv"><span>剧情种草 · 大促预热</span></div>
+          </div>
+          <a href="https://www.douyin.com/search/祝晓晗 × 玉泽 618 破价?type=user" target="_blank" rel="noopener" class="cta">查看详情</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NODE / 节点专场 -->
+<section id="node">
+  <div class="container">
+    <div class="section-title">
+      <span class="pill">节点专场 · SEASONAL</span>
+      <h2>热门节点短直达人专场</h2>
+      <p class="subtitle">按节点、货品与营销主题预筛达人池，全年 4 大重点节点、100+ 主题矩阵，节奏化找人不落节奏</p>
+    </div>
+
+    <div class="node-tabs">
+      <button class="node-tab active" data-node="midautumn">🥮 中秋节</button>
+      <button class="node-tab" data-node="national">🇨🇳 国庆出行季</button>
+      <button class="node-tab" data-node="summer">🍃 清凉夏季品</button>
+      <button class="node-tab" data-node="valentine">💕 情人节情侣</button>
+    </div>
+
+    <!-- 中秋节 -->
+    <div class="node-panel active" data-panel="midautumn">
+      <div class="node-summary">
+        <div class="node-metric"><div class="lab">主打货品方向</div><div class="val" style="font-size:18px">团圆礼盒 · 月饼 · 食品饮料</div></div>
+        <div class="node-metric"><div class="lab">主推场景</div><div class="val" style="font-size:18px">家庭 · 亲子 · 送礼</div></div>
+        <div class="node-metric"><div class="lab">代表达人</div><div class="val" style="font-size:18px">4 位头部</div></div>
+        <div class="node-metric"><div class="lab">关键词标签</div><div class="val" style="font-size:18px">6 类主题</div></div>
+      </div>
+      <div class="feat-card">
+        <h3 style="margin-bottom:14px">🥮 中秋节 · 团圆礼赠 · 食品礼盒方向</h3>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px">
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAVv7v-UsJloOJ8Frn6Q5BRJQBOxpAsHT5_Lby2mHM00Y" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fda4af,#f472b6)">一</div></a><div class="info"><div class="name">一家三口美食</div><div class="desc">丹姐 · 家庭美食</div><div class="kv"><span>亲子 · 团圆餐桌</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAVv7v-UsJloOJ8Frn6Q5BRJQBOxpAsHT5_Lby2mHM00Y" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAAXErEMSrS1mwzQME4VAZnp7h92vd93EgDb-PTLjbRi0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/dongxiansheng.jpg" alt="董先生" onerror="this.outerHTML=&quot;<div class=avatar-lg>董</div>&quot;"></a><div class="info"><div class="name">董先生</div><div class="desc">L6 · 500W+ · 美食</div><div class="kv"><span>食品饮料 · 礼盒带货 · 对接销售：杨环</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAAXErEMSrS1mwzQME4VAZnp7h92vd93EgDb-PTLjbRi0" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAaHoKPDsXj9zLHfjKMlktcdNH-piRW277W9mjXLTEJ3Y" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#10b981,#059669)">朱</div></a><div class="info"><div class="name">朱瓜瓜</div><div class="desc">电商 · 食品礼盒</div><div class="kv"><span>大促 · 送礼场景 · 对接销售：王奕琢</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAaHoKPDsXj9zLHfjKMlktcdNH-piRW277W9mjXLTEJ3Y" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAANmXWMh6PNrkQH0UAi-5w1PnRuU5UBDPCikxLAVuH9H8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/guangdongfufu.jpg" alt="广东夫妇" onerror="this.outerHTML=&quot;<div class=avatar-lg>广</div>&quot;"></a><div class="info"><div class="name">广东夫妇</div><div class="desc">L6 · 500W+ · 家庭</div><div class="kv"><span>CP 团圆 · 礼盒大促 · 对接销售：项秋子</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAANmXWMh6PNrkQH0UAi-5w1PnRuU5UBDPCikxLAVuH9H8" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAArJEJzRbBFZhHaDBDBampzf3IgPHlw6jv0k16jleTHTw" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f59e0b,#d97706)">岳</div></a><div class="info"><div class="name">岳弟美食🔥</div><div class="desc">美食 · 团圆餐桌</div><div class="kv"><span>中秋 · 家庭礼盒</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAArJEJzRbBFZhHaDBDBampzf3IgPHlw6jv0k16jleTHTw" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAkfrNcayjloqAw2x4Q7ep552iravtLleYGp3RW-RkYq8" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb923c,#ea580c)">杨</div></a><div class="info"><div class="name">杨九月美食</div><div class="desc">美食博主 · 家常</div><div class="kv"><span>中秋家宴 · 月饼制作</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAkfrNcayjloqAw2x4Q7ep552iravtLleYGp3RW-RkYq8" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAjuIJ0hpSOkuj7Qt4IW6IQCRPAINv0oTrsQHUql-nsLo" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#a855f7,#7c3aed)">嘴</div></a><div class="info"><div class="name">嘴嘴深夜食堂</div><div class="desc">美食深夜档</div><div class="kv"><span>节日食品 · 礼盒推荐</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAjuIJ0hpSOkuj7Qt4IW6IQCRPAINv0oTrsQHUql-nsLo" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdw1I1dqBxaFm6Gqp7JbxufDd2x6XhKGkbLLvFZHKGRkG9oet1NUXYRTwh22Uq7CD" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f97316,#ea580c)">大</div></a><div class="info"><div class="name">大猫食記</div><div class="desc">415W · 美食探店</div><div class="kv"><span>本地美食 · 团圆聚餐</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdw1I1dqBxaFm6Gqp7JbxufDd2x6XhKGkbLLvFZHKGRkG9oet1NUXYRTwh22Uq7CD" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAedINtgUfnZBaBV_UQogK-blY5LrIjaok_KLUNNWQtShR_qUPX2EQTDutwIIyZQyo" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#eab308,#ca8a04)">龙</div></a><div class="info"><div class="name">龙帅食堂</div><div class="desc">厨艺 · 家常菜</div><div class="kv"><span>家宴 · 节日大餐</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAedINtgUfnZBaBV_UQogK-blY5LrIjaok_KLUNNWQtShR_qUPX2EQTDutwIIyZQyo" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAOqc9t7uxfVGAUPR2hjyPAIurUUmVMDRGPvduq2uHJfQ" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f97316,#c2410c)">羽</div></a><div class="info"><div class="name">羽师美食</div><div class="desc">美食 · 烹饪教学</div><div class="kv"><span>月饼 · 中式糕点</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAOqc9t7uxfVGAUPR2hjyPAIurUUmVMDRGPvduq2uHJfQ" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAyKhd4-4MoaQdwUzHJYS1mmV2sESUsGSkT5daNI0mVxs" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#ec4899,#db2777)">一</div></a><div class="info"><div class="name">一菲禾妈妈</div><div class="desc">亲子 · 家庭生活</div><div class="kv"><span>中秋亲子 · 团圆场景</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAyKhd4-4MoaQdwUzHJYS1mmV2sESUsGSkT5daNI0mVxs" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA0o7c0SYZhBb0rGQqUOX8eprIWnQwFtDjGiVqQ6JBP6k" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#e11d48)">沫</div></a><div class="info"><div class="name">沫沫妈妈～</div><div class="desc">妈妈账号 · 家庭美食</div><div class="kv"><span>亲子团圆 · 送礼场景</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA0o7c0SYZhBb0rGQqUOX8eprIWnQwFtDjGiVqQ6JBP6k" target="_blank" rel="noopener">查看详情</a></div>
+        </div>
+        <div style="font-size:11px; color:var(--ink-400); margin-bottom:8px; font-weight:600; letter-spacing:.05em">关键词 · 货品方向</div>
+        <div class="tag-row">
+          <span class="tag">团圆礼盒</span><span class="tag">月饼</span><span class="tag">食品饮料</span>
+          <span class="tag">家庭场景</span><span class="tag">亲子</span><span class="tag">送礼</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 国庆出行季 -->
+    <div class="node-panel" data-panel="national">
+      <div class="node-summary">
+        <div class="node-metric"><div class="lab">主打货品方向</div><div class="val" style="font-size:18px">旅行 · 自驾 · 户外</div></div>
+        <div class="node-metric"><div class="lab">主推场景</div><div class="val" style="font-size:18px">自驾游 · 攻略 · 装备</div></div>
+        <div class="node-metric"><div class="lab">代表达人</div><div class="val" style="font-size:18px">4 位头部</div></div>
+        <div class="node-metric"><div class="lab">关键词标签</div><div class="val" style="font-size:18px">6 类主题</div></div>
+      </div>
+      <div class="feat-card">
+        <h3 style="margin-bottom:14px">🇨🇳 国庆出行季 · 旅行 · 自驾 · 户外方向</h3>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px">
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAbe3ZDT9yI5jGdppa_ru5ngIgTK7mHOpa9qxavcCV8b4" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">B</div></a><div class="info"><div class="name">B 太</div><div class="desc">500W+ · 生活/美食/旅行</div><div class="kv"><span>出行 · 3C · 日化 · 对接销售：王成知</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAbe3ZDT9yI5jGdppa_ru5ngIgTK7mHOpa9qxavcCV8b4" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA5Ul75sV2wbY6H4MsuXCHVOfnRYv64O5e_-2nnxI9U0c" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/luoshanjiyingzheng.jpg" alt="洛杉矶嬴政W" onerror="this.outerHTML=&quot;<div class=avatar-lg>洛</div>&quot;"></a><div class="info"><div class="name">洛杉矶嬴政W</div><div class="desc">L6 · 旅行 · 汽车/出行</div><div class="kv"><span>自驾旅行 · 深度攻略</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA5Ul75sV2wbY6H4MsuXCHVOfnRYv64O5e_-2nnxI9U0c" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA-O-2aWiQGWYIL4f7hjIEzYrOPTz9hVuVqlhClwzPBKdD-QjNz6A_9dsY5ovO2ErY" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#0ea5e9,#0284c7)">小</div></a><div class="info"><div class="name">小初带你去旅行</div><div class="desc">50-100W · 旅行攻略</div><div class="kv"><span>景区 · 酒店 · 攻略</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA-O-2aWiQGWYIL4f7hjIEzYrOPTz9hVuVqlhClwzPBKdD-QjNz6A_9dsY5ovO2ErY" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAAuMGx0LrXD_cBWsqeHb8i_p8NeBMEEIxd86lbzx8YECXzJjoN0bQil92cVET77Fw" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#22c55e,#16a34a)">郭</div></a><div class="info"><div class="name">郭少宇</div><div class="desc">100-500W · 户外生活</div><div class="kv"><span>户外装备 · 露营 · 对接销售：廖思婷</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAAuMGx0LrXD_cBWsqeHb8i_p8NeBMEEIxd86lbzx8YECXzJjoN0bQil92cVET77Fw" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAoqWe4n04HdBc44b2a8yOdprQnFjKAo232PLqF_D9EXo" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">芸</div></a><div class="info"><div class="name">芸泽大叔的旅行日记</div><div class="desc">旅行博主 · 自驾游</div><div class="kv"><span>国庆自驾 · 景点攻略</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAoqWe4n04HdBc44b2a8yOdprQnFjKAo232PLqF_D9EXo" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA0lcJGdTLEhGZRrXNYwpDPUjXGpQn3mN11oTvOKrM7KA" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#14b8a6,#0d9488)">湾</div></a><div class="info"><div class="name">湾区吃玩攻略</div><div class="desc">本地旅游 · 湾区</div><div class="kv"><span>出行攻略 · 美食</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA0lcJGdTLEhGZRrXNYwpDPUjXGpQn3mN11oTvOKrM7KA" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAADUtpHAFOYlJCXuVks9D-kduD50uxQ19btI3Vh9KHRBg" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#0ea5e9,#0369a1)">旅</div></a><div class="info"><div class="name">旅行指楠针</div><div class="desc">深度旅行攻略</div><div class="kv"><span>景区玩法 · 酒店住宿</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAADUtpHAFOYlJCXuVks9D-kduD50uxQ19btI3Vh9KHRBg" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAFBb-Btzd0M8cBS1nFhIM93kSuL57flKXa1xjfJJM8lM" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#0ea5e9,#0284c7)">刘</div></a><div class="info"><div class="name">刘跃国游天下</div><div class="desc">资深旅行达人</div><div class="kv"><span>国内游 · 景区推荐</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAFBb-Btzd0M8cBS1nFhIM93kSuL57flKXa1xjfJJM8lM" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAWeQxkTn69oYt43kBwQ-yXAY3MQEnsqg4XsLvMlxP6yZ1sMSEK7SNHQZpMJAWEjVI" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#22c55e,#16a34a)">一</div></a><div class="info"><div class="name">一起游广哥</div><div class="desc">带你游中国</div><div class="kv"><span>出行装备 · 攻略</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAWeQxkTn69oYt43kBwQ-yXAY3MQEnsqg4XsLvMlxP6yZ1sMSEK7SNHQZpMJAWEjVI" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAWji8i6ZE2Cx8JLUzcIIx6n0jIsP4pJGY5w969L7MMtw" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#0ea5e9,#0369a1)">林</div></a><div class="info"><div class="name">林子的旅行</div><div class="desc">风景摄影 · 旅拍</div><div class="kv"><span>景区攻略 · 自驾</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAWji8i6ZE2Cx8JLUzcIIx6n0jIsP4pJGY5w969L7MMtw" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAqGQbRUyEMpwLyehtADvb8dvcrfuOLIv2pHAm0dCUtoA" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)">C</div></a><div class="info"><div class="name">CC旅行日记</div><div class="desc">出行博主</div><div class="kv"><span>亲子游 · 家庭出行</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAqGQbRUyEMpwLyehtADvb8dvcrfuOLIv2pHAm0dCUtoA" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAKLGCx_5ZSBWjjrFXdHvZcbQqkqtG9G1WR3Wwzd9K-CKmWr_E94dKHcu0xNWA4tc0" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#a855f7,#7c3aed)">楠</div></a><div class="info"><div class="name">楠宝宝的旅行日记</div><div class="desc">国内深度游</div><div class="kv"><span>一线城市周边游</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAKLGCx_5ZSBWjjrFXdHvZcbQqkqtG9G1WR3Wwzd9K-CKmWr_E94dKHcu0xNWA4tc0" target="_blank" rel="noopener">查看详情</a></div>
+        </div>
+        <div style="font-size:11px; color:var(--ink-400); margin-bottom:8px; font-weight:600; letter-spacing:.05em">关键词 · 货品方向</div>
+        <div class="tag-row">
+          <span class="tag">自驾出行</span><span class="tag">旅行攻略</span><span class="tag">户外装备</span>
+          <span class="tag">汽车</span><span class="tag">运动户外</span><span class="tag">酒店</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 清凉夏季品 -->
+    <div class="node-panel" data-panel="summer">
+      <div class="node-summary">
+        <div class="node-metric"><div class="lab">达人总量</div><div class="val">642</div></div>
+        <div class="node-metric"><div class="lab">美妆时尚清爽</div><div class="val">399</div></div>
+        <div class="node-metric"><div class="lab">生活科技数码</div><div class="val">178</div></div>
+        <div class="node-metric"><div class="lab">旅行运动美食</div><div class="val">65</div></div>
+      </div>
+      <div class="feat-card">
+        <h3 style="margin-bottom:14px">🍃 清凉夏季品 · 三方向头部代表</h3>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px">
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA4MIS3sZYJj8yBtbJqDDe6-Ee7Sh5XBfJtCjg_uqXIVZz5AMTSn26qIAQoERl_Nou" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#ec4899)">一</div></a><div class="info"><div class="name">一只霹雳文⚡️</div><div class="desc">上海 · 美妆测评 · 135W</div><div class="kv"><span>美妆时尚 · 399 人池 · 对接销售：杨蕾</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA4MIS3sZYJj8yBtbJqDDe6-Ee7Sh5XBfJtCjg_uqXIVZz5AMTSn26qIAQoERl_Nou" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAY3wONsIJA1KK8TN7Lto2ftrnPJ6z7PYm7JmHm4cpj8w" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#38bdf8,#0284c7)">柯</div></a><div class="info"><div class="name">柯林玩数码</div><div class="desc">酒泉 · 科技数码 · 178W</div><div class="kv"><span>生活科技 · 178 人池 · 对接销售：孙梦娣</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAY3wONsIJA1KK8TN7Lto2ftrnPJ6z7PYm7JmHm4cpj8w" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAuxyoXtnVtwyFcGOD-3m6TMQzDzVAKsvEVQI_AkOymjU" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#94a3b8,#64748b)">朱</div></a><div class="info"><div class="name">朱炜强</div><div class="desc">浦东 · 户外极限 · 292W</div><div class="kv"><span>旅行运动美食 · 65 人池</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAuxyoXtnVtwyFcGOD-3m6TMQzDzVAKsvEVQI_AkOymjU" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA4OuP57L-cCS8OHo5-Ud-mdNLkW197Hw0EzlusSAwD50" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#38bdf8,#0284c7)">晴</div></a><div class="info"><div class="name">晴夏✨</div><div class="desc">夏日时尚 · 穿搭</div><div class="kv"><span>清爽穿搭 · 防晒</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA4OuP57L-cCS8OHo5-Ud-mdNLkW197Hw0EzlusSAwD50" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdGEItjm6lTUCGPDuEW1-IFKBu_tc4XJEM8GGUDP8gNAaRKUyW5ZsaIIyfjT0PfJ7" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#ec4899)">夏</div></a><div class="info"><div class="name">夏夏Sally</div><div class="desc">夏日 · 时尚生活</div><div class="kv"><span>夏装穿搭 · 出行装备 · 对接销售：严艺阁</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdGEItjm6lTUCGPDuEW1-IFKBu_tc4XJEM8GGUDP8gNAaRKUyW5ZsaIIyfjT0PfJ7" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAYvDxxxGPiCUyGShOnGAi4j9M4yo48eVZmn9JZaeJyTA" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#22d3ee,#0891b2)">一</div></a><div class="info"><div class="name">一口吃珠海</div><div class="desc">海边美食 · 清凉</div><div class="kv"><span>冷饮 · 冰品 · 水上活动</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAYvDxxxGPiCUyGShOnGAi4j9M4yo48eVZmn9JZaeJyTA" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAIManA7JwfQB1Nh2C-4qqjki4OQ4_nbC9UfjjwbD_44I" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#0ea5e9,#0284c7)">上</div></a><div class="info"><div class="name">上山下海的茵茵</div><div class="desc">户外 · 水上运动</div><div class="kv"><span>海边 · 泳装 · 防晒</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAIManA7JwfQB1Nh2C-4qqjki4OQ4_nbC9UfjjwbD_44I" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAHHbOcDYrmVs0eFNUoNxtfDMBWO1j6AGgaOdTaxSeEvE" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">海</div></a><div class="info"><div class="name">海南火了</div><div class="desc">海南本地 · 海边生活</div><div class="kv"><span>沙滩 · 水上活动 · 度假</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAHHbOcDYrmVs0eFNUoNxtfDMBWO1j6AGgaOdTaxSeEvE" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAeVPa4HJskoI7lQwYJ9_WXoMY1n5vu3F4IGiZ_Sip7mo" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#e11d48)">M</div></a><div class="info"><div class="name">Mimi-这个夏天</div><div class="desc">夏日 · 女生穿搭</div><div class="kv"><span>清爽穿搭 · 冷饮</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAeVPa4HJskoI7lQwYJ9_WXoMY1n5vu3F4IGiZ_Sip7mo" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAApgcCnpChAgVP5U_FHJmnj40tva4Fg9CC6oI1vPSnjrl7fts9Yi2enC5HNhqOSznQ" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#38bdf8,#0369a1)">数</div></a><div class="info"><div class="name">数码都先生</div><div class="desc">数码测评 · 消暑家电</div><div class="kv"><span>冷感家电 · 数码好物</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAApgcCnpChAgVP5U_FHJmnj40tva4Fg9CC6oI1vPSnjrl7fts9Yi2enC5HNhqOSznQ" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAr-9oHP-Mki69Q99UnurTuEe06JU0Gqlpd5c2d5yEqE3Rg6acJfibcaltH-iu3N2a" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#38bdf8,#0284c7)">数</div></a><div class="info"><div class="name">数码小十八</div><div class="desc">数码好物 · 生活</div><div class="kv"><span>消暑数码 · 冷感家电</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAr-9oHP-Mki69Q99UnurTuEe06JU0Gqlpd5c2d5yEqE3Rg6acJfibcaltH-iu3N2a" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdJikhZqE_wLkeaY4BpyjGcfrSO02qnLYLz37AEteTNI" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#db2777)">冬</div></a><div class="info"><div class="name">冬夏&安柒</div><div class="desc">生活穿搭 · 夏日</div><div class="kv"><span>夏装 · 时尚 · 生活</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdJikhZqE_wLkeaY4BpyjGcfrSO02qnLYLz37AEteTNI" target="_blank" rel="noopener">查看详情</a></div>
+        </div>
+        <div style="font-size:11px; color:var(--ink-400); margin-bottom:8px; font-weight:600; letter-spacing:.05em">关键词 · 货品方向</div>
+        <div class="tag-row">
+          <span class="tag">夏日防晒</span><span class="tag">冷感家电</span><span class="tag">冷饮冰品</span>
+          <span class="tag">夏装穿搭</span><span class="tag">水上活动</span><span class="tag">驱蚊好物</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 情人节情侣 -->
+    <div class="node-panel" data-panel="valentine">
+      <div class="node-summary">
+        <div class="node-metric"><div class="lab">主打货品方向</div><div class="val" style="font-size:18px">CP · 情侣 · 送礼</div></div>
+        <div class="node-metric"><div class="lab">主推场景</div><div class="val" style="font-size:18px">情侣穿搭 · CP 互动</div></div>
+        <div class="node-metric"><div class="lab">代表达人</div><div class="val" style="font-size:18px">4 位 CP 头部</div></div>
+        <div class="node-metric"><div class="lab">关键词标签</div><div class="val" style="font-size:18px">6 类主题</div></div>
+      </div>
+      <div class="feat-card">
+        <h3 style="margin-bottom:14px">💕 情人节情侣 · CP · 情侣向方向</h3>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px">
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAANmXWMh6PNrkQH0UAi-5w1PnRuU5UBDPCikxLAVuH9H8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/guangdongfufu.jpg" alt="广东夫妇" onerror="this.outerHTML=&quot;<div class=avatar-lg>广</div>&quot;"></a><div class="info"><div class="name">广东夫妇</div><div class="desc">L6 · 500W+ · 时尚</div><div class="kv"><span>CP 头部 · 大促 · 对接销售：项秋子</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAANmXWMh6PNrkQH0UAi-5w1PnRuU5UBDPCikxLAVuH9H8" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhvKCP1U0_AJhUA24x_UMXG_LPFji3qqfuvalceS8P8U" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/caihongfufu.jpg" alt="彩虹夫妇" onerror="this.outerHTML=&quot;<div class=avatar-lg>彩</div>&quot;"></a><div class="info"><div class="name">彩虹夫妇</div><div class="desc">L5 · 500W+ · 美妆</div><div class="kv"><span>Swisse 抗糖丸大促 · 对接销售：刘畅</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAhvKCP1U0_AJhUA24x_UMXG_LPFji3qqfuvalceS8P8U" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAHKAIobE-L7a62O299I4bcwIPf0Reczp4HRq12L4-kAE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/shuaishuaifufu.jpg" alt="帅帅夫妇" onerror="this.outerHTML=&quot;<div class=avatar-lg>帅</div>&quot;"></a><div class="info"><div class="name">帅帅夫妇</div><div class="desc">100-500W · 情侣日常</div><div class="kv"><span>剧情 CP · 情感 · 对接销售：冯麟茜</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAHKAIobE-L7a62O299I4bcwIPf0Reczp4HRq12L4-kAE" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA-rYcq_XO2p4GI3TSXJCOtGU5vbV36J_ri94q9jqY-xzCXylIahO9gmRxrSmo4qzH" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/wangzhafuqi.jpg" alt="王炸夫妻" onerror="this.outerHTML=&quot;<div class=avatar-lg>王</div>&quot;"></a><div class="info"><div class="name">王炸夫妻</div><div class="desc">100-500W · 情侣互动</div><div class="kv"><span>CP 剧情 · 反差</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA-rYcq_XO2p4GI3TSXJCOtGU5vbV36J_ri94q9jqY-xzCXylIahO9gmRxrSmo4qzH" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA_pw7o3sh_68REAyG37qKLnefeGXKlBunDDGIyHbA8c4" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#ec4899,#db2777)">王</div></a><div class="info"><div class="name">王大缸夫妇</div><div class="desc">CP 头部 · 情侣互动</div><div class="kv"><span>婚恋 · 情侣穿搭 · 对接销售：薛晶晶</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA_pw7o3sh_68REAyG37qKLnefeGXKlBunDDGIyHbA8c4" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA45GQnsaqLXxTPJAom0l5p-bmwicgPFZyil2-pM6wrvM" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#e11d48)">望</div></a><div class="info"><div class="name">望梅夫妻</div><div class="desc">CP · 情感日常</div><div class="kv"><span>情人节送礼 · CP</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA45GQnsaqLXxTPJAom0l5p-bmwicgPFZyil2-pM6wrvM" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAARLES30_glrfkHr7grVFKzWL7DNRHTEJic5zyN0Bks2A" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb7185,#e11d48)">大</div></a><div class="info"><div class="name">大掌柜夫妇</div><div class="desc">CP · 家庭日常</div><div class="kv"><span>CP 反差 · 送礼 · 对接销售：廖思榕</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAARLES30_glrfkHr7grVFKzWL7DNRHTEJic5zyN0Bks2A" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAANkOBq99y_pIeUFLGsFjfiWhhNrsHJ1tTMTZWkHEVSg9yI-3T6QTSytLA5RGNhJvQ" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#ef4444,#dc2626)">川</div></a><div class="info"><div class="name">川渝夫妇</div><div class="desc">川渝地区 · 夫妻日常</div><div class="kv"><span>情侣穿搭 · CP · 对接销售：杨阳</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAANkOBq99y_pIeUFLGsFjfiWhhNrsHJ1tTMTZWkHEVSg9yI-3T6QTSytLA5RGNhJvQ" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAKO3r8P81xkq45xCBOetJooXsXo9qYQayUr1OWQXtsM8" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#ec4899)">蜜</div></a><div class="info"><div class="name">蜜蜜豪哥夫妇（复合版）</div><div class="desc">CP 复合 · 情感</div><div class="kv"><span>情侣互动 · 剧情 · 对接销售：徐静婕</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAKO3r8P81xkq45xCBOetJooXsXo9qYQayUr1OWQXtsM8" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAyNw2XR9bQbqI9x7pJNH2oliXJt-FhCm1Cq3xAXByris" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#a855f7,#7c3aed)">小</div></a><div class="info"><div class="name">小轩和轩妈的日常</div><div class="desc">CP · 家庭 · 日常</div><div class="kv"><span>情侣日常 · 家庭</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAyNw2XR9bQbqI9x7pJNH2oliXJt-FhCm1Cq3xAXByris" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAHQtO-iGTafnC4TACLz8cUPQL3iMEoewni-5jK6VqFIQ" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb923c,#ea580c)">饭</div></a><div class="info"><div class="name">饭团小夫妻</div><div class="desc">CP · 生活 · 美食</div><div class="kv"><span>情侣美食 · 送礼</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAHQtO-iGTafnC4TACLz8cUPQL3iMEoewni-5jK6VqFIQ" target="_blank" rel="noopener">查看详情</a></div>
+          <div class="talent-card" style="margin-bottom:0"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhiCcEjbFPGtwe3utpZD5ajstBtvSAcRiYhzDWPxU1Mc" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fbbf24,#f59e0b)">暖</div></a><div class="info"><div class="name">暖阳夫妇</div><div class="desc">CP · 情侣日常</div><div class="kv"><span>情人节 · 送礼 · 对接销售：万卢希</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAhiCcEjbFPGtwe3utpZD5ajstBtvSAcRiYhzDWPxU1Mc" target="_blank" rel="noopener">查看详情</a></div>
+        </div>
+        <div style="font-size:11px; color:var(--ink-400); margin-bottom:8px; font-weight:600; letter-spacing:.05em">关键词 · 货品方向</div>
+        <div class="tag-row">
+          <span class="tag">情侣穿搭</span><span class="tag">CP 互动</span><span class="tag">送礼</span>
+          <span class="tag">美妆</span><span class="tag">珠宝</span><span class="tag">时尚</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INDUSTRY / 行业推荐 -->
+<section id="industry">
+  <div class="container">
+    <div class="section-title">
+      <span class="pill">行业 × 品类 · INDUSTRY MATCH</span>
+      <h2>短直达人行业推荐</h2>
+      <p class="subtitle">按行业分类 + 具体品类深度匹配的达人池，一线短直策略×真实达人矩阵，找人思路和示范位一次给到</p>
+    </div>
+
+    <div class="ind-panel" data-ind-panel="food">
+      <div class="ind-section-header">
+        <div class="ind-section-title"><span class="ind-color-bar" style="background:#f97316"></span>🍜 食饮家居</div>
+        <div class="ind-section-subtitle">品类：海鲜水产制品</div>
+      </div>
+      <div class="feat-card" style="border-top:4px solid #f97316">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
+          <div>
+            <h3 style="margin:0 0 6px 0">🍜 食饮家居 · 品类推荐：海鲜水产制品</h3>
+            <div style="font-size:13px; color:var(--ink-500); line-height:1.7; max-width:820px">沿海本地美食博主+家庭煮饭人视角，用真实烹饪场景与产地溯源承接生鲜水产囤货与年节大促。</div>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap">
+            <span class="tag" style="background:#fff7ed; color:#f97316; border:1px solid #f9731633">品类：海鲜水产制品</span>
+            <span class="tag" style="background:#fff7ed; color:#f97316; border:1px solid #f9731633">Top 8 达人</span>
+          </div>
+        </div>
+        <div style="background:#fff7ed; border:1px dashed #f9731633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
+          <b style="color:#f97316">品类简介 · </b>海鲜烹饪与产地溯源，用本地人视角展示食材新鲜度与烹饪成品，适配生鲜水产囤货与年节场景
+        </div>
+        <div class="ind-talent-grid">
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAITyt5z2eh8Q3xJWGX5v1h4bArqLjwicgFlRmIzl2Q7U" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb923c,#f97316)">嘉</div></a><div class="info"><div class="name">嘉之派</div><div class="desc">1973.7W 粉丝 · 潮州 · 美食</div><div class="kv"><span>沿海本地美食博主 · 21-60s ¥5W · 对接销售：李婧涵</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAITyt5z2eh8Q3xJWGX5v1h4bArqLjwicgFlRmIzl2Q7U" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAuUCBjJqwH5vh8fUjFgsbxDNsZrpy4pkswH4dV6CLG54" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb923c,#f97316)">稻</div></a><div class="info"><div class="name">稻草放毒</div><div class="desc">415.8W 粉丝 · 南通 · 美食</div><div class="kv"><span>沿海本地美食博主 · 21-60s ¥1.8W</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAuUCBjJqwH5vh8fUjFgsbxDNsZrpy4pkswH4dV6CLG54" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA6xkwJ_KoxE0dWT7UdID0QpSspzJFD3LrSnGmUfjODSUf_uyzSOyEclz6Elk6KL-r" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f97316,#ea580c)">海</div></a><div class="info"><div class="name">海鲜老板娘</div><div class="desc">本地海鲜 · 产地溯源</div><div class="kv"><span>生鲜水产囤货 · 年节大促</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA6xkwJ_KoxE0dWT7UdID0QpSspzJFD3LrSnGmUfjODSUf_uyzSOyEclz6Elk6KL-r" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAedINtgUfnZBaBV_UQogK-blY5LrIjaok_KLUNNWQtShR_qUPX2EQTDutwIIyZQyo" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f97316,#c2410c)">龙</div></a><div class="info"><div class="name">龙帅食堂</div><div class="desc">厨艺 · 家常菜</div><div class="kv"><span>海鲜烹饪 · 家常做法</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAedINtgUfnZBaBV_UQogK-blY5LrIjaok_KLUNNWQtShR_qUPX2EQTDutwIIyZQyo" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAeplHZAUK90K-uqFon03r0kQaeDe8FQNdUEfQvYaNERg" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb923c,#ea580c)">屋</div></a><div class="info"><div class="name">屋里苏先生</div><div class="desc">本地美食 · 生活博主</div><div class="kv"><span>海鲜家常 · 场景带货</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAeplHZAUK90K-uqFon03r0kQaeDe8FQNdUEfQvYaNERg" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAOqc9t7uxfVGAUPR2hjyPAIurUUmVMDRGPvduq2uHJfQ" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb923c,#f97316)">羽</div></a><div class="info"><div class="name">羽师美食</div><div class="desc">烹饪教程 · 家宴</div><div class="kv"><span>海鲜制品 · 烹饪步骤</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAOqc9t7uxfVGAUPR2hjyPAIurUUmVMDRGPvduq2uHJfQ" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAGIrZSE34WFnyvcD3ZgLZJv9b70FF-ZsrmsPJBjkH-Rw" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f97316,#ea580c)">刘</div></a><div class="info"><div class="name">刘新颖</div><div class="desc">美食博主</div><div class="kv"><span>家常海鲜 · 产地溯源</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAGIrZSE34WFnyvcD3ZgLZJv9b70FF-ZsrmsPJBjkH-Rw" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdw1I1dqBxaFm6Gqp7JbxufDd2x6XhKGkbLLvFZHKGRkG9oet1NUXYRTwh22Uq7CD" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb923c,#f97316)">大</div></a><div class="info"><div class="name">大猫食記</div><div class="desc">415W · 美食探店</div><div class="kv"><span>海鲜市场 · 现捞现做</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdw1I1dqBxaFm6Gqp7JbxufDd2x6XhKGkbLLvFZHKGRkG9oet1NUXYRTwh22Uq7CD" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAArJEJzRbBFZhHaDBDBampzf3IgPHlw6jv0k16jleTHTw" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f97316,#c2410c)">岳</div></a><div class="info"><div class="name">岳弟美食🔥</div><div class="desc">美食 · 家庭餐桌</div><div class="kv"><span>海鲜家宴 · 团圆场景</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAArJEJzRbBFZhHaDBDBampzf3IgPHlw6jv0k16jleTHTw" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAED0NsK0uoBZae2x3PBxKqO9XpCkCeVFQlMSFKpkJT7g" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb923c,#ea580c)">廊</div></a><div class="info"><div class="name">廊坊美食小分队</div><div class="desc">地方美食 · 探店</div><div class="kv"><span>本地海鲜 · 探店</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAED0NsK0uoBZae2x3PBxKqO9XpCkCeVFQlMSFKpkJT7g" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAGKOMw6VX4nCZOUHOXRX-ChK0FhkzjGXm8PJkvguynXw" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f97316,#dc2626)">何</div></a><div class="info"><div class="name">何大厨</div><div class="desc">厨艺教学 · 家常菜</div><div class="kv"><span>海鲜烹饪 · 家庭做法</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAGKOMw6VX4nCZOUHOXRX-ChK0FhkzjGXm8PJkvguynXw" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAH_Mx073C4otxcOgECcEpzxZSoOSpCZNNx5pSFxEA7qw" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb923c,#ea580c)">老</div></a><div class="info"><div class="name">老板娘和我们</div><div class="desc">生活 · 美食</div><div class="kv"><span>海鲜家常 · 场景种草</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAH_Mx073C4otxcOgECcEpzxZSoOSpCZNNx5pSFxEA7qw" target="_blank" rel="noopener">查看详情</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ind-panel" data-ind-panel="mom">
+      <div class="ind-section-header">
+        <div class="ind-section-title"><span class="ind-color-bar" style="background:#ec4899"></span>👶 服饰健康母婴</div>
+        <div class="ind-section-subtitle">品类：婴童床品</div>
+      </div>
+      <div class="feat-card" style="border-top:4px solid #ec4899">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
+          <div>
+            <h3 style="margin:0 0 6px 0">👶 服饰健康母婴 · 品类推荐：婴童床品</h3>
+            <div style="font-size:13px; color:var(--ink-500); line-height:1.7; max-width:820px">真实宝妈人设+安全材质科普，围绕宝宝睡眠改善与婴儿房布置自然种草 A 类面料寝具。</div>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap">
+            <span class="tag" style="background:#fdf2f8; color:#ec4899; border:1px solid #ec489933">品类：婴童床品</span>
+            <span class="tag" style="background:#fdf2f8; color:#ec4899; border:1px solid #ec489933">Top 8 达人</span>
+          </div>
+        </div>
+        <div style="background:#fdf2f8; border:1px dashed #ec489933; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
+          <b style="color:#ec4899">品类简介 · </b>围绕宝宝睡眠与安全材质科普承接婴童床品寝具种草
+        </div>
+        <div class="ind-talent-grid">
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAr8e52NoMISYtdayN-YmRh47LBHXMMpXd0FoKQb89Xvg" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f9a8d4,#ec4899)">常</div></a><div class="info"><div class="name">常姐育儿</div><div class="desc">育儿博主 · 母婴</div><div class="kv"><span>母婴用品 · 育儿场景</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAr8e52NoMISYtdayN-YmRh47LBHXMMpXd0FoKQb89Xvg" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAQAj9h5H1-OQTfVWMhIb9YXHtsWsQSfdeM8z57Ax_70M" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#db2777)">h</div></a><div class="info"><div class="name">honey清清</div><div class="desc">美妆时尚 · 母婴</div><div class="kv"><span>亲子穿搭 · 母婴推荐</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAQAj9h5H1-OQTfVWMhIb9YXHtsWsQSfdeM8z57Ax_70M" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/search/瑞雪啊暑假带娃?type=user" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb7185,#e11d48)">瑞</div></a><div class="info"><div class="name">瑞雪啊暑假带娃</div><div class="desc">带娃博主 · 亲子</div><div class="kv"><span>母婴用品 · 育儿好物</span></div></div><a class="cta" href="https://www.douyin.com/search/瑞雪啊暑假带娃?type=user" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAxYJr2i7C50XPzC8NvLHq_ngfNscMF8NWsu5YLJ_kgTQ" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#db2777)">壮</div></a><div class="info"><div class="name">壮壮有个暖宝宝</div><div class="desc">母婴 · 亲子日常</div><div class="kv"><span>婴儿用品 · 亲子互动</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAxYJr2i7C50XPzC8NvLHq_ngfNscMF8NWsu5YLJ_kgTQ" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA113Ped9Y38T3dC2V9kfTpHkZZzLgxhOBxG4c61ZZuTx0TPNDIIa8xlFl1mzjwCz_" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#ec4899,#be185d)">晶</div></a><div class="info"><div class="name">晶晶养娃记</div><div class="desc">养娃日常 · 育儿</div><div class="kv"><span>母婴场景 · 育儿好物</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA113Ped9Y38T3dC2V9kfTpHkZZzLgxhOBxG4c61ZZuTx0TPNDIIa8xlFl1mzjwCz_" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAARRr6x0ga14TmkfLI7xALTu4dnexnJkhRzJjpfQcppCGcyMJsOA52BqgjnrXEuLT6" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#db2777)">三</div></a><div class="info"><div class="name">三金妈妈</div><div class="desc">妈妈账号 · 亲子</div><div class="kv"><span>母婴用品 · 育儿分享</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAARRr6x0ga14TmkfLI7xALTu4dnexnJkhRzJjpfQcppCGcyMJsOA52BqgjnrXEuLT6" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdvBrQRkIWpurtBIakGRTHBwkdMWWreAEXrPXzzgPjAI" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb7185,#e11d48)">米</div></a><div class="info"><div class="name">米芽养成记</div><div class="desc">母婴 · 宝宝成长</div><div class="kv"><span>婴幼儿用品 · 记录 · 对接销售：纪清山</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdvBrQRkIWpurtBIakGRTHBwkdMWWreAEXrPXzzgPjAI" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAkg3ZKr64udk57zcmqd3-M6BziJA7DWYdqp69jveNpCMmTgZX7sevIxf335d_CujN" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#ec4899,#db2777)">小</div></a><div class="info"><div class="name">小阿喵麻麻</div><div class="desc">妈妈账号 · 母婴</div><div class="kv"><span>婴儿好物 · 亲子日常</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAkg3ZKr64udk57zcmqd3-M6BziJA7DWYdqp69jveNpCMmTgZX7sevIxf335d_CujN" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAuNw12fwmnlsAJsOT31BJ5rNBSpoYk5Jd8CIoLH6e7ck" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#e11d48)">育</div></a><div class="info"><div class="name">育婴师妈妈Lucy</div><div class="desc">育儿专家 · 母婴</div><div class="kv"><span>育儿科普 · 母婴指导 · 对接销售：张文睿</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAuNw12fwmnlsAJsOT31BJ5rNBSpoYk5Jd8CIoLH6e7ck" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAc2PGsyBk0ehoqRTjqJA7IkQpeCkMnhDK-BGjJ2_mwNEhclVixksFibFVDyah77j2" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb7185,#e11d48)">辣</div></a><div class="info"><div class="name">辣妈晶晶(营养师妈妈）</div><div class="desc">营养师 · 母婴</div><div class="kv"><span>母婴营养 · 育儿科学 · 对接销售：涂灵博</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAc2PGsyBk0ehoqRTjqJA7IkQpeCkMnhDK-BGjJ2_mwNEhclVixksFibFVDyah77j2" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAyo2o9w9J06r3ctBgN_wXny0qMFMbhYSDHw43rCdIPB8" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#ec4899)">迷</div></a><div class="info"><div class="name">迷你小汉堡</div><div class="desc">亲子 · 家庭生活</div><div class="kv"><span>婴幼儿用品 · 亲子游 · 对接销售：马源</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAyo2o9w9J06r3ctBgN_wXny0qMFMbhYSDHw43rCdIPB8" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAjO-gmL1m007p0LBRZV4KjEBej7RAtGN3JBM214-9PC4" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb7185,#e11d48)">一</div></a><div class="info"><div class="name">一宸妈妈</div><div class="desc">妈妈账号 · 亲子</div><div class="kv"><span>母婴生活 · 育儿分享</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAjO-gmL1m007p0LBRZV4KjEBej7RAtGN3JBM214-9PC4" target="_blank" rel="noopener">查看详情</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ind-panel" data-ind-panel="edu">
+      <div class="ind-section-header">
+        <div class="ind-section-title"><span class="ind-color-bar" style="background:#3b82f6"></span>📚 教育</div>
+        <div class="ind-section-subtitle">品类：个护健康电器-美容仪</div>
+      </div>
+      <div class="feat-card" style="border-top:4px solid #3b82f6">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
+          <div>
+            <h3 style="margin:0 0 6px 0">📚 教育 · 品类推荐：个护健康电器-美容仪</h3>
+            <div style="font-size:13px; color:var(--ink-500); line-height:1.7; max-width:820px">科技护肤测评+抗老周期打卡双主线，凭参数解读、上脸实测与紧致对比撑起高客单抗老投资感。</div>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap">
+            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">品类：个护健康电器-美容仪</span>
+            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">Top 8 达人</span>
+          </div>
+        </div>
+        <div style="background:#eff6ff; border:1px dashed #3b82f633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
+          <b style="color:#3b82f6">品类简介 · </b>以家用美容仪深度测评与紧致对比实验承接高客单抗老产品**
+        </div>
+        <div class="ind-talent-grid">
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAROul_9rBj8hSqBALu4fjvJ73Xg4HDyaZtazHJq7SHNo" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#60a5fa,#3b82f6)">枫</div></a><div class="info"><div class="name">枫子-爱生活</div><div class="desc">120.5W 粉丝 · 无锡 · 其他</div><div class="kv"><span>家用美容仪 · 抗老对比</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAROul_9rBj8hSqBALu4fjvJ73Xg4HDyaZtazHJq7SHNo" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAWh-PY8UuFaCTQSm38isSFXUREuCyqxBoS8nyOwRLbgY" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">大</div></a><div class="info"><div class="name">大西米君</div><div class="desc">教育 · 生活博主</div><div class="kv"><span>产品测评 · 深度种草 · 对接销售：张濛</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAWh-PY8UuFaCTQSm38isSFXUREuCyqxBoS8nyOwRLbgY" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAU2PasfxQETkAdKEMhCPbvF4803C8NIuD-GhufdPbyoA" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#0ea5e9,#0284c7)">静</div></a><div class="info"><div class="name">静静慧呼吸工作室</div><div class="desc">健康 · 学习博主</div><div class="kv"><span>课程 · 呼吸训练</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAU2PasfxQETkAdKEMhCPbvF4803C8NIuD-GhufdPbyoA" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhFOqX7X1sOizh8pCXNRDnxRENkjxOgg3xTaw3EBP7Rs" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#0ea5e9,#0369a1)">养</div></a><div class="info"><div class="name">养生老九</div><div class="desc">养生 · 教学</div><div class="kv"><span>课程 · 养生知识</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAhFOqX7X1sOizh8pCXNRDnxRENkjxOgg3xTaw3EBP7Rs" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAADre1KmIBcsxeNO0P_X-W10RE-Qb8_oATFXN6G51sIS-KIxaICi17oXh2lMMocKVG" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">我</div></a><div class="info"><div class="name">我不是元宝</div><div class="desc">教育 · 学习博主</div><div class="kv"><span>干货科普 · 课程推广</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAADre1KmIBcsxeNO0P_X-W10RE-Qb8_oATFXN6G51sIS-KIxaICi17oXh2lMMocKVG" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAADxlimquHv_jxQ19y3OeF7qWC9L5jrDVqAH8RfAf3uiaTYuLgXqdqcYKJbJ4g7jd-" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#60a5fa,#3b82f6)">乔</div></a><div class="info"><div class="name">乔瑶瑶</div><div class="desc">课程博主</div><div class="kv"><span>教育培训 · 知识分享</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAADxlimquHv_jxQ19y3OeF7qWC9L5jrDVqAH8RfAf3uiaTYuLgXqdqcYKJbJ4g7jd-" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAneC_pwwoRaCXZkCgmImcrqjePl2TKJmHF7UQq4vN90k" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#0284c7,#0369a1)">彤</div></a><div class="info"><div class="name">彤心食补日记</div><div class="desc">教程 · 食补讲堂</div><div class="kv"><span>课程 · 食补科普</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAneC_pwwoRaCXZkCgmImcrqjePl2TKJmHF7UQq4vN90k" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAnawovfB1CYRDp2TEJbe_BEBC8Pk5AQtI3MtxuisW2Qo" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#60a5fa,#3b82f6)">迦</div></a><div class="info"><div class="name">迦南宇宙</div><div class="desc">教育 · 泛知识</div><div class="kv"><span>深度科普 · 讲解</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAnawovfB1CYRDp2TEJbe_BEBC8Pk5AQtI3MtxuisW2Qo" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAJ4WJqKaj74ApQi7LXrlAD5e0DZzW1v1BXuMYVU0Who8" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#3b82f6,#2563eb)">A</div></a><div class="info"><div class="name">AI苏西学姐</div><div class="desc">AI · 学习博主</div><div class="kv"><span>课程科普 · 教育 · 对接销售：杨阳</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAJ4WJqKaj74ApQi7LXrlAD5e0DZzW1v1BXuMYVU0Who8" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAOZ8xbmSMzHAfclx7U1SBQxUjQZ4sb9pkOVcTzXFicOs" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#0284c7,#0369a1)">冯</div></a><div class="info"><div class="name">冯教练车百科</div><div class="desc">汽车教学 · 教练</div><div class="kv"><span>课程 · 汽车教学</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAOZ8xbmSMzHAfclx7U1SBQxUjQZ4sb9pkOVcTzXFicOs" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAAwgTeuoQbVvH85agRm5Z-nkuYJUMjnHjYZFSjGrUkZo" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#60a5fa,#3b82f6)">顾</div></a><div class="info"><div class="name">顾同学</div><div class="desc">学习博主 · 教育</div><div class="kv"><span>课程 · 学习分享</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAAwgTeuoQbVvH85agRm5Z-nkuYJUMjnHjYZFSjGrUkZo" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAAyADyQebI0efz16YERHojItDjcdIYIJjX7Kb42viTOY" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8)">朗</div></a><div class="info"><div class="name">朗读者小李子</div><div class="desc">朗读 · 语言教学</div><div class="kv"><span>课程 · 教育培训</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAAyADyQebI0efz16YERHojItDjcdIYIJjX7Kb42viTOY" target="_blank" rel="noopener">查看详情</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ind-panel" data-ind-panel="beauty">
+      <div class="ind-section-header">
+        <div class="ind-section-title"><span class="ind-color-bar" style="background:#db2777"></span>💄 美妆日化</div>
+        <div class="ind-section-subtitle">品类：身体清洁-浴盐足浴盐</div>
+      </div>
+      <div class="feat-card" style="border-top:4px solid #db2777">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
+          <div>
+            <h3 style="margin:0 0 6px 0">💄 美妆日化 · 品类推荐：身体清洁-浴盐足浴盐</h3>
+            <div style="font-size:13px; color:var(--ink-500); line-height:1.7; max-width:820px">精致居家养生+养生科普型达人，用泡浴/泡脚放松仪式与助眠原理讲解种草浴盐足浴粉。</div>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap">
+            <span class="tag" style="background:#fdf2f8; color:#db2777; border:1px solid #db277733">品类：身体清洁-浴盐足浴盐</span>
+            <span class="tag" style="background:#fdf2f8; color:#db2777; border:1px solid #db277733">Top 8 达人</span>
+          </div>
+        </div>
+        <div style="background:#fdf2f8; border:1px dashed #db277733; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
+          <b style="color:#db2777">品类简介 · </b>精致居家养生达人 × 泡浴足浴放松场景，承接浴盐足浴粉香薰种草
+        </div>
+        <div class="ind-talent-grid">
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAs8EG0jxJxZbudH79LebCIvTYr-LrDk_Mr-tq73fkE8A" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#ec4899)">3</div></a><div class="info"><div class="name">33酱</div><div class="desc">美妆达人</div><div class="kv"><span>深度测评 · 抗老对比</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAs8EG0jxJxZbudH79LebCIvTYr-LrDk_Mr-tq73fkE8A" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhuahst49K4_hybFvf785ZpHYYKIFgNEk-ZjAWAQI0ijw0skMlNAujRZqvqDOhaCX" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#ec4899,#db2777)">苏</div></a><div class="info"><div class="name">苏苏的复古家</div><div class="desc">生活 · 美妆</div><div class="kv"><span>产品测评 · 抗老</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAhuahst49K4_hybFvf785ZpHYYKIFgNEk-ZjAWAQI0ijw0skMlNAujRZqvqDOhaCX" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAPbj87_5buxdwlFq2PRpq2Z916eeLK-obh6GTg6FFHEA" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#db2777)">有</div></a><div class="info"><div class="name">有杯美式</div><div class="desc">美妆日化 · 生活</div><div class="kv"><span>深度种草 · 高客单 · 对接销售：廖思榕</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAPbj87_5buxdwlFq2PRpq2Z916eeLK-obh6GTg6FFHEA" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAArwBABQl2aI1KOJwCIENiSGRi6bIketUs2JF8Upd_6Rk" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#ec4899,#be185d)">赖</div></a><div class="info"><div class="name">赖小肥</div><div class="desc">美妆种草</div><div class="kv"><span>抗老 · 紧致测评 · 对接销售：程斯高</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAArwBABQl2aI1KOJwCIENiSGRi6bIketUs2JF8Upd_6Rk" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAG_Pfnr9O7U5swz_c4VuC4dNA6bcVuoMeSmuxCR6GJ5qHAq8V_PMc6p-OqHKE3Hyf" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb7185,#e11d48)">尼</div></a><div class="info"><div class="name">尼莫不会水</div><div class="desc">美妆护肤</div><div class="kv"><span>肌肤对比 · 产品科普</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAG_Pfnr9O7U5swz_c4VuC4dNA6bcVuoMeSmuxCR6GJ5qHAq8V_PMc6p-OqHKE3Hyf" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAvyJ1ETk7qBGIQb6QJir_ygaUThNxRvniPP_CdjbOR6k" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#db2777)">叶</div></a><div class="info"><div class="name">叶大花</div><div class="desc">美妆穿搭</div><div class="kv"><span>产品测评 · 深度种草</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAvyJ1ETk7qBGIQb6QJir_ygaUThNxRvniPP_CdjbOR6k" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAl1nH_O01W8kaBQ1okDYyuhyTfMHMZ3t6TsT7BwHaSHs" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#ec4899,#be185d)">雪</div></a><div class="info"><div class="name">雪梨羊</div><div class="desc">美妆时尚</div><div class="kv"><span>面部护肤 · 抗老</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAl1nH_O01W8kaBQ1okDYyuhyTfMHMZ3t6TsT7BwHaSHs" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAA0HAjVXbaiX9GaieFQnap5_TntXVkH98Nj_Jc-2kjso" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#db2777)">养</div></a><div class="info"><div class="name">养生少女芽</div><div class="desc">养生 · 美妆</div><div class="kv"><span>抗老 · 内调外养</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAA0HAjVXbaiX9GaieFQnap5_TntXVkH98Nj_Jc-2kjso" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAEuiu3GvnGn4prewg2j0vdjHo10vIk8BNm93CrwknQak" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#ec4899,#e11d48)">全</div></a><div class="info"><div class="name">全美丽</div><div class="desc">美妆日化 · 测评</div><div class="kv"><span>肌肤对比 · 高客单 · 对接销售：项秋子</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAEuiu3GvnGn4prewg2j0vdjHo10vIk8BNm93CrwknQak" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdg34noj1zbF9WbukIriuvlKQvzUaoJ56fOaz4MwHg5o" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#f472b6,#be185d)">眼</div></a><div class="info"><div class="name">眼镜大丹</div><div class="desc">美妆日化 · 剧情</div><div class="kv"><span>面部护肤 · 抗老</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdg34noj1zbF9WbukIriuvlKQvzUaoJ56fOaz4MwHg5o" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA4NAAW-xkyBrj_SPRj-v43N4O-24qkquxR-cSn6rx3oIMqnoYM_XCdB14fc4fVvEp" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#ec4899,#db2777)">大</div></a><div class="info"><div class="name">大耳朵美力</div><div class="desc">美妆美容 · 测评</div><div class="kv"><span>面部深度种草 · 对接销售：于海涛</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA4NAAW-xkyBrj_SPRj-v43N4O-24qkquxR-cSn6rx3oIMqnoYM_XCdB14fc4fVvEp" target="_blank" rel="noopener">查看详情</a></div>
+            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAfdbGVumY1iLAiFv64w6IG-ETqonl9gcnfHWm5zd4AZQ" target="_blank" rel="noopener"><div class="avatar-lg" style="background:linear-gradient(135deg,#fb7185,#e11d48)">雅</div></a><div class="info"><div class="name">雅美酱</div><div class="desc">美妆种草</div><div class="kv"><span>抗老 · 紧致对比</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAfdbGVumY1iLAiFv64w6IG-ETqonl9gcnfHWm5zd4AZQ" target="_blank" rel="noopener">查看详情</a></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUMMER / 清凉夏日 -->
+<section id="summer" style="background:linear-gradient(180deg,#f0fdf4,transparent)">
+  <div class="container">
+    <div class="section-title">
+      <span class="pill">🍃 SUMMER SPECIAL</span>
+      <h2>清凉夏日短直达人专场</h2>
+      <p class="subtitle">按夏季应季刚需货品与三大内容方向，精准匹配防晒 · 家电 · 冷饮 · 水上活动等短直找人思路</p>
+    </div>
+
+    <div class="summer-hero">
+      <div style="position:relative; z-index:1">
+        <h3>🍃 清凉夏日 · 三方向找人指南</h3>
+        <p>夏季应季刚需货品：防晒（美妆/衣服）· 风扇 · 空调 · 冷感家电 · 冰品 · 夏装 · 驱蚊 · 居家清凉好物 · 冷饮 · 水上活动用品。共 <b>642 位</b> 达人已按内容方向完成三分类，覆盖美妆时尚 · 生活科技 · 旅行运动美食三线，短视频种草 + 直播承接夏季刚需闭环。</p>
+      </div>
+      <div class="summer-hero-stats">
+        <div class="summer-stat">
+          <div class="val">399</div>
+          <div class="lab">美妆时尚清爽</div>
+        </div>
+        <div class="summer-stat">
+          <div class="val">178</div>
+          <div class="lab">生活科技数码</div>
+        </div>
+        <div class="summer-stat">
+          <div class="val">65</div>
+          <div class="lab">旅行运动美食</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="directions">
+      <div class="dir-card" style="--dirBg:#fce7f3; --dirColor:#be185d;">
+        <div class="dir-num">☝️ 方向一 · 399 人</div>
+        <div class="dir-title">美妆 / 时尚清爽</div>
+        <div class="dir-body">用夏日防晒 + 穿搭 + 冷饮场景营造体感降温氛围，短视频种草、直播承接夏季刚需品。达人以清爽人设出镜，在夏日通勤、海边玩水、户外逛街等场景中，以防晒、美妆和夏装穿搭为主线。</div>
+        <div class="kw-list">
+          <span class="kw">夏日防晒</span><span class="kw">清爽穿搭</span><span class="kw">海边玩水</span>
+          <span class="kw">冷饮解暑</span><span class="kw">户外防晒</span><span class="kw">夏季直播</span>
+        </div>
+        <div class="talent-mini">
+          <div class="tm"><span class="n">E吖E小姐</span><span class="m">深圳 · 时尚穿搭 · 30W</span></div>
+          <div class="tm"><span class="n">李乐事</span><span class="m">杭州 · 时尚穿搭 · 57W</span></div>
+          <div class="tm"><span class="n">一只霹雳文⚡️</span><span class="m">上海 · 美妆测评 · 135W</span></div>
+          <div class="tm"><span class="n">舒舒Shirley</span><span class="m">长沙 · 美妆护肤 · 32W</span></div>
+        </div>
+      </div>
+
+      <div class="dir-card" style="--dirBg:#e0f2fe; --dirColor:#0369a1;">
+        <div class="dir-num">☝️ 方向二 · 178 人</div>
+        <div class="dir-title">生活 / 科技数码</div>
+        <div class="dir-body">围绕风扇、空调、冷感家电做居家清凉测评，短视频展示真实体感变化，直播间带货清凉家电。从卧室 / 客厅 / 办公室不同空间切入，打造"居家清凉改造计划"。</div>
+        <div class="kw-list">
+          <span class="kw">居家降温</span><span class="kw">风扇测评</span><span class="kw">空调避暑</span>
+          <span class="kw">冷感家电</span><span class="kw">卧室清凉</span><span class="kw">节能省电</span>
+        </div>
+        <div class="talent-mini">
+          <div class="tm"><span class="n">柯林玩数码</span><span class="m">酒泉 · 科技数码 · 178W</span></div>
+          <div class="tm"><span class="n">洋叔智选</span><span class="m">海淀 · 科技数码 · 135W</span></div>
+          <div class="tm"><span class="n">🏠梓依的家</span><span class="m">鞍山 · 家居家电 · 40W</span></div>
+          <div class="tm"><span class="n">奶茶窝</span><span class="m">福州 · 科技数码 · 21W</span></div>
+        </div>
+      </div>
+
+      <div class="dir-card" style="--dirBg:#ecfdf5; --dirColor:#059669;">
+        <div class="dir-num">☝️ 方向三 · 65 人</div>
+        <div class="dir-title">生活 / 旅行 / 运动 / 美食</div>
+        <div class="dir-body">打造水上活动 + 露营夜市 + 冷饮冰品 + 驱蚊好物的夏日生活方式内容，短视频记录场景，直播做组合购。以场景套餐形式售卖冷饮冰品、水上用品、驱蚊好物等组合。</div>
+        <div class="kw-list">
+          <span class="kw">水乐园日</span><span class="kw">露营夜宵</span><span class="kw">冷饮冰品</span>
+          <span class="kw">夏日聚会</span><span class="kw">清凉野餐</span><span class="kw">直播组合购</span>
+        </div>
+        <div class="talent-mini">
+          <div class="tm"><span class="n">朱炜强</span><span class="m">浦东 · 户外极限 · 292W</span></div>
+          <div class="tm"><span class="n">大狗脑袋</span><span class="m">广州 · 美食探店 · 57W</span></div>
+          <div class="tm"><span class="n">薯泥姐姐</span><span class="m">成都 · 美食测评 · 49W</span></div>
+          <div class="tm"><span class="n">沈衍想滑雪✨</span><span class="m">广州 · 户外运动 · 50W</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-btns" style="margin-top:24px">
+      <a href="https://bytedance.larkoffice.com/wiki/ZI8LwSkuQi1zPokXovFcsWKbnpN" target="_blank" class="btn btn-primary">查看完整清凉夏日刊例 (673 达人)</a>
+    </div>
+  </div>
+</section>
+
+<!-- MAP section removed per requirement -->
+
+<section style="padding:20px 0 32px">
+  <div class="container">
+    <div class="quick-btns">
+      <a href="https://bytedance.larkoffice.com/wiki/YDApwnCQvi86U4kSqaWcc0WJn0d" target="_blank" class="btn btn-primary">查看完整短直刊例</a>
+      <a href="https://bytedance.larkoffice.com/wiki/ZI8LwSkuQi1zPokXovFcsWKbnpN" target="_blank" class="btn">查看清凉夏日专场</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 短直达人库 · 中国广告销售平台 · 战略与运营 · 行业与生态运营 · 渠道运营 · MCN 及达人
+</footer>
+
+<script>
+  // Chart.js pie/donut chart
+  const ctx = document.getElementById('industryChart').getContext('2d');
+  const industryData = [
+    {label:'美妆', value:1551, color:'#059669'},
+    {label:'食品饮料', value:1762, color:'#10b981'},
+    {label:'3C 电器', value:1823, color:'#14b8a6'},
+    {label:'日化', value:1094, color:'#34d399'},
+    {label:'汽车', value:1034, color:'#0891b2'},
+    {label:'互联网电商', value:1099, color:'#22c55e'},
+    {label:'服装配饰', value:556, color:'#84cc16'},
+    {label:'母婴宠物', value:552, color:'#a3e635'},
+    {label:'金融业', value:373, color:'#0ea5e9'},
+    {label:'游戏', value:366, color:'#65a30d'},
+    {label:'其他', value:1338, color:'#6ee7b7'},
+  ];
+  const total = industryData.reduce((s,x)=>s+x.value,0);
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: industryData.map(d=>d.label),
+      datasets: [{
+        data: industryData.map(d=>d.value),
+        backgroundColor: industryData.map(d=>d.color),
+        borderColor: '#ffffff',
+        borderWidth: 3,
+        hoverOffset: 8,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '65%',
+      plugins: {
+        legend: { display:false },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => `${ctx.label}: ${ctx.parsed.toLocaleString()} 次接单 (${(ctx.parsed/total*100).toFixed(1)}%)`
+          }
+        }
+      }
+    }
+  });
+  // Legend
+  const legendEl = document.getElementById('industryLegend');
+  industryData.forEach(d=>{
+    const li = document.createElement('li');
+    li.style.setProperty('--c', d.color);
+    li.innerHTML = `<span>${d.label}</span> <b style="color:var(--emerald-800); margin-left:4px">${(d.value/total*100).toFixed(1)}%</b>`;
+    legendEl.appendChild(li);
+  });
+
+  // Node tabs (only for #node section)
+  document.querySelectorAll('.node-tab').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const scope = btn.closest('section');
+      // original node tabs
+      scope.querySelectorAll('.node-tab').forEach(b=>b.classList.remove('active'));
+      scope.querySelectorAll('.node-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      const key = btn.dataset.node;
+      const panel = scope.querySelector(`.node-panel[data-panel="${key}"]`);
+      if(panel) panel.classList.add('active');
+    });
+  });
+
+  // Nav active state on scroll
+  const links = document.querySelectorAll('.nav-link');
+  const sections = ['overview','core','featured','node','industry','summer'].map(id=>document.getElementById(id));
+  window.addEventListener('scroll', ()=>{
+    const y = window.scrollY + 100;
+    let currentIdx = 0;
+    sections.forEach((sec,i)=>{
+      if(sec && sec.offsetTop <= y) currentIdx = i;
+    });
+    links.forEach(l=>l.classList.remove('active'));
+    if(links[currentIdx]) links[currentIdx].classList.add('active');
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const id = a.getAttribute('href').slice(1);
+      const t = document.getElementById(id);
+      if(t){
+        e.preventDefault();
+        window.scrollTo({top: t.offsetTop - 70, behavior:'smooth'});
+      }
+    });
+  });
+
+  // (按需求 2026-07-24：头像/查看详情按钮跳转到「主页链接和对接销售查询」表格中的达人主页链接，不再统一跳转「抖音精选」)
+</script>
+
+
+</body></html>
