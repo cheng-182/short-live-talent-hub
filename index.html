@@ -425,10 +425,9 @@
   .ind-beauty-tab:hover:not(.active){background:var(--emerald-50); border-color:var(--emerald-300)}
   .ind-beauty-panel{display:none}
   .ind-beauty-panel.active{display:block}
-  /* Beauty tab node-summary: 2 metrics (品类方向 + 推荐策略), align tops & unify style */
-  .ind-beauty-panel .node-summary{ grid-template-columns: minmax(200px, 260px) 1fr !important; align-items:stretch }
+  /* Beauty tab node-summary: single-metric (推荐策略) full-width layout */
   .ind-beauty-panel .node-summary .node-metric{ display:flex; flex-direction:column }
-  .ind-beauty-panel .node-summary .node-metric .val{ font-size:14px !important; line-height:1.7 !important; font-weight:600 !important; letter-spacing:0 !important; color:var(--emerald-800); max-width:none !important; white-space:normal !important; word-break:break-word }
+  .ind-beauty-panel .node-summary .node-metric .val{ font-size:13px !important; line-height:1.7 !important; font-weight:500 !important; letter-spacing:0 !important; color:var(--ink-700); max-width:none !important; white-space:normal !important; word-break:break-word }
 
 
   /* Industry Section - Talent Card Layout Fix */
@@ -2923,11 +2922,8 @@ select {
 
 
       <div class="ind-beauty-panel active" data-panel="jinghua">
-        <div class="node-summary" style="margin-bottom:20px">
-          <div class="node-metric"><div class="lab">品类方向</div><div class="val" style="font-size:16px">面部洗护-面部精华</div></div>
-          <div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:12px; max-width:600px; white-space:normal; line-height:1.6">【成分解析】护肤短直达人，以专业成分讲解与功效科普承接精华/面霜/眼霜的周期种草
-以成分博主/皮肤管理风格短直达人为核心，内容围绕烟酰胺、玻色因、A醇等核心成分的原理讲解、配方案例分析与使用周期记录（如28天打卡），为功效护肤建立专业背书。商品以成分深挖、使用前后对比、周期打卡等方式自然植入，强化「...</div></div>
-        </div>
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr"><div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【成分解析】护肤短直达人，以专业成分讲解与功效科普承接精华/面霜/眼霜的周期种草
+以成分博主/皮肤管理风格短直达人为核心，内容围绕烟酰胺、玻色因、A醇等核心成分的原理讲解、配方案例分析与使用周期记录（如28天打卡），为功效护肤建立专业背书。商品以成分深挖、使用前后对比、周期打卡等方式自然植入，强化「...</div></div></div>
         <div class="ind-talent-grid">
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAKcP-UKx0JJYCKE_xOYwUhv_mL63gMr1Z8cRlrfJQnofyry0Jq7q1bD6EDErmOUCz" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAKcP-UKx0JJYCKE_xOYwUhv_mL63gMr1Z8cRlrfJQnofyry0Jq7q1bD6EDErmOUCz.jpg" alt="骆王宇" onerror="this.outerHTML='<div class=avatar-lg>骆</div>'"></a><div class="info"><div class="name">骆王宇</div><div class="desc">1501.2W 粉丝 · 美妆、护肤保养</div><div class="kv"><span>21-60s ¥300000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAKcP-UKx0JJYCKE_xOYwUhv_mL63gMr1Z8cRlrfJQnofyry0Jq7q1bD6EDErmOUCz" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAltpFlmJgXSSO39CY5ecTF5WOVTHlgwO1UrTqIpVimnA" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAltpFlmJgXSSO39CY5ecTF5WOVTHlgwO1UrTqIpVimnA.jpg" alt="光光是颗小太阳" onerror="this.outerHTML='<div class=avatar-lg>光</div>'"></a><div class="info"><div class="name">光光是颗小太阳</div><div class="desc">132.6W 粉丝 · 测评、美妆测评、美妆、护肤保养、美妆测评种草</div><div class="kv"><span>21-60s ¥300000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAltpFlmJgXSSO39CY5ecTF5WOVTHlgwO1UrTqIpVimnA" target="_blank" rel="noopener">查看详情</a></div>
@@ -2945,11 +2941,8 @@ select {
       </div>
 
       <div class="ind-beauty-panel" data-panel="jingyou">
-        <div class="node-summary" style="margin-bottom:20px">
-          <div class="node-metric"><div class="lab">品类方向</div><div class="val" style="font-size:16px">面部洗护-面部精油</div></div>
-          <div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:12px; max-width:600px; white-space:normal; line-height:1.6">【精致护肤】仪式感达人×以油养肤/面部按摩内容，承接精华油与高端护肤种草
-找以「精致护肤+仪式感」为核心人设的短直达人，内容长期围绕面部按摩、以油养肤、干皮急救等护肤仪式感场景展开。达人本人肤质细腻、生活精致，走轻奢护肤或芳疗方向，拍摄时能展示按摩手法和质地肤感。粉丝偏成熟女性、消费力中上，对油类产...</div></div>
-        </div>
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr"><div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【精致护肤】仪式感达人×以油养肤/面部按摩内容，承接精华油与高端护肤种草
+找以「精致护肤+仪式感」为核心人设的短直达人，内容长期围绕面部按摩、以油养肤、干皮急救等护肤仪式感场景展开。达人本人肤质细腻、生活精致，走轻奢护肤或芳疗方向，拍摄时能展示按摩手法和质地肤感。粉丝偏成熟女性、消费力中上，对油类产...</div></div></div>
         <div class="ind-talent-grid">
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA-da-e5vStRL4nD23hTYprQZMYn01E2i3e2lIbUhDxwo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAA-da-e5vStRL4nD23hTYprQZMYn01E2i3e2lIbUhDxwo.jpg" alt="瑶姐lucky" onerror="this.outerHTML='<div class=avatar-lg>瑶</div>'"></a><div class="info"><div class="name">瑶姐lucky</div><div class="desc">85.1W 粉丝 · 时尚、穿搭</div><div class="kv"><span>21-60s ¥50000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA-da-e5vStRL4nD23hTYprQZMYn01E2i3e2lIbUhDxwo" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAr_np5ssdECof1bOUXRnMmUC0fUzMBUxFrZWko1MrJwj-Rf0gdfN7elBHlD40P50J" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAr_np5ssdECof1bOUXRnMmUC0fUzMBUxFrZWko1MrJwj-Rf0gdfN7elBHlD40P50J.jpg" alt="小P老师" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a><div class="info"><div class="name">小P老师</div><div class="desc">30.6W 粉丝 · 美妆、护肤保养</div><div class="kv"><span>21-60s ¥63600</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAr_np5ssdECof1bOUXRnMmUC0fUzMBUxFrZWko1MrJwj-Rf0gdfN7elBHlD40P50J" target="_blank" rel="noopener">查看详情</a></div>
@@ -2967,11 +2960,8 @@ select {
       </div>
 
       <div class="ind-beauty-panel" data-panel="dingzhuang">
-        <div class="node-summary" style="margin-bottom:20px">
-          <div class="node-metric"><div class="lab">品类方向</div><div class="val" style="font-size:16px">面部彩妆-定妆</div></div>
-          <div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:12px; max-width:600px; white-space:normal; line-height:1.6">【完整装教】完整上妆教程型彩妆博主 × 持妆效果植入，以妆容教学+持妆结果展示承接散粉/底妆种草
-以完整妆容教程为核心内容的彩妆/仿妆博主，人设为化妆师或美妆教程达人。内容特点是完整上妆演示，从底妆到定妆全流程教学，在教程中自然植入散粉/底妆的持妆效果展示，如定妆步骤演示、妆后持妆结果展示。散粉/底...</div></div>
-        </div>
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr"><div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【完整装教】完整上妆教程型彩妆博主 × 持妆效果植入，以妆容教学+持妆结果展示承接散粉/底妆种草
+以完整妆容教程为核心内容的彩妆/仿妆博主，人设为化妆师或美妆教程达人。内容特点是完整上妆演示，从底妆到定妆全流程教学，在教程中自然植入散粉/底妆的持妆效果展示，如定妆步骤演示、妆后持妆结果展示。散粉/底...</div></div></div>
         <div class="ind-talent-grid">
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAcHFg0jnfK3ZdRhnrUqwfODAZIDNZXCAEKelauL7Oa40" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAcHFg0jnfK3ZdRhnrUqwfODAZIDNZXCAEKelauL7Oa40.jpg" alt="辣辣来撸妆" onerror="this.outerHTML='<div class=avatar-lg>辣</div>'"></a><div class="info"><div class="name">辣辣来撸妆</div><div class="desc">624.4W 粉丝 · 美妆、护肤保养、美妆测评种草</div><div class="kv"><span>21-60s ¥240000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAcHFg0jnfK3ZdRhnrUqwfODAZIDNZXCAEKelauL7Oa40" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAQVoweODWuAwWWp_1jN0rIwnZ1bVoaXhMvIfuhOHY5t4" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAQVoweODWuAwWWp_1jN0rIwnZ1bVoaXhMvIfuhOHY5t4.jpg" alt="是小秋姐呀" onerror="this.outerHTML='<div class=avatar-lg>是</div>'"></a><div class="info"><div class="name">是小秋姐呀</div><div class="desc">160.4W 粉丝 · 美妆、美妆教程、妆容展示、美妆测评种草</div><div class="kv"><span>21-60s ¥78000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAQVoweODWuAwWWp_1jN0rIwnZ1bVoaXhMvIfuhOHY5t4" target="_blank" rel="noopener">查看详情</a></div>
@@ -2989,12 +2979,9 @@ select {
       </div>
 
       <div class="ind-beauty-panel" data-panel="fendiye">
-        <div class="node-summary" style="margin-bottom:20px">
-          <div class="node-metric"><div class="lab">品类方向</div><div class="val" style="font-size:16px">面部彩妆-粉底液膏</div></div>
-          <div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:12px; max-width:600px; white-space:normal; line-height:1.6">【化妆师/底妆博主】以专业底妆教程与多色号试色承接粉底气垫推广
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr"><div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【化妆师/底妆博主】以专业底妆教程与多色号试色承接粉底气垫推广
 
-以具备化妆师或底妆博主身份的短直达人为主，内容长期围绕底妆教程、多肤质试色、遮瑕技巧与自然感底妆打造。达人能做多色号上脸对比与持妆演示，视频中常见不同肤质（干皮、油皮、混合皮、敏感肌）的色号适配推荐，粉丝评论区活跃度高且多见「我是 X...</div></div>
-        </div>
+以具备化妆师或底妆博主身份的短直达人为主，内容长期围绕底妆教程、多肤质试色、遮瑕技巧与自然感底妆打造。达人能做多色号上脸对比与持妆演示，视频中常见不同肤质（干皮、油皮、混合皮、敏感肌）的色号适配推荐，粉丝评论区活跃度高且多见「我是 X...</div></div></div>
         <div class="ind-talent-grid">
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAcHFg0jnfK3ZdRhnrUqwfODAZIDNZXCAEKelauL7Oa40" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAcHFg0jnfK3ZdRhnrUqwfODAZIDNZXCAEKelauL7Oa40.jpg" alt="辣辣来撸妆" onerror="this.outerHTML='<div class=avatar-lg>辣</div>'"></a><div class="info"><div class="name">辣辣来撸妆</div><div class="desc">624.4W 粉丝 · 美妆、护肤保养、美妆测评种草</div><div class="kv"><span>21-60s ¥240000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAcHFg0jnfK3ZdRhnrUqwfODAZIDNZXCAEKelauL7Oa40" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAQVoweODWuAwWWp_1jN0rIwnZ1bVoaXhMvIfuhOHY5t4" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAQVoweODWuAwWWp_1jN0rIwnZ1bVoaXhMvIfuhOHY5t4.jpg" alt="是小秋姐呀" onerror="this.outerHTML='<div class=avatar-lg>是</div>'"></a><div class="info"><div class="name">是小秋姐呀</div><div class="desc">160.4W 粉丝 · 美妆、美妆教程、妆容展示、美妆测评种草</div><div class="kv"><span>21-60s ¥78000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAQVoweODWuAwWWp_1jN0rIwnZ1bVoaXhMvIfuhOHY5t4" target="_blank" rel="noopener">查看详情</a></div>
@@ -3012,11 +2999,8 @@ select {
       </div>
 
       <div class="ind-beauty-panel" data-panel="hufajingyou">
-        <div class="node-summary" style="margin-bottom:20px">
-          <div class="node-metric"><div class="lab">品类方向</div><div class="val" style="font-size:16px">洗发护发-护发精油</div></div>
-          <div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:12px; max-width:600px; white-space:normal; line-height:1.6">【发型师/护发博主】以专业护发流程与发质对比展示承接护发精油种草
-以发型师、护发博主或具有专业护发知识的达人为主，内容长期围绕护发流程教学、毛躁分叉修复前后对比、发型打理技巧展开。商品植入方式自然：达人可在护发流程中展示护发精油的使用步骤，用before/after对比呈现用后发丝顺滑不油腻的效果，...</div></div>
-        </div>
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr"><div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【发型师/护发博主】以专业护发流程与发质对比展示承接护发精油种草
+以发型师、护发博主或具有专业护发知识的达人为主，内容长期围绕护发流程教学、毛躁分叉修复前后对比、发型打理技巧展开。商品植入方式自然：达人可在护发流程中展示护发精油的使用步骤，用before/after对比呈现用后发丝顺滑不油腻的效果，...</div></div></div>
         <div class="ind-talent-grid">
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAqDNEWNRyi8k97Hg-RUwCmmOO1w-W2RqfvJSrn0KIdIJQ7c47_TTEP4YAmSGivVfw" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAqDNEWNRyi8k97Hg-RUwCmmOO1w-W2RqfvJSrn0KIdIJQ7c47_TTEP4YAmSGivVfw.jpg" alt="发型师晓华" onerror="this.outerHTML='<div class=avatar-lg>发</div>'"></a><div class="info"><div class="name">发型师晓华</div><div class="desc">488.7W 粉丝 · 时尚、穿搭</div><div class="kv"><span>21-60s ¥182700</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAqDNEWNRyi8k97Hg-RUwCmmOO1w-W2RqfvJSrn0KIdIJQ7c47_TTEP4YAmSGivVfw" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAnNxhAkQtvNUcRg8jrjfuH70HK4l4Wv1pBxMGZxNUs6g" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAnNxhAkQtvNUcRg8jrjfuH70HK4l4Wv1pBxMGZxNUs6g.jpg" alt="牛奶薏米仁" onerror="this.outerHTML='<div class=avatar-lg>牛</div>'"></a><div class="info"><div class="name">牛奶薏米仁</div><div class="desc">25.5W 粉丝 · 时尚、穿搭</div><div class="kv"><span>21-60s ¥35000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAnNxhAkQtvNUcRg8jrjfuH70HK4l4Wv1pBxMGZxNUs6g" target="_blank" rel="noopener">查看详情</a></div>
@@ -3034,11 +3018,8 @@ select {
       </div>
 
       <div class="ind-beauty-panel" data-panel="xifashui">
-        <div class="node-summary" style="margin-bottom:20px">
-          <div class="node-metric"><div class="lab">品类方向</div><div class="val" style="font-size:16px">洗发护发-洗发水</div></div>
-          <div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:12px; max-width:600px; white-space:normal; line-height:1.6">【头皮护理】以专业成分讲解和头皮问题分析承接控油防脱去屑种草
-以具有头皮护理师/护发专家身份背景的短直达人为主，人设突出专业背书和头皮健康知识。内容围绕头皮出油、头屑、脱发、头发扁塌等痛点做成分分析和护理方案讲解，自然植入洗发水泡沫演示和洗后蓬松感展示。商品以专业推荐和功效验证方式出现，强化「专业背...</div></div>
-        </div>
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr"><div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【头皮护理】以专业成分讲解和头皮问题分析承接控油防脱去屑种草
+以具有头皮护理师/护发专家身份背景的短直达人为主，人设突出专业背书和头皮健康知识。内容围绕头皮出油、头屑、脱发、头发扁塌等痛点做成分分析和护理方案讲解，自然植入洗发水泡沫演示和洗后蓬松感展示。商品以专业推荐和功效验证方式出现，强化「专业背...</div></div></div>
         <div class="ind-talent-grid">
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAfb9SPQpbrIbQtHcaZ4QMEV_IZQou7useHU_EXEmceWA" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAfb9SPQpbrIbQtHcaZ4QMEV_IZQou7useHU_EXEmceWA.jpg" alt="森森测评" onerror="this.outerHTML='<div class=avatar-lg>森</div>'"></a><div class="info"><div class="name">森森测评</div><div class="desc">113.2W 粉丝 · 测评、美妆测评、美妆、美妆测评种草</div><div class="kv"><span>21-60s ¥50000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAfb9SPQpbrIbQtHcaZ4QMEV_IZQou7useHU_EXEmceWA" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAj2nuyVXvOgcUsP54skFm7Bs3reXEum6n7kE5Pc1nR_w5dZoqUuwxrch64-1ocr2G" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAj2nuyVXvOgcUsP54skFm7Bs3reXEum6n7kE5Pc1nR_w5dZoqUuwxrch64-1ocr2G.jpg" alt="阳光开朗的小吴老师" onerror="this.outerHTML='<div class=avatar-lg>阳</div>'"></a><div class="info"><div class="name">阳光开朗的小吴老师</div><div class="desc">56.5W 粉丝 · 测评、美妆测评、美妆、护肤保养、美妆测评种草</div><div class="kv"><span>21-60s ¥67000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAj2nuyVXvOgcUsP54skFm7Bs3reXEum6n7kE5Pc1nR_w5dZoqUuwxrch64-1ocr2G" target="_blank" rel="noopener">查看详情</a></div>
@@ -3056,11 +3037,8 @@ select {
       </div>
 
       <div class="ind-beauty-panel" data-panel="muyulu">
-        <div class="node-summary" style="margin-bottom:20px">
-          <div class="node-metric"><div class="lab">品类方向</div><div class="val" style="font-size:16px">身体清洁-沐浴露油乳</div></div>
-          <div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:12px; max-width:600px; white-space:normal; line-height:1.6">【香氛精致生活】短直达人 × 沐浴仪式感与香味种草，以沐浴场景传递香调与肤感
-以人设偏「香、滑、精致生活」的短直达人为主，内容围绕沐浴仪式感展开——从起泡、涂抹到冲水全流程展示泡沫质感与肤感变化，配合香味描述与香调拆解种草。达人本人出镜，画面突出皮肤光泽感与香气氛围，商品以沐浴露/身体乳/香氛的日常...</div></div>
-        </div>
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr"><div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【香氛精致生活】短直达人 × 沐浴仪式感与香味种草，以沐浴场景传递香调与肤感
+以人设偏「香、滑、精致生活」的短直达人为主，内容围绕沐浴仪式感展开——从起泡、涂抹到冲水全流程展示泡沫质感与肤感变化，配合香味描述与香调拆解种草。达人本人出镜，画面突出皮肤光泽感与香气氛围，商品以沐浴露/身体乳/香氛的日常...</div></div></div>
         <div class="ind-talent-grid">
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAbLkZ-hb78O1h1JA0_Ul_LXe-DZ7QnpyqLuGOqFVqPJwUbp-Gl2hoL0EiZQWw5OIW" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAbLkZ-hb78O1h1JA0_Ul_LXe-DZ7QnpyqLuGOqFVqPJwUbp-Gl2hoL0EiZQWw5OIW.jpg" alt="李智贤" onerror="this.outerHTML='<div class=avatar-lg>李</div>'"></a><div class="info"><div class="name">李智贤</div><div class="desc">133.3W 粉丝 · 测评、美妆测评、美妆、美妆测评种草</div><div class="kv"><span>21-60s ¥55000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAbLkZ-hb78O1h1JA0_Ul_LXe-DZ7QnpyqLuGOqFVqPJwUbp-Gl2hoL0EiZQWw5OIW" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAwah7po6wfPXv222qNcvbIfuRhV5Eu1L-vRponWtXhzk" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAwah7po6wfPXv222qNcvbIfuRhV5Eu1L-vRponWtXhzk.jpg" alt="闻所长Miya" onerror="this.outerHTML='<div class=avatar-lg>闻</div>'"></a><div class="info"><div class="name">闻所长Miya</div><div class="desc">134.0W 粉丝 · 时尚、穿搭、生活、生活记录、美妆、护肤保养</div><div class="kv"><span>21-60s ¥95000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAwah7po6wfPXv222qNcvbIfuRhV5Eu1L-vRponWtXhzk" target="_blank" rel="noopener">查看详情</a></div>
@@ -3078,11 +3056,8 @@ select {
       </div>
 
       <div class="ind-beauty-panel" data-panel="yuyan">
-        <div class="node-summary" style="margin-bottom:20px">
-          <div class="node-metric"><div class="lab">品类方向</div><div class="val" style="font-size:16px">身体清洁-浴盐足浴盐</div></div>
-          <div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:12px; max-width:600px; white-space:normal; line-height:1.6">【精致居家养生】精致居家养生达人 × 泡浴足浴放松场景，承接浴盐足浴粉香薰种草
-以精致居家养生型短直达人为核心，人设呈现注重生活品质、懂得自我疗愈的都市感。内容画面围绕泡澡泡脚、热气升腾、香薰点烛、睡前放松仪式等场景展开，商品以浴盐入水溶解、足浴粉冲泡、香薰扩散等方式自然露出，突出「解乏助眠、居家疗...</div></div>
-        </div>
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr"><div class="node-metric"><div class="lab">推荐策略</div><div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【精致居家养生】精致居家养生达人 × 泡浴足浴放松场景，承接浴盐足浴粉香薰种草
+以精致居家养生型短直达人为核心，人设呈现注重生活品质、懂得自我疗愈的都市感。内容画面围绕泡澡泡脚、热气升腾、香薰点烛、睡前放松仪式等场景展开，商品以浴盐入水溶解、足浴粉冲泡、香薰扩散等方式自然露出，突出「解乏助眠、居家疗...</div></div></div>
         <div class="ind-talent-grid">
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAs8EG0jxJxZbudH79LebCIvTYr-LrDk_Mr-tq73fkE8A" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAs8EG0jxJxZbudH79LebCIvTYr-LrDk_Mr-tq73fkE8A.jpg" alt="33酱" onerror="this.outerHTML='<div class=avatar-lg>3</div>'"></a><div class="info"><div class="name">33酱</div><div class="desc">19.0W 粉丝 · 生活家居、家居氛围</div><div class="kv"><span>21-60s ¥11800</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAs8EG0jxJxZbudH79LebCIvTYr-LrDk_Mr-tq73fkE8A" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhuahst49K4_hybFvf785ZpHYYKIFgNEk-ZjAWAQI0ijw0skMlNAujRZqvqDOhaCX" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAhuahst49K4_hybFvf785ZpHYYKIFgNEk-ZjAWAQI0ijw0skMlNAujRZqvqDOhaCX.jpg" alt="苏苏的复古家" onerror="this.outerHTML='<div class=avatar-lg>苏</div>'"></a><div class="info"><div class="name">苏苏的复古家</div><div class="desc">4.6W 粉丝 · 生活家居、硬装</div><div class="kv"><span>21-60s ¥6800</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAhuahst49K4_hybFvf785ZpHYYKIFgNEk-ZjAWAQI0ijw0skMlNAujRZqvqDOhaCX" target="_blank" rel="noopener">查看详情</a></div>
