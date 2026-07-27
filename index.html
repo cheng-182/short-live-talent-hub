@@ -366,6 +366,20 @@
   .node-panel.active{display:block; animation:fade .35s ease}
 
   /* INDUSTRY - BEAUTY TABS (beauty panel) */
+  
+  /* --- IND-CAT tabs (generic, themed by parent .ind-panel) --- */
+  .ind-cat-tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px}
+  .ind-cat-tab{padding:8px 18px; border-radius:20px; border:1px solid var(--cat-border, #d1d5db); background:white; cursor:pointer; font-size:13px; font-weight:500; color:var(--ink-600); transition:all .2s ease}
+  .ind-cat-tab.active{background:var(--cat-color, #10b981); color:white; border-color:var(--cat-color, #10b981); box-shadow:0 4px 12px var(--cat-shadow, rgba(16,185,129,.3))}
+  .ind-cat-tab:hover:not(.active){background:var(--cat-bg, #f0fdf4); border-color:var(--cat-color, #10b981)}
+  .ind-cat-panel{display:none}
+  .ind-cat-panel.active{display:block}
+  .ind-cat-panel .node-summary .node-metric{display:flex; flex-direction:column}
+  .ind-cat-panel .node-summary .node-metric .val{font-size:13px !important; line-height:1.7 !important; font-weight:500 !important; letter-spacing:0 !important; color:var(--ink-700); max-width:none !important; white-space:normal !important; word-break:break-word}
+  .ind-panel[data-ind-panel="food"]{--cat-color:#f97316; --cat-bg:#fff7ed; --cat-border:#f9731633; --cat-shadow:rgba(249,115,22,.3)}
+  .ind-panel[data-ind-panel="mom"] {--cat-color:#ec4899; --cat-bg:#fdf2f8; --cat-border:#ec489933; --cat-shadow:rgba(236,72,153,.3)}
+  .ind-panel[data-ind-panel="edu"] {--cat-color:#3b82f6; --cat-bg:#eff6ff; --cat-border:#3b82f633; --cat-shadow:rgba(59,130,246,.3)}
+
   .ind-beauty-tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px}
   .ind-beauty-tab{padding:8px 18px; border-radius:20px; border:1px solid var(--emerald-200); background:white; cursor:pointer; font-size:13px; font-weight:500; color:var(--ink-600); transition:all .2s ease}
   .ind-beauty-tab.active{background:var(--emerald-600); color:white; border-color:var(--emerald-600); box-shadow:0 4px 12px rgba(16,185,129,.3)}
@@ -3079,21 +3093,22 @@ select {
         <div class="ind-section-title"><span class="ind-color-bar" style="background:#f97316"></span>🍜 食饮家居</div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #f97316; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">🍜 食饮家居 · 品类推荐：糕点／点心</h3>
+      <div class="ind-cat-tabs" data-cat-group="food">
+        <button class="ind-cat-tab active" data-cat="food-1">糕点／点心</button>
+        <button class="ind-cat-tab" data-cat="food-2">方便速食</button>
+        <button class="ind-cat-tab" data-cat="food-3">白酒</button>
+        <button class="ind-cat-tab" data-cat="food-4">海鲜水产制品</button>
+      </div>
+
+      <div class="ind-cat-panel active" data-panel="food-1">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【美食探店试吃】以特写拉丝和口感描述种草糕点零食，适配下午茶与零食冲动消费场景。以美食博主和爱吃分享型达人为核心，内容长期围绕下午茶、零食种草和试吃测评展开。达人善于用食物特写、拉丝镜头、口感声效和味觉描述激发食欲，决策轻、偏冲动型消费的粉丝画像天然适合糕点零食推广。商品以试吃测评、下午茶分享、零食开箱等方式自然露出，通过特写和口感表达强化购买冲动。优先关注历史商单带过糕点、零食、烘焙或地方特产的...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#fff7ed; color:#f97316; border:1px solid #f9731633">品类：糕点／点心</span>
-            <span class="tag" style="background:#fff7ed; color:#f97316; border:1px solid #f9731633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#fff7ed; border:1px dashed #f9731633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#f97316">品类简介 · </b>【美食探店试吃】以特写拉丝和口感描述种草糕点零食，适配下午茶与零食冲动消费场景。以美食博主和爱吃分享型达人为核心，内容长期围绕下午茶、零食种草和试吃测评展开。达人善于用食物特写、拉丝镜头、口感声效和味觉描述激发食欲，决策轻、偏冲动型消费的粉丝画像天然适合糕点零食推广。商品以试吃测评、下午茶分享、零食开箱等方式自然露出，通过特写和口感表达强化购买冲动。优先关注历史商单带过糕点、零食、烘焙或地方特产的...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAQM3TMuIIn3xpGqkuO03ty--p_uJYsIpsvZER4Q9yilSOGAaX4rGp8MJSZGGtDH7y" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAQM3TMuIIn3xpGqkuO03ty--p_uJYsIpsvZER4Q9yilSOGAaX4rGp8MJSZGGtDH7y.jpg" alt="胖妹〈阿苏〉" onerror="this.outerHTML='<div class=avatar-lg>胖</div>'"></a><div class="info"><div class="name">胖妹〈阿苏〉</div><div class="desc">203.6W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥10000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAQM3TMuIIn3xpGqkuO03ty--p_uJYsIpsvZER4Q9yilSOGAaX4rGp8MJSZGGtDH7y" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAQM3TMuIIn3xpGqkuO03ty--p_uJYsIpsvZER4Q9yilSOGAaX4rGp8MJSZGGtDH7y" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAQM3TMuIIn3xpGqkuO03ty--p_uJYsIpsvZER4Q9yilSOGAaX4rGp8MJSZGGtDH7y.jpg" alt="胖妹〈阿苏〉" onerror="this.outerHTML='<div class=avatar-lg>胖</div>'"></a><div class="info"><div class="name">胖妹〈阿苏〉</div><div class="desc">203.6W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥10000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAQM3TMuIIn3xpGqkuO03ty--p_uJYsIpsvZER4Q9yilSOGAaX4rGp8MJSZGGtDH7y" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA1TDvEO-Q4Sif4SiZBz0MyPreMad81y1yBXtgiHtfNR8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAA1TDvEO-Q4Sif4SiZBz0MyPreMad81y1yBXtgiHtfNR8.jpg" alt="叶大大" onerror="this.outerHTML='<div class=avatar-lg>叶</div>'"></a><div class="info"><div class="name">叶大大</div><div class="desc">317.9W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥42400</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA1TDvEO-Q4Sif4SiZBz0MyPreMad81y1yBXtgiHtfNR8" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA9Ke51RTB41RDZZJPMUDsgggR4ddojnUEd4Xgx1fxWD8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAA9Ke51RTB41RDZZJPMUDsgggR4ddojnUEd4Xgx1fxWD8.jpg" alt="头不大的菲恩" onerror="this.outerHTML='<div class=avatar-lg>头</div>'"></a><div class="info"><div class="name">头不大的菲恩</div><div class="desc">179.4W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥140000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA9Ke51RTB41RDZZJPMUDsgggR4ddojnUEd4Xgx1fxWD8" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAll0nOx_aoq3qFnP9lM1EmO8L4a92AdFhfSspoTxFHPL3IY0KZEOWPBekeGyyqxyk" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAll0nOx_aoq3qFnP9lM1EmO8L4a92AdFhfSspoTxFHPL3IY0KZEOWPBekeGyyqxyk.jpg" alt="畅姐饿了" onerror="this.outerHTML='<div class=avatar-lg>畅</div>'"></a><div class="info"><div class="name">畅姐饿了</div><div class="desc">143.0W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥24700</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAll0nOx_aoq3qFnP9lM1EmO8L4a92AdFhfSspoTxFHPL3IY0KZEOWPBekeGyyqxyk" target="_blank" rel="noopener">查看详情</a></div>
@@ -3108,21 +3123,15 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #f97316; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">🍜 食饮家居 · 品类推荐：方便速食</h3>
+      <div class="ind-cat-panel" data-panel="food-2">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【学生党宿舍】速食达人×囤货一人食场景，以宿舍/校园真实生活画面承接方便速食的便捷与性价比。以学生党人设为核心，达人长期在宿舍场景拍摄一人食、囤货开箱、速食测评类内容。商品以「回到宿舍几分钟搞定一顿」「期末囤货必备」等真实学生生活场景自然露出，突出方便速食操作简单、价格友好、分量适合一人食的特点。画面聚焦宿舍桌面、小功率电器加热、开箱堆满的囤货架，营造学生党真实亲切的生活感。基础要求：学生党/宿舍...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#fff7ed; color:#f97316; border:1px solid #f9731633">品类：方便速食</span>
-            <span class="tag" style="background:#fff7ed; color:#f97316; border:1px solid #f9731633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#fff7ed; border:1px dashed #f9731633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#f97316">品类简介 · </b>【学生党宿舍】速食达人×囤货一人食场景，以宿舍/校园真实生活画面承接方便速食的便捷与性价比。以学生党人设为核心，达人长期在宿舍场景拍摄一人食、囤货开箱、速食测评类内容。商品以「回到宿舍几分钟搞定一顿」「期末囤货必备」等真实学生生活场景自然露出，突出方便速食操作简单、价格友好、分量适合一人食的特点。画面聚焦宿舍桌面、小功率电器加热、开箱堆满的囤货架，营造学生党真实亲切的生活感。基础要求：学生党/宿舍...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAADUbKM0Aa1-AyC6ruXo5Hppbelvkz2DNi_X4ElCD8_gw" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAADUbKM0Aa1-AyC6ruXo5Hppbelvkz2DNi_X4ElCD8_gw.jpg" alt="三无测评" onerror="this.outerHTML='<div class=avatar-lg>三</div>'"></a><div class="info"><div class="name">三无测评</div><div class="desc">291.0W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥33000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAADUbKM0Aa1-AyC6ruXo5Hppbelvkz2DNi_X4ElCD8_gw" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAADUbKM0Aa1-AyC6ruXo5Hppbelvkz2DNi_X4ElCD8_gw" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAADUbKM0Aa1-AyC6ruXo5Hppbelvkz2DNi_X4ElCD8_gw.jpg" alt="三无测评" onerror="this.outerHTML='<div class=avatar-lg>三</div>'"></a><div class="info"><div class="name">三无测评</div><div class="desc">291.0W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥33000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAADUbKM0Aa1-AyC6ruXo5Hppbelvkz2DNi_X4ElCD8_gw" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA5v8HrZHqP-62wfkftOYSI6vMhSOUz_dZoqsrjzVC_G4" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAA5v8HrZHqP-62wfkftOYSI6vMhSOUz_dZoqsrjzVC_G4.jpg" alt="小Ray零食控" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a><div class="info"><div class="name">小Ray零食控</div><div class="desc">84.4W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥25000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA5v8HrZHqP-62wfkftOYSI6vMhSOUz_dZoqsrjzVC_G4" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6644320463218540551" target="_blank" rel="noopener"><div class="avatar-lg">信</div></a><div class="info"><div class="name">信口开饭</div><div class="desc">626.9W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥93000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6644320463218540551" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA9iN_N4lLpJ49HW0y8yhSqbRu4MCbKgnU8dI8Z_D9FIg" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAA9iN_N4lLpJ49HW0y8yhSqbRu4MCbKgnU8dI8Z_D9FIg.jpg" alt="海潮、测评" onerror="this.outerHTML='<div class=avatar-lg>海</div>'"></a><div class="info"><div class="name">海潮、测评</div><div class="desc">499.4W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥80000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA9iN_N4lLpJ49HW0y8yhSqbRu4MCbKgnU8dI8Z_D9FIg" target="_blank" rel="noopener">查看详情</a></div>
@@ -3137,21 +3146,15 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #f97316; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">🍜 食饮家居 · 品类推荐：白酒</h3>
+      <div class="ind-cat-panel" data-panel="food-3">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【品酒鉴酒】以白酒品鉴/香型口感解读为核心内容，承接酒水礼赠种草与专业背书。找长期做白酒/酒水品鉴内容的专业型达人，人设是「懂酒的品鉴博主」，内容以香型解读、口感对比、性价比推荐、选酒指南为主。商品以品鉴测评、送礼推荐清单、宴请选酒场景自然露出，围绕香型、口感、性价比与礼赠场景表达。达人能用自己的专业度给品牌背书，让用户觉得「他推荐的是靠谱的」。适合客单跨度大的酒水礼赠品类投放。基础要求：达人/内...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#fff7ed; color:#f97316; border:1px solid #f9731633">品类：白酒</span>
-            <span class="tag" style="background:#fff7ed; color:#f97316; border:1px solid #f9731633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#fff7ed; border:1px dashed #f9731633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#f97316">品类简介 · </b>【品酒鉴酒】以白酒品鉴/香型口感解读为核心内容，承接酒水礼赠种草与专业背书。找长期做白酒/酒水品鉴内容的专业型达人，人设是「懂酒的品鉴博主」，内容以香型解读、口感对比、性价比推荐、选酒指南为主。商品以品鉴测评、送礼推荐清单、宴请选酒场景自然露出，围绕香型、口感、性价比与礼赠场景表达。达人能用自己的专业度给品牌背书，让用户觉得「他推荐的是靠谱的」。适合客单跨度大的酒水礼赠品类投放。基础要求：达人/内...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAbmPi7D_jA3RTRXdvcraKs7o6R7iKW6L892ZB8iX91yUKv6hjhLPI_z8Hcr_1LPN_" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAbmPi7D_jA3RTRXdvcraKs7o6R7iKW6L892ZB8iX91yUKv6hjhLPI_z8Hcr_1LPN_.jpg" alt="一百八一杯" onerror="this.outerHTML='<div class=avatar-lg>一</div>'"></a><div class="info"><div class="name">一百八一杯</div><div class="desc">245.7W 粉丝 · 美食、酒类</div><div class="kv"><span>21-60s ¥120000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAbmPi7D_jA3RTRXdvcraKs7o6R7iKW6L892ZB8iX91yUKv6hjhLPI_z8Hcr_1LPN_" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAbmPi7D_jA3RTRXdvcraKs7o6R7iKW6L892ZB8iX91yUKv6hjhLPI_z8Hcr_1LPN_" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAbmPi7D_jA3RTRXdvcraKs7o6R7iKW6L892ZB8iX91yUKv6hjhLPI_z8Hcr_1LPN_.jpg" alt="一百八一杯" onerror="this.outerHTML='<div class=avatar-lg>一</div>'"></a><div class="info"><div class="name">一百八一杯</div><div class="desc">245.7W 粉丝 · 美食、酒类</div><div class="kv"><span>21-60s ¥120000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAbmPi7D_jA3RTRXdvcraKs7o6R7iKW6L892ZB8iX91yUKv6hjhLPI_z8Hcr_1LPN_" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAp-TfGvpKl0kFdgkM9G6d2MsugEzh0b2XZNO4LEBxzzcpSaN0q0hzH5p8apOfeGOK" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAp-TfGvpKl0kFdgkM9G6d2MsugEzh0b2XZNO4LEBxzzcpSaN0q0hzH5p8apOfeGOK.jpg" alt="一波说酒" onerror="this.outerHTML='<div class=avatar-lg>一</div>'"></a><div class="info"><div class="name">一波说酒</div><div class="desc">107.7W 粉丝 · 美食、酒类</div><div class="kv"><span>21-60s ¥150000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAp-TfGvpKl0kFdgkM9G6d2MsugEzh0b2XZNO4LEBxzzcpSaN0q0hzH5p8apOfeGOK" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAeg4rQYY4bYF0aRvunKWqy7L5JRkCQCQ_75DHEtIxJmWbHu_TGHbAfpKr8R22kWHM" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAeg4rQYY4bYF0aRvunKWqy7L5JRkCQCQ_75DHEtIxJmWbHu_TGHbAfpKr8R22kWHM.jpg" alt="闻酒都脸红" onerror="this.outerHTML='<div class=avatar-lg>闻</div>'"></a><div class="info"><div class="name">闻酒都脸红</div><div class="desc">25.5W 粉丝 · 美食、酒类</div><div class="kv"><span>21-60s ¥38000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAeg4rQYY4bYF0aRvunKWqy7L5JRkCQCQ_75DHEtIxJmWbHu_TGHbAfpKr8R22kWHM" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAf3nFuUfjci5NH_FpMofrWbFPBrJ4gOxjxAANyzySMkelF0an9BzolE-Npl4AS9Z3" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAf3nFuUfjci5NH_FpMofrWbFPBrJ4gOxjxAANyzySMkelF0an9BzolE-Npl4AS9Z3.jpg" alt="玩酒的超哥" onerror="this.outerHTML='<div class=avatar-lg>玩</div>'"></a><div class="info"><div class="name">玩酒的超哥</div><div class="desc">14.9W 粉丝 · 美食、酒类</div><div class="kv"><span>21-60s ¥12000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAf3nFuUfjci5NH_FpMofrWbFPBrJ4gOxjxAANyzySMkelF0an9BzolE-Npl4AS9Z3" target="_blank" rel="noopener">查看详情</a></div>
@@ -3166,21 +3169,15 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #f97316; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">🍜 食饮家居 · 品类推荐：海鲜水产制品</h3>
+      <div class="ind-cat-panel" data-panel="food-4">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【沿海本地美食博主】海鲜烹饪与产地溯源，用本地人视角展示食材新鲜度与烹饪成品，适配生鲜水产囤货与年节场景。以沿海本地美食博主或沿海地区生活达人为核心，达人本人具备海鲜烹饪能力和产地认知，内容长期围绕海鲜烹饪、产地探访、海鲜市场采买、囤货攻略展开。商品以烹饪过程自然露出，达人重点展示食材新鲜度（如活海鲜活力、冷冻解冻后口感对比）、烹饪成品卖相和实用囤货技巧，让家庭采购人群感受到「本地人推荐、品质靠谱...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#fff7ed; color:#f97316; border:1px solid #f9731633">品类：海鲜水产制品</span>
-            <span class="tag" style="background:#fff7ed; color:#f97316; border:1px solid #f9731633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#fff7ed; border:1px dashed #f9731633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#f97316">品类简介 · </b>【沿海本地美食博主】海鲜烹饪与产地溯源，用本地人视角展示食材新鲜度与烹饪成品，适配生鲜水产囤货与年节场景。以沿海本地美食博主或沿海地区生活达人为核心，达人本人具备海鲜烹饪能力和产地认知，内容长期围绕海鲜烹饪、产地探访、海鲜市场采买、囤货攻略展开。商品以烹饪过程自然露出，达人重点展示食材新鲜度（如活海鲜活力、冷冻解冻后口感对比）、烹饪成品卖相和实用囤货技巧，让家庭采购人群感受到「本地人推荐、品质靠谱...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6887049096855568391" target="_blank" rel="noopener"><div class="avatar-lg">嘉</div></a><div class="info"><div class="name">嘉之派</div><div class="desc">1973.7W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥50000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6887049096855568391" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6887049096855568391" target="_blank" rel="noopener"><div class="avatar-lg">嘉</div></a><div class="info"><div class="name">嘉之派</div><div class="desc">1973.7W 粉丝 · 美食、美食产品测评</div><div class="kv"><span>21-60s ¥50000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6887049096855568391" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6725820921971474445" target="_blank" rel="noopener"><div class="avatar-lg">稻</div></a><div class="info"><div class="name">稻草放毒</div><div class="desc">415.8W 粉丝 · 美食、美食探店</div><div class="kv"><span>21-60s ¥18000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6725820921971474445" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA6xkwJ_KoxE0dWT7UdID0QpSspzJFD3LrSnGmUfjODSUf_uyzSOyEclz6Elk6KL-r" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAA6xkwJ_KoxE0dWT7UdID0QpSspzJFD3LrSnGmUfjODSUf_uyzSOyEclz6Elk6KL-r.jpg" alt="海鲜老板娘" onerror="this.outerHTML='<div class=avatar-lg>海</div>'"></a><div class="info"><div class="name">海鲜老板娘</div><div class="desc">434.3W 粉丝 · 美食、美食教程</div><div class="kv"><span>21-60s ¥34000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA6xkwJ_KoxE0dWT7UdID0QpSspzJFD3LrSnGmUfjODSUf_uyzSOyEclz6Elk6KL-r" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAedINtgUfnZBaBV_UQogK-blY5LrIjaok_KLUNNWQtShR_qUPX2EQTDutwIIyZQyo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAedINtgUfnZBaBV_UQogK-blY5LrIjaok_KLUNNWQtShR_qUPX2EQTDutwIIyZQyo.jpg" alt="龙帅食堂" onerror="this.outerHTML='<div class=avatar-lg>龙</div>'"></a><div class="info"><div class="name">龙帅食堂</div><div class="desc">587.6W 粉丝 · 美食、美食教程</div><div class="kv"><span>21-60s ¥180000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAedINtgUfnZBaBV_UQogK-blY5LrIjaok_KLUNNWQtShR_qUPX2EQTDutwIIyZQyo" target="_blank" rel="noopener">查看详情</a></div>
@@ -3194,29 +3191,28 @@ select {
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAiORvdFwB0j9QVgd8gJ5XDn-7VwmvyzWaOMFf9zVytplOt92cv2FZ2vuTtVKm3EK0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAiORvdFwB0j9QVgd8gJ5XDn-7VwmvyzWaOMFf9zVytplOt92cv2FZ2vuTtVKm3EK0.jpg" alt="羽城海岛生活" onerror="this.outerHTML='<div class=avatar-lg>羽</div>'"></a><div class="info"><div class="name">羽城海岛生活</div><div class="desc">161.2W 粉丝 · 生活、生活记录、美食、美食其他</div><div class="kv"><span>21-60s ¥18700</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAiORvdFwB0j9QVgd8gJ5XDn-7VwmvyzWaOMFf9zVytplOt92cv2FZ2vuTtVKm3EK0" target="_blank" rel="noopener">查看详情</a></div>
         </div>
       </div>
-    </div>
-
-    <div class="ind-panel" data-ind-panel="mom">
+    </div><div class="ind-panel" data-ind-panel="mom">
       <div class="ind-section-header">
         <div class="ind-section-title"><span class="ind-color-bar" style="background:#ec4899"></span>👶 服饰健康母婴</div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #ec4899; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">👶 服饰健康母婴 · 品类推荐：婴童床品</h3>
+      <div class="ind-cat-tabs" data-cat-group="mom">
+        <button class="ind-cat-tab active" data-cat="mom-1">婴童床品</button>
+        <button class="ind-cat-tab" data-cat="mom-2">婴童洗护</button>
+        <button class="ind-cat-tab" data-cat="mom-3">婴童营养品</button>
+        <button class="ind-cat-tab" data-cat="mom-4">婴童服饰</button>
+      </div>
+
+      <div class="ind-cat-panel active" data-panel="mom-1">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【宝妈人设母婴】围绕宝宝睡眠与安全材质科普承接婴童床品寝具种草
+以真实宝妈/母婴博主为核心人设，账号有真实带娃场景和育儿日常出镜。内容围绕宝宝睡眠质量提升、婴儿房布置与安全环境打造、面料材质科普（A 类面料、安全环保标准）等方向展开，自然承接婴童床品/寝具的商品露出——可以是宝宝睡眠好物分享、婴儿房改造/布置记录、床品材质对比测评、安全标准科普等形式。商品以真实使用场景、材质安全背书和睡眠改善体验...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#fdf2f8; color:#ec4899; border:1px solid #ec489933">品类：婴童床品</span>
-            <span class="tag" style="background:#fdf2f8; color:#ec4899; border:1px solid #ec489933">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#fdf2f8; border:1px dashed #ec489933; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#ec4899">品类简介 · </b>【宝妈人设母婴】围绕宝宝睡眠与安全材质科普承接婴童床品寝具种草
-以真实宝妈/母婴博主为核心人设，账号有真实带娃场景和育儿日常出镜。内容围绕宝宝睡眠质量提升、婴儿房布置与安全环境打造、面料材质科普（A 类面料、安全环保标准）等方向展开，自然承接婴童床品/寝具的商品露出——可以是宝宝睡眠好物分享、婴儿房改造/布置记录、床品材质对比测评、安全标准科普等形式。商品以真实使用场景、材质安全背书和睡眠改善体验...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener"><div class="avatar-lg">常</div></a><div class="info"><div class="name">常姐育儿</div><div class="desc">76.6W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥13000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener"><div class="avatar-lg">常</div></a><div class="info"><div class="name">常姐育儿</div><div class="desc">76.6W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥13000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6629656872875982856" target="_blank" rel="noopener"><div class="avatar-lg">h</div></a><div class="info"><div class="name">honey清清（带娃版）</div><div class="desc">47.9W 粉丝 · 母婴亲子、育儿科普</div><div class="kv"><span>21-60s ¥19000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6629656872875982856" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAXN3SSnB8zj4_Vo8WLxHURaX4XHcOiJJHFdiM7apF_3k" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAXN3SSnB8zj4_Vo8WLxHURaX4XHcOiJJHFdiM7apF_3k.jpg" alt="瑞雪啊🔆暑假带娃ing…" onerror="this.outerHTML='<div class=avatar-lg>瑞</div>'"></a><div class="info"><div class="name">瑞雪啊🔆暑假带娃ing…</div><div class="desc">83.8W 粉丝 · 母婴亲子、亲子互动</div><div class="kv"><span>21-60s ¥88888</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAXN3SSnB8zj4_Vo8WLxHURaX4XHcOiJJHFdiM7apF_3k" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAxYJr2i7C50XPzC8NvLHq_ngfNscMF8NWsu5YLJ_kgTQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAxYJr2i7C50XPzC8NvLHq_ngfNscMF8NWsu5YLJ_kgTQ.jpg" alt="壮壮有个暖宝宝" onerror="this.outerHTML='<div class=avatar-lg>壮</div>'"></a><div class="info"><div class="name">壮壮有个暖宝宝</div><div class="desc">28.3W 粉丝 · 母婴亲子、亲子互动</div><div class="kv"><span>21-60s ¥60000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAxYJr2i7C50XPzC8NvLHq_ngfNscMF8NWsu5YLJ_kgTQ" target="_blank" rel="noopener">查看详情</a></div>
@@ -3231,22 +3227,16 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #ec4899; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">👶 服饰健康母婴 · 品类推荐：婴童洗护</h3>
+      <div class="ind-cat-panel" data-panel="mom-2">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【宝妈人设】以真实育儿护理演示和成分讲解承接婴童洗护/面霜/纸尿裤种草
+以真实宝妈人设的母婴亲子达人为核心，内容围绕宝宝洗澡、护肤、红屁屁与湿疹护理等日常场景展开。达人视频中常见宝宝护理实操演示，如洗澡步骤、面霜涂抹手法、红屁屁护理流程，同时具备成分讲解能力，能自然过渡到「温和无添加、敏感肌可用」的卖点表达。商品以日常护理场景自然露出，例如洗澡后涂面霜、换纸尿裤时护理红屁屁，让宝妈观众产生真实代入...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#fdf2f8; color:#ec4899; border:1px solid #ec489933">品类：婴童洗护</span>
-            <span class="tag" style="background:#fdf2f8; color:#ec4899; border:1px solid #ec489933">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#fdf2f8; border:1px dashed #ec489933; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#ec4899">品类简介 · </b>【宝妈人设】以真实育儿护理演示和成分讲解承接婴童洗护/面霜/纸尿裤种草
-以真实宝妈人设的母婴亲子达人为核心，内容围绕宝宝洗澡、护肤、红屁屁与湿疹护理等日常场景展开。达人视频中常见宝宝护理实操演示，如洗澡步骤、面霜涂抹手法、红屁屁护理流程，同时具备成分讲解能力，能自然过渡到「温和无添加、敏感肌可用」的卖点表达。商品以日常护理场景自然露出，例如洗澡后涂面霜、换纸尿裤时护理红屁屁，让宝妈观众产生真实代入...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener"><div class="avatar-lg">常</div></a><div class="info"><div class="name">常姐育儿</div><div class="desc">76.6W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥13000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener"><div class="avatar-lg">常</div></a><div class="info"><div class="name">常姐育儿</div><div class="desc">76.6W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥13000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAnjV2lFlQKufcpu-w2LL2fgzRyFxmTo0gU0cIpBU2GK7tkrpkt40V60M3qDodl25-" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAnjV2lFlQKufcpu-w2LL2fgzRyFxmTo0gU0cIpBU2GK7tkrpkt40V60M3qDodl25-.jpg" alt="萌姐带仨娃" onerror="this.outerHTML='<div class=avatar-lg>萌</div>'"></a><div class="info"><div class="name">萌姐带仨娃</div><div class="desc">160.6W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥24900</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAnjV2lFlQKufcpu-w2LL2fgzRyFxmTo0gU0cIpBU2GK7tkrpkt40V60M3qDodl25-" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdvBrQRkIWpurtBIakGRTHBwkdMWWreAEXrPXzzgPjAI" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAdvBrQRkIWpurtBIakGRTHBwkdMWWreAEXrPXzzgPjAI.jpg" alt="米芽养成记" onerror="this.outerHTML='<div class=avatar-lg>米</div>'"></a><div class="info"><div class="name">米芽养成记</div><div class="desc">46.5W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥12000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdvBrQRkIWpurtBIakGRTHBwkdMWWreAEXrPXzzgPjAI" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAXN3SSnB8zj4_Vo8WLxHURaX4XHcOiJJHFdiM7apF_3k" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAXN3SSnB8zj4_Vo8WLxHURaX4XHcOiJJHFdiM7apF_3k.jpg" alt="瑞雪啊🔆暑假带娃ing…" onerror="this.outerHTML='<div class=avatar-lg>瑞</div>'"></a><div class="info"><div class="name">瑞雪啊🔆暑假带娃ing…</div><div class="desc">83.8W 粉丝 · 母婴亲子、亲子互动</div><div class="kv"><span>21-60s ¥88888</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAXN3SSnB8zj4_Vo8WLxHURaX4XHcOiJJHFdiM7apF_3k" target="_blank" rel="noopener">查看详情</a></div>
@@ -3261,22 +3251,16 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #ec4899; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">👶 服饰健康母婴 · 品类推荐：婴童营养品</h3>
+      <div class="ind-cat-panel" data-panel="mom-3">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【营养师/儿科科普专业】短直达人，以专业身份和成分解读承接婴童营养品推广
+以持有营养师资格或儿科医学背景的专业型短直达人为核心，账号内容长期围绕婴幼儿营养科普、成分解读和科学喂养建议展开。达人以专业身份口播讲解补钙补铁、DHA、益生菌、辅食营养搭配等话题，商品以「专业推荐+成分解析+科学喂养方案」方式自然植入，围绕用户提供的核心卖点表达安全、科学、可信赖。粉丝对成分与资质敏感，达人专业背书能有效降...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#fdf2f8; color:#ec4899; border:1px solid #ec489933">品类：婴童营养品</span>
-            <span class="tag" style="background:#fdf2f8; color:#ec4899; border:1px solid #ec489933">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#fdf2f8; border:1px dashed #ec489933; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#ec4899">品类简介 · </b>【营养师/儿科科普专业】短直达人，以专业身份和成分解读承接婴童营养品推广
-以持有营养师资格或儿科医学背景的专业型短直达人为核心，账号内容长期围绕婴幼儿营养科普、成分解读和科学喂养建议展开。达人以专业身份口播讲解补钙补铁、DHA、益生菌、辅食营养搭配等话题，商品以「专业推荐+成分解析+科学喂养方案」方式自然植入，围绕用户提供的核心卖点表达安全、科学、可信赖。粉丝对成分与资质敏感，达人专业背书能有效降...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs.jpg" alt="爷爷来啦！程大夫谈育儿" onerror="this.outerHTML='<div class=avatar-lg>爷</div>'"></a><div class="info"><div class="name">爷爷来啦！程大夫谈育儿</div><div class="desc">402.1W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥75000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs.jpg" alt="爷爷来啦！程大夫谈育儿" onerror="this.outerHTML='<div class=avatar-lg>爷</div>'"></a><div class="info"><div class="name">爷爷来啦！程大夫谈育儿</div><div class="desc">402.1W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥75000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA_DU6x6Xd2DJxe58bryJuxH-k_nv1bV-RQnZ8tlWJcQ0envk6NPF9j0CRjZ2rrcJj" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAA_DU6x6Xd2DJxe58bryJuxH-k_nv1bV-RQnZ8tlWJcQ0envk6NPF9j0CRjZ2rrcJj.jpg" alt="郑奶奶科学育儿" onerror="this.outerHTML='<div class=avatar-lg>郑</div>'"></a><div class="info"><div class="name">郑奶奶科学育儿</div><div class="desc">363.4W 粉丝 · 母婴亲子、育儿科普</div><div class="kv"><span>21-60s ¥80000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA_DU6x6Xd2DJxe58bryJuxH-k_nv1bV-RQnZ8tlWJcQ0envk6NPF9j0CRjZ2rrcJj" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAbLWm9TVeD8oGTIdPGmKnfvkeaKvFamJipfaxYmCayBXYBMLz7Pzvc7wa1tB4LirE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAbLWm9TVeD8oGTIdPGmKnfvkeaKvFamJipfaxYmCayBXYBMLz7Pzvc7wa1tB4LirE.jpg" alt="儿科魏光宇" onerror="this.outerHTML='<div class=avatar-lg>儿</div>'"></a><div class="info"><div class="name">儿科魏光宇</div><div class="desc">181.5W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥60000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAbLWm9TVeD8oGTIdPGmKnfvkeaKvFamJipfaxYmCayBXYBMLz7Pzvc7wa1tB4LirE" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/1680362789019661" target="_blank" rel="noopener"><div class="avatar-lg">小</div></a><div class="info"><div class="name">小鱼聊母婴</div><div class="desc">45.0W 粉丝 · 母婴亲子、育儿科普</div><div class="kv"><span>21-60s ¥39200</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/1680362789019661" target="_blank" rel="noopener">查看详情</a></div>
@@ -3291,22 +3275,16 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #ec4899; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">👶 服饰健康母婴 · 品类推荐：婴童服饰</h3>
+      <div class="ind-cat-panel" data-panel="mom-4">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【宝妈穿搭】以亲子穿搭展示和面料安全种草承接童装/亲子装推广
+以爱分享的宝妈为核心人设，账号长期围绕宝宝穿搭、亲子装搭配和季节换装创作，宝宝稳定出镜并展示上身效果。达人善于用对比试穿、面料细节特写、日常穿搭记录等方式突出面料舒适度与安全性（A类面料、无甲醛），内容真实接地气，能自然承接童装、亲子装和母婴用品的种草推广。商品以宝宝试穿上身、亲子同框搭配、换季穿搭清单等方式自然露出，围绕面料安全、舒适...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#fdf2f8; color:#ec4899; border:1px solid #ec489933">品类：婴童服饰</span>
-            <span class="tag" style="background:#fdf2f8; color:#ec4899; border:1px solid #ec489933">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#fdf2f8; border:1px dashed #ec489933; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#ec4899">品类简介 · </b>【宝妈穿搭】以亲子穿搭展示和面料安全种草承接童装/亲子装推广
-以爱分享的宝妈为核心人设，账号长期围绕宝宝穿搭、亲子装搭配和季节换装创作，宝宝稳定出镜并展示上身效果。达人善于用对比试穿、面料细节特写、日常穿搭记录等方式突出面料舒适度与安全性（A类面料、无甲醛），内容真实接地气，能自然承接童装、亲子装和母婴用品的种草推广。商品以宝宝试穿上身、亲子同框搭配、换季穿搭清单等方式自然露出，围绕面料安全、舒适...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAGngCebfUezEYmFcU4s_jGnDZj4aDBbPOUet-vBczC1-kzQtlFpVtKOMHBJRYzICR" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAGngCebfUezEYmFcU4s_jGnDZj4aDBbPOUet-vBczC1-kzQtlFpVtKOMHBJRYzICR.jpg" alt="一只只只" onerror="this.outerHTML='<div class=avatar-lg>一</div>'"></a><div class="info"><div class="name">一只只只</div><div class="desc">130.0W 粉丝 · 母婴亲子、亲子互动</div><div class="kv"><span>21-60s ¥30000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAGngCebfUezEYmFcU4s_jGnDZj4aDBbPOUet-vBczC1-kzQtlFpVtKOMHBJRYzICR" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAGngCebfUezEYmFcU4s_jGnDZj4aDBbPOUet-vBczC1-kzQtlFpVtKOMHBJRYzICR" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAGngCebfUezEYmFcU4s_jGnDZj4aDBbPOUet-vBczC1-kzQtlFpVtKOMHBJRYzICR.jpg" alt="一只只只" onerror="this.outerHTML='<div class=avatar-lg>一</div>'"></a><div class="info"><div class="name">一只只只</div><div class="desc">130.0W 粉丝 · 母婴亲子、亲子互动</div><div class="kv"><span>21-60s ¥30000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAGngCebfUezEYmFcU4s_jGnDZj4aDBbPOUet-vBczC1-kzQtlFpVtKOMHBJRYzICR" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAxYJr2i7C50XPzC8NvLHq_ngfNscMF8NWsu5YLJ_kgTQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAxYJr2i7C50XPzC8NvLHq_ngfNscMF8NWsu5YLJ_kgTQ.jpg" alt="壮壮有个暖宝宝" onerror="this.outerHTML='<div class=avatar-lg>壮</div>'"></a><div class="info"><div class="name">壮壮有个暖宝宝</div><div class="desc">28.3W 粉丝 · 母婴亲子、亲子互动</div><div class="kv"><span>21-60s ¥60000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAxYJr2i7C50XPzC8NvLHq_ngfNscMF8NWsu5YLJ_kgTQ" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAvIcSlKaM3M4_ThYWH8ntagXjVkp1xA954zEJCmQjeKI" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAvIcSlKaM3M4_ThYWH8ntagXjVkp1xA954zEJCmQjeKI.jpg" alt="小阿森" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a><div class="info"><div class="name">小阿森</div><div class="desc">29.9W 粉丝 · 母婴亲子、亲子互动</div><div class="kv"><span>21-60s ¥30000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAvIcSlKaM3M4_ThYWH8ntagXjVkp1xA954zEJCmQjeKI" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA6BsvzbbqbDTQf7n00V98zDAJnQw0g7Hq4UjFg8-ddZA" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAA6BsvzbbqbDTQf7n00V98zDAJnQw0g7Hq4UjFg8-ddZA.jpg" alt="波波麻麻" onerror="this.outerHTML='<div class=avatar-lg>波</div>'"></a><div class="info"><div class="name">波波麻麻</div><div class="desc">175.1W 粉丝 · 母婴亲子、亲子互动</div><div class="kv"><span>21-60s ¥40000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA6BsvzbbqbDTQf7n00V98zDAJnQw0g7Hq4UjFg8-ddZA" target="_blank" rel="noopener">查看详情</a></div>
@@ -3320,29 +3298,32 @@ select {
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAM70YHroD38xspgZ9vJlBigGhDxIsO0v31N7wEOXNg-Y" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAM70YHroD38xspgZ9vJlBigGhDxIsO0v31N7wEOXNg-Y.jpg" alt="景涵KIWE" onerror="this.outerHTML='<div class=avatar-lg>景</div>'"></a><div class="info"><div class="name">景涵KIWE</div><div class="desc">115.5W 粉丝 · 母婴亲子、育儿科普</div><div class="kv"><span>21-60s ¥48000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAM70YHroD38xspgZ9vJlBigGhDxIsO0v31N7wEOXNg-Y" target="_blank" rel="noopener">查看详情</a></div>
         </div>
       </div>
-    </div>
-
-    <div class="ind-panel" data-ind-panel="edu">
+    </div><div class="ind-panel" data-ind-panel="edu">
       <div class="ind-section-header">
         <div class="ind-section-title"><span class="ind-color-bar" style="background:#3b82f6"></span>📚 教育</div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #3b82f6; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">📚 教育 · 品类推荐：电子教育及配件-学习机、教育伴学机</h3>
+      <div class="ind-cat-tabs" data-cat-group="edu">
+        <button class="ind-cat-tab active" data-cat="edu-1">电子教育及配件-学习机、教育伴学机</button>
+        <button class="ind-cat-tab" data-cat="edu-2">厨房电器-电饭煲</button>
+        <button class="ind-cat-tab" data-cat="edu-3">环境电器-空气净化器、空气消毒器</button>
+        <button class="ind-cat-tab" data-cat="edu-4">个护健康电器-按摩器、枕、坐垫、枪</button>
+        <button class="ind-cat-tab" data-cat="edu-5">个护健康电器-保健、保暖护具</button>
+        <button class="ind-cat-tab" data-cat="edu-6">个护健康电器-美容仪</button>
+        <button class="ind-cat-tab" data-cat="edu-7">婴童营养品</button>
+        <button class="ind-cat-tab" data-cat="edu-8">婴童洗护</button>
+      </div>
+
+      <div class="ind-cat-panel active" data-panel="edu-1">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【教育科普】以老师/教育专家人设承接学习习惯和辅导难题内容，自然植入K12教育产品功能演示
+以老师或教育专家人设的短直达人为核心，内容长期围绕孩子学习习惯养成、辅导难题解答、教育方法科普等场景展开。达人具备教育专业背书，粉丝以3-15岁家长为主。K12教育产品（学习机/点读笔/教辅/儿童数码）可自然植入为学习解决方案：护眼功能对应长时间学习场景、AI辅导对应家长辅导难题、资源同步对应校内学习进度。...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">品类：电子教育及配件-学习机、教育伴学机</span>
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#eff6ff; border:1px dashed #3b82f633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#3b82f6">品类简介 · </b>【教育科普】以老师/教育专家人设承接学习习惯和辅导难题内容，自然植入K12教育产品功能演示
-以老师或教育专家人设的短直达人为核心，内容长期围绕孩子学习习惯养成、辅导难题解答、教育方法科普等场景展开。达人具备教育专业背书，粉丝以3-15岁家长为主。K12教育产品（学习机/点读笔/教辅/儿童数码）可自然植入为学习解决方案：护眼功能对应长时间学习场景、AI辅导对应家长辅导难题、资源同步对应校内学习进度。...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7258823049934274620" target="_blank" rel="noopener"><div class="avatar-lg">东</div></a><div class="info"><div class="name">东方老师的日常</div><div class="desc">134.0W 粉丝 · 教育培训、考学培训</div><div class="kv"><span>21-60s ¥20000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7258823049934274620" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7258823049934274620" target="_blank" rel="noopener"><div class="avatar-lg">东</div></a><div class="info"><div class="name">东方老师的日常</div><div class="desc">134.0W 粉丝 · 教育培训、考学培训</div><div class="kv"><span>21-60s ¥20000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7258823049934274620" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAJ4eCtCz_2i0y4FquSAtBmQnMXO5sdeUf6UBcDe3RrL8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAJ4eCtCz_2i0y4FquSAtBmQnMXO5sdeUf6UBcDe3RrL8.jpg" alt="厉老师数学思维- 初中数学已上架" onerror="this.outerHTML='<div class=avatar-lg>厉</div>'"></a><div class="info"><div class="name">厉老师数学思维- 初中数学已上架</div><div class="desc">824.0W 粉丝 · 教育培训、考学培训</div><div class="kv"><span>21-60s ¥37800</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAJ4eCtCz_2i0y4FquSAtBmQnMXO5sdeUf6UBcDe3RrL8" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAN1NFMje7svmj_Is2M_pPnqY1--MtwYT8A8h9KYetQ7Y" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAN1NFMje7svmj_Is2M_pPnqY1--MtwYT8A8h9KYetQ7Y.jpg" alt="高 老大。" onerror="this.outerHTML='<div class=avatar-lg>高</div>'"></a><div class="info"><div class="name">高 老大。</div><div class="desc">209.2W 粉丝 · 教育培训、考学培训</div><div class="kv"><span>21-60s ¥68000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAN1NFMje7svmj_Is2M_pPnqY1--MtwYT8A8h9KYetQ7Y" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAZh0A4ou9L53Ra8yc7Zwv6BiTzXfNA9TPhcK88hsEnxOz_adpG5y1wrM9svf2Qew_" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAZh0A4ou9L53Ra8yc7Zwv6BiTzXfNA9TPhcK88hsEnxOz_adpG5y1wrM9svf2Qew_.jpg" alt="柳老师数学思维" onerror="this.outerHTML='<div class=avatar-lg>柳</div>'"></a><div class="info"><div class="name">柳老师数学思维</div><div class="desc">484.4W 粉丝 · 教育培训、考学培训</div><div class="kv"><span>21-60s ¥50500</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAZh0A4ou9L53Ra8yc7Zwv6BiTzXfNA9TPhcK88hsEnxOz_adpG5y1wrM9svf2Qew_" target="_blank" rel="noopener">查看详情</a></div>
@@ -3357,22 +3338,16 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #3b82f6; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">📚 教育 · 品类推荐：厨房电器-电饭煲</h3>
+      <div class="ind-cat-panel" data-panel="edu-2">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【美食烹饪】以家常菜做饭与厨房场景内容为主，自然植入厨房小家电煮饭效果与多功能烹饪**
+以美食烹饪达人为主，人设是「过日子的厨房达人」或家常菜博主，内容长期围绕做饭、家常菜教程和厨房场景展开。达人能在自家厨房真实演示煮饭效果（米饭香、口感好），并展示多功能烹饪场景如煮粥、蒸蛋糕等，突出易操作和出品效果。厨房小家电作为做饭过程中的自然工具出现，不需要刻意硬推，而是在「今天做一锅米饭搭配家常菜」「用多...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">品类：厨房电器-电饭煲</span>
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#eff6ff; border:1px dashed #3b82f633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#3b82f6">品类简介 · </b>【美食烹饪】以家常菜做饭与厨房场景内容为主，自然植入厨房小家电煮饭效果与多功能烹饪**
-以美食烹饪达人为主，人设是「过日子的厨房达人」或家常菜博主，内容长期围绕做饭、家常菜教程和厨房场景展开。达人能在自家厨房真实演示煮饭效果（米饭香、口感好），并展示多功能烹饪场景如煮粥、蒸蛋糕等，突出易操作和出品效果。厨房小家电作为做饭过程中的自然工具出现，不需要刻意硬推，而是在「今天做一锅米饭搭配家常菜」「用多...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAo7NmeASnqJVIKBHVwMhU3KXauubv7ZjmztfwTJSNkpKk55wtN9A5uZyBwve9MX_Z" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAo7NmeASnqJVIKBHVwMhU3KXauubv7ZjmztfwTJSNkpKk55wtN9A5uZyBwve9MX_Z.jpg" alt="吕天意_Ya" onerror="this.outerHTML='<div class=avatar-lg>吕</div>'"></a><div class="info"><div class="name">吕天意_Ya</div><div class="desc">73.5W 粉丝 · 生活、生活记录、美妆、护肤保养、美妆测评种草</div><div class="kv"><span>21-60s ¥32000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAo7NmeASnqJVIKBHVwMhU3KXauubv7ZjmztfwTJSNkpKk55wtN9A5uZyBwve9MX_Z" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAo7NmeASnqJVIKBHVwMhU3KXauubv7ZjmztfwTJSNkpKk55wtN9A5uZyBwve9MX_Z" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAo7NmeASnqJVIKBHVwMhU3KXauubv7ZjmztfwTJSNkpKk55wtN9A5uZyBwve9MX_Z.jpg" alt="吕天意_Ya" onerror="this.outerHTML='<div class=avatar-lg>吕</div>'"></a><div class="info"><div class="name">吕天意_Ya</div><div class="desc">73.5W 粉丝 · 生活、生活记录、美妆、护肤保养、美妆测评种草</div><div class="kv"><span>21-60s ¥32000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAo7NmeASnqJVIKBHVwMhU3KXauubv7ZjmztfwTJSNkpKk55wtN9A5uZyBwve9MX_Z" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6667758453907259399" target="_blank" rel="noopener"><div class="avatar-lg">白</div></a><div class="info"><div class="name">白水Family</div><div class="desc">155.4W 粉丝 · 测评、美妆测评、美妆、美妆测评种草</div><div class="kv"><span>21-60s ¥60000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6667758453907259399" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAWLHbqU7KtG8kiT02m4vuHXlacdUmb6lvLxtF95OfTQg" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAWLHbqU7KtG8kiT02m4vuHXlacdUmb6lvLxtF95OfTQg.jpg" alt="米多多营养师" onerror="this.outerHTML='<div class=avatar-lg>米</div>'"></a><div class="info"><div class="name">米多多营养师</div><div class="desc">89.2W 粉丝 · 其他、其他</div><div class="kv"><span>21-60s ¥20000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAWLHbqU7KtG8kiT02m4vuHXlacdUmb6lvLxtF95OfTQg" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA83TjEHxNnqpTuTsCHgIA8K_IhsFYWk7wmk3NH6UgvDE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAA83TjEHxNnqpTuTsCHgIA8K_IhsFYWk7wmk3NH6UgvDE.jpg" alt="赞爸赞妈-23号赞家面膜首发大场" onerror="this.outerHTML='<div class=avatar-lg>赞</div>'"></a><div class="info"><div class="name">赞爸赞妈-23号赞家面膜首发大场</div><div class="desc">65.1W 粉丝 · 母婴亲子、亲子互动</div><div class="kv"><span>21-60s ¥15000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA83TjEHxNnqpTuTsCHgIA8K_IhsFYWk7wmk3NH6UgvDE" target="_blank" rel="noopener">查看详情</a></div>
@@ -3387,22 +3362,16 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #3b82f6; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">📚 教育 · 品类推荐：环境电器-空气净化器、空气消毒器</h3>
+      <div class="ind-cat-panel" data-panel="edu-3">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【家居实测】博主×空气质检数据对比，用PM2.5/甲醛读数前后变化承接空气净化家电种草
+以家居博主为主力，账号长期围绕家居好物、生活品质、居家环境改善展开，具备数据实测能力——能用PM2.5、甲醛检测仪等工具做前后数值对比。内容场景聚焦室内空气质量、除甲醛、新房入住前检测，商品以空气净化器/除醛家电自然植入：先展示检测数据（甲醛超标/PM2.5偏高），再开机运行后复测数值下降，形成直观效果背书。粉...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">品类：环境电器-空气净化器、空气消毒器</span>
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#eff6ff; border:1px dashed #3b82f633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#3b82f6">品类简介 · </b>【家居实测】博主×空气质检数据对比，用PM2.5/甲醛读数前后变化承接空气净化家电种草
-以家居博主为主力，账号长期围绕家居好物、生活品质、居家环境改善展开，具备数据实测能力——能用PM2.5、甲醛检测仪等工具做前后数值对比。内容场景聚焦室内空气质量、除甲醛、新房入住前检测，商品以空气净化器/除醛家电自然植入：先展示检测数据（甲醛超标/PM2.5偏高），再开机运行后复测数值下降，形成直观效果背书。粉...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAANYN7oUSNcXzU4IkO9wewIyVf66q841v4sGws9milMmQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAANYN7oUSNcXzU4IkO9wewIyVf66q841v4sGws9milMmQ.jpg" alt="老陈懂家居(家研所)" onerror="this.outerHTML='<div class=avatar-lg>老</div>'"></a><div class="info"><div class="name">老陈懂家居(家研所)</div><div class="desc">78.1W 粉丝 · 生活家居、软装</div><div class="kv"><span>21-60s ¥26800</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAANYN7oUSNcXzU4IkO9wewIyVf66q841v4sGws9milMmQ" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAANYN7oUSNcXzU4IkO9wewIyVf66q841v4sGws9milMmQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAANYN7oUSNcXzU4IkO9wewIyVf66q841v4sGws9milMmQ.jpg" alt="老陈懂家居(家研所)" onerror="this.outerHTML='<div class=avatar-lg>老</div>'"></a><div class="info"><div class="name">老陈懂家居(家研所)</div><div class="desc">78.1W 粉丝 · 生活家居、软装</div><div class="kv"><span>21-60s ¥26800</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAANYN7oUSNcXzU4IkO9wewIyVf66q841v4sGws9milMmQ" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAkGfwkIdh6NqYjT4qGCLKlvEEoVjV8OyGQBrVrTRfXH8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAkGfwkIdh6NqYjT4qGCLKlvEEoVjV8OyGQBrVrTRfXH8.jpg" alt="得宝小队长" onerror="this.outerHTML='<div class=avatar-lg>得</div>'"></a><div class="info"><div class="name">得宝小队长</div><div class="desc">14.6W 粉丝 · 生活家居、生活技巧</div><div class="kv"><span>21-60s ¥17800</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAkGfwkIdh6NqYjT4qGCLKlvEEoVjV8OyGQBrVrTRfXH8" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7041117003335073799" target="_blank" rel="noopener"><div class="avatar-lg">肉</div></a><div class="info"><div class="name">肉丝</div><div class="desc">24.5W 粉丝 · 生活家居、生活技巧</div><div class="kv"><span>21-60s ¥16800</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7041117003335073799" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAsamwwqhT8uGLHqAfw8e0WrlpSES6WZ_w-uR7lfJ2fFU" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAsamwwqhT8uGLHqAfw8e0WrlpSES6WZ_w-uR7lfJ2fFU.jpg" alt="嘟嘟他小姨" onerror="this.outerHTML='<div class=avatar-lg>嘟</div>'"></a><div class="info"><div class="name">嘟嘟他小姨</div><div class="desc">10.9W 粉丝 · 生活家居、生活技巧</div><div class="kv"><span>21-60s ¥14500</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAsamwwqhT8uGLHqAfw8e0WrlpSES6WZ_w-uR7lfJ2fFU" target="_blank" rel="noopener">查看详情</a></div>
@@ -3417,22 +3386,16 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #3b82f6; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">📚 教育 · 品类推荐：个护健康电器-按摩器、枕、坐垫、枪</h3>
+      <div class="ind-cat-panel" data-panel="edu-4">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【久坐职场人】 颈肩腰腿酸痛缓解，以办公场景真实体验植入按摩器/颈椎枕
+以久坐办公的职场人为主轴，人设是每天面对电脑的白领/打工人，长期颈肩腰腿酸痛是日常痛点。内容围绕办公桌旁、午休、加班后等场景，达人亲身使用按摩器/颈椎枕，演示操作方式并表达即时舒适反馈，如「肩膀终于松了」「午休按一下太舒服」。商品以自用好物推荐方式自然出现，痛点先入后出，场景代入感强。粉丝以职场久坐人群为主，对酸痛缓解有同感。...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">品类：个护健康电器-按摩器、枕、坐垫、枪</span>
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#eff6ff; border:1px dashed #3b82f633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#3b82f6">品类简介 · </b>【久坐职场人】 颈肩腰腿酸痛缓解，以办公场景真实体验植入按摩器/颈椎枕
-以久坐办公的职场人为主轴，人设是每天面对电脑的白领/打工人，长期颈肩腰腿酸痛是日常痛点。内容围绕办公桌旁、午休、加班后等场景，达人亲身使用按摩器/颈椎枕，演示操作方式并表达即时舒适反馈，如「肩膀终于松了」「午休按一下太舒服」。商品以自用好物推荐方式自然出现，痛点先入后出，场景代入感强。粉丝以职场久坐人群为主，对酸痛缓解有同感。...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAS5jmBGo35BBAeOkJHmfw2jr8U0qKIxX83saxqQ3-vHd95Q6X25Pdy7MP1uFX74D0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAS5jmBGo35BBAeOkJHmfw2jr8U0qKIxX83saxqQ3-vHd95Q6X25Pdy7MP1uFX74D0.jpg" alt="Mooki 瑜伽" onerror="this.outerHTML='<div class=avatar-lg>M</div>'"></a><div class="info"><div class="name">Mooki 瑜伽</div><div class="desc">194.5W 粉丝 · 运动健身、健身</div><div class="kv"><span>21-60s ¥46900</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAS5jmBGo35BBAeOkJHmfw2jr8U0qKIxX83saxqQ3-vHd95Q6X25Pdy7MP1uFX74D0" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAS5jmBGo35BBAeOkJHmfw2jr8U0qKIxX83saxqQ3-vHd95Q6X25Pdy7MP1uFX74D0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAS5jmBGo35BBAeOkJHmfw2jr8U0qKIxX83saxqQ3-vHd95Q6X25Pdy7MP1uFX74D0.jpg" alt="Mooki 瑜伽" onerror="this.outerHTML='<div class=avatar-lg>M</div>'"></a><div class="info"><div class="name">Mooki 瑜伽</div><div class="desc">194.5W 粉丝 · 运动健身、健身</div><div class="kv"><span>21-60s ¥46900</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAS5jmBGo35BBAeOkJHmfw2jr8U0qKIxX83saxqQ3-vHd95Q6X25Pdy7MP1uFX74D0" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAUYgHbG_dMPDW1TWpkczinbdwUXcekqezjEUvKPFjfQY" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAUYgHbG_dMPDW1TWpkczinbdwUXcekqezjEUvKPFjfQY.jpg" alt="张元一" onerror="this.outerHTML='<div class=avatar-lg>张</div>'"></a><div class="info"><div class="name">张元一</div><div class="desc">179.4W 粉丝 · 时尚、穿搭、美妆、美妆测评种草、颜值达人、美女</div><div class="kv"><span>21-60s ¥42000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAUYgHbG_dMPDW1TWpkczinbdwUXcekqezjEUvKPFjfQY" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA6msWouSIw1jGxqYpSS0ahd-JHUDjcyXiksMSMfwv1zc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAA6msWouSIw1jGxqYpSS0ahd-JHUDjcyXiksMSMfwv1zc.jpg" alt="乐维Ava" onerror="this.outerHTML='<div class=avatar-lg>乐</div>'"></a><div class="info"><div class="name">乐维Ava</div><div class="desc">57.7W 粉丝 · 剧情搞笑、剧情</div><div class="kv"><span>21-60s ¥12000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA6msWouSIw1jGxqYpSS0ahd-JHUDjcyXiksMSMfwv1zc" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAX6CtDBaJENmTRexZnTco9PoEYGjMAnsxlXStjuAVt14" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAX6CtDBaJENmTRexZnTco9PoEYGjMAnsxlXStjuAVt14.jpg" alt="凝云" onerror="this.outerHTML='<div class=avatar-lg>凝</div>'"></a><div class="info"><div class="name">凝云</div><div class="desc">40.9W 粉丝 · 随拍、随拍</div><div class="kv"><span>21-60s ¥12000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAX6CtDBaJENmTRexZnTco9PoEYGjMAnsxlXStjuAVt14" target="_blank" rel="noopener">查看详情</a></div>
@@ -3447,24 +3410,18 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #3b82f6; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">📚 教育 · 品类推荐：个护健康电器-保健、保暖护具</h3>
-          </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">品类：个护健康电器-保健、保暖护具</span>
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#eff6ff; border:1px dashed #3b82f633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#3b82f6">品类简介 · </b>【运动/康复博主】 运动防护与关节保护，以专业训练和防护科普承接护腰护膝的支撑效果
+      <div class="ind-cat-panel" data-panel="edu-5">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【运动/康复博主】 运动防护与关节保护，以专业训练和防护科普承接护腰护膝的支撑效果
 以运动健身或康复训练背景的短直达人为主，人设是「专业运动防护者/康复教练」。内容围绕运动损伤预防、关节保护训练、运动前后热身拉伸等场景，护具以运动场景刚需品方式出现——跑步护膝、深蹲护腰、运动后关节保暖。重点展示护具的支撑性、包裹感和运动中的实际保护效果，适合运动人群和有运动损伤关注的粉丝。
 
-【养生达人】关节保暖...
+【养生达人】关节保暖...</div>
+          </div>
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhVCMU-mUhDIVUWGUMzqmc6GJIgQyM0IMX8bjuImUqJl9h_SXx962d6En8O6_0uEv" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAhVCMU-mUhDIVUWGUMzqmc6GJIgQyM0IMX8bjuImUqJl9h_SXx962d6En8O6_0uEv.jpg" alt="猪妮生活记" onerror="this.outerHTML='<div class=avatar-lg>猪</div>'"></a><div class="info"><div class="name">猪妮生活记</div><div class="desc">112.3W 粉丝 · 生活家居、生活技巧</div><div class="kv"><span>21-60s ¥36000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAhVCMU-mUhDIVUWGUMzqmc6GJIgQyM0IMX8bjuImUqJl9h_SXx962d6En8O6_0uEv" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhVCMU-mUhDIVUWGUMzqmc6GJIgQyM0IMX8bjuImUqJl9h_SXx962d6En8O6_0uEv" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAhVCMU-mUhDIVUWGUMzqmc6GJIgQyM0IMX8bjuImUqJl9h_SXx962d6En8O6_0uEv.jpg" alt="猪妮生活记" onerror="this.outerHTML='<div class=avatar-lg>猪</div>'"></a><div class="info"><div class="name">猪妮生活记</div><div class="desc">112.3W 粉丝 · 生活家居、生活技巧</div><div class="kv"><span>21-60s ¥36000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAhVCMU-mUhDIVUWGUMzqmc6GJIgQyM0IMX8bjuImUqJl9h_SXx962d6En8O6_0uEv" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAHSU1pkG_vVbux54M0Lcn4F3OWW2zNlFM7B5N7UtWd9QgHUT5m0SMBDIurPmI0pSP" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAHSU1pkG_vVbux54M0Lcn4F3OWW2zNlFM7B5N7UtWd9QgHUT5m0SMBDIurPmI0pSP.jpg" alt="三问学姐" onerror="this.outerHTML='<div class=avatar-lg>三</div>'"></a><div class="info"><div class="name">三问学姐</div><div class="desc">230.2W 粉丝 · 生活家居、生活技巧</div><div class="kv"><span>21-60s ¥28000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAHSU1pkG_vVbux54M0Lcn4F3OWW2zNlFM7B5N7UtWd9QgHUT5m0SMBDIurPmI0pSP" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAuv0YSpZDQV6CdHs8HHmu-Hwb5u2SftqOUCErbleIpRPqoce2g0KV_1hDcOtCY1qr" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAuv0YSpZDQV6CdHs8HHmu-Hwb5u2SftqOUCErbleIpRPqoce2g0KV_1hDcOtCY1qr.jpg" alt="秋天不爱家" onerror="this.outerHTML='<div class=avatar-lg>秋</div>'"></a><div class="info"><div class="name">秋天不爱家</div><div class="desc">55.4W 粉丝 · 生活家居、硬装、软装、生活技巧</div><div class="kv"><span>21-60s ¥19800</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAuv0YSpZDQV6CdHs8HHmu-Hwb5u2SftqOUCErbleIpRPqoce2g0KV_1hDcOtCY1qr" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAd2PCHGgk-OFBtdt3uaaTxqEPq2bEu1B-ofEojbNPTOOjIXCDtmKK8FwTCEXH9nM2" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAd2PCHGgk-OFBtdt3uaaTxqEPq2bEu1B-ofEojbNPTOOjIXCDtmKK8FwTCEXH9nM2.jpg" alt="佐佐麻麻" onerror="this.outerHTML='<div class=avatar-lg>佐</div>'"></a><div class="info"><div class="name">佐佐麻麻</div><div class="desc">34.9W 粉丝 · 生活家居、生活技巧</div><div class="kv"><span>21-60s ¥11400</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAd2PCHGgk-OFBtdt3uaaTxqEPq2bEu1B-ofEojbNPTOOjIXCDtmKK8FwTCEXH9nM2" target="_blank" rel="noopener">查看详情</a></div>
@@ -3479,22 +3436,16 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #3b82f6; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">📚 教育 · 品类推荐：个护健康电器-美容仪</h3>
+      <div class="ind-cat-panel" data-panel="edu-6">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【科技护肤测评】以家用美容仪深度测评与紧致对比实验承接高客单抗老产品**
+找长期做美容仪、射频仪、微电流仪等家用仪器测评的短直达人，内容有参数解读、上脸实测、紧致对比和不同仪器横评，具备科技护肤专业度和实验感。商品以真实测评场景植入：开箱实测、使用前后对比拍摄、不同档位/模式体验反馈，围绕用户已提供的核心卖点表达「科技抗老、有效紧致、高客单值得投资」。粉丝为25岁以上有抗老需求且消费力强的女性，达...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">品类：个护健康电器-美容仪</span>
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#eff6ff; border:1px dashed #3b82f633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#3b82f6">品类简介 · </b>【科技护肤测评】以家用美容仪深度测评与紧致对比实验承接高客单抗老产品**
-找长期做美容仪、射频仪、微电流仪等家用仪器测评的短直达人，内容有参数解读、上脸实测、紧致对比和不同仪器横评，具备科技护肤专业度和实验感。商品以真实测评场景植入：开箱实测、使用前后对比拍摄、不同档位/模式体验反馈，围绕用户已提供的核心卖点表达「科技抗老、有效紧致、高客单值得投资」。粉丝为25岁以上有抗老需求且消费力强的女性，达...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAROul_9rBj8hSqBALu4fjvJ73Xg4HDyaZtazHJq7SHNo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAROul_9rBj8hSqBALu4fjvJ73Xg4HDyaZtazHJq7SHNo.jpg" alt="枫子-爱生活" onerror="this.outerHTML='<div class=avatar-lg>枫</div>'"></a><div class="info"><div class="name">枫子-爱生活</div><div class="desc">120.5W 粉丝 · 其他、其他</div><div class="kv"><span>21-60s ¥11000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAROul_9rBj8hSqBALu4fjvJ73Xg4HDyaZtazHJq7SHNo" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAROul_9rBj8hSqBALu4fjvJ73Xg4HDyaZtazHJq7SHNo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAROul_9rBj8hSqBALu4fjvJ73Xg4HDyaZtazHJq7SHNo.jpg" alt="枫子-爱生活" onerror="this.outerHTML='<div class=avatar-lg>枫</div>'"></a><div class="info"><div class="name">枫子-爱生活</div><div class="desc">120.5W 粉丝 · 其他、其他</div><div class="kv"><span>21-60s ¥11000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAROul_9rBj8hSqBALu4fjvJ73Xg4HDyaZtazHJq7SHNo" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6702637649301078024" target="_blank" rel="noopener"><div class="avatar-lg">大</div></a><div class="info"><div class="name">大西米君</div><div class="desc">226.7W 粉丝 · 时尚、穿搭</div><div class="kv"><span>21-60s ¥50000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6702637649301078024" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAU2PasfxQETkAdKEMhCPbvF4803C8NIuD-GhufdPbyoA" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAU2PasfxQETkAdKEMhCPbvF4803C8NIuD-GhufdPbyoA.jpg" alt="静静慧呼吸工作室" onerror="this.outerHTML='<div class=avatar-lg>静</div>'"></a><div class="info"><div class="name">静静慧呼吸工作室</div><div class="desc">27.7W 粉丝 · 其他、其他</div><div class="kv"><span>21-60s ¥25000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAU2PasfxQETkAdKEMhCPbvF4803C8NIuD-GhufdPbyoA" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhFOqX7X1sOizh8pCXNRDnxRENkjxOgg3xTaw3EBP7Rs" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAhFOqX7X1sOizh8pCXNRDnxRENkjxOgg3xTaw3EBP7Rs.jpg" alt="养生老九" onerror="this.outerHTML='<div class=avatar-lg>养</div>'"></a><div class="info"><div class="name">养生老九</div><div class="desc">122.8W 粉丝 · 情感、情感</div><div class="kv"><span>21-60s ¥15000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAhFOqX7X1sOizh8pCXNRDnxRENkjxOgg3xTaw3EBP7Rs" target="_blank" rel="noopener">查看详情</a></div>
@@ -3509,22 +3460,16 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #3b82f6; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">📚 教育 · 品类推荐：婴童营养品</h3>
+      <div class="ind-cat-panel" data-panel="edu-7">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【营养师/儿科科普专业】短直达人，以专业身份和成分解读承接婴童营养品推广
+以持有营养师资格或儿科医学背景的专业型短直达人为核心，账号内容长期围绕婴幼儿营养科普、成分解读和科学喂养建议展开。达人以专业身份口播讲解补钙补铁、DHA、益生菌、辅食营养搭配等话题，商品以「专业推荐+成分解析+科学喂养方案」方式自然植入，围绕用户提供的核心卖点表达安全、科学、可信赖。粉丝对成分与资质敏感，达人专业背书能有效降...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">品类：婴童营养品</span>
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#eff6ff; border:1px dashed #3b82f633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#3b82f6">品类简介 · </b>【营养师/儿科科普专业】短直达人，以专业身份和成分解读承接婴童营养品推广
-以持有营养师资格或儿科医学背景的专业型短直达人为核心，账号内容长期围绕婴幼儿营养科普、成分解读和科学喂养建议展开。达人以专业身份口播讲解补钙补铁、DHA、益生菌、辅食营养搭配等话题，商品以「专业推荐+成分解析+科学喂养方案」方式自然植入，围绕用户提供的核心卖点表达安全、科学、可信赖。粉丝对成分与资质敏感，达人专业背书能有效降...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs.jpg" alt="爷爷来啦！程大夫谈育儿" onerror="this.outerHTML='<div class=avatar-lg>爷</div>'"></a><div class="info"><div class="name">爷爷来啦！程大夫谈育儿</div><div class="desc">402.1W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥75000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs.jpg" alt="爷爷来啦！程大夫谈育儿" onerror="this.outerHTML='<div class=avatar-lg>爷</div>'"></a><div class="info"><div class="name">爷爷来啦！程大夫谈育儿</div><div class="desc">402.1W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥75000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAi7LYCS11_9nvH-8F8YU4fRU9xLb1_HaycLQx_r2TtMs" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA_DU6x6Xd2DJxe58bryJuxH-k_nv1bV-RQnZ8tlWJcQ0envk6NPF9j0CRjZ2rrcJj" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAA_DU6x6Xd2DJxe58bryJuxH-k_nv1bV-RQnZ8tlWJcQ0envk6NPF9j0CRjZ2rrcJj.jpg" alt="郑奶奶科学育儿" onerror="this.outerHTML='<div class=avatar-lg>郑</div>'"></a><div class="info"><div class="name">郑奶奶科学育儿</div><div class="desc">363.4W 粉丝 · 母婴亲子、育儿科普</div><div class="kv"><span>21-60s ¥80000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA_DU6x6Xd2DJxe58bryJuxH-k_nv1bV-RQnZ8tlWJcQ0envk6NPF9j0CRjZ2rrcJj" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAbLWm9TVeD8oGTIdPGmKnfvkeaKvFamJipfaxYmCayBXYBMLz7Pzvc7wa1tB4LirE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAbLWm9TVeD8oGTIdPGmKnfvkeaKvFamJipfaxYmCayBXYBMLz7Pzvc7wa1tB4LirE.jpg" alt="儿科魏光宇" onerror="this.outerHTML='<div class=avatar-lg>儿</div>'"></a><div class="info"><div class="name">儿科魏光宇</div><div class="desc">181.5W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥60000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAbLWm9TVeD8oGTIdPGmKnfvkeaKvFamJipfaxYmCayBXYBMLz7Pzvc7wa1tB4LirE" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/1680362789019661" target="_blank" rel="noopener"><div class="avatar-lg">小</div></a><div class="info"><div class="name">小鱼聊母婴</div><div class="desc">45.0W 粉丝 · 母婴亲子、育儿科普</div><div class="kv"><span>21-60s ¥39200</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/1680362789019661" target="_blank" rel="noopener">查看详情</a></div>
@@ -3539,22 +3484,16 @@ select {
         </div>
       </div>
 
-      <div class="feat-card" style="border-top:4px solid #3b82f6; margin-bottom:24px">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:14px">
-          <div>
-            <h3 style="margin:0 0 6px 0">📚 教育 · 品类推荐：婴童洗护</h3>
+      <div class="ind-cat-panel" data-panel="edu-8">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【宝妈人设】以真实育儿护理演示和成分讲解承接婴童洗护/面霜/纸尿裤种草
+以真实宝妈人设的母婴亲子达人为核心，内容围绕宝宝洗澡、护肤、红屁屁与湿疹护理等日常场景展开。达人视频中常见宝宝护理实操演示，如洗澡步骤、面霜涂抹手法、红屁屁护理流程，同时具备成分讲解能力，能自然过渡到「温和无添加、敏感肌可用」的卖点表达。商品以日常护理场景自然露出，例如洗澡后涂面霜、换纸尿裤时护理红屁屁，让宝妈观众产生真实代入...</div>
           </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap">
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">品类：婴童洗护</span>
-            <span class="tag" style="background:#eff6ff; color:#3b82f6; border:1px solid #3b82f633">Top 12 达人</span>
-          </div>
-        </div>
-        <div style="background:#eff6ff; border:1px dashed #3b82f633; border-radius:12px; padding:12px 14px; margin-bottom:16px; font-size:12px; color:var(--ink-700); line-height:1.7">
-          <b style="color:#3b82f6">品类简介 · </b>【宝妈人设】以真实育儿护理演示和成分讲解承接婴童洗护/面霜/纸尿裤种草
-以真实宝妈人设的母婴亲子达人为核心，内容围绕宝宝洗澡、护肤、红屁屁与湿疹护理等日常场景展开。达人视频中常见宝宝护理实操演示，如洗澡步骤、面霜涂抹手法、红屁屁护理流程，同时具备成分讲解能力，能自然过渡到「温和无添加、敏感肌可用」的卖点表达。商品以日常护理场景自然露出，例如洗澡后涂面霜、换纸尿裤时护理红屁屁，让宝妈观众产生真实代入...
         </div>
         <div class="ind-talent-grid">
-            <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener"><div class="avatar-lg">常</div></a><div class="info"><div class="name">常姐育儿</div><div class="desc">76.6W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥13000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener">查看详情</a></div>
+<div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener"><div class="avatar-lg">常</div></a><div class="info"><div class="name">常姐育儿</div><div class="desc">76.6W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥13000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7245184132039491640" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAnjV2lFlQKufcpu-w2LL2fgzRyFxmTo0gU0cIpBU2GK7tkrpkt40V60M3qDodl25-" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAnjV2lFlQKufcpu-w2LL2fgzRyFxmTo0gU0cIpBU2GK7tkrpkt40V60M3qDodl25-.jpg" alt="萌姐带仨娃" onerror="this.outerHTML='<div class=avatar-lg>萌</div>'"></a><div class="info"><div class="name">萌姐带仨娃</div><div class="desc">160.6W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥24900</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAnjV2lFlQKufcpu-w2LL2fgzRyFxmTo0gU0cIpBU2GK7tkrpkt40V60M3qDodl25-" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdvBrQRkIWpurtBIakGRTHBwkdMWWreAEXrPXzzgPjAI" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAdvBrQRkIWpurtBIakGRTHBwkdMWWreAEXrPXzzgPjAI.jpg" alt="米芽养成记" onerror="this.outerHTML='<div class=avatar-lg>米</div>'"></a><div class="info"><div class="name">米芽养成记</div><div class="desc">46.5W 粉丝 · 母婴亲子、萌娃日常</div><div class="kv"><span>21-60s ¥12000</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdvBrQRkIWpurtBIakGRTHBwkdMWWreAEXrPXzzgPjAI" target="_blank" rel="noopener">查看详情</a></div>
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAXN3SSnB8zj4_Vo8WLxHURaX4XHcOiJJHFdiM7apF_3k" target="_blank" rel="noopener"><img class="avatar-lg-img" src="avatars/sec_MS4wLjABAAAAXN3SSnB8zj4_Vo8WLxHURaX4XHcOiJJHFdiM7apF_3k.jpg" alt="瑞雪啊🔆暑假带娃ing…" onerror="this.outerHTML='<div class=avatar-lg>瑞</div>'"></a><div class="info"><div class="name">瑞雪啊🔆暑假带娃ing…</div><div class="desc">83.8W 粉丝 · 母婴亲子、亲子互动</div><div class="kv"><span>21-60s ¥88888</span></div></div><a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAXN3SSnB8zj4_Vo8WLxHURaX4XHcOiJJHFdiM7apF_3k" target="_blank" rel="noopener">查看详情</a></div>
@@ -3568,7 +3507,7 @@ select {
             <div class="talent-card ind-card"><a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6629659088030531592" target="_blank" rel="noopener"><div class="avatar-lg">K</div></a><div class="info"><div class="name">K拉蕾（育儿版）</div><div class="desc">34.8W 粉丝 · 母婴亲子、亲子互动</div><div class="kv"><span>21-60s ¥18000</span></div></div><a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6629659088030531592" target="_blank" rel="noopener">查看详情</a></div>
         </div>
       </div>
-    </div>
+    </div></div>
 
   </div>
 </section>
@@ -3766,6 +3705,20 @@ select {
   });
 
   // (按需求 2026-07-24：头像/查看详情按钮跳转到「主页链接和对接销售查询」表格中的达人主页链接，不再统一跳转「抖音精选」)
+
+
+  // ind-cat generic tab handler
+  document.querySelectorAll('.ind-cat-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const scope = btn.closest('.ind-panel');
+      if(!scope) return;
+      scope.querySelectorAll(':scope > .ind-cat-tabs .ind-cat-tab').forEach(b => b.classList.remove('active'));
+      scope.querySelectorAll(':scope > .ind-cat-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const target = scope.querySelector(':scope > .ind-cat-panel[data-panel="' + btn.dataset.cat + '"]');
+      if(target) target.classList.add('active');
+    });
+  });
 
   // Beauty tabs
   document.querySelectorAll('.ind-beauty-tab').forEach(btn => {
