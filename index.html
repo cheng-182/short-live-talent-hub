@@ -425,6 +425,10 @@
   .ind-beauty-tab:hover:not(.active){background:var(--emerald-50); border-color:var(--emerald-300)}
   .ind-beauty-panel{display:none}
   .ind-beauty-panel.active{display:block}
+  /* Beauty tab node-summary: 2 metrics (品类方向 + 推荐策略), align tops & unify style */
+  .ind-beauty-panel .node-summary{ grid-template-columns: minmax(200px, 260px) 1fr !important; align-items:stretch }
+  .ind-beauty-panel .node-summary .node-metric{ display:flex; flex-direction:column }
+  .ind-beauty-panel .node-summary .node-metric .val{ font-size:14px !important; line-height:1.7 !important; font-weight:600 !important; letter-spacing:0 !important; color:var(--emerald-800); max-width:none !important; white-space:normal !important; word-break:break-word }
 
 
   /* Industry Section - Talent Card Layout Fix */
