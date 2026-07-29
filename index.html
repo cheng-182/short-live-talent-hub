@@ -76,15 +76,66 @@
   .nav-link:hover{background:var(--emerald-50); color:var(--emerald-700)}
   .nav-link.active{background:var(--emerald-100); color:var(--emerald-800); font-weight:600}
   .nav-search{
+    position:relative;
     display:flex; align-items:center; gap:8px;
     padding:8px 12px; border-radius:10px;
     background:var(--emerald-50); border:1px solid rgba(16,185,129,.15);
-    color:var(--ink-400); font-size:13px; min-width:220px;
+    color:var(--ink-400); font-size:13px; min-width:260px;
+    transition:border-color .15s, box-shadow .15s;
   }
+  .nav-search:focus-within{
+    border-color:rgba(16,185,129,.55);
+    box-shadow:0 0 0 3px rgba(16,185,129,.15);
+    background:#fff;
+  }
+  .nav-search input{
+    flex:1; border:none; outline:none; background:transparent;
+    color:var(--ink-800); font-size:13px; min-width:0;
+  }
+  .nav-search input::placeholder{color:var(--ink-400)}
   .kbd{
     padding:2px 6px; border-radius:5px; background:white; border:1px solid rgba(16,185,129,.25);
     font-size:11px; color:var(--ink-400);
   }
+  .search-results{
+    position:absolute; top:calc(100% + 8px); left:0; right:0;
+    max-height:420px; overflow-y:auto;
+    background:#fff; border:1px solid rgba(16,185,129,.2);
+    border-radius:12px; box-shadow:0 12px 32px -8px rgba(6,95,70,.18), 0 4px 12px rgba(0,0,0,.05);
+    z-index:200; display:none;
+  }
+  .search-results.show{display:block}
+  .search-item{
+    display:flex; align-items:center; gap:10px;
+    padding:9px 12px; cursor:pointer; border-bottom:1px solid rgba(16,185,129,.06);
+    transition:background .12s;
+  }
+  .search-item:last-child{border-bottom:none}
+  .search-item:hover, .search-item.active{background:var(--emerald-50)}
+  .search-item .si-icon{
+    flex:0 0 28px; width:28px; height:28px; border-radius:8px;
+    background:var(--emerald-100); color:var(--emerald-700);
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700;
+  }
+  .search-item .si-main{flex:1; min-width:0}
+  .search-item .si-name{
+    font-size:13px; font-weight:600; color:var(--ink-800);
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .search-item .si-meta{
+    font-size:11px; color:var(--ink-400); margin-top:2px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .search-item mark{background:#fef3c7; color:#92400e; padding:0 2px; border-radius:2px}
+  .search-empty{padding:20px; text-align:center; color:var(--ink-400); font-size:13px}
+  .search-hint{padding:8px 12px; font-size:11px; color:var(--ink-400); border-bottom:1px solid rgba(16,185,129,.08)}
+  @keyframes cardFlash{
+    0%{box-shadow:0 0 0 0 rgba(16,185,129,0), 0 4px 24px -8px rgba(6,95,70,.12)}
+    30%{box-shadow:0 0 0 4px rgba(16,185,129,.5), 0 8px 32px -6px rgba(16,185,129,.35)}
+    100%{box-shadow:0 0 0 0 rgba(16,185,129,0), 0 4px 24px -8px rgba(6,95,70,.12)}
+  }
+  .card-flash{animation:cardFlash 1.8s ease-out; border-color:rgba(16,185,129,.55) !important}
   /* CONTAINER */
   .container{max-width:1280px; margin:0 auto; padding:0 24px; overflow:hidden;}
   section{padding:56px 0}
@@ -2372,10 +2423,11 @@ select {
       <a href="#industry" class="nav-link">行业推荐</a>
       <a href="#summer" class="nav-link">清凉夏日</a>
     </div>
-    <div class="nav-search">
+    <div class="nav-search" id="navSearch">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>
-      <span>搜索达人 / 行业 / MCN</span>
+      <input type="text" id="searchInput" placeholder="搜索达人 / 行业 / MCN" autocomplete="off" spellcheck="false">
       <span class="kbd">Ctrl</span><span class="kbd">K</span>
+      <div class="search-results" id="searchResults"></div>
     </div>
   </div>
 </div>
@@ -3741,6 +3793,201 @@ select {
       document.querySelector('.ind-beauty-panel[data-panel="' + btn.dataset.beauty + '"]').classList.add('active');
     });
   });
+
+  /* ================= Navbar Search ================= */
+  (function initNavSearch(){
+    const input = document.getElementById('searchInput');
+    const box   = document.getElementById('searchResults');
+    if(!input || !box) return;
+
+    // Build index: iterate every talent card
+    const SECTION_TITLE = {
+      overview: '短直概览',
+      core: '短直达人分型推荐',
+      featured: '短直场景化达人分类',
+      node: '热门节点短直达人专场',
+      industry: '短直达人行业推荐',
+      summer: '清凉夏日短直达人专场'
+    };
+
+    const index = [];
+    document.querySelectorAll('.talent-card').forEach((card, i) => {
+      if(!card.id) card.id = 'tc_' + i;
+      const name = (card.querySelector('.name')?.textContent || '').trim();
+      const desc = (card.querySelector('.desc')?.textContent || '').trim();
+      // MCN info: any .kv span containing "MCN"
+      let mcn = '';
+      card.querySelectorAll('.kv span').forEach(sp => {
+        const t = sp.textContent.trim();
+        if(/MCN/i.test(t)) mcn = t;
+      });
+      // Determine section
+      const sec = card.closest('section');
+      const secId = sec?.id || '';
+      const secTitle = SECTION_TITLE[secId] || (sec?.querySelector('h2')?.textContent || '').trim();
+      // Industry (if inside ind-panel)
+      const indPanel = card.closest('.ind-panel');
+      const industry = indPanel ? (indPanel.querySelector('.ind-section-title')?.textContent || '').trim() : '';
+      // Category tab (if inside ind-cat-panel)
+      const catPanel = card.closest('.ind-cat-panel');
+      let catName = '';
+      if(catPanel && indPanel){
+        const dp = catPanel.getAttribute('data-panel');
+        const btn = indPanel.querySelector('.ind-cat-tab[data-cat="' + dp + '"]');
+        catName = btn ? btn.textContent.trim() : '';
+      }
+      // Beauty tab (older layout)
+      const beautyPanel = card.closest('.ind-beauty-panel');
+      let beautyName = '';
+      if(beautyPanel){
+        const dp = beautyPanel.getAttribute('data-panel');
+        const btn = document.querySelector('.ind-beauty-tab[data-beauty="' + dp + '"]');
+        beautyName = btn ? btn.textContent.trim() : '';
+      }
+      if(!name && !desc) return;
+      const hay = [name, desc, mcn, secTitle, industry, catName, beautyName].filter(Boolean).join(' | ').toLowerCase();
+      const metaParts = [industry || secTitle, catName || beautyName].filter(Boolean);
+      index.push({
+        id: card.id,
+        name, desc, mcn,
+        secId, secTitle, industry, catName, beautyName,
+        meta: metaParts.join(' · '),
+        hay
+      });
+    });
+
+    let activeIdx = -1;
+    let currentResults = [];
+
+    function esc(s){ return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+    function highlight(text, q){
+      if(!q) return text;
+      try {
+        const re = new RegExp('(' + esc(q) + ')', 'ig');
+        return text.replace(re, '<mark>$1</mark>');
+      } catch(e){ return text; }
+    }
+
+    function render(results, q){
+      currentResults = results;
+      activeIdx = results.length ? 0 : -1;
+      if(!q){ box.classList.remove('show'); box.innerHTML=''; return; }
+      if(!results.length){
+        box.innerHTML = '<div class="search-empty">未找到匹配的达人 / 行业 / MCN</div>';
+        box.classList.add('show');
+        return;
+      }
+      const hint = '<div class="search-hint">匹配 ' + results.length + ' 个 · ↑↓ 选择 · Enter 跳转 · Esc 关闭</div>';
+      const html = results.slice(0, 30).map((r, i) => {
+        const initial = (r.name || '#').charAt(0);
+        return '<div class="search-item' + (i===0?' active':'') + '" data-id="' + r.id + '">'
+             +   '<div class="si-icon">' + initial + '</div>'
+             +   '<div class="si-main">'
+             +     '<div class="si-name">' + highlight(r.name, q) + '</div>'
+             +     '<div class="si-meta">' + highlight(r.meta + (r.mcn?(' · '+r.mcn):'') , q) + '</div>'
+             +   '</div>'
+             + '</div>';
+      }).join('');
+      box.innerHTML = hint + html;
+      box.classList.add('show');
+    }
+
+    function search(q){
+      q = q.trim().toLowerCase();
+      if(!q){ render([], ''); return; }
+      const out = [];
+      for(const r of index){
+        if(r.hay.includes(q)){
+          // rank: name match first
+          let score = 0;
+          if(r.name.toLowerCase().includes(q)) score += 100;
+          if(r.name.toLowerCase().startsWith(q)) score += 50;
+          if((r.industry||'').toLowerCase().includes(q)) score += 20;
+          if((r.mcn||'').toLowerCase().includes(q)) score += 20;
+          out.push({r, score});
+        }
+      }
+      out.sort((a,b)=> b.score - a.score);
+      render(out.map(o=>o.r), q);
+    }
+
+    function jumpTo(id){
+      const card = document.getElementById(id);
+      if(!card) return;
+      // Activate parent ind-cat-panel tab if needed
+      const catPanel = card.closest('.ind-cat-panel');
+      if(catPanel && !catPanel.classList.contains('active')){
+        const dp = catPanel.getAttribute('data-panel');
+        const indPanel = card.closest('.ind-panel');
+        const btn = indPanel?.querySelector(':scope > .ind-cat-tabs .ind-cat-tab[data-cat="' + dp + '"]');
+        if(btn) btn.click();
+      }
+      // Activate parent ind-beauty-panel tab if needed
+      const beautyPanel = card.closest('.ind-beauty-panel');
+      if(beautyPanel && !beautyPanel.classList.contains('active')){
+        const dp = beautyPanel.getAttribute('data-panel');
+        const btn = document.querySelector('.ind-beauty-tab[data-beauty="' + dp + '"]');
+        if(btn) btn.click();
+      }
+      // Close dropdown
+      box.classList.remove('show');
+      input.blur();
+      // Smooth scroll with offset for sticky nav
+      setTimeout(() => {
+        const rect = card.getBoundingClientRect();
+        const targetY = window.scrollY + rect.top - 100;
+        window.scrollTo({top: targetY, behavior: 'smooth'});
+        // Flash highlight
+        card.classList.remove('card-flash');
+        void card.offsetWidth;
+        card.classList.add('card-flash');
+        setTimeout(()=>card.classList.remove('card-flash'), 2000);
+      }, 60);
+    }
+
+    function setActive(i){
+      const items = box.querySelectorAll('.search-item');
+      if(!items.length) return;
+      activeIdx = ((i % items.length) + items.length) % items.length;
+      items.forEach((el, idx) => el.classList.toggle('active', idx===activeIdx));
+      items[activeIdx].scrollIntoView({block:'nearest'});
+    }
+
+    input.addEventListener('input', e => search(e.target.value));
+    input.addEventListener('focus', e => { if(e.target.value.trim()) search(e.target.value); });
+    input.addEventListener('keydown', e => {
+      const items = box.querySelectorAll('.search-item');
+      if(e.key === 'ArrowDown'){ e.preventDefault(); setActive(activeIdx + 1); }
+      else if(e.key === 'ArrowUp'){ e.preventDefault(); setActive(activeIdx - 1); }
+      else if(e.key === 'Enter'){
+        e.preventDefault();
+        if(activeIdx >= 0 && items[activeIdx]){
+          jumpTo(items[activeIdx].dataset.id);
+        }
+      } else if(e.key === 'Escape'){
+        input.value = ''; box.classList.remove('show'); input.blur();
+      }
+    });
+
+    box.addEventListener('mousedown', e => {
+      const item = e.target.closest('.search-item');
+      if(item){ e.preventDefault(); jumpTo(item.dataset.id); }
+    });
+
+    // Close on outside click
+    document.addEventListener('click', e => {
+      if(!document.getElementById('navSearch').contains(e.target)) box.classList.remove('show');
+    });
+
+    // Ctrl+K / Cmd+K to focus
+    document.addEventListener('keydown', e => {
+      if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){
+        e.preventDefault();
+        input.focus();
+        input.select();
+      }
+    });
+  })();
 
 </script>
 
