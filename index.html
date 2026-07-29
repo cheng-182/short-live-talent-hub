@@ -3678,7 +3678,7 @@ select {
   <div class="container">
     <a href="https://bytedance.larkoffice.com/share/base/form/shrcnz4mRLwUqUINEL23Wgkr7Ug" target="_blank" rel="noopener" class="feedback-card">
       <div class="fb-icon">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><line x1="9" y1="10" x2="15" y2="10"></line><line x1="12" y1="7" x2="12" y2="13"></line></svg>
+        <span class="fb-emoji" role="img" aria-label="举手">🙋</span>
       </div>
       <div class="fb-text">
         <div class="fb-title">点击进入 · 我要反馈 / 提需</div>
@@ -3711,6 +3711,14 @@ select {
     background:linear-gradient(135deg,var(--emerald-500),var(--teal-500));
     color:#fff; display:flex; align-items:center; justify-content:center;
     box-shadow:0 6px 18px -4px rgba(16,185,129,.5);
+  }
+  .fb-emoji{font-size:30px; line-height:1; filter:drop-shadow(0 1px 1px rgba(0,0,0,.15))}
+  .feedback-card:hover .fb-emoji{animation:fbWave .8s ease-in-out}
+  @keyframes fbWave{
+    0%,100%{transform:rotate(0)}
+    25%{transform:rotate(-14deg)}
+    50%{transform:rotate(12deg)}
+    75%{transform:rotate(-8deg)}
   }
   .fb-text{flex:1; min-width:0}
   .fb-title{font-size:18px; font-weight:700; color:var(--emerald-900); letter-spacing:-.01em}
