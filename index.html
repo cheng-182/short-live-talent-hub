@@ -3738,8 +3738,27 @@ select {
 </style>
 
 <footer>
-  © 巨量引擎生态业务 · 2026 短直达人库
+  <div class="footer-inner">
+    <div class="footer-copyright">© 巨量引擎生态业务 · 2026 短直达人库</div>
+    <div class="footer-source">数据来源：【官】星图任务结算数据集_每日全量 &amp; 巨量星图-小星AI</div>
+  </div>
 </footer>
+
+<style>
+  footer{padding:20px 0}
+  .footer-inner{
+    max-width:1280px; margin:0 auto; padding:0 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    flex-wrap:wrap;
+    color:var(--ink-400); font-size:12px;
+  }
+  .footer-copyright{color:var(--ink-500)}
+  .footer-source{color:var(--ink-400); text-align:right}
+  @media (max-width:640px){
+    .footer-inner{justify-content:flex-start}
+    .footer-source{text-align:left}
+  }
+</style>
 
 <script>
   // Chart.js pie/donut chart
