@@ -3673,6 +3673,62 @@ select {
   </div>
 </section>
 
+<!-- FEEDBACK / 我要反馈提需 -->
+<section id="feedback" style="padding:40px 0 56px">
+  <div class="container">
+    <a href="https://bytedance.larkoffice.com/share/base/form/shrcnz4mRLwUqUINEL23Wgkr7Ug" target="_blank" rel="noopener" class="feedback-card">
+      <div class="fb-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><line x1="9" y1="10" x2="15" y2="10"></line><line x1="12" y1="7" x2="12" y2="13"></line></svg>
+      </div>
+      <div class="fb-text">
+        <div class="fb-title">点击进入 · 我要反馈 / 提需</div>
+        <div class="fb-sub">对短直达人库有想法、想补充资源、提出改进建议？欢迎点击进入反馈表单，我们会尽快跟进</div>
+      </div>
+      <div class="fb-arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 5l7 7-7 7"></path></svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .feedback-card{
+    display:flex; align-items:center; gap:20px;
+    padding:22px 28px; border-radius:18px;
+    background:linear-gradient(135deg,#ecfdf5,#f0fdfa);
+    border:1px solid rgba(16,185,129,.22);
+    box-shadow:0 6px 24px -10px rgba(6,95,70,.18);
+    text-decoration:none; color:inherit;
+    transition:transform .18s, box-shadow .18s, border-color .18s;
+  }
+  .feedback-card:hover{
+    transform:translateY(-2px);
+    border-color:rgba(16,185,129,.5);
+    box-shadow:0 12px 32px -10px rgba(16,185,129,.35);
+  }
+  .fb-icon{
+    flex:0 0 52px; width:52px; height:52px; border-radius:14px;
+    background:linear-gradient(135deg,var(--emerald-500),var(--teal-500));
+    color:#fff; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px -4px rgba(16,185,129,.5);
+  }
+  .fb-text{flex:1; min-width:0}
+  .fb-title{font-size:18px; font-weight:700; color:var(--emerald-900); letter-spacing:-.01em}
+  .fb-sub{font-size:13px; color:var(--ink-500); margin-top:4px; line-height:1.55}
+  .fb-arrow{
+    flex:0 0 40px; width:40px; height:40px; border-radius:50%;
+    background:#fff; border:1px solid rgba(16,185,129,.25);
+    color:var(--emerald-700);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .18s, background .18s;
+  }
+  .feedback-card:hover .fb-arrow{background:var(--emerald-500); color:#fff; transform:translateX(4px)}
+  @media (max-width:640px){
+    .feedback-card{flex-direction:column; align-items:flex-start; padding:20px}
+    .fb-arrow{align-self:flex-end}
+  }
+</style>
+
 <footer>
   © 巨量引擎生态业务 · 2026 短直达人库
 </footer>
