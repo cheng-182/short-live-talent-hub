@@ -320,6 +320,20 @@
     border:1px solid rgba(16,185,129,.14);
     box-shadow:0 4px 20px -10px rgba(6,95,70,.12);
   }
+  /* 场景化板块：feat-card 内部改为 2 列展示达人卡片，让排版更紧凑 */
+  #featured .feat-card{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:10px 12px;
+    align-content:start;
+  }
+  #featured .feat-card .feat-header{grid-column:1 / -1}
+  #featured .feat-card .talent-card{margin-bottom:0}
+  #featured .feat-card > .see-more,
+  #featured .feat-card > .quick-btns{grid-column:1 / -1}
+  @media (max-width:900px){
+    #featured .feat-card{grid-template-columns:1fr}
+  }
   .feat-header{
     display:flex; align-items:center; justify-content:space-between;
     margin-bottom:16px;
