@@ -385,23 +385,18 @@
   }
   .talent-card .cta:hover{background:var(--emerald-50); border-color:rgba(16,185,129,.5)}
   .talent-card .cta + .cta{margin-left:0}
-  .talent-card .cta.cta-star{
-    background:linear-gradient(135deg,#fef3c7,#fef9c3);
-    border:1px solid rgba(217,119,6,.4);
-    color:#b45309;
+  /* 保持与「查看抖音主页」按钮相同的绿色风格 */
+  .talent-card .cta.cta-star,
+  .talent-card .cta.cta-star:hover{
+    background:white; color:var(--emerald-600);
+    border:1px solid rgba(16,185,129,.2);
   }
-  .talent-card .cta.cta-star:hover{background:linear-gradient(135deg,#fde68a,#fef08a); border-color:rgba(217,119,6,.65)}
+  .talent-card .cta.cta-star:hover{background:var(--emerald-50); border-color:rgba(16,185,129,.5)}
 
 
-  /* talent-item detail buttons (paired with star button) */
+  /* talent-item detail buttons (paired with star button) - both green */
   .detail-btn{white-space:nowrap; text-decoration:none}
   .detail-btn + .detail-btn{margin-left:6px}
-  .detail-btn.cta-star{
-    background:linear-gradient(135deg,#fef3c7,#fef9c3);
-    border:1px solid rgba(217,119,6,.4);
-    color:#b45309;
-  }
-  .detail-btn.cta-star:hover{background:linear-gradient(135deg,#fde68a,#fef08a); border-color:rgba(217,119,6,.65)}
   /* CATEGORY GRID */
   .cat-grid{
     display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
