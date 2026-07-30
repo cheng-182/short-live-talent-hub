@@ -338,11 +338,19 @@
   }
   .arrow-btn:hover{background:var(--emerald-50)}
   .talent-card{
-    display:flex; gap:12px; padding:14px; border-radius:14px;
+    display:flex; gap:10px 12px; padding:14px; border-radius:14px;
     background:#f8fdfa; border:1px solid rgba(16,185,129,.08);
     margin-bottom:10px; align-items:center;
     flex-wrap:wrap;
   }
+  /* forced row-break so CTAs always sit on a new row */
+  .talent-card::before{
+    content:""; order:2; width:100%; flex-basis:100%; height:0; margin:0;
+  }
+  .talent-card > .avatar-lg,
+  .talent-card > .avatar-lg-link{order:0}
+  .talent-card > .info{order:1}
+  .talent-card > .cta{order:3}
   .talent-card .avatar-lg{
     width:52px;height:52px; border-radius:14px;
     background:linear-gradient(135deg,var(--emerald-400),var(--teal-500));
@@ -360,7 +368,7 @@
   }
   .avatar-lg-link{display:inline-block; line-height:0; text-decoration:none; flex-shrink:0; transition:transform .2s ease}
   .avatar-lg-link:hover{transform:translateY(-2px)}
-  .talent-card .info{flex:1 1 calc(100% - 64px); min-width:0}
+  .talent-card .info{flex:1 1 0; min-width:0}
   .talent-card .name{font-weight:700; color:var(--emerald-800); font-size:15px}
   .talent-card .desc{color:var(--ink-500); font-size:12px; margin:2px 0 4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
   .talent-card .kv{display:flex; gap:8px; font-size:11px; color:var(--emerald-600); font-weight:600}
