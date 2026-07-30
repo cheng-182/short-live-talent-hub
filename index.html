@@ -341,6 +341,7 @@
     display:flex; gap:12px; padding:14px; border-radius:14px;
     background:#f8fdfa; border:1px solid rgba(16,185,129,.08);
     margin-bottom:10px; align-items:center;
+    flex-wrap:wrap;
   }
   .talent-card .avatar-lg{
     width:52px;height:52px; border-radius:14px;
@@ -359,20 +360,23 @@
   }
   .avatar-lg-link{display:inline-block; line-height:0; text-decoration:none; flex-shrink:0; transition:transform .2s ease}
   .avatar-lg-link:hover{transform:translateY(-2px)}
-  .talent-card .info{flex:1; min-width:0}
+  .talent-card .info{flex:1 1 calc(100% - 64px); min-width:0}
   .talent-card .name{font-weight:700; color:var(--emerald-800); font-size:15px}
   .talent-card .desc{color:var(--ink-500); font-size:12px; margin:2px 0 4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
   .talent-card .kv{display:flex; gap:8px; font-size:11px; color:var(--emerald-600); font-weight:600}
   .talent-card .cta{
-    padding:6px 10px; border-radius:8px; background:white;
+    flex:1 1 calc(50% - 6px);
+    padding:8px 10px; border-radius:8px; background:white;
     border:1px solid rgba(16,185,129,.2); color:var(--emerald-600);
-    font-size:11px; font-weight:600; cursor:pointer;
+    font-size:12px; font-weight:600; cursor:pointer;
     text-decoration:none;
     white-space:nowrap;
+    text-align:center;
+    box-sizing:border-box;
     transition:background .15s, border-color .15s;
   }
   .talent-card .cta:hover{background:var(--emerald-50); border-color:rgba(16,185,129,.5)}
-  .talent-card .cta + .cta{margin-left:6px}
+  .talent-card .cta + .cta{margin-left:0}
   .talent-card .cta.cta-star{
     background:linear-gradient(135deg,#fef3c7,#fef9c3);
     border:1px solid rgba(217,119,6,.4);
@@ -515,9 +519,8 @@
 
 
   /* Industry Section - Talent Card Layout Fix */
-  #industry .talent-card{flex-wrap:wrap; align-items:flex-start}
-  #industry .talent-card{gap:8px}
-  #industry .talent-card .cta{flex:1 1 calc(50% - 4px); margin-top:10px; text-align:center; display:block; padding:6px 6px; font-size:11px; margin-left:0 !important}
+  #industry .talent-card{align-items:flex-start; gap:10px}
+  #industry .talent-card .cta{padding:8px 6px; font-size:12px}
 
   /* Summer dedicated */
   .summer-hero{
