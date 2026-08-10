@@ -534,6 +534,19 @@
   /* Beauty tab node-summary: single-metric (推荐策略) full-width layout */
   .ind-beauty-panel .node-summary .node-metric{ display:flex; flex-direction:column }
   .ind-beauty-panel .node-summary .node-metric .val{ font-size:13px !important; line-height:1.7 !important; font-weight:500 !important; letter-spacing:0 !important; color:var(--ink-700); max-width:none !important; white-space:normal !important; word-break:break-word }
+  .strategy-text{position:relative; white-space:pre-line !important; word-break:break-word}
+  .strategy-text.is-collapsed{
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .strategy-toggle{
+    margin-top:10px; align-self:flex-start;
+    padding:0; border:none; background:none; cursor:pointer;
+    color:var(--emerald-600); font-size:12px; font-weight:700;
+  }
+  .strategy-toggle:hover{color:var(--emerald-700); text-decoration:underline}
 
 
   /* Industry Section - Talent Card Layout Fix */
@@ -6066,6 +6079,40 @@ select {
   // (按需求 2026-07-24：头像/查看详情按钮跳转到「主页链接和对接销售查询」表格中的达人主页链接，不再统一跳转「抖音精选」)
 
 
+  function initStrategyClamp(scope = document){
+    scope.querySelectorAll('.node-summary .node-metric').forEach(metric => {
+      const lab = (metric.querySelector('.lab')?.textContent || '').trim();
+      const val = metric.querySelector('.val');
+      if(lab !== '推荐策略' || !val || val.dataset.strategyReady === '1') return;
+      if(val.offsetParent === null) return;
+      val.dataset.strategyReady = '1';
+      val.classList.add('strategy-text');
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'strategy-toggle';
+      toggle.textContent = '展开';
+      val.classList.add('is-collapsed');
+      metric.appendChild(toggle);
+      const collapsedOverflow = val.scrollHeight > val.clientHeight + 4;
+      if(!collapsedOverflow){
+        toggle.remove();
+        val.classList.remove('is-collapsed');
+        return;
+      }
+      toggle.addEventListener('click', () => {
+        const expanded = !val.classList.contains('is-collapsed');
+        if(expanded){
+          val.classList.add('is-collapsed');
+          toggle.textContent = '展开';
+        }else{
+          val.classList.remove('is-collapsed');
+          toggle.textContent = '收起';
+        }
+      });
+    });
+  }
+  initStrategyClamp(document);
+
   // ind-cat generic tab handler
   document.querySelectorAll('.ind-cat-tab').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -6075,7 +6122,10 @@ select {
       scope.querySelectorAll(':scope > .ind-cat-panel').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
       const target = scope.querySelector(':scope > .ind-cat-panel[data-panel="' + btn.dataset.cat + '"]');
-      if(target) target.classList.add('active');
+      if(target) {
+        target.classList.add('active');
+        initStrategyClamp(target);
+      }
     });
   });
 
@@ -6085,7 +6135,11 @@ select {
       document.querySelectorAll('.ind-beauty-tab').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.ind-beauty-panel').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
-      document.querySelector('.ind-beauty-panel[data-panel="' + btn.dataset.beauty + '"]').classList.add('active');
+      const target = document.querySelector('.ind-beauty-panel[data-panel="' + btn.dataset.beauty + '"]');
+      if(target){
+        target.classList.add('active');
+        initStrategyClamp(target);
+      }
     });
   });
 
