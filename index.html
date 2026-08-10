@@ -470,7 +470,9 @@
   .ind-panel[data-ind-panel="food"]{--cat-color:#f97316; --cat-bg:#fff7ed; --cat-border:#f9731633; --cat-shadow:rgba(249,115,22,.3)}
   .ind-panel[data-ind-panel="mom"] {--cat-color:#ec4899; --cat-bg:#fdf2f8; --cat-border:#ec489933; --cat-shadow:rgba(236,72,153,.3)}
   .ind-panel[data-ind-panel="edu"] {--cat-color:#3b82f6; --cat-bg:#eff6ff; --cat-border:#3b82f633; --cat-shadow:rgba(59,130,246,.3)}
-  .ind-panel[data-ind-panel="durable"] {--cat-color:#0ea5e9; --cat-bg:#f0f9ff; --cat-border:#0ea5e933; --cat-shadow:rgba(14,165,233,.28)}
+  .ind-panel[data-ind-panel="durable-phone"] {--cat-color:#0ea5e9; --cat-bg:#f0f9ff; --cat-border:#0ea5e933; --cat-shadow:rgba(14,165,233,.28)}
+  .ind-panel[data-ind-panel="durable-small"] {--cat-color:#14b8a6; --cat-bg:#f0fdfa; --cat-border:#14b8a633; --cat-shadow:rgba(20,184,166,.28)}
+  .ind-panel[data-ind-panel="durable-large"] {--cat-color:#6366f1; --cat-bg:#eef2ff; --cat-border:#6366f133; --cat-shadow:rgba(99,102,241,.25)}
 
   .ind-beauty-tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px}
   .ind-beauty-tab{padding:8px 18px; border-radius:20px; border:1px solid var(--emerald-200); background:white; cursor:pointer; font-size:13px; font-weight:500; color:var(--ink-600); transition:all .2s ease}
@@ -5301,32 +5303,36 @@ select {
 </section>
 
 
+
 <!-- DURABLE / 耐消品行业推荐 -->
 <section id="durable">
   <div class="container">
     <div class="section-title">
       <span class="pill">行业 × 品类 · INDUSTRY MATCH</span>
       <h2>【耐消品】短直达人行业推荐</h2>
-      <p class="subtitle">按耐消品分类 + 具体品类深度匹配的达人池，覆盖手机数码、小家电、大家电三类真实短直达人矩阵，策略与示范位一次给到</p>
+      <p class="subtitle">按耐消品分类 + 具体品类深度匹配的达人池，覆盖手机数码、小家电、大家电三大板块，找人思路和示范位一次给到</p>
     </div>
 
-    <div class="ind-panel" data-ind-panel="durable">
+    <div class="ind-panel" data-ind-panel="durable-phone">
       <div class="ind-section-header">
-        <div class="ind-section-title"><span class="ind-color-bar" style="background:#0ea5e9"></span>📱 耐消品</div>
+        <div class="ind-section-title"><span class="ind-color-bar" style="background:#0ea5e9"></span>📱 手机数码</div>
       </div>
 
-      <div class="ind-cat-tabs" data-cat-group="durable">
-        <button class="ind-cat-tab active" data-cat="durable-1">手机数码</button>
-        <button class="ind-cat-tab" data-cat="durable-2">小家电</button>
-        <button class="ind-cat-tab" data-cat="durable-3">大家电</button>
+      <div class="ind-cat-tabs" data-cat-group="phone">
+        <button class="ind-cat-tab active" data-cat="phone-1">手机</button>
+        <button class="ind-cat-tab" data-cat="phone-2">数码-3C数码及配件</button>
+        <button class="ind-cat-tab" data-cat="phone-3">数码-电子教育</button>
+        <button class="ind-cat-tab" data-cat="phone-4">数码-摄影摄像</button>
+        <button class="ind-cat-tab" data-cat="phone-5">数码-影音电器</button>
+        <button class="ind-cat-tab" data-cat="phone-6">数码-智能设备</button>
+        <button class="ind-cat-tab" data-cat="phone-7">数码-电脑及外设</button>
       </div>
 
-      <div class="ind-cat-panel active" data-panel="durable-1">
+      <div class="ind-cat-panel active" data-panel="phone-1">
         <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
           <div class="node-metric">
             <div class="lab">推荐策略</div>
-            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【手机】
-【数码评测型】以真机横评和参数实测为核心内容机制，承接手机新品核心功能体验与购机决策转化
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【数码评测型】以真机横评和参数实测为核心内容机制，承接手机新品核心功能体验与购机决策转化
 以专业数码评测型短直达人为主，人设是「硬核参数党+实测派」，内容以真机上手横评、跑分实测、续航压力测试和屏幕素质对比为主，节奏快、结论明确。手机以参数讲解+实拍样张+跑分图表方式自然露出，围绕拍照、续航、性能、系统流畅等核心卖点做直观对比，适合承接新品首发、旗舰对比和全价位段购机推荐场景。
 
 【日常上手型】以生活化场景体验展示手机核心功能，承接换机推荐与年轻用户种草
@@ -5344,7 +5350,7 @@ select {
         </div>
         <div class="ind-talent-grid">
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA524rHaEm72NuxE04Aw1UyYZFvHUvDEFmTqvlKoRwlFc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_e2304352115f4a229d5bb7080ca466df.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小白测评" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA524rHaEm72NuxE04Aw1UyYZFvHUvDEFmTqvlKoRwlFc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_e2304352115f4a229d5bb7080ca466df.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小白测评" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
             <div class="info">
               <div class="name">小白测评</div>
               <div class="desc">330.4W 粉丝 · 科技数码、科技</div>
@@ -5354,7 +5360,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6701555853327073283" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA4OQLkzB84oCkXEeUTyA10EKPpbj8rTrXm7lnKix247k" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_o0zEAKWuIAFPCiQAEuAg8AAuAef12DtqqgLz2h.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="阿声大魔王" onerror="this.outerHTML='<div class=avatar-lg>阿</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA4OQLkzB84oCkXEeUTyA10EKPpbj8rTrXm7lnKix247k" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_o0zEAKWuIAFPCiQAEuAg8AAuAef12DtqqgLz2h.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="阿声大魔王" onerror="this.outerHTML='<div class=avatar-lg>阿</div>'"></a>
             <div class="info">
               <div class="name">阿声大魔王</div>
               <div class="desc">99.2W 粉丝 · 科技数码、科技</div>
@@ -5364,7 +5370,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7075235187751125006" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAscnwwDcfxsputEIhlE1E21__jbbgleR-Vg3ojQtbKjQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_2edac0ca05265c70a3ca49915521d59d.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="测评君" onerror="this.outerHTML='<div class=avatar-lg>测</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAscnwwDcfxsputEIhlE1E21__jbbgleR-Vg3ojQtbKjQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p9.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_2edac0ca05265c70a3ca49915521d59d.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="测评君" onerror="this.outerHTML='<div class=avatar-lg>测</div>'"></a>
             <div class="info">
               <div class="name">测评君</div>
               <div class="desc">53.5W 粉丝 · 科技数码、科技</div>
@@ -5374,7 +5380,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6863719204428709901" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA1WlMSq73j2XsfXBlVxhBpJgcCSuIbusG4kEZZMaGYwQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_f9c19240421a4556bf2b839355399557.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小杨数码圈" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA1WlMSq73j2XsfXBlVxhBpJgcCSuIbusG4kEZZMaGYwQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_f9c19240421a4556bf2b839355399557.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小杨数码圈" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
             <div class="info">
               <div class="name">小杨数码圈</div>
               <div class="desc">81.9W 粉丝 · 科技数码、科技</div>
@@ -5404,7 +5410,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7081151000001642526" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA8esVvpZ2RJwLVJ_ZDwNZGxteAak00fJyCW5QhF8DDn5ytQWAkfrOym__z7ICGF0c" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_oUeBBSpatQA0LAhs4CTfLbAkWADPfEnFJIp7A8.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="我有异见" onerror="this.outerHTML='<div class=avatar-lg>我</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA8esVvpZ2RJwLVJ_ZDwNZGxteAak00fJyCW5QhF8DDn5ytQWAkfrOym__z7ICGF0c" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_oUeBBSpatQA0LAhs4CTfLbAkWADPfEnFJIp7A8.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="我有异见" onerror="this.outerHTML='<div class=avatar-lg>我</div>'"></a>
             <div class="info">
               <div class="name">我有异见</div>
               <div class="desc">79.7W 粉丝 · 科技数码、科技</div>
@@ -5414,7 +5420,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7256991935791890469" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAcOojIWhWFzjskZEH_YbwIm4RfpW-gk3byhhNUPUUgW72AC-zj8ZG4-8351WhChoD" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_2f951000468f811315658.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="托尼聊科技" onerror="this.outerHTML='<div class=avatar-lg>托</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAcOojIWhWFzjskZEH_YbwIm4RfpW-gk3byhhNUPUUgW72AC-zj8ZG4-8351WhChoD" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_2f951000468f811315658.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="托尼聊科技" onerror="this.outerHTML='<div class=avatar-lg>托</div>'"></a>
             <div class="info">
               <div class="name">托尼聊科技</div>
               <div class="desc">161.0W 粉丝 · 科技数码、科技</div>
@@ -5434,7 +5440,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6905716132084809735" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAAK_4pAQhUYhHp7QT1s8TtJD8a1ywRy8PSgFO73H5iE0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_31bbc0000996a20f0d310.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="我是贰哥" onerror="this.outerHTML='<div class=avatar-lg>我</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAAK_4pAQhUYhHp7QT1s8TtJD8a1ywRy8PSgFO73H5iE0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_31bbc0000996a20f0d310.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="我是贰哥" onerror="this.outerHTML='<div class=avatar-lg>我</div>'"></a>
             <div class="info">
               <div class="name">我是贰哥</div>
               <div class="desc">100.7W 粉丝 · 科技数码、科技</div>
@@ -5444,7 +5450,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6707808607058001934" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAAfSfAzLfIRGKvWK9Y0SQnY9S4NfeSivpcRbIKHLInyc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_603f080669044c93b2ff3a9366912c49.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="数码喜杨杨" onerror="this.outerHTML='<div class=avatar-lg>数</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAAfSfAzLfIRGKvWK9Y0SQnY9S4NfeSivpcRbIKHLInyc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_603f080669044c93b2ff3a9366912c49.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="数码喜杨杨" onerror="this.outerHTML='<div class=avatar-lg>数</div>'"></a>
             <div class="info">
               <div class="name">数码喜杨杨</div>
               <div class="desc">41.3W 粉丝 · 科技数码、科技</div>
@@ -5454,7 +5460,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7141778783853346820" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAUbijiEnv3Ap_hJO8c3O4qoREUdoXSZ0psXtLGX_AI3k" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_fcda00052656d690c05d.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="朵哥互联科技" onerror="this.outerHTML='<div class=avatar-lg>朵</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAUbijiEnv3Ap_hJO8c3O4qoREUdoXSZ0psXtLGX_AI3k" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_fcda00052656d690c05d.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="朵哥互联科技" onerror="this.outerHTML='<div class=avatar-lg>朵</div>'"></a>
             <div class="info">
               <div class="name">朵哥互联科技</div>
               <div class="desc">243.0W 粉丝 · 科技数码、科技</div>
@@ -5465,12 +5471,871 @@ select {
           </div>
         </div>
       </div>
-      <div class="ind-cat-panel" data-panel="durable-2">
+      <div class="ind-cat-panel" data-panel="phone-2">
         <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
           <div class="node-metric">
             <div class="lab">推荐策略</div>
-            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【生活电器】
-【家务实测型】以清洁效率对比实测为核心，承接扫地机/洗地机/吸尘器等清洁电器的功能演示与家务减负种草
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【配件测评型】以开箱测评+参数对比+兼容测试的内容机制，承接充电器、数据线、充电宝等3C配件的刚需种草
+以数码配件测评博主为核心，达人长期创作充电宝、数据线、充电器、拓展坞等配件的开箱测评内容。视频常见多设备同场景演示，突出参数对比、兼容性测试和发热/耐用度验证，评论区常见「能不能给某型号用」「线会不会容易坏」等讨论。3C配件以真实测评场景自然露出，围绕「使用场景—核心参数—兼容情况—购买建议」的结构展开，强调兼容性、便携性和性价比。
+
+【桌面效率型】以桌搭收纳+多设备协同+办公效率提升的内容机制，承接支架、拓展坞、充电器等桌面3C配件种草
+以数码桌搭博主为核心，达人长期创作桌面收纳、多设备协同和办公效率提升内容。视频常见整洁桌面场景，展示显示器支架、拓展坞、充电器、数据线等配件的桌面布局和使用体验，画面干净有序、节奏舒适。3C配件以桌面使用场景自然嵌入，突出多设备同时充电/传输的效率感和桌面整理的秩序感，强调「小成本提升办公体验」的刚需逻辑。
+
+【学生实用型】以宿舍/教室场景刚需+性价比避坑的内容机制，承接充电宝、数据线、壳膜等学生党3C配件种草
+以学生党数码分享账号为核心，达人长期创作宿舍/教室场景的实用数码分享内容。视频常见学生日常刚需场景，如充电宝续命、数据线防断、手机壳膜平替等，强调性价比和避坑信息。评论区常见「学生党能不能用」「有没有便宜好用的」等讨论。3C配件以学生日常刚需场景自然嵌入，突出「小成本提升体验」和「真实场景刚需」的逻辑，强调平价实用和耐用度。
+
+【出行装备型】以差旅/通勤/户外场景续航+轻量携带的内容机制，承接充电宝、充电器、数据线等出行3C配件种草
+以出行装备创作者为核心，达人长期创作差旅、通勤和轻户外场景的出行装备内容。视频常见行李/背包收纳、多设备充电续航、便携充电器和数据线等出行必备展示，强调轻量携带和续航保障。评论区常见「能不能带上飞机」「快充充得快吗」等讨论。3C配件以出行场景自然嵌入，突出「真实出行刚需+小成本提升旅途体验」的逻辑，强调便携性、兼容性和续航保障。</div>
+          </div>
+        </div>
+        <div class="ind-talent-grid">
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAesp8ZXsecKXoXLQ1jmBhjZ1kY5tWf-Bzl0wRUWRnLGSJWIflMVKPZ8ZrHPjLLBb8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_72dacb6ad3d548fbb17c65d2b9f96068.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="横竖斜评" onerror="this.outerHTML='<div class=avatar-lg>横</div>'"></a>
+            <div class="info">
+              <div class="name">横竖斜评</div>
+              <div class="desc">23.5W 粉丝 · 测评、3C数码测评、科技数码、3C数码、家居电器</div>
+              <div class="kv"><span>21-60s ¥14500</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAesp8ZXsecKXoXLQ1jmBhjZ1kY5tWf-Bzl0wRUWRnLGSJWIflMVKPZ8ZrHPjLLBb8" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7121260514604220423" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAOUXY5km2w-6gnO-pbiaSR3JYYFTUiYM0bUqvEcEcS-U" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_8bc928204db59de8c62a62e45f2ed575.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="Mark聊科技" onerror="this.outerHTML='<div class=avatar-lg>M</div>'"></a>
+            <div class="info">
+              <div class="name">Mark聊科技</div>
+              <div class="desc">14.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥12000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAOUXY5km2w-6gnO-pbiaSR3JYYFTUiYM0bUqvEcEcS-U" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6917164803341418510" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAADoTkFhbAHSDlTKinljoVbFRRnNJK7jvuFfiqNXayjH0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_50dc4fbc77605c66d94f279f55d854ed.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="吃拆玩呗" onerror="this.outerHTML='<div class=avatar-lg>吃</div>'"></a>
+            <div class="info">
+              <div class="name">吃拆玩呗</div>
+              <div class="desc">200.1W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥30000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAADoTkFhbAHSDlTKinljoVbFRRnNJK7jvuFfiqNXayjH0" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6870161361737875464" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAceVl_zd6pNzVM_a2-gCmVr99dbfqc8l4XEBGb1_NM6I" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_oUneyRiC3AhnvPNCAgYVjugEBfA6iAAF2CA08I.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="老中壹数码" onerror="this.outerHTML='<div class=avatar-lg>老</div>'"></a>
+            <div class="info">
+              <div class="name">老中壹数码</div>
+              <div class="desc">139.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥16800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAceVl_zd6pNzVM_a2-gCmVr99dbfqc8l4XEBGb1_NM6I" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6795409708313214983" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAbvhy0IA-fxa81PC_6wtz4WDIUeFJmnM3EErp8_AUo4S6k6Xr0AGqylFoagjl4Wor" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_52169d902b48832004d19580cdc4c64c.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="桌魂" onerror="this.outerHTML='<div class=avatar-lg>桌</div>'"></a>
+            <div class="info">
+              <div class="name">桌魂</div>
+              <div class="desc">67.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥12000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAbvhy0IA-fxa81PC_6wtz4WDIUeFJmnM3EErp8_AUo4S6k6Xr0AGqylFoagjl4Wor" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/1680259230599182" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAALOpdMR-gcVh9X2gtNCaYLudFlUUeH56AXWB6oL2DLJc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_282fe0000e29a36cb2dbe.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="郝金彪数码配件" onerror="this.outerHTML='<div class=avatar-lg>郝</div>'"></a>
+            <div class="info">
+              <div class="name">郝金彪数码配件</div>
+              <div class="desc">38.9W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥15100</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAALOpdMR-gcVh9X2gtNCaYLudFlUUeH56AXWB6oL2DLJc" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6857524292406476814" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAnzDd1BeYjrnKqiChlBmHApetm81f0C1IHNmith9zdus" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_owIKIuFQATNCuRnyAADAQh2x9ungMCGAAREnff.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="银秀疯狂测评" onerror="this.outerHTML='<div class=avatar-lg>银</div>'"></a>
+            <div class="info">
+              <div class="name">银秀疯狂测评</div>
+              <div class="desc">107.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥40000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAnzDd1BeYjrnKqiChlBmHApetm81f0C1IHNmith9zdus" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6668817195004329988" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA1WlMSq73j2XsfXBlVxhBpJgcCSuIbusG4kEZZMaGYwQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_f9c19240421a4556bf2b839355399557.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小杨数码圈" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
+            <div class="info">
+              <div class="name">小杨数码圈</div>
+              <div class="desc">81.9W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥40000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA1WlMSq73j2XsfXBlVxhBpJgcCSuIbusG4kEZZMaGYwQ" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7001692274941755422" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA524rHaEm72NuxE04Aw1UyYZFvHUvDEFmTqvlKoRwlFc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_e2304352115f4a229d5bb7080ca466df.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小白测评" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
+            <div class="info">
+              <div class="name">小白测评</div>
+              <div class="desc">330.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥100000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA524rHaEm72NuxE04Aw1UyYZFvHUvDEFmTqvlKoRwlFc" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6701555853327073283" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAGqvFK82hI20mP4XThrBTmKFyW4qXYwEKjVTtGftzH1c" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_fe17e4354b2cd14993a02abfde6dcd5d.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="MH 玩数码" onerror="this.outerHTML='<div class=avatar-lg>M</div>'"></a>
+            <div class="info">
+              <div class="name">MH 玩数码</div>
+              <div class="desc">66.1W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥19800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAGqvFK82hI20mP4XThrBTmKFyW4qXYwEKjVTtGftzH1c" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6855966133485305863" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAzxCtbzy2axWpozswoBVXbd1t930KjMY4EfJ8n_dIP7w" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_888fc909bcafd4b96fa60c81a19a224b.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="杰哥叨叨叨" onerror="this.outerHTML='<div class=avatar-lg>杰</div>'"></a>
+            <div class="info">
+              <div class="name">杰哥叨叨叨</div>
+              <div class="desc">69.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥18000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAzxCtbzy2axWpozswoBVXbd1t930KjMY4EfJ8n_dIP7w" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7379927773600546867" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA-ll1h0Uz0dTj_LuI9wMYO9Ed0BEIXDub-WiD4L2ZTLc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_3413f023465d181f4cd73f020fe38884.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="楠哥的课" onerror="this.outerHTML='<div class=avatar-lg>楠</div>'"></a>
+            <div class="info">
+              <div class="name">楠哥的课</div>
+              <div class="desc">131.5W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥30000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA-ll1h0Uz0dTj_LuI9wMYO9Ed0BEIXDub-WiD4L2ZTLc" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6818123750282625037" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+        </div>
+      </div>
+      <div class="ind-cat-panel" data-panel="phone-3">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【家长决策型】以学习痛点切入讲解电子教育设备选购，承接学习机/词典笔的家长省心种草
+基础要求：家长决策型达人；内容围绕孩子学习痛点和电子教育设备选购决策；短直达人
+加分要求：英语启蒙场景；作业辅导场景；分龄适配说明；题库完整度关注；学习效率提升表达
+
+【教育测评型】以功能对比和题库分析为核心，承接学习机/词典笔的专业背书种草
+基础要求：教育测评型博主；内容围绕电子教育设备功能对比测评和题库分析；短直达人
+加分要求：跟读批改准确度评测；分龄适配对比；售后关注；功能真实性验证
+
+【学生实测型】，以孩子真实使用过程展示学习效果，承接学习机/词典笔的体验种草
+基础要求：学生实测型账号；内容展示孩子真实使用电子教育设备的过程；短直达人
+加分要求：跟读批改实况；学习效率变化表达；前后学习对比；亲子互动场景
+
+【功能讲解型】，以操作演示和分龄适配说明为核心，承接学习机/词典笔的功能种草
+基础要求：功能讲解型创作者；内容围绕电子教育设备操作演示和分龄适配说明；短直达人
+加分要求：教师型视角；结构化功能讲解；学习问题到对应功能的映射；使用建议输出</div>
+          </div>
+        </div>
+        <div class="ind-talent-grid">
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAPsbnrvcOZkVyaRgiBABYUGgJho6BZEsVsHzkG5C3RVk" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_3962d550b0144fc8bb087243252fe6f7.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="海淀妈妈大福｜暑假Re精读营福利" onerror="this.outerHTML='<div class=avatar-lg>海</div>'"></a>
+            <div class="info">
+              <div class="name">海淀妈妈大福｜暑假Re精读营福利</div>
+              <div class="desc">143.7W 粉丝 · 母婴亲子、亲子互动</div>
+              <div class="kv"><span>21-60s ¥26000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAPsbnrvcOZkVyaRgiBABYUGgJho6BZEsVsHzkG5C3RVk" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6847531647881969678" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAckySXcj3pdimEL6GweSkPaWvHPn821ZP9nAuCy_r6GGIIUgOFoKG9wb1bykrm5nK" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_6f3f28a6b98b4c929ef60cebfb22eec2.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="夕妈的亲子测评" onerror="this.outerHTML='<div class=avatar-lg>夕</div>'"></a>
+            <div class="info">
+              <div class="name">夕妈的亲子测评</div>
+              <div class="desc">34.3W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥33500</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAckySXcj3pdimEL6GweSkPaWvHPn821ZP9nAuCy_r6GGIIUgOFoKG9wb1bykrm5nK" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7184464157356326945" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAJpLDiMqR_hgqR2KfVjsXzMaaL0BgjZUdspRsfyTRXCFKuH-jqw4BeLM_Ed6dohOR" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_039a0aa04babb8f3dc2e0ffb7f98e710.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="赵老师带娃日志" onerror="this.outerHTML='<div class=avatar-lg>赵</div>'"></a>
+            <div class="info">
+              <div class="name">赵老师带娃日志</div>
+              <div class="desc">25.7W 粉丝 · 母婴亲子、亲子互动</div>
+              <div class="kv"><span>21-60s ¥15000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAJpLDiMqR_hgqR2KfVjsXzMaaL0BgjZUdspRsfyTRXCFKuH-jqw4BeLM_Ed6dohOR" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6861866259965820936" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAX_9WOhN_mIo4S9L7M-VQ8kE4uK9yyyhM12o225iHbGE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_23f8e00054afff76eb7c5.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="企鹅妈妈" onerror="this.outerHTML='<div class=avatar-lg>企</div>'"></a>
+            <div class="info">
+              <div class="name">企鹅妈妈</div>
+              <div class="desc">151.3W 粉丝 · 母婴亲子、育儿科普</div>
+              <div class="kv"><span>21-60s ¥120000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAX_9WOhN_mIo4S9L7M-VQ8kE4uK9yyyhM12o225iHbGE" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6704113868936839179" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA9Bl2NnAx0tXuVZXRBEofyqvKYBqbQZs4Q_wuA4TXN6k" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_a8f4dfaa525e4e2195e46b5d65530ed9.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="海淀妈妈北大爸爸" onerror="this.outerHTML='<div class=avatar-lg>海</div>'"></a>
+            <div class="info">
+              <div class="name">海淀妈妈北大爸爸</div>
+              <div class="desc">21.3W 粉丝 · 教育培训、考学培训</div>
+              <div class="kv"><span>21-60s ¥15000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA9Bl2NnAx0tXuVZXRBEofyqvKYBqbQZs4Q_wuA4TXN6k" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6870167233121763336" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAaikOY3wAb3azuq9nW1V4eR4saK9rOJRBswPN6eWjQ4M" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_2f96d00044c6ab45d84d4.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="萝卜 6号RE精读外教课" onerror="this.outerHTML='<div class=avatar-lg>萝</div>'"></a>
+            <div class="info">
+              <div class="name">萝卜 6号RE精读外教课</div>
+              <div class="desc">98.3W 粉丝 · 母婴亲子、亲子互动</div>
+              <div class="kv"><span>21-60s ¥70000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAaikOY3wAb3azuq9nW1V4eR4saK9rOJRBswPN6eWjQ4M" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6717627466996776973" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA5VY1TopUzaee036yuCgiXLpDNBjgYU9E76BEuytngnI" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_51e2fb658a4f4d79a993782f544ffaca.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="K拉蕾（育儿版）" onerror="this.outerHTML='<div class=avatar-lg>K</div>'"></a>
+            <div class="info">
+              <div class="name">K拉蕾（育儿版）</div>
+              <div class="desc">34.8W 粉丝 · 母婴亲子、亲子互动</div>
+              <div class="kv"><span>21-60s ¥18000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA5VY1TopUzaee036yuCgiXLpDNBjgYU9E76BEuytngnI" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6629659088030531592" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA7DONkZdQV07BJZLodv1lJ-IeIfvnfLTr2ivRk2oqetGAbNQYOy2WKXyn9ocbPHWE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_7d00c1b8a046ae5ddb7ff6b6a2168cc2.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="橘子家小橘子" onerror="this.outerHTML='<div class=avatar-lg>橘</div>'"></a>
+            <div class="info">
+              <div class="name">橘子家小橘子</div>
+              <div class="desc">55.0W 粉丝 · 母婴亲子、育儿科普</div>
+              <div class="kv"><span>21-60s ¥15000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA7DONkZdQV07BJZLodv1lJ-IeIfvnfLTr2ivRk2oqetGAbNQYOy2WKXyn9ocbPHWE" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6870171853638336520" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA98uhsCEtZUPC58GxFeqI_02DljT_CpbUAmtWzRFUaXY" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_659a0e355423a8090d5edd05d279a08c.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="羊羊的家" onerror="this.outerHTML='<div class=avatar-lg>羊</div>'"></a>
+            <div class="info">
+              <div class="name">羊羊的家</div>
+              <div class="desc">36.1W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥22000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA98uhsCEtZUPC58GxFeqI_02DljT_CpbUAmtWzRFUaXY" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7035255853527597086" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAs6lfZTtreTjX2cpy0xouukLAImhS2CdwxyqNN2l7IMe_gBV8NFbICNriPezyF_ME" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_4faffd2107f3eafff61c3089d0a77968.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="拿铁辣妈牛小妞（运动版）" onerror="this.outerHTML='<div class=avatar-lg>拿</div>'"></a>
+            <div class="info">
+              <div class="name">拿铁辣妈牛小妞（运动版）</div>
+              <div class="desc">125.1W 粉丝 · 母婴亲子、育儿科普、测评种草、测评、母婴产品测评</div>
+              <div class="kv"><span>21-60s ¥60000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAs6lfZTtreTjX2cpy0xouukLAImhS2CdwxyqNN2l7IMe_gBV8NFbICNriPezyF_ME" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7012931313925619742" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAxYJr2i7C50XPzC8NvLHq_ngfNscMF8NWsu5YLJ_kgTQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_70c43653b3f42885219ed14f178caeb9.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="壮壮有个暖宝宝" onerror="this.outerHTML='<div class=avatar-lg>壮</div>'"></a>
+            <div class="info">
+              <div class="name">壮壮有个暖宝宝</div>
+              <div class="desc">28.4W 粉丝 · 母婴亲子、亲子互动</div>
+              <div class="kv"><span>21-60s ¥60000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAxYJr2i7C50XPzC8NvLHq_ngfNscMF8NWsu5YLJ_kgTQ" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7039219747560357925" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAD9zkTarv4FSvvJNSpKn8vng3U7ycVt9PPZNO0JdN5gw" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_7b545e30652afea278e9491831e5cb9e.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="瑞雪妈妈团🔆（迪巧液体钙来啦）" onerror="this.outerHTML='<div class=avatar-lg>瑞</div>'"></a>
+            <div class="info">
+              <div class="name">瑞雪妈妈团🔆（迪巧液体钙来啦）</div>
+              <div class="desc">20.7W 粉丝 · 母婴亲子、亲子互动</div>
+              <div class="kv"><span>21-60s ¥24888</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAD9zkTarv4FSvvJNSpKn8vng3U7ycVt9PPZNO0JdN5gw" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6843396853329821704" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+        </div>
+      </div>
+      <div class="ind-cat-panel" data-panel="phone-4">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【专业摄影型】账号长期展示样张、成片效果和拍摄幕后器材讲解。内容强调画质、参数与实际画面效果的对应关系，样张和短片展示密度高，评论区常见「直出怎么样」「画质如何」等问题。商品以相机、镜头为主，通过样张对比、参数讲解和实拍场景呈现成片说服力，自然带出器材的画质优势和拍摄表现。
+
+【Vlog创作型】以创作流程记录和防抖便携体验承接稳定器/运动相机/收音设备种草
+以Vlog创作者、旅拍达人为核心，账号长期记录拍摄流程、创作方案和出行装备搭配。内容强调防抖稳定性、便携性和收音效果，样张和短片展示密度高，评论区常见「防抖稳不稳」「新手适合吗」等问题。商品以稳定器、运动相机、麦克风为主，通过Vlog创作场景、防抖对比和收音效果展示自然带出器材的创作效率提升。
+
+【器材测评型】以横向对比和性价比解读承接全品类摄影摄像器材种草
+以器材评测账号为核心，账号长期做相机、镜头、稳定器、补光灯、收音设备等器材的横向对比、参数解读和性价比分析。评论区常见「新手适合吗」「性价比怎么样」等问题，结果导向强。商品以各类摄影摄像器材为主，通过对比测评、参数解读和场景适配分析自然带出器材优势，适合以理性种草方式触达有明确购买决策需求的用户。
+
+【出片教程型】以场景化教程和成片反馈承接摄影摄像器材入门种草
+以摄影教程、影像教学账号为核心，账号长期输出拍摄场景教学、设备使用教程和成片效果对比。内容强调使用门槛、场景适配和成片表现，具备「拍摄场景—设备功能—成片表现—适用对象」结构化内容。评论区常见「新手适合吗」「防抖稳不稳」等问题。商品以各类摄影摄像器材为主，通过场景化教学、新手友好教程和成片前后对比自然带出器材的入门适配优势和出片效果提升。</div>
+          </div>
+        </div>
+        <div class="ind-talent-grid">
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAlfaXEaQqrWk_zRV7Tes1OTmZlRiG8MYgGTvMsBIUeZk" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_fdaa0003be04c46b89b1.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="摄影兵工厂" onerror="this.outerHTML='<div class=avatar-lg>摄</div>'"></a>
+            <div class="info">
+              <div class="name">摄影兵工厂</div>
+              <div class="desc">113.0W 粉丝 · 才艺技能、摄影</div>
+              <div class="kv"><span>21-60s ¥17400</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAlfaXEaQqrWk_zRV7Tes1OTmZlRiG8MYgGTvMsBIUeZk" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6629661665371619335" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAgQtRg_h71vQ6Xfq7VfmL_au4Svpo1-tsNTvnLQnyxIo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_382551aae3c64a399d10e7ad7a97f647.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="杯杯子_" onerror="this.outerHTML='<div class=avatar-lg>杯</div>'"></a>
+            <div class="info">
+              <div class="name">杯杯子_</div>
+              <div class="desc">58.7W 粉丝 · 才艺技能、摄影</div>
+              <div class="kv"><span>21-60s ¥40000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAgQtRg_h71vQ6Xfq7VfmL_au4Svpo1-tsNTvnLQnyxIo" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7077236068889657357" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA0b4kTpTbzzIKO8nQAETA6hKoW_ILkq84CzOWvGXZRUfXgOC12GlCcbgkm-fqL_8i" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_8dfd0621b34b3bcb139b9a364afb43ce.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="苏畅Chang" onerror="this.outerHTML='<div class=avatar-lg>苏</div>'"></a>
+            <div class="info">
+              <div class="name">苏畅Chang</div>
+              <div class="desc">100.8W 粉丝 · 才艺技能、摄影</div>
+              <div class="kv"><span>21-60s ¥120000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA0b4kTpTbzzIKO8nQAETA6hKoW_ILkq84CzOWvGXZRUfXgOC12GlCcbgkm-fqL_8i" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6870170528817086478" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAaKNJumbPzWdps5JreMuXk8daHuGDf9DCa9YyGXYxY_E" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_c3c0a0f71184438da7198ae405533f89.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="张小鸿Red" onerror="this.outerHTML='<div class=avatar-lg>张</div>'"></a>
+            <div class="info">
+              <div class="name">张小鸿Red</div>
+              <div class="desc">27.0W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥16000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAaKNJumbPzWdps5JreMuXk8daHuGDf9DCa9YyGXYxY_E" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6830041819997274126" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAFlgUdLvBFP_uIFkT04xPD_bQAVKxFDcAI3YDzTU2ibsM4m2IHU4vVX_VnHF0hiaq" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_e71793238282e8f46987d7788fc21293.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="Asa路飞" onerror="this.outerHTML='<div class=avatar-lg>A</div>'"></a>
+            <div class="info">
+              <div class="name">Asa路飞</div>
+              <div class="desc">16.6W 粉丝 · 才艺技能、摄影、测评、3C数码测评、科技数码、3C数码</div>
+              <div class="kv"><span>21-60s ¥32000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAFlgUdLvBFP_uIFkT04xPD_bQAVKxFDcAI3YDzTU2ibsM4m2IHU4vVX_VnHF0hiaq" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6998070997299494951" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAACWzrsvbXCCD3hW1_4fhdu0FNqZ4LQZjXxkI4IWsCBvM" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_ae04000a65bb911026ae.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="梨与橙" onerror="this.outerHTML='<div class=avatar-lg>梨</div>'"></a>
+            <div class="info">
+              <div class="name">梨与橙</div>
+              <div class="desc">56.7W 粉丝 · 才艺技能、摄影</div>
+              <div class="kv"><span>21-60s ¥70000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAACWzrsvbXCCD3hW1_4fhdu0FNqZ4LQZjXxkI4IWsCBvM" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6714643576489246724" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA57dowUSxegnza1c0vA2jTkV1rrbsS7vTj8e6Pgl60bQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_8a0cfe3c1fd3a4e06f88b72525f5cb7a.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="芥末" onerror="this.outerHTML='<div class=avatar-lg>芥</div>'"></a>
+            <div class="info">
+              <div class="name">芥末</div>
+              <div class="desc">28.0W 粉丝 · 才艺技能、摄影、旅行、旅行记录</div>
+              <div class="kv"><span>21-60s ¥50000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA57dowUSxegnza1c0vA2jTkV1rrbsS7vTj8e6Pgl60bQ" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7092710799336013863" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAASqLD4ejpIyD4gVmZJpaQWoYNnUfAV9GOAwCyt_QmpsY" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_699992ef31e9a50a8a0974cf12720ab9.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="一个阿阳" onerror="this.outerHTML='<div class=avatar-lg>一</div>'"></a>
+            <div class="info">
+              <div class="name">一个阿阳</div>
+              <div class="desc">56.7W 粉丝 · 才艺技能、摄影</div>
+              <div class="kv"><span>21-60s ¥80000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAASqLD4ejpIyD4gVmZJpaQWoYNnUfAV9GOAwCyt_QmpsY" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6701241999011348491" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAADFjQ-NhjjspM1abfCIZ_deHrRJcuFoboU1RY17gTyX8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_931177b2a36861acf4f4425cd0b8bfe4.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="摄影师汤卓蚕" onerror="this.outerHTML='<div class=avatar-lg>摄</div>'"></a>
+            <div class="info">
+              <div class="name">摄影师汤卓蚕</div>
+              <div class="desc">169.8W 粉丝 · 才艺技能、摄影</div>
+              <div class="kv"><span>21-60s ¥38000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAADFjQ-NhjjspM1abfCIZ_deHrRJcuFoboU1RY17gTyX8" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6629660448583057422" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAb_hfdaq6z9V-KGmons5SjpKQByQDGKjMpNc9jKDJ8Aw" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_c17eb23d7da4b5c1756fae64e8e7810e.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="叶巨" onerror="this.outerHTML='<div class=avatar-lg>叶</div>'"></a>
+            <div class="info">
+              <div class="name">叶巨</div>
+              <div class="desc">51.6W 粉丝 · 才艺技能、摄影</div>
+              <div class="kv"><span>21-60s ¥100000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAb_hfdaq6z9V-KGmons5SjpKQByQDGKjMpNc9jKDJ8Aw" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6863710832006545421" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAlSoidXvMhNodS2QdJzgKmKrLh4FZJv_NvsmvV1AdKD4" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_66947452fbfc2480cec7f51e5455f457.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="夸利亚Qualia" onerror="this.outerHTML='<div class=avatar-lg>夸</div>'"></a>
+            <div class="info">
+              <div class="name">夸利亚Qualia</div>
+              <div class="desc">121.2W 粉丝 · 才艺技能、摄影</div>
+              <div class="kv"><span>21-60s ¥83000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAlSoidXvMhNodS2QdJzgKmKrLh4FZJv_NvsmvV1AdKD4" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7258475726439972875" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAuaDj5e8MrNbte-vAwlOL6JcGxw4JHiqgbBO6uTOhRcw" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_23f9a6b4214357e274c858113420ffd2.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="鸿摄" onerror="this.outerHTML='<div class=avatar-lg>鸿</div>'"></a>
+            <div class="info">
+              <div class="name">鸿摄</div>
+              <div class="desc">28.5W 粉丝 · 才艺技能、摄影</div>
+              <div class="kv"><span>21-60s ¥28000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAuaDj5e8MrNbte-vAwlOL6JcGxw4JHiqgbBO6uTOhRcw" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6834293418420617230" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+        </div>
+      </div>
+      <div class="ind-cat-panel" data-panel="phone-5">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【音频测评型】以专业横评和深度体验承接音频设备种草
+以音频测评博主为核心，内容围绕耳机、蓝牙音箱、桌面音频等设备展开同价位横评或单项深度测评。达人视频常见降噪对比、音质分析、佩戴舒适度长时间测试和连接稳定性验证，评论区用户关注漏音、延迟、兼容性等痛点。商品以测评场景自然露出，达人按「使用场景—音质/降噪表现—佩戴/连接体验—推荐建议」结构输出种草内容，专业背书强，适合功能型卖点表达。
+
+【通勤生活型】以日常通勤场景体验承接音频设备种草
+以通勤生活方式达人为核心，内容围绕耳机、蓝牙音箱在地铁、公交、步行、骑车等通勤场景中的使用体验展开。达人日常记录通勤路上的听歌、降噪、佩戴舒适度，画面呈现真实通勤场景中的设备使用，种草逻辑自然融入生活日常。商品以通勤伴侣、降噪刚需、通勤好物等方式自然出现，适合场景化种草和生活方式渗透。
+
+【游戏影音型】以游戏音频体验承接游戏耳机和音频设备种草
+以游戏影音类创作者为核心，内容围绕游戏音频延迟、音效定位、语音沟通质量等维度展开。达人常拍游戏实况，关注耳机延迟表现、3D音效定位精度、麦克风收音清晰度，对游戏耳机的佩戴舒适度和长时间游戏佩戴体验有深入讨论。商品以游戏音频装备、电竞耳机、游戏影音配置等方式自然出现，适合面向游戏人群的精准种草。
+
+【音乐爱好型】以听感沉浸和音乐欣赏承接音频设备种草
+以音乐爱好者为核心，内容围绕音质体验、HiFi入门、居家听歌、音乐欣赏场景展开。达人关注不同设备下的听感差异，常做音质对比、居家听歌氛围营造、桌面音频搭配分享，对音质细腻度和听感沉浸有较高追求。商品以听感升级、音乐伴侣、居家音频搭配等方式自然出现，适合情感化种草和听感体验表达。</div>
+          </div>
+        </div>
+        <div class="ind-talent-grid">
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA-odPniXmp9ce4zFmu_HQRmxI42fK3VDD3dGVN31W6Cw" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_b7b27e8192efacd33f5b22aba18add69.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="老拳Fist" onerror="this.outerHTML='<div class=avatar-lg>老</div>'"></a>
+            <div class="info">
+              <div class="name">老拳Fist</div>
+              <div class="desc">38.0W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥17000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA-odPniXmp9ce4zFmu_HQRmxI42fK3VDD3dGVN31W6Cw" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6763240680107016204" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAALm7WbZlVMiCT01F6krJhH_fLftdiJRtQZGol9PhTArw" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_oogSAsgAA54EEAviGaAZiDLPJVwRIj2T1BI0g.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="潇洒哥说科技" onerror="this.outerHTML='<div class=avatar-lg>潇</div>'"></a>
+            <div class="info">
+              <div class="name">潇洒哥说科技</div>
+              <div class="desc">86.3W 粉丝 · 测评、3C数码测评、科技数码、3C数码、科技</div>
+              <div class="kv"><span>21-60s ¥24000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAALm7WbZlVMiCT01F6krJhH_fLftdiJRtQZGol9PhTArw" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7405498944790200359" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA53ZDX2EZzNKbvqMlHq6kEPwqr7WBTrfLhvCv3gL4w8A" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_be79da5683765ebbb52307813731fa31.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="晨钟酱" onerror="this.outerHTML='<div class=avatar-lg>晨</div>'"></a>
+            <div class="info">
+              <div class="name">晨钟酱</div>
+              <div class="desc">22.6W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥15000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA53ZDX2EZzNKbvqMlHq6kEPwqr7WBTrfLhvCv3gL4w8A" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7325469455503327282" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAyN7T_t14eT03BqJ9LqSkvFNuTAJBGmoYj2l-Qgib3Sc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c000-ce_ociAEJAF2IAgH7AgllB9X1QfhSf5DfOE8X7TU3.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="萱姐科技测评" onerror="this.outerHTML='<div class=avatar-lg>萱</div>'"></a>
+            <div class="info">
+              <div class="name">萱姐科技测评</div>
+              <div class="desc">51.5W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥11800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAyN7T_t14eT03BqJ9LqSkvFNuTAJBGmoYj2l-Qgib3Sc" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7273454410276012088" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAE2FKYKUavW_tJqZ1yC4k1XMH5CICx7B5MyLcbt56wJY" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_4927cefebe8eba23ceb43929b811113b.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="瓦特Watt" onerror="this.outerHTML='<div class=avatar-lg>瓦</div>'"></a>
+            <div class="info">
+              <div class="name">瓦特Watt</div>
+              <div class="desc">38.0W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥22000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAE2FKYKUavW_tJqZ1yC4k1XMH5CICx7B5MyLcbt56wJY" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7392958208878313509" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAr2-nPrp14WWlotkqB6hY91HNEDIK23mXqxbOKCYCEha7WvcnQBiU77ZGjYcQYNnX" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_oIz94aNjAohDyfAAXVLCAWDohnIAcERgeXAAyU.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="大旗酷玩优选" onerror="this.outerHTML='<div class=avatar-lg>大</div>'"></a>
+            <div class="info">
+              <div class="name">大旗酷玩优选</div>
+              <div class="desc">136.1W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥16900</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAr2-nPrp14WWlotkqB6hY91HNEDIK23mXqxbOKCYCEha7WvcnQBiU77ZGjYcQYNnX" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7358643032402427956" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA_X25gBz5R0t8FSnk1RMu--Hgy0R1F6xo3TtrgDxIt2Y" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_3b7710c5634e9c3a1e37e581a123d9c6.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="David科技测评" onerror="this.outerHTML='<div class=avatar-lg>D</div>'"></a>
+            <div class="info">
+              <div class="name">David科技测评</div>
+              <div class="desc">101.7W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥15800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA_X25gBz5R0t8FSnk1RMu--Hgy0R1F6xo3TtrgDxIt2Y" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7409869935029174322" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAKuE1S6zIlhAReaJ90DqmG7wHFMNwWbr0WTX667Hm954" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_522b08bad2d3f3ef9b6c8927e73dc338.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="Rika的生活创想" onerror="this.outerHTML='<div class=avatar-lg>R</div>'"></a>
+            <div class="info">
+              <div class="name">Rika的生活创想</div>
+              <div class="desc">75.6W 粉丝 · 科技数码、3C数码、家居电器、科技</div>
+              <div class="kv"><span>21-60s ¥25000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAKuE1S6zIlhAReaJ90DqmG7wHFMNwWbr0WTX667Hm954" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6628857676937822211" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAy4Pp1U8kpAb-lfXXD0G3hihJE8GbE-rbYtGDT-Yb1Qo7AekQAasDbSJzqlu0Wtd2" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/douyin-user-file_89b6c354b679aa2f29875b50b1accd9d.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="阿亮数码" onerror="this.outerHTML='<div class=avatar-lg>阿</div>'"></a>
+            <div class="info">
+              <div class="name">阿亮数码</div>
+              <div class="desc">109.3W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥12000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAy4Pp1U8kpAb-lfXXD0G3hihJE8GbE-rbYtGDT-Yb1Qo7AekQAasDbSJzqlu0Wtd2" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6824099022387544078" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAACC7PZy3lPYkfuoXIKYJjRvUoNyMykezDvfIrrLs6IOo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-c9aec8xkvj_3b7d64f7b9cd4f2daeab56ea76d29f50.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="沐子的科技报告" onerror="this.outerHTML='<div class=avatar-lg>沐</div>'"></a>
+            <div class="info">
+              <div class="name">沐子的科技报告</div>
+              <div class="desc">35.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥14800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAACC7PZy3lPYkfuoXIKYJjRvUoNyMykezDvfIrrLs6IOo" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7113972216517099524" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAVpxHnzYp_sZQFawP2UH7IMOCDNNQKi0vf26pzLDg3yH9r3wTjB99nzvITlaZw7JT" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_b05cd6b17a43315970d8e1e26b44632c.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="阿官想太多" onerror="this.outerHTML='<div class=avatar-lg>阿</div>'"></a>
+            <div class="info">
+              <div class="name">阿官想太多</div>
+              <div class="desc">19.0W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥14800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAVpxHnzYp_sZQFawP2UH7IMOCDNNQKi0vf26pzLDg3yH9r3wTjB99nzvITlaZw7JT" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7050294104151818244" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAHp2mfGGU_4cmEVnUwGlJoySaYL6V5XtHI7H15nht2kQnvvi-2eTDwoKydy5Zrnit" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_oQE84FgQDFnAPCvemeC0Bl22JAHA9AAAI5w7bu.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="先看评测" onerror="this.outerHTML='<div class=avatar-lg>先</div>'"></a>
+            <div class="info">
+              <div class="name">先看评测</div>
+              <div class="desc">137.1W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥70000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAHp2mfGGU_4cmEVnUwGlJoySaYL6V5XtHI7H15nht2kQnvvi-2eTDwoKydy5Zrnit" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7124556386221948941" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+        </div>
+      </div>
+      <div class="ind-cat-panel" data-panel="phone-6">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【智能家居型】以家庭中控和智能音箱为核心，用自动化场景承接生活便利卖点
+找长期深耕智能家居赛道的达人，内容以全屋智能联动演示、智能音箱语音控制、家庭中控屏操作、自动化场景设置为主。达人能清晰展示「痛点—智能功能—联动效果」链路，比如离家自动关灯关锁、语音控制全屋设备、场景一键切换。商品以智能音箱、家庭中控、智能门锁等全屋设备自然融入联动场景，强调便捷生活和家庭安全感。画面多为居家环境实拍，设备操控和联动触发是核心动作。
+
+【穿戴体验型】以智能手表和手环为核心，用健康数据和日常便利承接穿戴设备卖点
+找长期体验和分享智能手表、手环等穿戴设备的达人，内容以健康数据监测记录、运动追踪、睡眠分析、通勤便利和提醒功能为主。达人能展示穿戴设备在通勤、运动、睡眠等日常场景中的真实使用，强调健康监测价值和日常便利感。商品以智能手表、智能手环自然融入健康记录和通勤场景，画面多为上脚上手实拍、数据界面展示和日常佩戴场景。
+
+【科技尝鲜型】以智能眼镜和新品首发为核心，用尝鲜开箱和科技感承接新品卖点
+找科技尝鲜博主，内容以新品首发开箱、智能眼镜体验、前沿科技尝鲜和新鲜功能展示为主。达人对新设备有好奇心和表达力，能快速上手并输出真实体验，强调新鲜感、科技感和第一手体验价值。商品以智能眼镜、新品智能设备自然融入尝鲜开箱和体验场景，画面多为开箱过程、功能尝鲜演示和对比体验。
+
+
+【场景联动型】以出门入户和跨设备联动为核心，用生活痛点到智能解决承接联动卖点
+找擅长展示跨设备联动场景的达人，内容以出门入户场景、门锁联动、设备自动化触发和跨品类智能组合为主。达人能把智能门锁与音箱联动、手表与家居联动等跨设备组合拍出真实便利感，强调联动效果而非单一参数。商品以智能门锁、联动场景设备自然融入出入场景和自动化触发，画面多为出门入户、场景切换和联动触发实拍。</div>
+          </div>
+        </div>
+        <div class="ind-talent-grid">
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAZWtX6HzX5NTPTBxcoqx0xd48bIzbJbqEibYqhmXToOo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_760ab7b05de62f7e24b6db8a4a622477.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="🍟薯条" onerror="this.outerHTML='<div class=avatar-lg>🍟</div>'"></a>
+            <div class="info">
+              <div class="name">🍟薯条</div>
+              <div class="desc">41.0W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥29000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAZWtX6HzX5NTPTBxcoqx0xd48bIzbJbqEibYqhmXToOo" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7079471717306859560" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6896359756827459591" target="_blank" rel="noopener"><div class="avatar-lg">权</div></a>
+            <div class="info">
+              <div class="name">权志猴（智能家居）</div>
+              <div class="desc">169.7W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥57900</span></div>
+            </div>
+            <a class="cta" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6896359756827459591" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6896359756827459591" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAE0Yfh2bj08ruPxg6Xd7tFHAOiRNglnpWLcUGIJCLwxA" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_0a38651f88c1b490f1c48d3c8309aec5.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="村西头的灰太狼（在装修）" onerror="this.outerHTML='<div class=avatar-lg>村</div>'"></a>
+            <div class="info">
+              <div class="name">村西头的灰太狼（在装修）</div>
+              <div class="desc">26.1W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s ¥19800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAE0Yfh2bj08ruPxg6Xd7tFHAOiRNglnpWLcUGIJCLwxA" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7082363429612159014" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAsySP850WwppMDK6QAq7ZCuhOhbUYsRLYn0GqD63aYk4" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_442f8259279c671d04fd748cb5d413b5.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="张吉利" onerror="this.outerHTML='<div class=avatar-lg>张</div>'"></a>
+            <div class="info">
+              <div class="name">张吉利</div>
+              <div class="desc">20.6W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥16800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAsySP850WwppMDK6QAq7ZCuhOhbUYsRLYn0GqD63aYk4" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7055226032839884807" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAMStI_CUKInBGEqWVk-C2b-Q6rZ_r7MaVUsB3z2HCQvg" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_8765e9b3f4252fbbb826d3c5af65bf09.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="八爪鱼" onerror="this.outerHTML='<div class=avatar-lg>八</div>'"></a>
+            <div class="info">
+              <div class="name">八爪鱼</div>
+              <div class="desc">17.1W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥12000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAMStI_CUKInBGEqWVk-C2b-Q6rZ_r7MaVUsB3z2HCQvg" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7021871970702589988" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhPjSiDu1UrW6CK1nU94sTmvdZO5uwBPWBPphdB4ggrqPutoK0_sUoYywA4UTE1dr" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/douyin-user-image-file_501edea486ee9f4803e6dc86e8eda065.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="呃呃" onerror="this.outerHTML='<div class=avatar-lg>呃</div>'"></a>
+            <div class="info">
+              <div class="name">呃呃</div>
+              <div class="desc">12.3W 粉丝 · 生活家居、家居氛围</div>
+              <div class="kv"><span>21-60s ¥14000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAhPjSiDu1UrW6CK1nU94sTmvdZO5uwBPWBPphdB4ggrqPutoK0_sUoYywA4UTE1dr" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7169122654257938443" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAV4ija1j9bl2U9_mF3qtxjJN9X0P1BQdiMYUbSLmLcx205_G8G81Lz0LM9Gh4UkST" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/douyin-user-image-file_26e90b106f296f703cdb3b20afae07d9.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="谜语" onerror="this.outerHTML='<div class=avatar-lg>谜</div>'"></a>
+            <div class="info">
+              <div class="name">谜语</div>
+              <div class="desc">15.7W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s ¥12000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAV4ija1j9bl2U9_mF3qtxjJN9X0P1BQdiMYUbSLmLcx205_G8G81Lz0LM9Gh4UkST" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7444841522740068361" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAsy863BH24YJ4cWaLRXmciJ6NptN78S64OHP1RQ12Zc0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_f3b430d5938032198bb7e91d9dc315ed.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="光的房间" onerror="this.outerHTML='<div class=avatar-lg>光</div>'"></a>
+            <div class="info">
+              <div class="name">光的房间</div>
+              <div class="desc">24.2W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s ¥20000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAsy863BH24YJ4cWaLRXmciJ6NptN78S64OHP1RQ12Zc0" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7152254273932230686" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhuR4oD9omQI_U5pC9a_eeWrX9xj_Gt8c0Gd1sLfGgSI" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_a950261544401cff8306a30998737794.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="爱丽丝RUN" onerror="this.outerHTML='<div class=avatar-lg>爱</div>'"></a>
+            <div class="info">
+              <div class="name">爱丽丝RUN</div>
+              <div class="desc">96.2W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥50000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAhuR4oD9omQI_U5pC9a_eeWrX9xj_Gt8c0Gd1sLfGgSI" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7407784998993952809" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAASzdvaAm8NOcr48XUtLhclAVCJ-NM81xOzhlRifO6ypMzCDx0-_RTkF7IF-2TezoO" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_oMMAaK6XNEHEmAF78BeIHQ3AAeBcAAfBokaDEY.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="明哥的AI科技" onerror="this.outerHTML='<div class=avatar-lg>明</div>'"></a>
+            <div class="info">
+              <div class="name">明哥的AI科技</div>
+              <div class="desc">50.2W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥34800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAASzdvaAm8NOcr48XUtLhclAVCJ-NM81xOzhlRifO6ypMzCDx0-_RTkF7IF-2TezoO" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6870170621121150990" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAwSc-qv3hCcH5zbCOncEQLWSyTcSijtHsHWVBSDYFYfE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_oYAbkZkxnIBdflJHAbeANA9Z0CbDlAAEDDgTAZ.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="彦祖搞搞机" onerror="this.outerHTML='<div class=avatar-lg>彦</div>'"></a>
+            <div class="info">
+              <div class="name">彦祖搞搞机</div>
+              <div class="desc">38.0W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥23800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAwSc-qv3hCcH5zbCOncEQLWSyTcSijtHsHWVBSDYFYfE" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6862771265606778894" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAADUjn9SVCWaG6S-4TvwzwVZRPMEG7GSnyKYQa3de61ho" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_7cc560416aa9b3642d8b932889a41fdf.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="幻颜科技" onerror="this.outerHTML='<div class=avatar-lg>幻</div>'"></a>
+            <div class="info">
+              <div class="name">幻颜科技</div>
+              <div class="desc">785.9W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥65000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAADUjn9SVCWaG6S-4TvwzwVZRPMEG7GSnyKYQa3de61ho" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6735329989379489806" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+        </div>
+      </div>
+      <div class="ind-cat-panel" data-panel="phone-7">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【桌面效率型】以桌搭升级和多设备联动为核心，承接笔记本、显示器、扩展坞等外设种草
+以桌搭博主和桌面效率型达人为主，账号长期拍桌面布局改造、多设备联动和办公流程优化内容。内容画面强调完整桌面场景展示，从显示器支架、键盘鼠标布局到扩展坞线缆管理，突出「桌面升级带来效率提升」的使用体验。商品以桌面场景自然露出，围绕性能、舒适度、兼容性等卖点做场景拆分和配置建议，评论区常见「Mac/Win 兼容吗」「码字舒服吗」等咨询，正好承接外设种草。
+
+【电竞装备型】以游戏场景外设体验为核心，承接键盘、鼠标等电竞外设种草
+以电竞玩家和电竞装备型达人为主，账号长期拍游戏场景外设体验、延迟测试和手感评测内容。内容画面强调游戏实战场景，从键鼠手感、延迟表现到外设搭配，突出「装备升级带来游戏体验提升」的直观感受。商品以游戏场景自然露出，围绕延迟、手感、兼容性等电竞用户核心诉求做参数解读和场景拆分，评论区常见「延迟怎么样」「兼容性如何」等咨询，适合承接电竞外设种草。
+
+【办公测评型】以办公设备横评和长期使用反馈为核心，承接笔记本、打印机等办公设备种草
+以办公效率型达人和办公测评博主为主，账号长期拍笔记本横评、打印机评测和办公设备长期使用反馈内容。内容画面强调办公场景拆分，从打印效率、笔记本性能到办公流程适配，突出「设备升级带来生产力提升」的实际体验。商品以办公场景自然露出，围绕性能、兼容性和长期使用体验做功能导向的参数解读，评论区常见「兼容性怎么样」「长期用舒服吗」等咨询，适合承接办公设备种草。
+
+【程序员/设计师实用型】以专业工具配置和开发设计场景为核心，承接显示器、键盘、扩展坞等专业外设种草
+以程序员和设计师类创作者为主，账号长期拍开发环境配置、设计工具测评和多屏协作内容。内容画面强调专业工作场景，从代码编辑器的键盘手感、设计软件的显示器色准到扩展坞的多设备联动，突出「专业工具升级带来创作效率提升」的实际感受。商品以开发设计场景自然露出，围绕兼容性、参数适配和长期使用体验做专业向的配置建议，评论区常见「Mac/Win 兼容吗」「码字舒服吗」等咨询，适合承接专业外设种草。</div>
+          </div>
+        </div>
+        <div class="ind-talent-grid">
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAbvhy0IA-fxa81PC_6wtz4WDIUeFJmnM3EErp8_AUo4S6k6Xr0AGqylFoagjl4Wor" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_52169d902b48832004d19580cdc4c64c.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="桌魂" onerror="this.outerHTML='<div class=avatar-lg>桌</div>'"></a>
+            <div class="info">
+              <div class="name">桌魂</div>
+              <div class="desc">67.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥12000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAbvhy0IA-fxa81PC_6wtz4WDIUeFJmnM3EErp8_AUo4S6k6Xr0AGqylFoagjl4Wor" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/1680259230599182" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAGlPygWnEy9qvQiGvECbZ3qZOy7Gdfw-QC-_-2O_yiOY" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_6224633878f878c3b2979cd7fdba68ca.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="桌搭君" onerror="this.outerHTML='<div class=avatar-lg>桌</div>'"></a>
+            <div class="info">
+              <div class="name">桌搭君</div>
+              <div class="desc">22.4W 粉丝 · 生活、生活小窍门</div>
+              <div class="kv"><span>21-60s ¥14000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAGlPygWnEy9qvQiGvECbZ3qZOy7Gdfw-QC-_-2O_yiOY" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7129410817283325960" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAOUXY5km2w-6gnO-pbiaSR3JYYFTUiYM0bUqvEcEcS-U" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_8bc928204db59de8c62a62e45f2ed575.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="Mark聊科技" onerror="this.outerHTML='<div class=avatar-lg>M</div>'"></a>
+            <div class="info">
+              <div class="name">Mark聊科技</div>
+              <div class="desc">14.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥12000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAOUXY5km2w-6gnO-pbiaSR3JYYFTUiYM0bUqvEcEcS-U" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6917164803341418510" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAReU3xd3XTQDnnCp0ifXuh54qqn6t6b7apam33bR4-PieTVFgGHQhBnCC5M3Pz1No" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p9.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_6c8d15df7ab631bb37d36dd1240f8c75.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="王尼卡" onerror="this.outerHTML='<div class=avatar-lg>王</div>'"></a>
+            <div class="info">
+              <div class="name">王尼卡</div>
+              <div class="desc">16.0W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥11900</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAReU3xd3XTQDnnCp0ifXuh54qqn6t6b7apam33bR4-PieTVFgGHQhBnCC5M3Pz1No" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7239667212905087035" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA0DR09_5vlTABIWvyV4ouOVxhpjcQu0bao02qimlWV3Y" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_411426562cc2910a03d3a955624e3ad7.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="凯玲呀🎐" onerror="this.outerHTML='<div class=avatar-lg>凯</div>'"></a>
+            <div class="info">
+              <div class="name">凯玲呀🎐</div>
+              <div class="desc">52.1W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥18800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA0DR09_5vlTABIWvyV4ouOVxhpjcQu0bao02qimlWV3Y" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6687860679774306308" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAMZ9U43lciTrrlvJvEw7pirntSCjTcFgKB5DMUpEePkM" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c000-ce_oseTjn7NBmGuHyeIBlLvxQAfJsAjggEBUAA8yA.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="皮克曼同学" onerror="this.outerHTML='<div class=avatar-lg>皮</div>'"></a>
+            <div class="info">
+              <div class="name">皮克曼同学</div>
+              <div class="desc">11.3W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥15800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAMZ9U43lciTrrlvJvEw7pirntSCjTcFgKB5DMUpEePkM" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7301684228364697651" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAy3ZrxNm87n_83esInTBDCLuATSkCU3G9vpMEQowaro8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_3021336fa8763c2a0e015afc9732a7d2.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="像素real  (科技版)" onerror="this.outerHTML='<div class=avatar-lg>像</div>'"></a>
+            <div class="info">
+              <div class="name">像素real  (科技版)</div>
+              <div class="desc">86.0W 粉丝 · 测评、3C数码测评</div>
+              <div class="kv"><span>21-60s ¥12800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAy3ZrxNm87n_83esInTBDCLuATSkCU3G9vpMEQowaro8" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7434848717724712970" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdZ0KUUmJ_dW3uRf0dBMan94dlQFgPr3y3opCjbUsgAPbVm4-RbsyNL20xRCBYdNS" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_8f33f082ed13cce2a9f436743b40da3d.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小怪兽👾" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
+            <div class="info">
+              <div class="name">小怪兽👾</div>
+              <div class="desc">13.3W 粉丝 · 生活、生活记录</div>
+              <div class="kv"><span>21-60s ¥15900</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdZ0KUUmJ_dW3uRf0dBMan94dlQFgPr3y3opCjbUsgAPbVm4-RbsyNL20xRCBYdNS" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7028777460959281183" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA3oUX_8mRTgbk041R7ldQG3tgp1PgnyPOT74Lj-h_GOcqcZ9yWvPPpgsByzRAvRNa" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c000-ce_oAwA8EF4nEAFWnRnADEIBjuSFAiEeIf9JAfGI7.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="宇评数码" onerror="this.outerHTML='<div class=avatar-lg>宇</div>'"></a>
+            <div class="info">
+              <div class="name">宇评数码</div>
+              <div class="desc">51.1W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥18800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA3oUX_8mRTgbk041R7ldQG3tgp1PgnyPOT74Lj-h_GOcqcZ9yWvPPpgsByzRAvRNa" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7434003555628875785" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAesp8ZXsecKXoXLQ1jmBhjZ1kY5tWf-Bzl0wRUWRnLGSJWIflMVKPZ8ZrHPjLLBb8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_72dacb6ad3d548fbb17c65d2b9f96068.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="横竖斜评" onerror="this.outerHTML='<div class=avatar-lg>横</div>'"></a>
+            <div class="info">
+              <div class="name">横竖斜评</div>
+              <div class="desc">23.5W 粉丝 · 测评、3C数码测评、科技数码、3C数码、家居电器</div>
+              <div class="kv"><span>21-60s ¥14500</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAesp8ZXsecKXoXLQ1jmBhjZ1kY5tWf-Bzl0wRUWRnLGSJWIflMVKPZ8ZrHPjLLBb8" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7121260514604220423" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAbEjEozWr8WZqiEbt5KT49qzHxxTlmN31hbkitDRhEoM" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_2a7a856e132d758d1d3b0124e2113e25.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="Leo科技控" onerror="this.outerHTML='<div class=avatar-lg>L</div>'"></a>
+            <div class="info">
+              <div class="name">Leo科技控</div>
+              <div class="desc">152.2W 粉丝 · 测评、3C数码测评</div>
+              <div class="kv"><span>21-60s ¥31800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAbEjEozWr8WZqiEbt5KT49qzHxxTlmN31hbkitDRhEoM" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6628856048134389767" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAQ7asDXLjtpD5N1z7OAsi2G7zIb4ArRWw0NkevJlL_dhCkHdlE6nCg5EuMP1pIQpZ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_2d4b1000784367e242cb6.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="科技宅小明" onerror="this.outerHTML='<div class=avatar-lg>科</div>'"></a>
+            <div class="info">
+              <div class="name">科技宅小明</div>
+              <div class="desc">50.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥55000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAQ7asDXLjtpD5N1z7OAsi2G7zIb4ArRWw0NkevJlL_dhCkHdlE6nCg5EuMP1pIQpZ" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7073084185119817741" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-btns" style="margin-top:20px">
+        <a href="https://bytedance.larkoffice.com/sheets/KBJ7sOPpWhmIhttz6CdcguAin0d?sheet=DaHND3" target="_blank" class="btn btn-primary">耐消品刊例</a>
+      </div>
+    </div>
+    <div class="ind-panel" data-ind-panel="durable-small">
+      <div class="ind-section-header">
+        <div class="ind-section-title"><span class="ind-color-bar" style="background:#14b8a6"></span>🔌 小家电</div>
+      </div>
+
+      <div class="ind-cat-tabs" data-cat-group="small">
+        <button class="ind-cat-tab active" data-cat="small-1">小家电-生活电器</button>
+        <button class="ind-cat-tab" data-cat="small-2">小家电-个护电器</button>
+        <button class="ind-cat-tab" data-cat="small-3">小家电-厨房电器</button>
+      </div>
+
+      <div class="ind-cat-panel active" data-panel="small-1">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【家务实测型】以清洁效率对比实测为核心，承接扫地机/洗地机/吸尘器等清洁电器的功能演示与家务减负种草
 以家务实测博主为核心，人设是「会过日子、实测打假、清洁效率控」。内容围绕灰尘污渍前后对比、清洁效率横评、噪音测试、清洗难度实测展开，商品以功能演示方式自然露出，卖点表达围绕「省时省力、清洁彻底、操作简单」。适合扫地机、洗地机、吸尘器、除螨仪、擦窗机等清洁效率型电器的种草推广。
 
 【租房生活型】以小户型适配和租房神器为核心，承接生活电器的空间适配与场景种草
@@ -5480,10 +6345,137 @@ select {
 以宝妈或养宠人为核心人设，账号围绕育儿清洁、宠物掉毛、过敏防护等家庭刚需场景。内容强调除螨、毛发清理、空气清新、噪音对宝宝/宠物影响等痛点，商品以「守护家人健康」方式露出，卖点表达围绕「除螨杀菌、毛发自清洁、静音不扰眠、空气安全」。适合除螨仪、洗地机、空气净化器、净水器等健康清洁类电器。
 
 【新家入住舒适型】以整屋舒适和季节家电适配为核心，承接除湿机/加湿器/取暖器/风扇等环境舒适电器种草
-以新家入住类创作者为主，人设是「新居入住、整屋舒适、品质生活」。内容围绕梅雨季除湿、冬季取暖、夏季制冷、空气加湿等季节节点场景展开，商品以「换季舒适必备」方式自然露出，卖点表达围绕「快速除湿、恒温舒适、静音运行、智能控制」。适合除湿机、加湿器、取暖器、风扇等季节适配型电器。
-
-【个护电器】
-【发型教程型】以吹风机/卷发棒/直板夹的前后对比承接「护理效率 + 即时效果」种草
+以新家入住类创作者为主，人设是「新居入住、整屋舒适、品质生活」。内容围绕梅雨季除湿、冬季取暖、夏季制冷、空气加湿等季节节点场景展开，商品以「换季舒适必备」方式自然露出，卖点表达围绕「快速除湿、恒温舒适、静音运行、智能控制」。适合除湿机、加湿器、取暖器、风扇等季节适配型电器。</div>
+          </div>
+        </div>
+        <div class="ind-talent-grid">
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA5qA_IOOFelSPMHIXHW-NyZNIX55R8yceM5gpFr99Ugend87C0wVRO2g1CSHDY67o" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_e19d29cc553e502f2cf20a68177a72f6.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="贝勒爷装修日记" onerror="this.outerHTML='<div class=avatar-lg>贝</div>'"></a>
+            <div class="info">
+              <div class="name">贝勒爷装修日记</div>
+              <div class="desc">41.0W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥13800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA5qA_IOOFelSPMHIXHW-NyZNIX55R8yceM5gpFr99Ugend87C0wVRO2g1CSHDY67o" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6997128678010273805" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA-FFErOVJ27toVtNFHccNxTpFrC9AbZRKE4q2CICgNwu4qjPSHjtgQ1us0dGHpDYp" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_31b0c00014c9e86e6b6b2.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="爱折腾的番茄月" onerror="this.outerHTML='<div class=avatar-lg>爱</div>'"></a>
+            <div class="info">
+              <div class="name">爱折腾的番茄月</div>
+              <div class="desc">19.4W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥23800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA-FFErOVJ27toVtNFHccNxTpFrC9AbZRKE4q2CICgNwu4qjPSHjtgQ1us0dGHpDYp" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7010055360878739463" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA3CRmY9PPzw3_yXlLjwNZRNwWrWcrmu1Z23dIMmPVGSo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_92ff1e4c83d54c94aae329e51e1eec23.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="樊先生的小家" onerror="this.outerHTML='<div class=avatar-lg>樊</div>'"></a>
+            <div class="info">
+              <div class="name">樊先生的小家</div>
+              <div class="desc">21.5W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥17250</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA3CRmY9PPzw3_yXlLjwNZRNwWrWcrmu1Z23dIMmPVGSo" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7085324981873147917" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAsamwwqhT8uGLHqAfw8e0WrlpSES6WZ_w-uR7lfJ2fFU" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_be848f12a8968cc45face897c5958c84.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="嘟嘟他小姨" onerror="this.outerHTML='<div class=avatar-lg>嘟</div>'"></a>
+            <div class="info">
+              <div class="name">嘟嘟他小姨</div>
+              <div class="desc">10.9W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥14500</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAsamwwqhT8uGLHqAfw8e0WrlpSES6WZ_w-uR7lfJ2fFU" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6987012839714062350" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA73eRUUimsrDaQsSiwQeH4xIbO6OhvBbJanpF84BrWP4" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_09f0be4218ef54fbdc545150a84aa6f8.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="大常小翊🏠" onerror="this.outerHTML='<div class=avatar-lg>大</div>'"></a>
+            <div class="info">
+              <div class="name">大常小翊🏠</div>
+              <div class="desc">19.6W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥13500</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA73eRUUimsrDaQsSiwQeH4xIbO6OhvBbJanpF84BrWP4" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7169042795271815175" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAP6YjZLD6MkDQVfiFvhCKdWpPJNz959om7-SO1HklBfwyJSwZLmJIVFC83Gh5_01z" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_28c10630b7ba9ac34c63ea4f7b8facf5.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="心心的小蜗居🏠" onerror="this.outerHTML='<div class=avatar-lg>心</div>'"></a>
+            <div class="info">
+              <div class="name">心心的小蜗居🏠</div>
+              <div class="desc">32.0W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥19800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAP6YjZLD6MkDQVfiFvhCKdWpPJNz959om7-SO1HklBfwyJSwZLmJIVFC83Gh5_01z" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7209600735070126136" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAGSfOLN3atCadTvzhyK1aKWKvLc7JKkcCnzDNalEDAYY" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_54ee93cf649e6c4d7b2278400aeec7b0.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="阿林家" onerror="this.outerHTML='<div class=avatar-lg>阿</div>'"></a>
+            <div class="info">
+              <div class="name">阿林家</div>
+              <div class="desc">33.7W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥21500</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAGSfOLN3atCadTvzhyK1aKWKvLc7JKkcCnzDNalEDAYY" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7101236488704262180" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAHL128hJOpcnMRU7OtD11aNRgmrPm2_zqIGng1cGE3kQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_4300501e0ad425623cbcb673dc2ccb3c.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小意义的麻麻" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
+            <div class="info">
+              <div class="name">小意义的麻麻</div>
+              <div class="desc">21.5W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥18800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAHL128hJOpcnMRU7OtD11aNRgmrPm2_zqIGng1cGE3kQ" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7049972731298709518" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAArd8O2lKD2uZ43bk5CmsRW5AMZ3ueO1e5j12cV0EXBQM" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_e5d31b0fb1d545259a450efcd63d98ad.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="二胖" onerror="this.outerHTML='<div class=avatar-lg>二</div>'"></a>
+            <div class="info">
+              <div class="name">二胖</div>
+              <div class="desc">62.6W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥12999</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAArd8O2lKD2uZ43bk5CmsRW5AMZ3ueO1e5j12cV0EXBQM" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6723201254257852430" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAANfxvq5HuKd0Wvq0eO-nF8Xakz84HtljO8HRhb3MjTv9MWUxN9u1KNzQp4a9vZMhl" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_1fecc115612ff96aae1174ba197c7dc4.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小江的家🏠" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
+            <div class="info">
+              <div class="name">小江的家🏠</div>
+              <div class="desc">20.4W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥13800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAANfxvq5HuKd0Wvq0eO-nF8Xakz84HtljO8HRhb3MjTv9MWUxN9u1KNzQp4a9vZMhl" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7353462049637269555" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAkGfwkIdh6NqYjT4qGCLKlvEEoVjV8OyGQBrVrTRfXH8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_4531d489986efd8c370484a09a768f18.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="得宝小队长" onerror="this.outerHTML='<div class=avatar-lg>得</div>'"></a>
+            <div class="info">
+              <div class="name">得宝小队长</div>
+              <div class="desc">14.7W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥17800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAkGfwkIdh6NqYjT4qGCLKlvEEoVjV8OyGQBrVrTRfXH8" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7213202173075652669" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAwSmEhRqv35-_41tIKrmVEN62bdKB07C5JjeevpTRGtCyShV2MKpOBlorvUqhF5qq" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_a831279a7a9f8d77f67293a24fda0dce.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="图图的小院家" onerror="this.outerHTML='<div class=avatar-lg>图</div>'"></a>
+            <div class="info">
+              <div class="name">图图的小院家</div>
+              <div class="desc">20.5W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥15000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAwSmEhRqv35-_41tIKrmVEN62bdKB07C5JjeevpTRGtCyShV2MKpOBlorvUqhF5qq" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7264255441444536331" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+        </div>
+      </div>
+      <div class="ind-cat-panel" data-panel="small-2">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【发型教程型】以吹风机/卷发棒/直板夹的前后对比承接「护理效率 + 即时效果」种草
 找长期做发型教程和造型工具实操演示的达人，内容围绕吹风机、卷发棒、直板夹等造型电器的使用步骤与即时效果展开。达人通常真人上头演示，从湿发/素发状态到完成造型的全过程，强调操作便捷和前后差异。商品以造型前后对比、使用步骤拆解、常见误区纠正等方式自然露出，围绕「护理需求 + 功能卖点 + 即时效果」逻辑种草。
 
 【美容仪体验型】以使用前后对比和功能卖点承接个护电器种草
@@ -5493,10 +6485,137 @@ select {
 找长期做口腔护理和电动牙刷/冲牙器实测演示的达人，内容围绕电动牙刷、冲牙器等口腔个护电器的上牙使用体验和护齿科普展开。达人通常真人上牙演示，展示使用方式、清洁效果和适配人群，强调操作便捷和护齿价值。商品以上牙实测、清洁效果对比、敏感牙适配说明等方式自然露出，围绕「护理需求 + 功能卖点 + 即时效果」逻辑种草。
 
 【男士理容型】以男性精致理容和实操效率承接个护电器种草
-找长期做男士理容和剃须刀/理容工具实测演示的达人，内容围绕剃须刀、电动剃须刀等男士理容电器的上手使用体验和效率提升展开。达人通常真人上手/上脸演示，展示剃须效果、使用便捷和适配场景，强调操作效率和精致理容价值。商品以上手实测、剃须前后对比、理容效率提升等方式自然露出，围绕「护理需求 + 功能卖点 + 即时效果」逻辑种草。
-
-【厨房电器】
-【家常菜教程型】以菜谱过程+出锅展示承接电饭煲/空气炸锅/破壁机等成品稳定种草
+找长期做男士理容和剃须刀/理容工具实测演示的达人，内容围绕剃须刀、电动剃须刀等男士理容电器的上手使用体验和效率提升展开。达人通常真人上手/上脸演示，展示剃须效果、使用便捷和适配场景，强调操作效率和精致理容价值。商品以上手实测、剃须前后对比、理容效率提升等方式自然露出，围绕「护理需求 + 功能卖点 + 即时效果」逻辑种草。</div>
+          </div>
+        </div>
+        <div class="ind-talent-grid">
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAtisigwFU2o0APuLIhdSueHF2nlp-PpTTkKH0yO91KSGFpt3W9c9P0ATWkJnaJgMq" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_8d497934a6252dafb952e9064c7ec6b4.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="眠zzz" onerror="this.outerHTML='<div class=avatar-lg>眠</div>'"></a>
+            <div class="info">
+              <div class="name">眠zzz</div>
+              <div class="desc">66.4W 粉丝 · 时尚、穿搭</div>
+              <div class="kv"><span>21-60s ¥40000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAtisigwFU2o0APuLIhdSueHF2nlp-PpTTkKH0yO91KSGFpt3W9c9P0ATWkJnaJgMq" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6997681296377905185" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAxO03neRWs7Pvm2PN0ej4NulM67OVRAQkbtjk3Ox_fZw" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_fba11b033ef516ad5aaf445a9fba92ee.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="-刘起伏" onerror="this.outerHTML='<div class=avatar-lg>-</div>'"></a>
+            <div class="info">
+              <div class="name">-刘起伏</div>
+              <div class="desc">282.3W 粉丝 · 时尚、穿搭</div>
+              <div class="kv"><span>21-60s ¥40000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAxO03neRWs7Pvm2PN0ej4NulM67OVRAQkbtjk3Ox_fZw" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6847731410627739662" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAnIklDTNmgStCdEmYK3HD4k_nnRt-H4jWVVkhVFcMRgI" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_41c7b99173cca06f5d65f832365fcfbe.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="罗罗琳" onerror="this.outerHTML='<div class=avatar-lg>罗</div>'"></a>
+            <div class="info">
+              <div class="name">罗罗琳</div>
+              <div class="desc">15.9W 粉丝 · 时尚、穿搭</div>
+              <div class="kv"><span>21-60s ¥11000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAnIklDTNmgStCdEmYK3HD4k_nnRt-H4jWVVkhVFcMRgI" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7203216322287632445" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAHrWFoafTWi9TW_VW5HjPMYkYtBUTfDsXHJV41ro7n6Y" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_9610a7f6e6342ac3e144cbf82c67b31a.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="那小仙儿" onerror="this.outerHTML='<div class=avatar-lg>那</div>'"></a>
+            <div class="info">
+              <div class="name">那小仙儿</div>
+              <div class="desc">23.4W 粉丝 · 时尚、穿搭</div>
+              <div class="kv"><span>21-60s ¥12000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAHrWFoafTWi9TW_VW5HjPMYkYtBUTfDsXHJV41ro7n6Y" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7042198342192857124" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAOGotvoEykgKVRLY7gJ8y_XU5Ua0Ko9M67IRqFlTv7YY" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_1a59dad67936d24e7de5bd3e55594e2a.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="托尼归来了" onerror="this.outerHTML='<div class=avatar-lg>托</div>'"></a>
+            <div class="info">
+              <div class="name">托尼归来了</div>
+              <div class="desc">24.6W 粉丝 · 时尚、穿搭</div>
+              <div class="kv"><span>21-60s ¥24000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAOGotvoEykgKVRLY7gJ8y_XU5Ua0Ko9M67IRqFlTv7YY" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7010010345691414559" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAjURM87JYZYTrA45flnUcGz8fDYwgFkV525Tx0lPTy3E" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_39e8a1e2ba9260f1841a379ee44d3444.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="Mhoney蒙蒙" onerror="this.outerHTML='<div class=avatar-lg>M</div>'"></a>
+            <div class="info">
+              <div class="name">Mhoney蒙蒙</div>
+              <div class="desc">107.6W 粉丝 · 时尚、穿搭、美妆、美妆教程、妆容展示</div>
+              <div class="kv"><span>21-60s ¥40000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAjURM87JYZYTrA45flnUcGz8fDYwgFkV525Tx0lPTy3E" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6870169158558941192" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAI1K5TVhIgFwaQ1XiNrEkI7pEc012R-sdqcKjvMfpNdd7ddrscI5YaipAC7qzIKnd" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_0feba3a773e89124d8559cc100387e58.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="幺三三" onerror="this.outerHTML='<div class=avatar-lg>幺</div>'"></a>
+            <div class="info">
+              <div class="name">幺三三</div>
+              <div class="desc">48.3W 粉丝 · 测评、美妆测评、美妆、美妆测评种草</div>
+              <div class="kv"><span>21-60s ¥51000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAI1K5TVhIgFwaQ1XiNrEkI7pEc012R-sdqcKjvMfpNdd7ddrscI5YaipAC7qzIKnd" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7038551385188597798" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAROPn63quZAS85l_zkKQitDrXAFmwJgLbXoWFtWK3X00" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_44dbd56eb7bda304c85f84dfbca7c5aa.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="黎黎Recila" onerror="this.outerHTML='<div class=avatar-lg>黎</div>'"></a>
+            <div class="info">
+              <div class="name">黎黎Recila</div>
+              <div class="desc">44.1W 粉丝 · 生活、好物推荐、美妆、护肤保养、美妆测评种草</div>
+              <div class="kv"><span>21-60s ¥38000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAROPn63quZAS85l_zkKQitDrXAFmwJgLbXoWFtWK3X00" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6820723274914201608" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAn_6SrmEwg6IvmGn01OIlx--3uLN7M8Ec8Zgez2vlmjQLB7q4vIbvZEiXzX5esWLC" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_3df060ee5e97ca8917c961e1e8bf7caa.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="chilly香菜" onerror="this.outerHTML='<div class=avatar-lg>c</div>'"></a>
+            <div class="info">
+              <div class="name">chilly香菜</div>
+              <div class="desc">582.7W 粉丝 · 时尚、穿搭</div>
+              <div class="kv"><span>21-60s ¥125000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAn_6SrmEwg6IvmGn01OIlx--3uLN7M8Ec8Zgez2vlmjQLB7q4vIbvZEiXzX5esWLC" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7129705281772060708" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdQzsjLuwCMx5tmtCzmLPFjNveVGV3rYtSpnk6SzpdVc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_489231bed3715e522b48762cbbf9c854.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="kiyuomi小蒋" onerror="this.outerHTML='<div class=avatar-lg>k</div>'"></a>
+            <div class="info">
+              <div class="name">kiyuomi小蒋</div>
+              <div class="desc">33.1W 粉丝 · 时尚、穿搭</div>
+              <div class="kv"><span>21-60s ¥20000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdQzsjLuwCMx5tmtCzmLPFjNveVGV3rYtSpnk6SzpdVc" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7146165988461903884" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAATNLVJH9iRHmzwAZOUxad8WAo5c3_HrMQctEm5rDHbP0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_119bcde39694b015afdb04508c3237c3.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="徐月悦啊" onerror="this.outerHTML='<div class=avatar-lg>徐</div>'"></a>
+            <div class="info">
+              <div class="name">徐月悦啊</div>
+              <div class="desc">78.0W 粉丝 · 时尚、穿搭</div>
+              <div class="kv"><span>21-60s ¥40500</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAATNLVJH9iRHmzwAZOUxad8WAo5c3_HrMQctEm5rDHbP0" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7283777139172704292" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA-h4zEuQEJ4CnK7ALWrWxWoOcMINl8hPQkr1O4V5Ceio" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_8106a0f8a308be90063497c192eb515d.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="煎饼🥞" onerror="this.outerHTML='<div class=avatar-lg>煎</div>'"></a>
+            <div class="info">
+              <div class="name">煎饼🥞</div>
+              <div class="desc">71.7W 粉丝 · 时尚、穿搭</div>
+              <div class="kv"><span>21-60s ¥26000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA-h4zEuQEJ4CnK7ALWrWxWoOcMINl8hPQkr1O4V5Ceio" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7069716791500488741" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+        </div>
+      </div>
+      <div class="ind-cat-panel" data-panel="small-3">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【家常菜教程型】以菜谱过程+出锅展示承接电饭煲/空气炸锅/破壁机等成品稳定种草
 家常菜教程型达人，人设是会做饭、爱分享家常菜的家庭厨师。内容以菜谱教学为主线，自然融入电饭煲、空气炸锅、破壁机等小家电的操作过程，展示从备料到出锅的完整流程。商品以「这个菜用XX机器做特别省事」「一键搞定不用看火」等方式自然露出，突出做饭效率提升和成品稳定可复制。评论区常见「容量够不够」「好不好清洗」等问题，内容中可自然回应这些痛点。
 
 【一人食型】以独居快手菜+小家电操作承接租房一人食场景种草
@@ -5511,26 +6630,6 @@ select {
         </div>
         <div class="ind-talent-grid">
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA5qA_IOOFelSPMHIXHW-NyZNIX55R8yceM5gpFr99Ugend87C0wVRO2g1CSHDY67o" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_e19d29cc553e502f2cf20a68177a72f6.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="贝勒爷装修日记" onerror="this.outerHTML='<div class=avatar-lg>贝</div>'"></a>
-            <div class="info">
-              <div class="name">贝勒爷装修日记</div>
-              <div class="desc">41.0W 粉丝 · 生活家居、生活技巧</div>
-              <div class="kv"><span>21-60s ¥13800</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA5qA_IOOFelSPMHIXHW-NyZNIX55R8yceM5gpFr99Ugend87C0wVRO2g1CSHDY67o" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6997128678010273805" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAtisigwFU2o0APuLIhdSueHF2nlp-PpTTkKH0yO91KSGFpt3W9c9P0ATWkJnaJgMq" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_8d497934a6252dafb952e9064c7ec6b4.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="眠zzz" onerror="this.outerHTML='<div class=avatar-lg>眠</div>'"></a>
-            <div class="info">
-              <div class="name">眠zzz</div>
-              <div class="desc">66.4W 粉丝 · 时尚、穿搭</div>
-              <div class="kv"><span>21-60s ¥40000</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAtisigwFU2o0APuLIhdSueHF2nlp-PpTTkKH0yO91KSGFpt3W9c9P0ATWkJnaJgMq" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6997681296377905185" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
             <a class="avatar-lg-link" href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6610563192856772611" target="_blank" rel="noopener"><div class="avatar-lg">阿</div></a>
             <div class="info">
               <div class="name">阿蔡美食教学</div>
@@ -5541,27 +6640,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6610563192856772611" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA-FFErOVJ27toVtNFHccNxTpFrC9AbZRKE4q2CICgNwu4qjPSHjtgQ1us0dGHpDYp" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_31b0c00014c9e86e6b6b2.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="爱折腾的番茄月" onerror="this.outerHTML='<div class=avatar-lg>爱</div>'"></a>
-            <div class="info">
-              <div class="name">爱折腾的番茄月</div>
-              <div class="desc">19.4W 粉丝 · 生活家居、生活技巧</div>
-              <div class="kv"><span>21-60s ¥23800</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA-FFErOVJ27toVtNFHccNxTpFrC9AbZRKE4q2CICgNwu4qjPSHjtgQ1us0dGHpDYp" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7010055360878739463" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAxO03neRWs7Pvm2PN0ej4NulM67OVRAQkbtjk3Ox_fZw" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_fba11b033ef516ad5aaf445a9fba92ee.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="-刘起伏" onerror="this.outerHTML='<div class=avatar-lg>-</div>'"></a>
-            <div class="info">
-              <div class="name">-刘起伏</div>
-              <div class="desc">282.3W 粉丝 · 时尚、穿搭</div>
-              <div class="kv"><span>21-60s ¥40000</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAxO03neRWs7Pvm2PN0ej4NulM67OVRAQkbtjk3Ox_fZw" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6847731410627739662" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAcnV_rInNihqeKGIi0-Dv5u5S8_eGeaQ2QIsIs2Xy_NL3BxOpV8fJ4RcgxVi7P6-_" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_f71fcd4fa1bfd49b9878cc293486aff2.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="孩儿他姥姥" onerror="this.outerHTML='<div class=avatar-lg>孩</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAcnV_rInNihqeKGIi0-Dv5u5S8_eGeaQ2QIsIs2Xy_NL3BxOpV8fJ4RcgxVi7P6-_" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_f71fcd4fa1bfd49b9878cc293486aff2.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="孩儿他姥姥" onerror="this.outerHTML='<div class=avatar-lg>孩</div>'"></a>
             <div class="info">
               <div class="name">孩儿他姥姥</div>
               <div class="desc">502.9W 粉丝 · 美食、美食教程</div>
@@ -5571,27 +6650,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7183624284105867324" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA3CRmY9PPzw3_yXlLjwNZRNwWrWcrmu1Z23dIMmPVGSo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_92ff1e4c83d54c94aae329e51e1eec23.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="樊先生的小家" onerror="this.outerHTML='<div class=avatar-lg>樊</div>'"></a>
-            <div class="info">
-              <div class="name">樊先生的小家</div>
-              <div class="desc">21.5W 粉丝 · 生活家居、生活技巧</div>
-              <div class="kv"><span>21-60s ¥17250</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA3CRmY9PPzw3_yXlLjwNZRNwWrWcrmu1Z23dIMmPVGSo" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7085324981873147917" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAnIklDTNmgStCdEmYK3HD4k_nnRt-H4jWVVkhVFcMRgI" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_41c7b99173cca06f5d65f832365fcfbe.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="罗罗琳" onerror="this.outerHTML='<div class=avatar-lg>罗</div>'"></a>
-            <div class="info">
-              <div class="name">罗罗琳</div>
-              <div class="desc">15.9W 粉丝 · 时尚、穿搭</div>
-              <div class="kv"><span>21-60s ¥11000</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAnIklDTNmgStCdEmYK3HD4k_nnRt-H4jWVVkhVFcMRgI" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7203216322287632445" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAzHGLOHn32fHZM9fADKesvBG1FxgEEyk6rkFprmHfR_jHsJ2fYl4BSjHR0W2b8pDi" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_9dd60371d2d34c589c9e6ed6e74eb8a4.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="周幺姑家常菜" onerror="this.outerHTML='<div class=avatar-lg>周</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAzHGLOHn32fHZM9fADKesvBG1FxgEEyk6rkFprmHfR_jHsJ2fYl4BSjHR0W2b8pDi" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_9dd60371d2d34c589c9e6ed6e74eb8a4.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="周幺姑家常菜" onerror="this.outerHTML='<div class=avatar-lg>周</div>'"></a>
             <div class="info">
               <div class="name">周幺姑家常菜</div>
               <div class="desc">551.1W 粉丝 · 美食、美食教程</div>
@@ -5601,27 +6660,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6831704472104730632" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAsamwwqhT8uGLHqAfw8e0WrlpSES6WZ_w-uR7lfJ2fFU" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_be848f12a8968cc45face897c5958c84.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="嘟嘟他小姨" onerror="this.outerHTML='<div class=avatar-lg>嘟</div>'"></a>
-            <div class="info">
-              <div class="name">嘟嘟他小姨</div>
-              <div class="desc">10.9W 粉丝 · 生活家居、生活技巧</div>
-              <div class="kv"><span>21-60s ¥14500</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAsamwwqhT8uGLHqAfw8e0WrlpSES6WZ_w-uR7lfJ2fFU" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6987012839714062350" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAHrWFoafTWi9TW_VW5HjPMYkYtBUTfDsXHJV41ro7n6Y" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_9610a7f6e6342ac3e144cbf82c67b31a.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="那小仙儿" onerror="this.outerHTML='<div class=avatar-lg>那</div>'"></a>
-            <div class="info">
-              <div class="name">那小仙儿</div>
-              <div class="desc">23.4W 粉丝 · 时尚、穿搭</div>
-              <div class="kv"><span>21-60s ¥12000</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAHrWFoafTWi9TW_VW5HjPMYkYtBUTfDsXHJV41ro7n6Y" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7042198342192857124" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAyudwcS2aRWbzipUKZ-OTDjt_kBEv3RldnWxDnjEbojI" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_oQb22tANcCAeh6fEAI7AaAABgvsgwlgVnA9yDB.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="阿虎美食记" onerror="this.outerHTML='<div class=avatar-lg>阿</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAyudwcS2aRWbzipUKZ-OTDjt_kBEv3RldnWxDnjEbojI" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_oQb22tANcCAeh6fEAI7AaAABgvsgwlgVnA9yDB.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="阿虎美食记" onerror="this.outerHTML='<div class=avatar-lg>阿</div>'"></a>
             <div class="info">
               <div class="name">阿虎美食记</div>
               <div class="desc">190.3W 粉丝 · 美食、美食教程</div>
@@ -5630,48 +6669,116 @@ select {
             <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAyudwcS2aRWbzipUKZ-OTDjt_kBEv3RldnWxDnjEbojI" target="_blank" rel="noopener">查看抖音主页</a>
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6873312600243830784" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAk9rgMSWljZpOJqgiDn_V6YWWkZqMAosN3JHoVb1YUNBYq7bvfpEYmOOGYSIuWVX6" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_aedb5382178f37d6c22b7e3c24c4ee0d.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="舌尖上的老六" onerror="this.outerHTML='<div class=avatar-lg>舌</div>'"></a>
+            <div class="info">
+              <div class="name">舌尖上的老六</div>
+              <div class="desc">333.2W 粉丝 · 美食、美食教程</div>
+              <div class="kv"><span>21-60s ¥20000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAk9rgMSWljZpOJqgiDn_V6YWWkZqMAosN3JHoVb1YUNBYq7bvfpEYmOOGYSIuWVX6" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7126431998226202660" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAueNYKa96uwIrAkagO4Xs4ULVaZGT8ltPB_T2XfimOIWMj1mRQlGsrTQqyywFSuZz" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_3140e0002d0582b9b5b07.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="_陈小井" onerror="this.outerHTML='<div class=avatar-lg>_</div>'"></a>
+            <div class="info">
+              <div class="name">_陈小井</div>
+              <div class="desc">778.3W 粉丝 · 美食、美食教程</div>
+              <div class="kv"><span>21-60s ¥88000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAueNYKa96uwIrAkagO4Xs4ULVaZGT8ltPB_T2XfimOIWMj1mRQlGsrTQqyywFSuZz" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6842210310930038798" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAs8xotOJwZiN_bzQXnDfZsebq0hg8F0OJsC7sbDy3JY0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_dec6d494d24b2b0940dd89d43cac2afd.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="明明家的美食生活" onerror="this.outerHTML='<div class=avatar-lg>明</div>'"></a>
+            <div class="info">
+              <div class="name">明明家的美食生活</div>
+              <div class="desc">420.8W 粉丝 · 美食、美食教程</div>
+              <div class="kv"><span>21-60s ¥45000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAs8xotOJwZiN_bzQXnDfZsebq0hg8F0OJsC7sbDy3JY0" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6711851124292321288" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAfc43OpaUMU1PSlPWLI1pjBctYEochToVTDQTwrihhZo_DHgGUOkyegoVJdiKvyRa" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_1850721efda281d0e3645bbafac48cbb.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="程天玩😼（教老公做饭）" onerror="this.outerHTML='<div class=avatar-lg>程</div>'"></a>
+            <div class="info">
+              <div class="name">程天玩😼（教老公做饭）</div>
+              <div class="desc">215.6W 粉丝 · 美食、美食教程</div>
+              <div class="kv"><span>21-60s ¥30000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAfc43OpaUMU1PSlPWLI1pjBctYEochToVTDQTwrihhZo_DHgGUOkyegoVJdiKvyRa" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7135666511997468686" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAhBa3La9SUl_pnCOrUSn6h7zUJd17UHhmFLfd0FQEPrg" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_7be8002482471bf74491.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="Amanda的小厨房" onerror="this.outerHTML='<div class=avatar-lg>A</div>'"></a>
+            <div class="info">
+              <div class="name">Amanda的小厨房</div>
+              <div class="desc">174.7W 粉丝 · 美食、美食教程</div>
+              <div class="kv"><span>21-60s ¥80000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAhBa3La9SUl_pnCOrUSn6h7zUJd17UHhmFLfd0FQEPrg" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6629656485188075524" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAOvkXuJ6JCO2bJFTSXr8gLfqnmlkDt_NCMD6_hXKd_Bk" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_3c6819ae6a36276a15db3ce483ff81c1.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="茶香姐爱美食" onerror="this.outerHTML='<div class=avatar-lg>茶</div>'"></a>
+            <div class="info">
+              <div class="name">茶香姐爱美食</div>
+              <div class="desc">246.6W 粉丝 · 美食、美食教程</div>
+              <div class="kv"><span>21-60s ¥25000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAOvkXuJ6JCO2bJFTSXr8gLfqnmlkDt_NCMD6_hXKd_Bk" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7277177562034356263" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAYT9oc6rr0kDXBlwIvBAK7W2ZH134Uq9X-_FdAjJnK_fhwKc3b8d_FZfQdY6EiJJX" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_db5201b1978282cc858811aac3622a25.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="夏叔厨房" onerror="this.outerHTML='<div class=avatar-lg>夏</div>'"></a>
+            <div class="info">
+              <div class="name">夏叔厨房</div>
+              <div class="desc">2278.7W 粉丝 · 美食、美食教程</div>
+              <div class="kv"><span>21-60s ¥219900</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAYT9oc6rr0kDXBlwIvBAK7W2ZH134Uq9X-_FdAjJnK_fhwKc3b8d_FZfQdY6EiJJX" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6870170359392370696" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAT0gbN7jBdFKCNSHJeI2884PCsHUnYgli9HU-r1_xpBhAg2x_WrYzk3ZGXAMGg2sv" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_6699380d4aa1dbc68ae1b538e4cd000e.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小陈同学～" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
+            <div class="info">
+              <div class="name">小陈同学～</div>
+              <div class="desc">338.5W 粉丝 · 美食、美食教程</div>
+              <div class="kv"><span>21-60s ¥25000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAT0gbN7jBdFKCNSHJeI2884PCsHUnYgli9HU-r1_xpBhAg2x_WrYzk3ZGXAMGg2sv" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7271105451553472568" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
         </div>
       </div>
-      <div class="ind-cat-panel" data-panel="durable-3">
+
+      <div class="quick-btns" style="margin-top:20px">
+        <a href="https://bytedance.larkoffice.com/sheets/KBJ7sOPpWhmIhttz6CdcguAin0d?sheet=DaHND3" target="_blank" class="btn btn-primary">耐消品刊例</a>
+      </div>
+    </div>
+    <div class="ind-panel" data-ind-panel="durable-large">
+      <div class="ind-section-header">
+        <div class="ind-section-title"><span class="ind-color-bar" style="background:#6366f1"></span>🏠 大家电</div>
+      </div>
+
+      <div class="ind-cat-tabs" data-cat-group="large">
+        <button class="ind-cat-tab active" data-cat="large-1">大家电-厨热大电</button>
+        <button class="ind-cat-tab" data-cat="large-2">大家电-白电</button>
+        <button class="ind-cat-tab" data-cat="large-3">大家电-黑电</button>
+      </div>
+
+      <div class="ind-cat-panel active" data-panel="large-1">
         <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
           <div class="node-metric">
             <div class="lab">推荐策略</div>
-            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【厨热大电】
-【装修决策型】以新房装修和厨卫改造决策为主线，承接厨热大电安装条件与使用收益种草
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【装修决策型】以新房装修和厨卫改造决策为主线，承接厨热大电安装条件与使用收益种草
 达人以装修博主或设计师型创作者为主，内容长期围绕新房装修全流程、厨卫改造节点和嵌入式电器安装前置条件展开。视频常见橱柜预留尺寸解读、水电改造要点、厨房动线规划和卫生间改造实拍，评论区高频出现尺寸咨询和维护成本问题。厨热大电以安装条件解读→家庭结构适配→长期省力价值→选购建议的决策链方式自然植入，适合洗碗机、蒸烤箱、嵌入式厨电等需要前置安装条件的品类种草。
 
 【实住体验型】以真实入住后厨热电器长期使用反馈为主线，承接使用收益与维护成本种草
 达人以实住体验型为主，内容围绕入住后各类厨热电器的日常使用体验、长期省力效果和维护成本展开。视频常见洗碗机日常使用反馈、蒸烤箱烹饪实测、热水器水温稳定性体验、油烟机吸烟效果长期评价等，评论区高频出现水质怎么样、后期清洁麻烦吗、水温稳定吗等咨询。厨热大电以真实体验→长期省力价值→维护成本→选购建议的方式植入，适合已有装修或改造完成、侧重使用反馈而非安装决策的场景种草。
 
 【厨热电器评测型】以产品功能测评和选购对比为主线，承接厨热大电性能参数与选购决策种草
-达人以厨热电器评测型为主，内容围绕各类厨热电器的功能测评、参数对比和选购建议展开。视频常见油烟机风量对比、洗碗机洗净能力测评、蒸烤箱温控精度测试、燃气灶火力对比等，评论区高频出现产品对比咨询和选购困惑。厨热大电以功能测评→参数解读→选购建议的方式植入，适合需要性能背书和选购决策支持的场景种草。
-
-【白电】
-【家电测评型】以参数对比和性能实测为核心机制，承接白电产品的专业选购决策转化
-以家电测评博主为核心，内容围绕空调制冷制热效率、冰箱保鲜与能耗实测、洗衣机洗净比与噪音测试等展开，强调参数对比、实测数据和选购建议。商品以容量展示、能效等级、噪音分贝、安装演示等方式自然露出，围绕用户提供的核心卖点表达「家庭结构适配、关键参数透明、选购有据可依」
-
-【装修选购型】以新房装修和旧房改造中的家电选购决策为核心机制，承接白电产品的场景化选购转化
-以装修选购达人为核心，内容围绕新房装修/旧房改造场景下的家电选购决策展开，包括空调匹数与房间匹配、冰箱容量与厨房尺寸适配、洗烘套装与阳台空间规划等。商品以装修流程中的家电选品环节、尺寸适配说明、安装过程记录等方式自然露出，围绕用户提供的核心卖点表达「装修不踩坑、尺寸适配、安装省心」
-
-【家庭实用型】以日常家务减负和家庭刚需场景为核心机制，承接白电产品的实用种草转化
-以家庭实用型达人为核心，内容围绕日常家务减负和家庭刚需场景展开，包括大容量冰箱解决全家食材存储、洗烘套装解放阳台晾晒、母婴分区洗护等。商品以家庭日常使用场景、几口之家适配建议、耗电实测和家务减负效果等方式自然露出，围绕用户提供的核心卖点表达「家庭刚需、家务减负、实用省心」
-
-
-【入住体验型】以真实入住长期使用反馈为核心机制，承接白电产品的体验式种草转化
-以入住体验型达人为核心，内容围绕新房入住或换新后的长期使用反馈展开，包括空调长期使用耗电表现、冰箱保鲜效果随时间变化、洗衣机长期使用噪音和洗净表现等。商品以入住VLOG、长期使用报告、换新前后对比等方式自然露出，围绕用户提供的核心卖点表达「长期体验真实、换新值得、售后有保障」
-
-【黑电】
-【影音测评型】以画质对比与参数实测承接黑电产品专业种草
-以影音测评博主为核心，人设偏专业测评、结论直接、视觉导向。内容围绕电视/投影/激光电视的画质、亮度、色域、音效等参数进行白天/夜晚对比实测，辅以客厅环境实拍展示观感差异。商品以实测场景、参数对比和购买建议自然露出，契合「空间条件—画质/音效表现—购买建议」的结构。评论区常见「白天看得清吗」「多大尺寸合适」等问题，说明粉丝对实际观感敏感，适合承接画质音效卖点表达
-
-【客厅改造型】以空间场景与安装环境展示承接黑电产品场景种草
-以客厅改造/装修类创作者为核心，人设偏空间改造、场景说服力强。内容围绕客厅全景展示、电视/投影安装环境、空间搭配建议、壁挂/支架选择等展开，强调大屏在客厅中的沉浸感和空间适配。商品以改造过程、安装实拍、前后对比和搭配建议自然露出，契合「空间条件—安装选择—家庭使用场景」的逻辑。粉丝对安装环境和空间利用敏感，适合承接安装便利性和空间适配卖点
-
-【游戏娱乐型】以游戏大屏体验与延迟实测承接黑电产品游戏种草
-以游戏娱乐账号为核心，人设偏游戏体验、互动性强。内容围绕游戏大屏体验、输入延迟测试、游戏连接展示、主机/PC连接电视等展开，强调大屏游戏沉浸感、低延迟和高刷新率对游戏体验的提升。商品以游戏实机测试、延迟数据、画面表现和游戏场景自然露出，契合「游戏表现—大屏沉浸—连接便利」的逻辑。粉丝对延迟、刷新率和游戏画面敏感，适合承接游戏性能卖点表达
-
-【家庭观影型】以观影效果与家庭使用场景承接黑电产品生活种草
-以家庭观影/生活方式创作者为核心，人设偏家庭生活、观影体验。内容围绕家庭观影效果展示、白天/夜晚观影对比、客厅观影氛围营造、周末家庭影院体验等展开，强调大屏带来的家庭娱乐沉浸感和共享体验。商品以家庭观影场景、氛围展示和日常使用自然露出，契合「家庭使用场景—观影体验—购买建议」的逻辑。粉丝对观看距离、白天观感和家庭娱乐体验敏感，适合承接家庭场景和沉浸感卖点表达</div>
+达人以厨热电器评测型为主，内容围绕各类厨热电器的功能测评、参数对比和选购建议展开。视频常见油烟机风量对比、洗碗机洗净能力测评、蒸烤箱温控精度测试、燃气灶火力对比等，评论区高频出现产品对比咨询和选购困惑。厨热大电以功能测评→参数解读→选购建议的方式植入，适合需要性能背书和选购决策支持的场景种草。</div>
           </div>
         </div>
         <div class="ind-talent-grid">
@@ -5686,26 +6793,6 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6691420211976863756" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAArLfo6e-BtMoQ28lyIJynW-e3q4-ibWklY6o72ys_WVE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_a96f6224e8cebc08d5109178649558e1.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="鹏哥讲装修" onerror="this.outerHTML='<div class=avatar-lg>鹏</div>'"></a>
-            <div class="info">
-              <div class="name">鹏哥讲装修</div>
-              <div class="desc">47.4W 粉丝 · 生活家居、硬装</div>
-              <div class="kv"><span>21-60s 价格待更新</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAArLfo6e-BtMoQ28lyIJynW-e3q4-ibWklY6o72ys_WVE" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6853801393321410567" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAwjOkJCpddCrrgX29miuU02Cpw0JwVUDclf927F-PM-E" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_798cf75f191251fecab983a3d7222e51.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="郝人测评" onerror="this.outerHTML='<div class=avatar-lg>郝</div>'"></a>
-            <div class="info">
-              <div class="name">郝人测评</div>
-              <div class="desc">154.4W 粉丝 · 科技数码、科技</div>
-              <div class="kv"><span>21-60s ¥49800</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAwjOkJCpddCrrgX29miuU02Cpw0JwVUDclf927F-PM-E" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6804013740753682446" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
             <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAArB-m06hmsdjICDjleUroXtuESude4liGJ5HsuNDhnxKKAwhAuyQrYlZcMDCyQ5RO" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_9e01bc6e24b2d18e1c13ed18e1c243ee.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="刘老师讲装修" onerror="this.outerHTML='<div class=avatar-lg>刘</div>'"></a>
             <div class="info">
               <div class="name">刘老师讲装修</div>
@@ -5716,27 +6803,7 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7279970913745895483" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAARWbnTD8rZthFlEm2r74iEEXmZ0TV951zDy3RNofGH_fMhPuN-Hhaz66esXbuXuxd" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_f7a16d99d0b0e3cbd78171d4181d3ea4.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="西妹儿的家🦋" onerror="this.outerHTML='<div class=avatar-lg>西</div>'"></a>
-            <div class="info">
-              <div class="name">西妹儿的家🦋</div>
-              <div class="desc">46.2W 粉丝 · 生活家居、生活技巧</div>
-              <div class="kv"><span>21-60s ¥21800</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAARWbnTD8rZthFlEm2r74iEEXmZ0TV951zDy3RNofGH_fMhPuN-Hhaz66esXbuXuxd" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7293516000731856946" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAY3wONsIJA1KK8TN7Lto2ftrnPJ6z7PYm7JmHm4cpj8w" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_43c3a193ab658a672eabecc3fffa0db4.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="柯林玩数码" onerror="this.outerHTML='<div class=avatar-lg>柯</div>'"></a>
-            <div class="info">
-              <div class="name">柯林玩数码</div>
-              <div class="desc">177.4W 粉丝 · 科技数码、科技</div>
-              <div class="kv"><span>21-60s ¥40000</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAY3wONsIJA1KK8TN7Lto2ftrnPJ6z7PYm7JmHm4cpj8w" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7408082220184780819" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAAUNPjSuAGItEmEFdrQ7_jyUakTH956APYHzMaZNE9ok" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_0e8bd622d7fb1300fa2fd5c8f29adf45.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="设计师阿爽" onerror="this.outerHTML='<div class=avatar-lg>设</div>'"></a>
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAAUNPjSuAGItEmEFdrQ7_jyUakTH956APYHzMaZNE9ok" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_0e8bd622d7fb1300fa2fd5c8f29adf45.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="设计师阿爽" onerror="this.outerHTML='<div class=avatar-lg>设</div>'"></a>
             <div class="info">
               <div class="name">设计师阿爽</div>
               <div class="desc">1647.5W 粉丝 · 生活家居、硬装</div>
@@ -5744,6 +6811,137 @@ select {
             </div>
             <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAAUNPjSuAGItEmEFdrQ7_jyUakTH956APYHzMaZNE9ok" target="_blank" rel="noopener">查看抖音主页</a>
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6629722309571641351" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA4mR7uG12ZJpj3XpOuZmgH2c49QuB7AHvwE1UTha0y_AEGba3p1ccFLHevgklj1OS" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_dc3de65ab149894ad458daea5c714507.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="进度条🍡" onerror="this.outerHTML='<div class=avatar-lg>进</div>'"></a>
+            <div class="info">
+              <div class="name">进度条🍡</div>
+              <div class="desc">190.7W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s ¥20000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA4mR7uG12ZJpj3XpOuZmgH2c49QuB7AHvwE1UTha0y_AEGba3p1ccFLHevgklj1OS" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6916114437543837704" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAApRMFL0CZwJVQt_deDYtYUUphZdsZWFLeoT3WiykL3ko" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_f2d733fd78e671d85bebd6f55a650f86.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="龙扬装修材料严选" onerror="this.outerHTML='<div class=avatar-lg>龙</div>'"></a>
+            <div class="info">
+              <div class="name">龙扬装修材料严选</div>
+              <div class="desc">95.9W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s ¥50000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAApRMFL0CZwJVQt_deDYtYUUphZdsZWFLeoT3WiykL3ko" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6817514492700672008" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAAWwnx5F0AmJPLiM19FA782bp49ceDlgkd9a-Chywiuo" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_7d448f328d50480061c4192a92f4ec40.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="阳阳-讲装修" onerror="this.outerHTML='<div class=avatar-lg>阳</div>'"></a>
+            <div class="info">
+              <div class="name">阳阳-讲装修</div>
+              <div class="desc">36.8W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s ¥25000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAAWwnx5F0AmJPLiM19FA782bp49ceDlgkd9a-Chywiuo" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7034606224549085192" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAxdFzqJyQ8Kf0ugXZ77ydB46A2AqO4Zz7DY-ToBG30aonMBLQh57MtWXpWqC2LUnP" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_60b0f8f77648ab54e780a7883f2f7707.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="罗哥讲装修" onerror="this.outerHTML='<div class=avatar-lg>罗</div>'"></a>
+            <div class="info">
+              <div class="name">罗哥讲装修</div>
+              <div class="desc">124.9W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s ¥27900</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAxdFzqJyQ8Kf0ugXZ77ydB46A2AqO4Zz7DY-ToBG30aonMBLQh57MtWXpWqC2LUnP" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7275278427081408567" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAGUA3s_FZOLUkQcZEn-t4I4BGQq7NKOfX2BkK-V-jbU0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813_47451dc398db4f348b88eea754bd9711.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小咸同学" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
+            <div class="info">
+              <div class="name">小咸同学</div>
+              <div class="desc">53.6W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥28800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAGUA3s_FZOLUkQcZEn-t4I4BGQq7NKOfX2BkK-V-jbU0" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6989155155488800775" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA68PFLE19kd8IgDg9CsYFFVd9-x9ktQ57XDUgluLU1-c" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_6e025c8d48db5ed7d4c756d028dc3f00.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="央美龙叔" onerror="this.outerHTML='<div class=avatar-lg>央</div>'"></a>
+            <div class="info">
+              <div class="name">央美龙叔</div>
+              <div class="desc">92.4W 粉丝 · 生活家居、硬装、软装、家居氛围</div>
+              <div class="kv"><span>21-60s ¥58000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA68PFLE19kd8IgDg9CsYFFVd9-x9ktQ57XDUgluLU1-c" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7155075512786747399" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA93m-zhcEYSb-JvbXJuvs3rgDWdCXc0pgAmyqMVJUTq8" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_d45122c483609916575225a5820b140f.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="漫夏来" onerror="this.outerHTML='<div class=avatar-lg>漫</div>'"></a>
+            <div class="info">
+              <div class="name">漫夏来</div>
+              <div class="desc">62.7W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s ¥26000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA93m-zhcEYSb-JvbXJuvs3rgDWdCXc0pgAmyqMVJUTq8" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7049500296354988068" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAYAQclMs7W3rg9QWRbxRrNu47uK7iJk2gFN9SZJGG48s" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_489b03ae69f4adacd9aafd96df3d4791.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="王某工" onerror="this.outerHTML='<div class=avatar-lg>王</div>'"></a>
+            <div class="info">
+              <div class="name">王某工</div>
+              <div class="desc">34.8W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s ¥14000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAYAQclMs7W3rg9QWRbxRrNu47uK7iJk2gFN9SZJGG48s" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7166137710191575077" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAuv0YSpZDQV6CdHs8HHmu-Hwb5u2SftqOUCErbleIpRPqoce2g0KV_1hDcOtCY1qr" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_2f7f4f15bf830e0c1bb20dc82b306060.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="秋天不爱家" onerror="this.outerHTML='<div class=avatar-lg>秋</div>'"></a>
+            <div class="info">
+              <div class="name">秋天不爱家</div>
+              <div class="desc">55.6W 粉丝 · 生活家居、硬装、软装、生活技巧</div>
+              <div class="kv"><span>21-60s ¥19800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAuv0YSpZDQV6CdHs8HHmu-Hwb5u2SftqOUCErbleIpRPqoce2g0KV_1hDcOtCY1qr" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7009614414361919524" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+        </div>
+      </div>
+      <div class="ind-cat-panel" data-panel="large-2">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【家电测评型】以参数对比和性能实测为核心机制，承接白电产品的专业选购决策转化
+以家电测评博主为核心，内容围绕空调制冷制热效率、冰箱保鲜与能耗实测、洗衣机洗净比与噪音测试等展开，强调参数对比、实测数据和选购建议。商品以容量展示、能效等级、噪音分贝、安装演示等方式自然露出，围绕用户提供的核心卖点表达「家庭结构适配、关键参数透明、选购有据可依」
+
+【装修选购型】以新房装修和旧房改造中的家电选购决策为核心机制，承接白电产品的场景化选购转化
+以装修选购达人为核心，内容围绕新房装修/旧房改造场景下的家电选购决策展开，包括空调匹数与房间匹配、冰箱容量与厨房尺寸适配、洗烘套装与阳台空间规划等。商品以装修流程中的家电选品环节、尺寸适配说明、安装过程记录等方式自然露出，围绕用户提供的核心卖点表达「装修不踩坑、尺寸适配、安装省心」
+
+【家庭实用型】以日常家务减负和家庭刚需场景为核心机制，承接白电产品的实用种草转化
+以家庭实用型达人为核心，内容围绕日常家务减负和家庭刚需场景展开，包括大容量冰箱解决全家食材存储、洗烘套装解放阳台晾晒、母婴分区洗护等。商品以家庭日常使用场景、几口之家适配建议、耗电实测和家务减负效果等方式自然露出，围绕用户提供的核心卖点表达「家庭刚需、家务减负、实用省心」
+
+
+【入住体验型】以真实入住长期使用反馈为核心机制，承接白电产品的体验式种草转化
+以入住体验型达人为核心，内容围绕新房入住或换新后的长期使用反馈展开，包括空调长期使用耗电表现、冰箱保鲜效果随时间变化、洗衣机长期使用噪音和洗净表现等。商品以入住VLOG、长期使用报告、换新前后对比等方式自然露出，围绕用户提供的核心卖点表达「长期体验真实、换新值得、售后有保障」</div>
+          </div>
+        </div>
+        <div class="ind-talent-grid">
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAArLfo6e-BtMoQ28lyIJynW-e3q4-ibWklY6o72ys_WVE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_a96f6224e8cebc08d5109178649558e1.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="鹏哥讲装修" onerror="this.outerHTML='<div class=avatar-lg>鹏</div>'"></a>
+            <div class="info">
+              <div class="name">鹏哥讲装修</div>
+              <div class="desc">47.4W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s 价格待更新</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAArLfo6e-BtMoQ28lyIJynW-e3q4-ibWklY6o72ys_WVE" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6853801393321410567" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAARWbnTD8rZthFlEm2r74iEEXmZ0TV951zDy3RNofGH_fMhPuN-Hhaz66esXbuXuxd" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_f7a16d99d0b0e3cbd78171d4181d3ea4.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="西妹儿的家🦋" onerror="this.outerHTML='<div class=avatar-lg>西</div>'"></a>
+            <div class="info">
+              <div class="name">西妹儿的家🦋</div>
+              <div class="desc">46.2W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥21800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAARWbnTD8rZthFlEm2r74iEEXmZ0TV951zDy3RNofGH_fMhPuN-Hhaz66esXbuXuxd" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7293516000731856946" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
             <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAHSU1pkG_vVbux54M0Lcn4F3OWW2zNlFM7B5N7UtWd9QgHUT5m0SMBDIurPmI0pSP" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_4ec38ae8e3b2e8caf4e938d47df441b5.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="三问学姐" onerror="this.outerHTML='<div class=avatar-lg>三</div>'"></a>
@@ -5756,26 +6954,6 @@ select {
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6787988694058942477" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAFIEk1wrU1uT182CV9oO3h7h3avRAr4jFGBNG6_ljcOYwHLezGdgIpKGhK6qfiq-y" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_640ffff922add5b76875ce87b1068725.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="电器哥梓涵" onerror="this.outerHTML='<div class=avatar-lg>电</div>'"></a>
-            <div class="info">
-              <div class="name">电器哥梓涵</div>
-              <div class="desc">176.7W 粉丝 · 科技数码、科技</div>
-              <div class="kv"><span>21-60s ¥80000</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAFIEk1wrU1uT182CV9oO3h7h3avRAr4jFGBNG6_ljcOYwHLezGdgIpKGhK6qfiq-y" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6867432160786120711" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
-            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA4mR7uG12ZJpj3XpOuZmgH2c49QuB7AHvwE1UTha0y_AEGba3p1ccFLHevgklj1OS" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_dc3de65ab149894ad458daea5c714507.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="进度条🍡" onerror="this.outerHTML='<div class=avatar-lg>进</div>'"></a>
-            <div class="info">
-              <div class="name">进度条🍡</div>
-              <div class="desc">190.7W 粉丝 · 生活家居、硬装</div>
-              <div class="kv"><span>21-60s ¥20000</span></div>
-            </div>
-            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA4mR7uG12ZJpj3XpOuZmgH2c49QuB7AHvwE1UTha0y_AEGba3p1ccFLHevgklj1OS" target="_blank" rel="noopener">查看抖音主页</a>
-            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6916114437543837704" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
-          </div>
-          <div class="talent-card ind-card">
             <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAACOzE7QUrQkPtlbc-dHZSvPVJLgCKPG6Bul3SRQPxUCaprQ98bX6qfq_OaJKJmhoW" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_08027a82c00c123db30bc8766a9713e0.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="不二的科技生活" onerror="this.outerHTML='<div class=avatar-lg>不</div>'"></a>
             <div class="info">
               <div class="name">不二的科技生活</div>
@@ -5784,6 +6962,136 @@ select {
             </div>
             <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAACOzE7QUrQkPtlbc-dHZSvPVJLgCKPG6Bul3SRQPxUCaprQ98bX6qfq_OaJKJmhoW" target="_blank" rel="noopener">查看抖音主页</a>
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7111603461724045319" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA9Uf2N_afCH0mQ_5nWGpoC4wFulZZ0fuk8LtQGLAUbqE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_002570108169baa85e50d8121ad7cfce.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="老韩装修VVIP" onerror="this.outerHTML='<div class=avatar-lg>老</div>'"></a>
+            <div class="info">
+              <div class="name">老韩装修VVIP</div>
+              <div class="desc">109.1W 粉丝 · 生活家居、软装</div>
+              <div class="kv"><span>21-60s ¥36800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA9Uf2N_afCH0mQ_5nWGpoC4wFulZZ0fuk8LtQGLAUbqE" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6834455957632712718" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAGSfOLN3atCadTvzhyK1aKWKvLc7JKkcCnzDNalEDAYY" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_54ee93cf649e6c4d7b2278400aeec7b0.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="阿林家" onerror="this.outerHTML='<div class=avatar-lg>阿</div>'"></a>
+            <div class="info">
+              <div class="name">阿林家</div>
+              <div class="desc">33.7W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s ¥21500</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAGSfOLN3atCadTvzhyK1aKWKvLc7JKkcCnzDNalEDAYY" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7101236488704262180" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdPnv1omdo_lkBeuzO5_sThJoOga0VPtiRZ5V5gxn6ebgdCxfvzZ51jQrwrRUReei" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_fa1e8582109b59d65e4efbd3ad4803aa.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="巴呐呐装修严选" onerror="this.outerHTML='<div class=avatar-lg>巴</div>'"></a>
+            <div class="info">
+              <div class="name">巴呐呐装修严选</div>
+              <div class="desc">44.7W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s ¥50000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdPnv1omdo_lkBeuzO5_sThJoOga0VPtiRZ5V5gxn6ebgdCxfvzZ51jQrwrRUReei" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7546819349714042931" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAFzpEBzzISg2eQH3OnpPDR_gkrbZfNH7PLUeOgOvYsAc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_28df4e2514b862462ca05def26d265de.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="周老板聊装修" onerror="this.outerHTML='<div class=avatar-lg>周</div>'"></a>
+            <div class="info">
+              <div class="name">周老板聊装修</div>
+              <div class="desc">60.6W 粉丝 · 生活家居、硬装、软装、科技数码、家居电器</div>
+              <div class="kv"><span>21-60s ¥10800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAFzpEBzzISg2eQH3OnpPDR_gkrbZfNH7PLUeOgOvYsAc" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6853950803875463181" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAvtjNSLB140HkxktPAixu1FQ-nUng1-ccEGlmoL8DdRc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_bce7a11cdaeeb4a6e8849079cb4e8212.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="vicky说设计" onerror="this.outerHTML='<div class=avatar-lg>v</div>'"></a>
+            <div class="info">
+              <div class="name">vicky说设计</div>
+              <div class="desc">106.4W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s 价格待更新</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAvtjNSLB140HkxktPAixu1FQ-nUng1-ccEGlmoL8DdRc" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7321626206296604699" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAD4PC1v7MJAM6IAR3PzxxXXa-ec2s3i4SDY2gVG2chZI" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_3cbf23532c4513a3dfe20d75d6bdf463.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="亚哥的新居使用手册" onerror="this.outerHTML='<div class=avatar-lg>亚</div>'"></a>
+            <div class="info">
+              <div class="name">亚哥的新居使用手册</div>
+              <div class="desc">171.2W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s 价格待更新</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAD4PC1v7MJAM6IAR3PzxxXXa-ec2s3i4SDY2gVG2chZI" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6629724409257000968" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAT2z44py_T_Mt3x9PkvF0ZHYyU6R1DlLcYBTLgA6GkPe-gC17FlYvmt40XMV7EDHz" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_dd09da96d7d4c2bb2f592343d4e046ab.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="娴柠七" onerror="this.outerHTML='<div class=avatar-lg>娴</div>'"></a>
+            <div class="info">
+              <div class="name">娴柠七</div>
+              <div class="desc">95.2W 粉丝 · 生活家居、生活技巧</div>
+              <div class="kv"><span>21-60s 价格待更新</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAT2z44py_T_Mt3x9PkvF0ZHYyU6R1DlLcYBTLgA6GkPe-gC17FlYvmt40XMV7EDHz" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7089045907315884069" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAeY8p81WnR0tqCxVA9o0Qag5PRY4aMPfSvIhjWixy2l85YsoNedz09akTLS_b8tJb" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c000-ce_o0ZJA7TQ9a1GWFZbgPQsWeI7LBA7EAPIfeKzAI.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="小朱装修设计（艾颂）" onerror="this.outerHTML='<div class=avatar-lg>小</div>'"></a>
+            <div class="info">
+              <div class="name">小朱装修设计（艾颂）</div>
+              <div class="desc">9.7W 粉丝 · 生活家居、硬装</div>
+              <div class="kv"><span>21-60s ¥48000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAeY8p81WnR0tqCxVA9o0Qag5PRY4aMPfSvIhjWixy2l85YsoNedz09akTLS_b8tJb" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7061075812425924644" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+        </div>
+      </div>
+      <div class="ind-cat-panel" data-panel="large-3">
+        <div class="node-summary" style="margin-bottom:20px; grid-template-columns:1fr">
+          <div class="node-metric">
+            <div class="lab">推荐策略</div>
+            <div class="val" style="font-size:13px; max-width:none; white-space:normal; line-height:1.7">【影音测评型】以画质对比与参数实测承接黑电产品专业种草
+以影音测评博主为核心，人设偏专业测评、结论直接、视觉导向。内容围绕电视/投影/激光电视的画质、亮度、色域、音效等参数进行白天/夜晚对比实测，辅以客厅环境实拍展示观感差异。商品以实测场景、参数对比和购买建议自然露出，契合「空间条件—画质/音效表现—购买建议」的结构。评论区常见「白天看得清吗」「多大尺寸合适」等问题，说明粉丝对实际观感敏感，适合承接画质音效卖点表达
+
+【客厅改造型】以空间场景与安装环境展示承接黑电产品场景种草
+以客厅改造/装修类创作者为核心，人设偏空间改造、场景说服力强。内容围绕客厅全景展示、电视/投影安装环境、空间搭配建议、壁挂/支架选择等展开，强调大屏在客厅中的沉浸感和空间适配。商品以改造过程、安装实拍、前后对比和搭配建议自然露出，契合「空间条件—安装选择—家庭使用场景」的逻辑。粉丝对安装环境和空间利用敏感，适合承接安装便利性和空间适配卖点
+
+【游戏娱乐型】以游戏大屏体验与延迟实测承接黑电产品游戏种草
+以游戏娱乐账号为核心，人设偏游戏体验、互动性强。内容围绕游戏大屏体验、输入延迟测试、游戏连接展示、主机/PC连接电视等展开，强调大屏游戏沉浸感、低延迟和高刷新率对游戏体验的提升。商品以游戏实机测试、延迟数据、画面表现和游戏场景自然露出，契合「游戏表现—大屏沉浸—连接便利」的逻辑。粉丝对延迟、刷新率和游戏画面敏感，适合承接游戏性能卖点表达
+
+【家庭观影型】以观影效果与家庭使用场景承接黑电产品生活种草
+以家庭观影/生活方式创作者为核心，人设偏家庭生活、观影体验。内容围绕家庭观影效果展示、白天/夜晚观影对比、客厅观影氛围营造、周末家庭影院体验等展开，强调大屏带来的家庭娱乐沉浸感和共享体验。商品以家庭观影场景、氛围展示和日常使用自然露出，契合「家庭使用场景—观影体验—购买建议」的逻辑。粉丝对观看距离、白天观感和家庭娱乐体验敏感，适合承接家庭场景和沉浸感卖点表达</div>
+          </div>
+        </div>
+        <div class="ind-talent-grid">
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAwjOkJCpddCrrgX29miuU02Cpw0JwVUDclf927F-PM-E" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_798cf75f191251fecab983a3d7222e51.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="郝人测评" onerror="this.outerHTML='<div class=avatar-lg>郝</div>'"></a>
+            <div class="info">
+              <div class="name">郝人测评</div>
+              <div class="desc">154.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥49800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAwjOkJCpddCrrgX29miuU02Cpw0JwVUDclf927F-PM-E" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6804013740753682446" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAY3wONsIJA1KK8TN7Lto2ftrnPJ6z7PYm7JmHm4cpj8w" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_43c3a193ab658a672eabecc3fffa0db4.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="柯林玩数码" onerror="this.outerHTML='<div class=avatar-lg>柯</div>'"></a>
+            <div class="info">
+              <div class="name">柯林玩数码</div>
+              <div class="desc">177.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥40000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAY3wONsIJA1KK8TN7Lto2ftrnPJ6z7PYm7JmHm4cpj8w" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7408082220184780819" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAFIEk1wrU1uT182CV9oO3h7h3avRAr4jFGBNG6_ljcOYwHLezGdgIpKGhK6qfiq-y" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_640ffff922add5b76875ce87b1068725.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="电器哥梓涵" onerror="this.outerHTML='<div class=avatar-lg>电</div>'"></a>
+            <div class="info">
+              <div class="name">电器哥梓涵</div>
+              <div class="desc">176.7W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥80000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAFIEk1wrU1uT182CV9oO3h7h3avRAr4jFGBNG6_ljcOYwHLezGdgIpKGhK6qfiq-y" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6867432160786120711" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
           <div class="talent-card ind-card">
             <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAoe8DDE0qXUs5PqajdpitVh97aomBuNgPNrl68xe7kr0" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_1c9e50004fbb62e122170.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="信口开盒" onerror="this.outerHTML='<div class=avatar-lg>信</div>'"></a>
@@ -5795,6 +7103,86 @@ select {
             <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAoe8DDE0qXUs5PqajdpitVh97aomBuNgPNrl68xe7kr0" target="_blank" rel="noopener">查看抖音主页</a>
             <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6644320315868446727" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
           </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAdF5ntA9VYPVO5ylk7jJTFlmfhDVGYoXsxMcmMuusgPE" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_c48f3772a400e5e45898380b7c762db6.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="牛哥说家电" onerror="this.outerHTML='<div class=avatar-lg>牛</div>'"></a>
+            <div class="info">
+              <div class="name">牛哥说家电</div>
+              <div class="desc">106.6W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥88800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAdF5ntA9VYPVO5ylk7jJTFlmfhDVGYoXsxMcmMuusgPE" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7330167362672394277" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAQTZ7hqN1jwCqYLnjQwU0nMPtIQ_suiU-wKbVn5SZOVU" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_44fcd117c4288e116d65ca8582e36ffc.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="Ace玩科技" onerror="this.outerHTML='<div class=avatar-lg>A</div>'"></a>
+            <div class="info">
+              <div class="name">Ace玩科技</div>
+              <div class="desc">123.5W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥40000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAQTZ7hqN1jwCqYLnjQwU0nMPtIQ_suiU-wKbVn5SZOVU" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7436285040343908389" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAtFoH1NUZo4gOQCTN8NTWs_mgkcJm5J_UU-M3mHV9PmGbVm2DkjVwB15qYEENKlkQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_b4f8ec374f42ffa98f4b3cea84c57642.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="家电老炮" onerror="this.outerHTML='<div class=avatar-lg>家</div>'"></a>
+            <div class="info">
+              <div class="name">家电老炮</div>
+              <div class="desc">24.8W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥25000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAtFoH1NUZo4gOQCTN8NTWs_mgkcJm5J_UU-M3mHV9PmGbVm2DkjVwB15qYEENKlkQ" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6939113276949135391" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAAF1kU_aqF4IWXfPvaZGpb70aPSkIs92QLQvJc-_km0fI" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/mosaic-legacy_1e1700000696f0b175688.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="王大盒的摄像老师" onerror="this.outerHTML='<div class=avatar-lg>王</div>'"></a>
+            <div class="info">
+              <div class="name">王大盒的摄像老师</div>
+              <div class="desc">229.4W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥35000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAAF1kU_aqF4IWXfPvaZGpb70aPSkIs92QLQvJc-_km0fI" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/6677797613011468295" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAASrmgPq0I5qQNUe-04mci-WRHPUGC92itSTdD6Qc_lpJOCQC1cvsQFjC6GtQMDDSa" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-i-0813c001_ooYFnbcJADxNIgRMeAmgeCuXEJ90AAzjAAkAtC.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="童姐来啦" onerror="this.outerHTML='<div class=avatar-lg>童</div>'"></a>
+            <div class="info">
+              <div class="name">童姐来啦</div>
+              <div class="desc">132.1W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥39800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAASrmgPq0I5qQNUe-04mci-WRHPUGC92itSTdD6Qc_lpJOCQC1cvsQFjC6GtQMDDSa" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7221037881542836261" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA6np3XPCpwUuj02RJdc37wlXaFWugaKQPWEJbvc6BBiQ9mkctgRN3PRa0NJCGeuXB" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_daff47a802f7b90f7435239f81226117.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="文哥聊装修" onerror="this.outerHTML='<div class=avatar-lg>文</div>'"></a>
+            <div class="info">
+              <div class="name">文哥聊装修</div>
+              <div class="desc">14.6W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥20000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA6np3XPCpwUuj02RJdc37wlXaFWugaKQPWEJbvc6BBiQ9mkctgRN3PRa0NJCGeuXB" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7066430237533274148" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA6o42RiZ8jsQlmfp_fXTbWFCWXfWO5YNq2MUYdGPOxrQ" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_adc75473358894cd3d97e07f6e8163d0.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="金大叔开箱" onerror="this.outerHTML='<div class=avatar-lg>金</div>'"></a>
+            <div class="info">
+              <div class="name">金大叔开箱</div>
+              <div class="desc">120.7W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥34800</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA6o42RiZ8jsQlmfp_fXTbWFCWXfWO5YNq2MUYdGPOxrQ" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7351329148557590579" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
+          <div class="talent-card ind-card">
+            <a class="avatar-lg-link" href="https://www.douyin.com/user/MS4wLjABAAAA6GPrHKaFVSZQfZ1h96vx5JRQifeI0duQxRFmArKoaJc" target="_blank" rel="noopener"><img class="avatar-lg-img" src="https://p11.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_8edcafed24492fd0311584c65f1780e1.jpeg?from=2956013662" referrerpolicy="no-referrer" alt="诸葛说家电" onerror="this.outerHTML='<div class=avatar-lg>诸</div>'"></a>
+            <div class="info">
+              <div class="name">诸葛说家电</div>
+              <div class="desc">16.3W 粉丝 · 科技数码、科技</div>
+              <div class="kv"><span>21-60s ¥100000</span></div>
+            </div>
+            <a class="cta" href="https://www.douyin.com/user/MS4wLjABAAAA6GPrHKaFVSZQfZ1h96vx5JRQifeI0duQxRFmArKoaJc" target="_blank" rel="noopener">查看抖音主页</a>
+            <a href="https://www.xingtu.cn/ad/creator/author-homepage/douyin-video/7264180283467890744" target="_blank" rel="noopener" class="cta cta-star">查看巨量星图主页</a>
+          </div>
         </div>
       </div>
 
@@ -5804,6 +7192,7 @@ select {
     </div>
   </div>
 </section>
+
 
 <!-- SUMMER / 清凉夏日 -->
 <section id="summer" style="background:linear-gradient(180deg,#f0fdf4,transparent)">
